@@ -1,6 +1,6 @@
 # ============================================================
 # MORFRAC SEO SEMANTIC CLUSTER ANALYSIS
-# Deterministic V1 - TF-IDF + cosine similarity
+# V2 - Filtered deterministic TF-IDF + cosine similarity
 # ============================================================
 
 from pathlib import Path
@@ -29,8 +29,34 @@ OUTPUT_PATH.mkdir(parents=True, exist_ok=True)
 TODAY = datetime.today().strftime("%Y-%m-%d")
 
 MIN_WORDS = 80
-SIMILARITY_THRESHOLD = 0.65
+SIMILARITY_THRESHOLD = 0.68
 MAX_CLUSTERS = 12
+
+EXCLUDE_PATTERNS = [
+    "/page/",
+    "/blog/tag/",
+    "/tag/",
+    "/tags/",
+    "/author/",
+    "/privacy",
+    "/returns",
+    "/shipping",
+    "/terms",
+    "/terms-conditions",
+    "/use",
+    "/disclaimer",
+    "/wishlist",
+    "/cookie",
+    "/login",
+    "/web/",
+    "/my/",
+    "/payment",
+    "/checkout",
+    "/account",
+    "/admin",
+    "/outlet-",
+    "/website/social/",
+]
 
 # ============================================================
 # HELPERS
@@ -38,10 +64,8 @@ MAX_CLUSTERS = 12
 
 def latest_file(folder, pattern):
     files = list(folder.glob(pattern))
-
     if not files:
         return None
-
     return max(files, key=lambda f: f.stat().st_mtime)
 
 
@@ -74,6 +98,57 @@ def normalize_url(url):
     return url
 
 
+def canonical_language_neutral_url(url):
+    value = str(url).strip().lower()
+
+    value = value.replace("https://www.morfrac.com/es/", "https://www.morfrac.com/")
+    value = value.replace("http://www.morfrac.com/es/", "https://www.morfrac.com/")
+    value = value.replace("https://morfrac.com/es/", "https://www.morfrac.com/")
+    value = value.replace("http://morfrac.com/es/", "https://www.morfrac.com/")
+
+    value = value.replace("https://morfrac.com/", "https://www.morfrac.com/")
+    value = value.replace("http://morfrac.com/", "https://www.morfrac.com/")
+    value = value.replace("http://www.morfrac.com/", "https://www.morfrac.com/")
+
+    if value.endswith("/") and value != "https://www.morfrac.com/":
+        value = value[:-1]
+
+    return value
+
+
+def should_exclude_semantic(url):
+    url = str(url).lower()
+
+    for pattern in EXCLUDE_PATTERNS:
+        if pattern in url:
+            return True
+
+    return False
+
+
+def remove_language_duplicate_priority(df):
+    seen = set()
+    keep_rows = []
+
+    # Prefer English/non-/es/ version when both exist.
+    df = df.copy()
+    df["is_spanish"] = df["url"].astype(str).str.lower().str.contains("/es/")
+
+    df = df.sort_values(
+        ["is_spanish", "url"],
+        ascending=[True, True]
+    )
+
+    for idx, row in df.iterrows():
+        neutral = canonical_language_neutral_url(row["url"])
+
+        if neutral not in seen:
+            seen.add(neutral)
+            keep_rows.append(idx)
+
+    return df.loc[keep_rows].copy()
+
+
 def classify_page_role(url, page_type):
     url = str(url).lower()
     page_type = str(page_type).lower()
@@ -99,6 +174,8 @@ def classify_page_role(url, page_type):
         "/shackle",
         "/morfring",
         "/morfwing",
+        "/mreel",
+        "/hoistlock",
     ]):
         return "landing"
 
@@ -135,14 +212,44 @@ def top_terms_for_cluster(vectorizer, matrix, indices, top_n=8):
         return ""
 
     terms = vectorizer.get_feature_names_out()
-
     cluster_matrix = matrix[indices]
-
     mean_scores = cluster_matrix.mean(axis=0).A1
-
     top_indices = mean_scores.argsort()[::-1][:top_n]
 
-    return ", ".join([terms[i] for i in top_indices if mean_scores[i] > 0])
+    return ", ".join([
+        terms[i]
+        for i in top_indices
+        if mean_scores[i] > 0
+    ])
+
+
+def product_family_key(url):
+    value = normalize_url(url)
+
+    # Remove final 5-digit product IDs to group variants/families.
+    value = re.sub(r"-\d{5}$", "", value)
+
+    # Normalize product-size numbers that often create near-duplicate SKUs.
+    value = re.sub(r"\b\d+t\b", "", value)
+    value = re.sub(r"\b\d+mm\b", "", value)
+
+    return value
+
+
+def classify_similarity_risk(row):
+    same_label = row["label_a"] == row["label_b"]
+    same_role = row["role_a"] == row["role_b"]
+
+    if row["same_family"]:
+        return "sku_variant_similarity"
+
+    if same_label and same_role:
+        return "possible_cannibalization"
+
+    if same_label:
+        return "same_topic_overlap"
+
+    return "semantic_overlap"
 
 
 # ============================================================
@@ -203,6 +310,14 @@ crawl_df["word_count"] = pd.to_numeric(
 df = crawl_df[
     crawl_df["word_count"] >= MIN_WORDS
 ].copy()
+
+# Remove low-value/noisy URLs before clustering.
+df = df[
+    ~df["url"].apply(should_exclude_semantic)
+].copy()
+
+# Remove EN/ES duplicates, preferring English version.
+df = remove_language_duplicate_priority(df)
 
 df["normalized_url"] = df["url"].apply(normalize_url)
 
@@ -272,8 +387,29 @@ df["seo_priority_score"] = pd.to_numeric(df["seo_priority_score"], errors="coerc
 
 print("Running TF-IDF...")
 
+CUSTOM_STOPWORDS = [
+    "morfrac",
+    "shop",
+    "products",
+    "product",
+    "sailing",
+    "marine",
+    "hardware",
+    "high",
+    "performance",
+    "online",
+    "reliable",
+    "customizable",
+    "smart",
+    "solutions",
+    "solution",
+    "page",
+    "error",
+    "404",
+]
+
 vectorizer = TfidfVectorizer(
-    max_features=1200,
+    max_features=1500,
     stop_words="english",
     ngram_range=(1, 2),
     min_df=1,
@@ -316,13 +452,16 @@ urls = df["url"].tolist()
 roles = df["page_role"].tolist()
 labels = df["manual_topic_label"].tolist()
 clusters = df["semantic_cluster_id"].tolist()
+family_keys = [product_family_key(url) for url in urls]
 
 for i in range(len(df)):
     for j in range(i + 1, len(df)):
         score = similarity_matrix[i][j]
 
         if score >= SIMILARITY_THRESHOLD:
-            similar_pairs.append({
+            same_family = family_keys[i] == family_keys[j]
+
+            row = {
                 "url_a": urls[i],
                 "role_a": roles[i],
                 "label_a": labels[i],
@@ -332,12 +471,12 @@ for i in range(len(df)):
                 "label_b": labels[j],
                 "cluster_b": clusters[j],
                 "similarity_score": round(score, 4),
-                "risk_type": (
-                    "likely_cannibalization"
-                    if labels[i] == labels[j]
-                    else "semantic_overlap"
-                ),
-            })
+                "same_family": same_family,
+            }
+
+            row["risk_type"] = classify_similarity_risk(row)
+
+            similar_pairs.append(row)
 
 similar_df = pd.DataFrame(similar_pairs)
 
@@ -387,11 +526,11 @@ for cluster_id, group in df.groupby("semantic_cluster_id"):
 
     if page_count == 1:
         cluster_health = "ORPHAN_TOPIC"
-    elif page_count > 12:
+    elif page_count > 20:
         cluster_health = "FRAGMENTED_TOPIC"
     elif product_pages > 5 and category_pages == 0 and landing_pages == 0:
         cluster_health = "PRODUCT_HEAVY_NO_PILLAR"
-    elif authority_pages > 3 and product_pages == 0:
+    elif authority_pages > 3 and product_pages == 0 and category_pages == 0 and landing_pages == 0:
         cluster_health = "CONTENT_WITHOUT_COMMERCIAL_TARGET"
     else:
         cluster_health = "OK"
@@ -421,20 +560,19 @@ cluster_summary_df = cluster_summary_df.sort_values(
 )
 
 # ============================================================
-# ORPHAN TOPICS
+# ORPHAN / CANNIBALIZATION EXPORTS
 # ============================================================
 
 orphan_topics_df = cluster_summary_df[
     cluster_summary_df["cluster_health"] == "ORPHAN_TOPIC"
 ].copy()
 
-# ============================================================
-# CANNIBALIZATION
-# ============================================================
-
 if not similar_df.empty:
     cannibalization_df = similar_df[
-        similar_df["risk_type"] == "likely_cannibalization"
+        similar_df["risk_type"].isin([
+            "possible_cannibalization",
+            "same_topic_overlap",
+        ])
     ].copy()
 else:
     cannibalization_df = pd.DataFrame()
@@ -483,22 +621,12 @@ cluster_summary_df.to_csv(stable_clusters_csv, index=False, encoding="utf-8-sig"
 page_export_df.to_csv(pages_csv, index=False, encoding="utf-8-sig")
 page_export_df.to_csv(stable_pages_csv, index=False, encoding="utf-8-sig")
 
-if not similar_df.empty:
-    similar_df.to_csv(similarity_csv, index=False, encoding="utf-8-sig")
-else:
-    pd.DataFrame().to_csv(similarity_csv, index=False, encoding="utf-8-sig")
+similar_df.to_csv(similarity_csv, index=False, encoding="utf-8-sig")
 
-if not cannibalization_df.empty:
-    cannibalization_df.to_csv(cannibalization_csv, index=False, encoding="utf-8-sig")
-    cannibalization_df.to_csv(stable_cannibalization_csv, index=False, encoding="utf-8-sig")
-else:
-    pd.DataFrame().to_csv(cannibalization_csv, index=False, encoding="utf-8-sig")
-    pd.DataFrame().to_csv(stable_cannibalization_csv, index=False, encoding="utf-8-sig")
+cannibalization_df.to_csv(cannibalization_csv, index=False, encoding="utf-8-sig")
+cannibalization_df.to_csv(stable_cannibalization_csv, index=False, encoding="utf-8-sig")
 
-if not orphan_topics_df.empty:
-    orphan_topics_df.to_csv(orphans_csv, index=False, encoding="utf-8-sig")
-else:
-    pd.DataFrame().to_csv(orphans_csv, index=False, encoding="utf-8-sig")
+orphan_topics_df.to_csv(orphans_csv, index=False, encoding="utf-8-sig")
 
 # ============================================================
 # MARKDOWN REPORT
@@ -528,10 +656,20 @@ report = f"""# MORFRAC SEO Semantic Cluster Analysis
 
 This report groups MORFRAC pages by deterministic semantic similarity using TF-IDF and cosine similarity.
 
+V2 filters out:
+
+- paginated category pages
+- blog tag/archive pages
+- legal/system pages
+- checkout/account/web pages
+- outlet pages
+- EN/ES route duplicates where equivalent
+
 It identifies:
 
 - semantic clusters
 - likely cannibalization pairs
+- SKU variant similarity
 - orphan topics
 - fragmented clusters
 - product-heavy clusters without clear pillar support
@@ -551,7 +689,7 @@ It identifies:
 - Pages analyzed: {len(df)}
 - Semantic clusters: {n_clusters}
 - Similar page pairs above threshold: {len(similar_df)}
-- Likely cannibalization pairs: {len(cannibalization_df)}
+- Cannibalization/topic-overlap pairs: {len(cannibalization_df)}
 - Orphan topic clusters: {len(orphan_topics_df)}
 
 Similarity threshold:
@@ -588,13 +726,21 @@ Cluster health meanings:
 - `CONTENT_WITHOUT_COMMERCIAL_TARGET`: content exists but does not clearly support product/category pages.
 - `OK`: structurally acceptable cluster.
 
+Risk type meanings:
+
+- `sku_variant_similarity`: similar SKU pages; not automatically bad.
+- `possible_cannibalization`: similar pages with same role and topic.
+- `same_topic_overlap`: similar pages in same topic but different roles.
+- `semantic_overlap`: related but not necessarily conflicting.
+
 Recommended next actions:
 
-1. Review cannibalization pairs before writing more content.
-2. Build or strengthen pillar pages for product-heavy clusters.
-3. Link authority content toward commercial category/product pages.
-4. Expand orphan topics only if they support commercial search demand.
-5. Avoid creating new pages inside already fragmented topics unless consolidation is planned.
+1. Review `possible_cannibalization` before writing more content.
+2. Treat `sku_variant_similarity` separately from true cannibalization.
+3. Build or strengthen pillar pages for product-heavy clusters.
+4. Link authority content toward commercial category/product pages.
+5. Expand orphan topics only if they support commercial search demand.
+6. Avoid creating new pages inside already fragmented topics unless consolidation is planned.
 
 ---
 
@@ -620,7 +766,7 @@ print("================================================")
 print(f"Pages analyzed: {len(df)}")
 print(f"Clusters: {n_clusters}")
 print(f"Similar pairs: {len(similar_df)}")
-print(f"Cannibalization pairs: {len(cannibalization_df)}")
+print(f"Cannibalization/topic-overlap pairs: {len(cannibalization_df)}")
 print(f"Orphan topic clusters: {len(orphan_topics_df)}")
 print(f"Report: {report_md}")
 print("================================================")
