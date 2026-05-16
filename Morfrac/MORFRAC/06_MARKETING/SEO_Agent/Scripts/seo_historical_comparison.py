@@ -18,7 +18,6 @@ SEO_AGENT_PATH = BASE_PATH / r"06_MARKETING\SEO_Agent"
 CRAWL_PATH = SEO_AGENT_PATH / "Crawls"
 
 OUTPUT_PATH = SEO_AGENT_PATH / "Historical_Comparisons"
-OUTPUT_PATH.mkdir(parents=True, exist_ok=True)
 
 TODAY = datetime.today().strftime("%Y-%m-%d")
 
@@ -188,290 +187,297 @@ def classify_delta(metric, delta):
 # LOAD FILES
 # ============================================================
 
-crawl_files = get_dated_crawl_files()
 
-if len(crawl_files) < 2:
-    raise Exception(
-        "Need at least two dated crawl files to run historical comparison."
-    )
+def main():
+    OUTPUT_PATH.mkdir(parents=True, exist_ok=True)
 
-previous_file = crawl_files[-2]
-latest_file = crawl_files[-1]
+    crawl_files = get_dated_crawl_files()
 
-print("Using previous crawl:")
-print(previous_file)
-
-print("")
-print("Using latest crawl:")
-print(latest_file)
-
-previous_df = pd.read_csv(previous_file).fillna("")
-latest_df = pd.read_csv(latest_file).fillna("")
-
-# ============================================================
-# SUMMARY COMPARISON
-# ============================================================
-
-previous_summary = metric_summary(previous_df)
-latest_summary = metric_summary(latest_df)
-
-rows = []
-
-for metric in latest_summary.keys():
-    rows.append(
-        delta_row(
-            metric,
-            previous_summary.get(metric, 0),
-            latest_summary.get(metric, 0),
+    if len(crawl_files) < 2:
+        raise Exception(
+            "Need at least two dated crawl files to run historical comparison."
         )
+
+    previous_file = crawl_files[-2]
+    latest_file = crawl_files[-1]
+
+    print("Using previous crawl:")
+    print(previous_file)
+
+    print("")
+    print("Using latest crawl:")
+    print(latest_file)
+
+    previous_df = pd.read_csv(previous_file).fillna("")
+    latest_df = pd.read_csv(latest_file).fillna("")
+
+    # ============================================================
+    # SUMMARY COMPARISON
+    # ============================================================
+
+    previous_summary = metric_summary(previous_df)
+    latest_summary = metric_summary(latest_df)
+
+    rows = []
+
+    for metric in latest_summary.keys():
+        rows.append(
+            delta_row(
+                metric,
+                previous_summary.get(metric, 0),
+                latest_summary.get(metric, 0),
+            )
+        )
+
+    comparison_df = pd.DataFrame(rows)
+
+    comparison_df["interpretation"] = comparison_df.apply(
+        lambda row: classify_delta(row["metric"], row["delta"]),
+        axis=1
     )
 
-comparison_df = pd.DataFrame(rows)
+    # ============================================================
+    # PAGE-LEVEL CHANGES
+    # ============================================================
 
-comparison_df["interpretation"] = comparison_df.apply(
-    lambda row: classify_delta(row["metric"], row["delta"]),
-    axis=1
-)
+    previous_urls = set(previous_df["url"]) if "url" in previous_df.columns else set()
+    latest_urls = set(latest_df["url"]) if "url" in latest_df.columns else set()
 
-# ============================================================
-# PAGE-LEVEL CHANGES
-# ============================================================
+    new_urls = sorted(latest_urls - previous_urls)
+    removed_urls = sorted(previous_urls - latest_urls)
 
-previous_urls = set(previous_df["url"]) if "url" in previous_df.columns else set()
-latest_urls = set(latest_df["url"]) if "url" in latest_df.columns else set()
+    common_urls = sorted(previous_urls.intersection(latest_urls))
 
-new_urls = sorted(latest_urls - previous_urls)
-removed_urls = sorted(previous_urls - latest_urls)
+    previous_by_url = previous_df.set_index("url") if "url" in previous_df.columns else pd.DataFrame()
+    latest_by_url = latest_df.set_index("url") if "url" in latest_df.columns else pd.DataFrame()
 
-common_urls = sorted(previous_urls.intersection(latest_urls))
+    page_changes = []
 
-previous_by_url = previous_df.set_index("url") if "url" in previous_df.columns else pd.DataFrame()
-latest_by_url = latest_df.set_index("url") if "url" in latest_df.columns else pd.DataFrame()
+    for url in common_urls:
+        prev = previous_by_url.loc[url]
+        curr = latest_by_url.loc[url]
 
-page_changes = []
+        prev_issues = str(prev.get("issues", ""))
+        curr_issues = str(curr.get("issues", ""))
 
-for url in common_urls:
-    prev = previous_by_url.loc[url]
-    curr = latest_by_url.loc[url]
+        prev_score = pd.to_numeric(prev.get("commercial_seo_score", 0), errors="coerce")
+        curr_score = pd.to_numeric(curr.get("commercial_seo_score", 0), errors="coerce")
 
-    prev_issues = str(prev.get("issues", ""))
-    curr_issues = str(curr.get("issues", ""))
+        prev_words = pd.to_numeric(prev.get("word_count", 0), errors="coerce")
+        curr_words = pd.to_numeric(curr.get("word_count", 0), errors="coerce")
 
-    prev_score = pd.to_numeric(prev.get("commercial_seo_score", 0), errors="coerce")
-    curr_score = pd.to_numeric(curr.get("commercial_seo_score", 0), errors="coerce")
+        prev_links = pd.to_numeric(prev.get("internal_link_count", 0), errors="coerce")
+        curr_links = pd.to_numeric(curr.get("internal_link_count", 0), errors="coerce")
 
-    prev_words = pd.to_numeric(prev.get("word_count", 0), errors="coerce")
-    curr_words = pd.to_numeric(curr.get("word_count", 0), errors="coerce")
+        score_delta = curr_score - prev_score
+        word_delta = curr_words - prev_words
+        link_delta = curr_links - prev_links
 
-    prev_links = pd.to_numeric(prev.get("internal_link_count", 0), errors="coerce")
-    curr_links = pd.to_numeric(curr.get("internal_link_count", 0), errors="coerce")
+        if (
+            prev_issues != curr_issues
+            or abs(score_delta) > 0
+            or abs(word_delta) >= 50
+            or abs(link_delta) >= 3
+        ):
+            page_changes.append({
+                "url": url,
+                "previous_issues": prev_issues,
+                "latest_issues": curr_issues,
+                "score_delta": score_delta,
+                "word_delta": word_delta,
+                "internal_link_delta": link_delta,
+            })
 
-    score_delta = curr_score - prev_score
-    word_delta = curr_words - prev_words
-    link_delta = curr_links - prev_links
+    page_changes_df = pd.DataFrame(page_changes)
 
-    if (
-        prev_issues != curr_issues
-        or abs(score_delta) > 0
-        or abs(word_delta) >= 50
-        or abs(link_delta) >= 3
-    ):
-        page_changes.append({
-            "url": url,
-            "previous_issues": prev_issues,
-            "latest_issues": curr_issues,
-            "score_delta": score_delta,
-            "word_delta": word_delta,
-            "internal_link_delta": link_delta,
+    if not page_changes_df.empty:
+        page_changes_df = page_changes_df.sort_values(
+            ["score_delta", "word_delta", "internal_link_delta"],
+            ascending=[False, False, False]
+        )
+
+    # ============================================================
+    # ISSUE DELTAS
+    # ============================================================
+
+    previous_issue_counts = issue_counts(previous_df)
+    latest_issue_counts = issue_counts(latest_df)
+
+    all_issues = sorted(
+        set(previous_issue_counts.keys()).union(set(latest_issue_counts.keys()))
+    )
+
+    issue_delta_rows = []
+
+    for issue in all_issues:
+        prev_count = previous_issue_counts.get(issue, 0)
+        latest_count = latest_issue_counts.get(issue, 0)
+
+        issue_delta_rows.append({
+            "issue": issue,
+            "previous": prev_count,
+            "latest": latest_count,
+            "delta": latest_count - prev_count,
         })
 
-page_changes_df = pd.DataFrame(page_changes)
+    issue_delta_df = pd.DataFrame(issue_delta_rows)
 
-if not page_changes_df.empty:
-    page_changes_df = page_changes_df.sort_values(
-        ["score_delta", "word_delta", "internal_link_delta"],
-        ascending=[False, False, False]
+    if not issue_delta_df.empty:
+        issue_delta_df = issue_delta_df.sort_values(
+            "delta",
+            ascending=False
+        )
+
+    # ============================================================
+    # OUTPUT FILES
+    # ============================================================
+
+    comparison_csv = OUTPUT_PATH / f"{TODAY}_seo_historical_metric_comparison.csv"
+    page_changes_csv = OUTPUT_PATH / f"{TODAY}_seo_page_level_changes.csv"
+    issue_delta_csv = OUTPUT_PATH / f"{TODAY}_seo_issue_delta.csv"
+    report_file = OUTPUT_PATH / f"{TODAY}_SEO_Historical_Comparison.md"
+
+    comparison_df.to_csv(comparison_csv, index=False, encoding="utf-8-sig")
+
+    if not page_changes_df.empty:
+        page_changes_df.to_csv(page_changes_csv, index=False, encoding="utf-8-sig")
+    else:
+        pd.DataFrame().to_csv(page_changes_csv, index=False, encoding="utf-8-sig")
+
+    if not issue_delta_df.empty:
+        issue_delta_df.to_csv(issue_delta_csv, index=False, encoding="utf-8-sig")
+    else:
+        pd.DataFrame().to_csv(issue_delta_csv, index=False, encoding="utf-8-sig")
+
+    # ============================================================
+    # MARKDOWN REPORT
+    # ============================================================
+
+    comparison_table = comparison_df.to_markdown(index=False)
+
+    issue_table = (
+        issue_delta_df.head(20).to_markdown(index=False)
+        if not issue_delta_df.empty
+        else "No issue changes detected."
     )
 
-# ============================================================
-# ISSUE DELTAS
-# ============================================================
-
-previous_issue_counts = issue_counts(previous_df)
-latest_issue_counts = issue_counts(latest_df)
-
-all_issues = sorted(
-    set(previous_issue_counts.keys()).union(set(latest_issue_counts.keys()))
-)
-
-issue_delta_rows = []
-
-for issue in all_issues:
-    prev_count = previous_issue_counts.get(issue, 0)
-    latest_count = latest_issue_counts.get(issue, 0)
-
-    issue_delta_rows.append({
-        "issue": issue,
-        "previous": prev_count,
-        "latest": latest_count,
-        "delta": latest_count - prev_count,
-    })
-
-issue_delta_df = pd.DataFrame(issue_delta_rows)
-
-if not issue_delta_df.empty:
-    issue_delta_df = issue_delta_df.sort_values(
-        "delta",
-        ascending=False
+    page_change_table = (
+        page_changes_df.head(30).to_markdown(index=False)
+        if not page_changes_df.empty
+        else "No material page-level changes detected."
     )
 
-# ============================================================
-# OUTPUT FILES
-# ============================================================
+    new_url_table = "\n".join([f"- {url}" for url in new_urls[:50]]) if new_urls else "- None"
+    removed_url_table = "\n".join([f"- {url}" for url in removed_urls[:50]]) if removed_urls else "- None"
 
-comparison_csv = OUTPUT_PATH / f"{TODAY}_seo_historical_metric_comparison.csv"
-page_changes_csv = OUTPUT_PATH / f"{TODAY}_seo_page_level_changes.csv"
-issue_delta_csv = OUTPUT_PATH / f"{TODAY}_seo_issue_delta.csv"
-report_file = OUTPUT_PATH / f"{TODAY}_SEO_Historical_Comparison.md"
+    better_count = int((comparison_df["interpretation"] == "better").sum())
+    worse_count = int((comparison_df["interpretation"] == "worse").sum())
+    neutral_count = int((comparison_df["interpretation"] == "neutral").sum())
 
-comparison_df.to_csv(comparison_csv, index=False, encoding="utf-8-sig")
+    if worse_count > better_count:
+        overall_direction = "SEO crawl health appears to have worsened compared with the previous crawl."
+    elif better_count > worse_count:
+        overall_direction = "SEO crawl health appears to have improved compared with the previous crawl."
+    else:
+        overall_direction = "SEO crawl health is broadly stable compared with the previous crawl."
 
-if not page_changes_df.empty:
-    page_changes_df.to_csv(page_changes_csv, index=False, encoding="utf-8-sig")
-else:
-    pd.DataFrame().to_csv(page_changes_csv, index=False, encoding="utf-8-sig")
+    md = f"""# MORFRAC SEO Historical Comparison
 
-if not issue_delta_df.empty:
-    issue_delta_df.to_csv(issue_delta_csv, index=False, encoding="utf-8-sig")
-else:
-    pd.DataFrame().to_csv(issue_delta_csv, index=False, encoding="utf-8-sig")
+    ## Generated
 
-# ============================================================
-# MARKDOWN REPORT
-# ============================================================
+    {TODAY}
 
-comparison_table = comparison_df.to_markdown(index=False)
+    ---
 
-issue_table = (
-    issue_delta_df.head(20).to_markdown(index=False)
-    if not issue_delta_df.empty
-    else "No issue changes detected."
-)
+    # Compared Files
 
-page_change_table = (
-    page_changes_df.head(30).to_markdown(index=False)
-    if not page_changes_df.empty
-    else "No material page-level changes detected."
-)
+    Previous crawl:
 
-new_url_table = "\n".join([f"- {url}" for url in new_urls[:50]]) if new_urls else "- None"
-removed_url_table = "\n".join([f"- {url}" for url in removed_urls[:50]]) if removed_urls else "- None"
+    `{previous_file.name}`
 
-better_count = int((comparison_df["interpretation"] == "better").sum())
-worse_count = int((comparison_df["interpretation"] == "worse").sum())
-neutral_count = int((comparison_df["interpretation"] == "neutral").sum())
+    Latest crawl:
 
-if worse_count > better_count:
-    overall_direction = "SEO crawl health appears to have worsened compared with the previous crawl."
-elif better_count > worse_count:
-    overall_direction = "SEO crawl health appears to have improved compared with the previous crawl."
-else:
-    overall_direction = "SEO crawl health is broadly stable compared with the previous crawl."
+    `{latest_file.name}`
 
-md = f"""# MORFRAC SEO Historical Comparison
+    ---
 
-## Generated
+    # Executive Interpretation
 
-{TODAY}
+    {overall_direction}
 
----
+    - Metrics improved: {better_count}
+    - Metrics worsened: {worse_count}
+    - Metrics stable/neutral: {neutral_count}
 
-# Compared Files
+    ---
 
-Previous crawl:
+    # Metric Comparison
 
-`{previous_file.name}`
+    {comparison_table}
 
-Latest crawl:
+    ---
 
-`{latest_file.name}`
+    # Issue Delta
 
----
+    Positive delta means the issue appeared on more pages.
+    Negative delta means the issue appeared on fewer pages.
 
-# Executive Interpretation
+    {issue_table}
 
-{overall_direction}
+    ---
 
-- Metrics improved: {better_count}
-- Metrics worsened: {worse_count}
-- Metrics stable/neutral: {neutral_count}
+    # New URLs Detected
 
----
+    {new_url_table}
 
-# Metric Comparison
+    ---
 
-{comparison_table}
+    # Removed URLs Detected
 
----
+    {removed_url_table}
 
-# Issue Delta
+    ---
 
-Positive delta means the issue appeared on more pages.
-Negative delta means the issue appeared on fewer pages.
+    # Material Page-Level Changes
 
-{issue_table}
+    {page_change_table}
 
----
+    ---
 
-# New URLs Detected
+    # Recommended Review Actions
 
-{new_url_table}
+    - Check whether worsened issue counts are caused by real SEO degradation or crawl expansion.
+    - Prioritize pages where commercial SEO score increased because of new issues.
+    - Review new URLs for duplicate, thin, or orphan risks.
+    - Review removed URLs for broken internal links or lost search value.
+    - Track whether metadata, H1, content depth, and internal linking improve over repeated runs.
 
----
+    ---
 
-# Removed URLs Detected
+    # Output Files
 
-{removed_url_table}
+    - Metric comparison CSV: `{comparison_csv}`
+    - Page-level changes CSV: `{page_changes_csv}`
+    - Issue delta CSV: `{issue_delta_csv}`
+    """
 
----
+    report_file.write_text(md, encoding="utf-8")
 
-# Material Page-Level Changes
+    # ============================================================
+    # COMPLETE
+    # ============================================================
 
-{page_change_table}
+    print("")
+    print("================================================")
+    print("SEO HISTORICAL COMPARISON COMPLETE")
+    print("================================================")
+    print(f"Previous crawl: {previous_file.name}")
+    print(f"Latest crawl: {latest_file.name}")
+    print(f"Metric CSV: {comparison_csv}")
+    print(f"Page changes CSV: {page_changes_csv}")
+    print(f"Issue delta CSV: {issue_delta_csv}")
+    print(f"Report: {report_file}")
+    print("================================================")
 
----
-
-# Recommended Review Actions
-
-- Check whether worsened issue counts are caused by real SEO degradation or crawl expansion.
-- Prioritize pages where commercial SEO score increased because of new issues.
-- Review new URLs for duplicate, thin, or orphan risks.
-- Review removed URLs for broken internal links or lost search value.
-- Track whether metadata, H1, content depth, and internal linking improve over repeated runs.
-
----
-
-# Output Files
-
-- Metric comparison CSV: `{comparison_csv}`
-- Page-level changes CSV: `{page_changes_csv}`
-- Issue delta CSV: `{issue_delta_csv}`
-"""
-
-report_file.write_text(md, encoding="utf-8")
-
-# ============================================================
-# COMPLETE
-# ============================================================
-
-print("")
-print("================================================")
-print("SEO HISTORICAL COMPARISON COMPLETE")
-print("================================================")
-print(f"Previous crawl: {previous_file.name}")
-print(f"Latest crawl: {latest_file.name}")
-print(f"Metric CSV: {comparison_csv}")
-print(f"Page changes CSV: {page_changes_csv}")
-print(f"Issue delta CSV: {issue_delta_csv}")
-print(f"Report: {report_file}")
-print("================================================")
+if __name__ == "__main__":
+    main()

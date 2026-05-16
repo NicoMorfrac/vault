@@ -13,8 +13,6 @@ CRAWL_PATH = BASE_PATH / r"06_MARKETING\SEO_Agent\Crawls"
 SEARCH_CONSOLE_PATH = BASE_PATH / r"06_MARKETING\SEO\Query_Analysis"
 OUTPUT_PATH = BASE_PATH / r"06_MARKETING\SEO_Agent\Merged_Analysis"
 
-OUTPUT_PATH.mkdir(parents=True, exist_ok=True)
-
 TODAY = datetime.today().strftime("%Y-%m-%d")
 
 # =========================================
@@ -151,179 +149,186 @@ def priority_score(row):
 # LOAD FILES
 # =========================================
 
-print("Loading crawl data...")
 
-crawl_file = latest_file(CRAWL_PATH, "*_site_crawl.csv")
+def main():
+    OUTPUT_PATH.mkdir(parents=True, exist_ok=True)
 
-if not crawl_file:
-    raise FileNotFoundError("No *_site_crawl.csv crawl file found.")
+    print("Loading crawl data...")
 
-crawl_df = pd.read_csv(crawl_file).fillna("")
+    crawl_file = latest_file(CRAWL_PATH, "*_site_crawl.csv")
 
-print(f"Crawl file: {crawl_file}")
+    if not crawl_file:
+        raise FileNotFoundError("No *_site_crawl.csv crawl file found.")
 
-if "url" not in crawl_df.columns:
-    raise Exception(f"Crawl file missing 'url' column: {crawl_file}")
+    crawl_df = pd.read_csv(crawl_file).fillna("")
 
-print("\nLoading Search Console markdown data...")
+    print(f"Crawl file: {crawl_file}")
 
-sc_file = latest_file(SEARCH_CONSOLE_PATH, "*_SEO_Query_Analysis.md")
+    if "url" not in crawl_df.columns:
+        raise Exception(f"Crawl file missing 'url' column: {crawl_file}")
 
-if not sc_file:
-    raise FileNotFoundError("No Search Console markdown report found.")
+    print("\nLoading Search Console markdown data...")
 
-print(f"Search Console file: {sc_file}")
+    sc_file = latest_file(SEARCH_CONSOLE_PATH, "*_SEO_Query_Analysis.md")
 
-sc_df = parse_search_console_md(sc_file)
+    if not sc_file:
+        raise FileNotFoundError("No Search Console markdown report found.")
 
-parsed_debug = OUTPUT_PATH / f"{TODAY}_parsed_search_console_rows.csv"
-sc_df.to_csv(parsed_debug, index=False, encoding="utf-8-sig")
+    print(f"Search Console file: {sc_file}")
 
-print(f"Parsed Search Console rows: {len(sc_df)}")
-print(f"Parsed debug CSV: {parsed_debug}")
+    sc_df = parse_search_console_md(sc_file)
 
-# =========================================
-# STANDARDIZE URLS
-# =========================================
+    parsed_debug = OUTPUT_PATH / f"{TODAY}_parsed_search_console_rows.csv"
+    sc_df.to_csv(parsed_debug, index=False, encoding="utf-8-sig")
 
-crawl_df["url_clean"] = crawl_df["url"].apply(clean_url)
-sc_df["url_clean"] = sc_df["page"].apply(clean_url)
+    print(f"Parsed Search Console rows: {len(sc_df)}")
+    print(f"Parsed debug CSV: {parsed_debug}")
 
-# =========================================
-# AGGREGATE SEARCH CONSOLE BY PAGE
-# =========================================
+    # =========================================
+    # STANDARDIZE URLS
+    # =========================================
 
-print("\nAggregating Search Console data...")
+    crawl_df["url_clean"] = crawl_df["url"].apply(clean_url)
+    sc_df["url_clean"] = sc_df["page"].apply(clean_url)
 
-sc_agg = (
-    sc_df
-    .groupby("url_clean", as_index=False)
-    .agg({
-        "clicks": "sum",
-        "impressions": "sum",
-        "ctr_percent": "mean",
-        "position": "mean",
-    })
-)
+    # =========================================
+    # AGGREGATE SEARCH CONSOLE BY PAGE
+    # =========================================
 
-# =========================================
-# MERGE
-# =========================================
+    print("\nAggregating Search Console data...")
 
-print("\nMerging datasets...")
-
-merged = crawl_df.merge(
-    sc_agg,
-    on="url_clean",
-    how="left"
-)
-
-merged["clicks"] = merged["clicks"].fillna(0)
-merged["impressions"] = merged["impressions"].fillna(0)
-merged["ctr_percent"] = merged["ctr_percent"].fillna(0)
-merged["position"] = merged["position"].fillna(999)
-
-# =========================================
-# OPPORTUNITY LOGIC
-# =========================================
-
-merged["seo_opportunity"] = merged.apply(opportunity_type, axis=1)
-merged["seo_priority_score"] = merged.apply(priority_score, axis=1)
-
-priority_df = merged[
-    merged["seo_opportunity"] != ""
-].copy()
-
-priority_df = priority_df.sort_values(
-    "seo_priority_score",
-    ascending=False
-)
-
-# =========================================
-# EXPORT
-# =========================================
-
-csv_output = OUTPUT_PATH / f"{TODAY}_search_console_merge.csv"
-stable_csv = OUTPUT_PATH / "search_console_merge.csv"
-
-priority_df.to_csv(csv_output, index=False, encoding="utf-8-sig")
-priority_df.to_csv(stable_csv, index=False, encoding="utf-8-sig")
-
-top_rows = priority_df.head(50)
-
-table = "| Opportunity | Priority Score | Impressions | CTR % | Position | URL |\n"
-table += "|---|---:|---:|---:|---:|---|\n"
-
-for _, row in top_rows.iterrows():
-    table += (
-        f"| {row['seo_opportunity']} "
-        f"| {row['seo_priority_score']} "
-        f"| {int(row['impressions'])} "
-        f"| {round(row['ctr_percent'], 2)} "
-        f"| {round(row['position'], 1)} "
-        f"| {row['url']} |\n"
+    sc_agg = (
+        sc_df
+        .groupby("url_clean", as_index=False)
+        .agg({
+            "clicks": "sum",
+            "impressions": "sum",
+            "ctr_percent": "mean",
+            "position": "mean",
+        })
     )
 
-report = f"""# Search Console Merge Analysis
+    # =========================================
+    # MERGE
+    # =========================================
 
-## Generated
+    print("\nMerging datasets...")
 
-{TODAY}
+    merged = crawl_df.merge(
+        sc_agg,
+        on="url_clean",
+        how="left"
+    )
 
----
+    merged["clicks"] = merged["clicks"].fillna(0)
+    merged["impressions"] = merged["impressions"].fillna(0)
+    merged["ctr_percent"] = merged["ctr_percent"].fillna(0)
+    merged["position"] = merged["position"].fillna(999)
 
-# Summary
+    # =========================================
+    # OPPORTUNITY LOGIC
+    # =========================================
 
-- Crawl pages: {len(crawl_df)}
-- Search Console URLs parsed: {len(sc_agg)}
-- Opportunity pages: {len(priority_df)}
+    merged["seo_opportunity"] = merged.apply(opportunity_type, axis=1)
+    merged["seo_priority_score"] = merged.apply(priority_score, axis=1)
 
----
+    priority_df = merged[
+        merged["seo_opportunity"] != ""
+    ].copy()
 
-# Top SEO Opportunities
+    priority_df = priority_df.sort_values(
+        "seo_priority_score",
+        ascending=False
+    )
 
-{table}
+    # =========================================
+    # EXPORT
+    # =========================================
 
----
+    csv_output = OUTPUT_PATH / f"{TODAY}_search_console_merge.csv"
+    stable_csv = OUTPUT_PATH / "search_console_merge.csv"
 
-# Opportunity Types
+    priority_df.to_csv(csv_output, index=False, encoding="utf-8-sig")
+    priority_df.to_csv(stable_csv, index=False, encoding="utf-8-sig")
 
-- Low CTR Opportunity
-- Ranking Improvement Opportunity
-- Internal Linking Opportunity
-- Content Expansion Opportunity
-- Metadata Optimization Opportunity
+    top_rows = priority_df.head(50)
 
----
+    table = "| Opportunity | Priority Score | Impressions | CTR % | Position | URL |\n"
+    table += "|---|---:|---:|---:|---:|---|\n"
 
-# Source Files
+    for _, row in top_rows.iterrows():
+        table += (
+            f"| {row['seo_opportunity']} "
+            f"| {row['seo_priority_score']} "
+            f"| {int(row['impressions'])} "
+            f"| {round(row['ctr_percent'], 2)} "
+            f"| {round(row['position'], 1)} "
+            f"| {row['url']} |\n"
+        )
 
-- Crawl file: `{crawl_file}`
-- Search Console markdown: `{sc_file}`
+    report = f"""# Search Console Merge Analysis
 
----
+    ## Generated
 
-# Notes
+    {TODAY}
 
-This report merges crawl quality, commercial priority, structural SEO issues, and Search Console page performance.
+    ---
 
-It reads the existing Search Console markdown report directly, so no Search Console CSV export is required.
-"""
+    # Summary
 
-md_output = OUTPUT_PATH / f"{TODAY}_search_console_merge.md"
-stable_md = OUTPUT_PATH / "search_console_merge.md"
+    - Crawl pages: {len(crawl_df)}
+    - Search Console URLs parsed: {len(sc_agg)}
+    - Opportunity pages: {len(priority_df)}
 
-md_output.write_text(report, encoding="utf-8")
-stable_md.write_text(report, encoding="utf-8")
+    ---
 
-# =========================================
-# COMPLETE
-# =========================================
+    # Top SEO Opportunities
 
-print("\n================================================")
-print("SEARCH CONSOLE MERGE COMPLETE")
-print("================================================")
-print(f"Opportunity pages: {len(priority_df)}")
-print(f"CSV: {csv_output}")
-print(f"Markdown: {md_output}")
-print("================================================")
+    {table}
+
+    ---
+
+    # Opportunity Types
+
+    - Low CTR Opportunity
+    - Ranking Improvement Opportunity
+    - Internal Linking Opportunity
+    - Content Expansion Opportunity
+    - Metadata Optimization Opportunity
+
+    ---
+
+    # Source Files
+
+    - Crawl file: `{crawl_file}`
+    - Search Console markdown: `{sc_file}`
+
+    ---
+
+    # Notes
+
+    This report merges crawl quality, commercial priority, structural SEO issues, and Search Console page performance.
+
+    It reads the existing Search Console markdown report directly, so no Search Console CSV export is required.
+    """
+
+    md_output = OUTPUT_PATH / f"{TODAY}_search_console_merge.md"
+    stable_md = OUTPUT_PATH / "search_console_merge.md"
+
+    md_output.write_text(report, encoding="utf-8")
+    stable_md.write_text(report, encoding="utf-8")
+
+    # =========================================
+    # COMPLETE
+    # =========================================
+
+    print("\n================================================")
+    print("SEARCH CONSOLE MERGE COMPLETE")
+    print("================================================")
+    print(f"Opportunity pages: {len(priority_df)}")
+    print(f"CSV: {csv_output}")
+    print(f"Markdown: {md_output}")
+    print("================================================")
+
+if __name__ == "__main__":
+    main()

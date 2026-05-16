@@ -1,26 +1,26 @@
 # MORFRAC SEO Executive Review
 
-## Generated
+    ## Generated
 
-2026-05-16
+    2026-05-16
 
----
+    ---
 
-# Executive Summary
+    # Executive Summary
 
-- Total pages crawled: 500
-- Indexable pages: 472
-- High-priority pages: 391
-- Pages with issues: 0
-- Average word count: 601
-- Contextual link recommendations: 911
-- Implementation-ready links: 100
+    - Total pages crawled: 500
+    - Indexable pages: 472
+    - High-priority pages: 391
+    - Pages with issues: 0
+    - Average word count: 601
+    - Contextual link recommendations: 911
+    - Implementation-ready links: 100
 
----
+    ---
 
-# Strategic Observations
+    # Strategic Observations
 
-- Internal linking opportunities remain significantly underdeveloped.
+    - Internal linking opportunities remain significantly underdeveloped.
 
 ---
 

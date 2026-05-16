@@ -18,8 +18,6 @@ TRAFFIC_QUALITY = BASE_PATH / r"06_MARKETING\Analytics\Traffic_Quality"
 
 OUTPUT_PATH = BASE_PATH / r"06_MARKETING\Dashboards"
 
-OUTPUT_PATH.mkdir(parents=True, exist_ok=True)
-
 # =========================================
 # HELPERS
 # =========================================
@@ -146,549 +144,556 @@ def pct(part, total):
 # LOAD TREND DATA
 # =========================================
 
-if not TREND_FILE.exists():
-    print("Trend file missing.")
-    exit()
 
-df = pd.read_csv(TREND_FILE)
+def main():
+    OUTPUT_PATH.mkdir(parents=True, exist_ok=True)
 
-if df.empty:
-    print("Trend file empty.")
-    exit()
+    if not TREND_FILE.exists():
+        print("Trend file missing.")
+        exit()
 
-df["date"] = df["date"].astype(str)
+    df = pd.read_csv(TREND_FILE)
 
-for col in df.columns:
-    if col != "date":
-        df[col] = pd.to_numeric(
-            df[col],
+    if df.empty:
+        print("Trend file empty.")
+        exit()
+
+    df["date"] = df["date"].astype(str)
+
+    for col in df.columns:
+        if col != "date":
+            df[col] = pd.to_numeric(
+                df[col],
+                errors="coerce"
+            )
+
+    latest = df.iloc[-1]
+
+    # =========================================
+    # LOAD STRATEGIC INTELLIGENCE
+    # =========================================
+
+    strategic_file = latest_file(STRATEGIC_INTELLIGENCE)
+    strategic_text = read_text(strategic_file)
+
+    executive_summary = extract_section(
+        strategic_text,
+        "Executive Intelligence Summary"
+    )
+
+    key_risks = extract_section(
+        strategic_text,
+        "Key Risks"
+    )
+
+    key_opportunities = extract_section(
+        strategic_text,
+        "Key Opportunities"
+    )
+
+    recommended_actions = extract_section(
+        strategic_text,
+        "Recommended Executive Actions"
+    )
+
+    # =========================================
+    # LOAD TRAFFIC QUALITY
+    # =========================================
+
+    traffic_quality_csv = latest_csv(TRAFFIC_QUALITY)
+    traffic_df = pd.DataFrame()
+
+    if traffic_quality_csv:
+        traffic_df = pd.read_csv(traffic_quality_csv)
+
+    high_sessions = 0
+    medium_sessions = 0
+    us_sessions = 0
+    low_sessions = 0
+
+    if not traffic_df.empty:
+        traffic_df["sessions"] = pd.to_numeric(
+            traffic_df["sessions"],
             errors="coerce"
         )
 
-latest = df.iloc[-1]
+        high_sessions = traffic_df[
+            traffic_df["tier"] == "HIGH"
+        ]["sessions"].sum()
 
-# =========================================
-# LOAD STRATEGIC INTELLIGENCE
-# =========================================
+        medium_sessions = traffic_df[
+            traffic_df["tier"] == "MEDIUM"
+        ]["sessions"].sum()
 
-strategic_file = latest_file(STRATEGIC_INTELLIGENCE)
-strategic_text = read_text(strategic_file)
+        us_sessions = traffic_df[
+            traffic_df["tier"] == "US_MONITORING"
+        ]["sessions"].sum()
 
-executive_summary = extract_section(
-    strategic_text,
-    "Executive Intelligence Summary"
-)
+        low_sessions = traffic_df[
+            traffic_df["tier"] == "LOW"
+        ]["sessions"].sum()
 
-key_risks = extract_section(
-    strategic_text,
-    "Key Risks"
-)
-
-key_opportunities = extract_section(
-    strategic_text,
-    "Key Opportunities"
-)
-
-recommended_actions = extract_section(
-    strategic_text,
-    "Recommended Executive Actions"
-)
-
-# =========================================
-# LOAD TRAFFIC QUALITY
-# =========================================
-
-traffic_quality_csv = latest_csv(TRAFFIC_QUALITY)
-traffic_df = pd.DataFrame()
-
-if traffic_quality_csv:
-    traffic_df = pd.read_csv(traffic_quality_csv)
-
-high_sessions = 0
-medium_sessions = 0
-us_sessions = 0
-low_sessions = 0
-
-if not traffic_df.empty:
-    traffic_df["sessions"] = pd.to_numeric(
-        traffic_df["sessions"],
-        errors="coerce"
+    total_sessions = (
+        high_sessions
+        + medium_sessions
+        + us_sessions
+        + low_sessions
     )
 
-    high_sessions = traffic_df[
-        traffic_df["tier"] == "HIGH"
-    ]["sessions"].sum()
+    high_pct = pct(high_sessions, total_sessions)
+    medium_pct = pct(medium_sessions, total_sessions)
+    us_pct = pct(us_sessions, total_sessions)
+    low_pct = pct(low_sessions, total_sessions)
 
-    medium_sessions = traffic_df[
-        traffic_df["tier"] == "MEDIUM"
-    ]["sessions"].sum()
+    # =========================================
+    # KPI STATUS
+    # =========================================
 
-    us_sessions = traffic_df[
-        traffic_df["tier"] == "US_MONITORING"
-    ]["sessions"].sum()
-
-    low_sessions = traffic_df[
-        traffic_df["tier"] == "LOW"
-    ]["sessions"].sum()
-
-total_sessions = (
-    high_sessions
-    + medium_sessions
-    + us_sessions
-    + low_sessions
-)
-
-high_pct = pct(high_sessions, total_sessions)
-medium_pct = pct(medium_sessions, total_sessions)
-us_pct = pct(us_sessions, total_sessions)
-low_pct = pct(low_sessions, total_sessions)
-
-# =========================================
-# KPI STATUS
-# =========================================
-
-sessions_status, sessions_color = classify_metric(
-    latest["sessions_28_change"]
-)
-
-click_status, click_color = classify_metric(
-    latest["organic_click_change"]
-)
-
-ctr_status, ctr_color = classify_metric(
-    latest["organic_ctr_change"]
-)
-
-position_status, position_color = classify_metric(
-    latest["avg_position_change"],
-    inverse=True
-)
-
-traffic_quality_status = "STABLE"
-traffic_quality_color = "#2563eb"
-
-if low_pct >= 45:
-    traffic_quality_status = "WEAK"
-    traffic_quality_color = "#991b1b"
-elif low_pct >= 30:
-    traffic_quality_status = "CAUTION"
-    traffic_quality_color = "#b45309"
-elif high_pct >= 50:
-    traffic_quality_status = "GOOD"
-    traffic_quality_color = "#166534"
-
-low_conf_status = "STABLE"
-low_conf_color = "#2563eb"
-
-if low_pct >= 45:
-    low_conf_status = "WEAK"
-    low_conf_color = "#991b1b"
-elif low_pct >= 30:
-    low_conf_status = "CAUTION"
-    low_conf_color = "#b45309"
-
-# =========================================
-# CHARTS
-# =========================================
-
-charts = {}
-
-fig_sessions = px.line(
-    df,
-    x="date",
-    y="sessions_28",
-    title="28-Day Sessions",
-    markers=True
-)
-
-charts["sessions"] = plot(
-    style_chart(fig_sessions),
-    output_type="div",
-    include_plotlyjs=False
-)
-
-fig_clicks = px.line(
-    df,
-    x="date",
-    y="organic_clicks",
-    title="Organic Clicks",
-    markers=True
-)
-
-charts["clicks"] = plot(
-    style_chart(fig_clicks),
-    output_type="div",
-    include_plotlyjs=False
-)
-
-fig_ctr = px.line(
-    df,
-    x="date",
-    y="organic_ctr",
-    title="Organic CTR",
-    markers=True
-)
-
-charts["ctr"] = plot(
-    style_chart(fig_ctr),
-    output_type="div",
-    include_plotlyjs=False
-)
-
-fig_position = px.line(
-    df,
-    x="date",
-    y="avg_position",
-    title="Average Position",
-    markers=True
-)
-
-charts["position"] = plot(
-    style_chart(fig_position),
-    output_type="div",
-    include_plotlyjs=False
-)
-
-confidence_df = pd.DataFrame({
-    "segment": [
-        "High",
-        "Medium",
-        "USA",
-        "Low"
-    ],
-    "sessions": [
-        high_sessions,
-        medium_sessions,
-        us_sessions,
-        low_sessions
-    ]
-})
-
-fig_confidence = px.bar(
-    confidence_df,
-    x="segment",
-    y="sessions",
-    title="Traffic Confidence Distribution"
-)
-
-charts["confidence"] = plot(
-    style_chart(fig_confidence),
-    output_type="div",
-    include_plotlyjs="cdn"
-)
-
-if not traffic_df.empty:
-    territory_df = (
-        traffic_df
-        .groupby("territory", as_index=False)
-        .agg({"sessions": "sum"})
-        .sort_values(
-            "sessions",
-            ascending=False
-        )
+    sessions_status, sessions_color = classify_metric(
+        latest["sessions_28_change"]
     )
 
-    fig_territory = px.bar(
-        territory_df,
-        x="territory",
-        y="sessions",
-        title="Territory Distribution"
+    click_status, click_color = classify_metric(
+        latest["organic_click_change"]
     )
 
-    charts["territory"] = plot(
-        style_chart(fig_territory),
+    ctr_status, ctr_color = classify_metric(
+        latest["organic_ctr_change"]
+    )
+
+    position_status, position_color = classify_metric(
+        latest["avg_position_change"],
+        inverse=True
+    )
+
+    traffic_quality_status = "STABLE"
+    traffic_quality_color = "#2563eb"
+
+    if low_pct >= 45:
+        traffic_quality_status = "WEAK"
+        traffic_quality_color = "#991b1b"
+    elif low_pct >= 30:
+        traffic_quality_status = "CAUTION"
+        traffic_quality_color = "#b45309"
+    elif high_pct >= 50:
+        traffic_quality_status = "GOOD"
+        traffic_quality_color = "#166534"
+
+    low_conf_status = "STABLE"
+    low_conf_color = "#2563eb"
+
+    if low_pct >= 45:
+        low_conf_status = "WEAK"
+        low_conf_color = "#991b1b"
+    elif low_pct >= 30:
+        low_conf_status = "CAUTION"
+        low_conf_color = "#b45309"
+
+    # =========================================
+    # CHARTS
+    # =========================================
+
+    charts = {}
+
+    fig_sessions = px.line(
+        df,
+        x="date",
+        y="sessions_28",
+        title="28-Day Sessions",
+        markers=True
+    )
+
+    charts["sessions"] = plot(
+        style_chart(fig_sessions),
         output_type="div",
         include_plotlyjs=False
     )
-else:
-    charts["territory"] = "<div class='panel'>No territory data available.</div>"
-
-# =========================================
-# BUILD DASHBOARD
-# =========================================
-
-run_date = datetime.today().strftime("%Y-%m-%d")
-
-dashboard_file = (
-    OUTPUT_PATH
-    / f"{run_date}_Marketing_Dashboard.html"
-)
-
-html = f"""
-<html>
-
-<head>
-
-<title>MORFRAC Marketing Intelligence Dashboard</title>
-
-<style>
-
-body {{
-    background:#0d1117;
-    color:white;
-    font-family:Arial,sans-serif;
-    margin:0;
-}}
-
-.page {{
-    max-width:1280px;
-    margin:auto;
-    padding:44px;
-}}
-
-h1 {{
-    font-size:42px;
-    margin-bottom:8px;
-}}
-
-h2 {{
-    margin-top:60px;
-    margin-bottom:24px;
-    border-bottom:1px solid #2d333b;
-    padding-bottom:10px;
-}}
-
-.note {{
-    color:#9ca3af;
-    margin-bottom:40px;
-}}
-
-.summary-grid {{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:18px;
-}}
-
-.grid-2 {{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:22px;
-}}
-
-.card {{
-    background:#161b22;
-    border:1px solid #2d333b;
-    border-radius:14px;
-    padding:22px;
-}}
-
-.card-title {{
-    color:#9ca3af;
-    font-size:13px;
-    margin-bottom:10px;
-}}
-
-.card-value {{
-    font-size:30px;
-    font-weight:bold;
-    margin-bottom:8px;
-}}
-
-.card-sub {{
-    color:#cbd5e1;
-    font-size:13px;
-    margin-bottom:10px;
-}}
-
-.status-badge {{
-    display:inline-block;
-    padding:6px 10px;
-    border-radius:999px;
-    font-size:11px;
-    font-weight:bold;
-}}
-
-.panel {{
-    background:#161b22;
-    border:1px solid #2d333b;
-    border-radius:14px;
-    padding:28px;
-    line-height:1.65;
-    overflow:hidden;
-}}
-
-.panel pre {{
-    white-space:pre-wrap;
-    font-family:Arial,sans-serif;
-}}
-
-.chart {{
-    background:#111827;
-    border:1px solid #2d333b;
-    border-radius:14px;
-    padding:14px;
-    min-height:360px;
-    overflow:hidden;
-}}
-
-.table-wrap {{
-    overflow-x:auto;
-}}
-
-table {{
-    border-collapse:collapse;
-    width:100%;
-    margin-top:20px;
-    font-size:13px;
-}}
-
-th, td {{
-    border:1px solid #374151;
-    padding:8px;
-    text-align:left;
-}}
-
-th {{
-    background:#1f2937;
-}}
-
-td {{
-    background:#111827;
-}}
-
-.footer {{
-    margin-top:60px;
-    color:#9ca3af;
-    font-size:13px;
-}}
 
-</style>
+    fig_clicks = px.line(
+        df,
+        x="date",
+        y="organic_clicks",
+        title="Organic Clicks",
+        markers=True
+    )
+
+    charts["clicks"] = plot(
+        style_chart(fig_clicks),
+        output_type="div",
+        include_plotlyjs=False
+    )
+
+    fig_ctr = px.line(
+        df,
+        x="date",
+        y="organic_ctr",
+        title="Organic CTR",
+        markers=True
+    )
+
+    charts["ctr"] = plot(
+        style_chart(fig_ctr),
+        output_type="div",
+        include_plotlyjs=False
+    )
+
+    fig_position = px.line(
+        df,
+        x="date",
+        y="avg_position",
+        title="Average Position",
+        markers=True
+    )
+
+    charts["position"] = plot(
+        style_chart(fig_position),
+        output_type="div",
+        include_plotlyjs=False
+    )
+
+    confidence_df = pd.DataFrame({
+        "segment": [
+            "High",
+            "Medium",
+            "USA",
+            "Low"
+        ],
+        "sessions": [
+            high_sessions,
+            medium_sessions,
+            us_sessions,
+            low_sessions
+        ]
+    })
+
+    fig_confidence = px.bar(
+        confidence_df,
+        x="segment",
+        y="sessions",
+        title="Traffic Confidence Distribution"
+    )
+
+    charts["confidence"] = plot(
+        style_chart(fig_confidence),
+        output_type="div",
+        include_plotlyjs="cdn"
+    )
+
+    if not traffic_df.empty:
+        territory_df = (
+            traffic_df
+            .groupby("territory", as_index=False)
+            .agg({"sessions": "sum"})
+            .sort_values(
+                "sessions",
+                ascending=False
+            )
+        )
+
+        fig_territory = px.bar(
+            territory_df,
+            x="territory",
+            y="sessions",
+            title="Territory Distribution"
+        )
+
+        charts["territory"] = plot(
+            style_chart(fig_territory),
+            output_type="div",
+            include_plotlyjs=False
+        )
+    else:
+        charts["territory"] = "<div class='panel'>No territory data available.</div>"
+
+    # =========================================
+    # BUILD DASHBOARD
+    # =========================================
+
+    run_date = datetime.today().strftime("%Y-%m-%d")
+
+    dashboard_file = (
+        OUTPUT_PATH
+        / f"{run_date}_Marketing_Dashboard.html"
+    )
+
+    html = f"""
+    <html>
+
+    <head>
+
+    <title>MORFRAC Marketing Intelligence Dashboard</title>
+
+    <style>
+
+    body {{
+        background:#0d1117;
+        color:white;
+        font-family:Arial,sans-serif;
+        margin:0;
+    }}
+
+    .page {{
+        max-width:1280px;
+        margin:auto;
+        padding:44px;
+    }}
+
+    h1 {{
+        font-size:42px;
+        margin-bottom:8px;
+    }}
+
+    h2 {{
+        margin-top:60px;
+        margin-bottom:24px;
+        border-bottom:1px solid #2d333b;
+        padding-bottom:10px;
+    }}
+
+    .note {{
+        color:#9ca3af;
+        margin-bottom:40px;
+    }}
+
+    .summary-grid {{
+        display:grid;
+        grid-template-columns:repeat(4,1fr);
+        gap:18px;
+    }}
+
+    .grid-2 {{
+        display:grid;
+        grid-template-columns:repeat(2,1fr);
+        gap:22px;
+    }}
+
+    .card {{
+        background:#161b22;
+        border:1px solid #2d333b;
+        border-radius:14px;
+        padding:22px;
+    }}
+
+    .card-title {{
+        color:#9ca3af;
+        font-size:13px;
+        margin-bottom:10px;
+    }}
+
+    .card-value {{
+        font-size:30px;
+        font-weight:bold;
+        margin-bottom:8px;
+    }}
+
+    .card-sub {{
+        color:#cbd5e1;
+        font-size:13px;
+        margin-bottom:10px;
+    }}
+
+    .status-badge {{
+        display:inline-block;
+        padding:6px 10px;
+        border-radius:999px;
+        font-size:11px;
+        font-weight:bold;
+    }}
+
+    .panel {{
+        background:#161b22;
+        border:1px solid #2d333b;
+        border-radius:14px;
+        padding:28px;
+        line-height:1.65;
+        overflow:hidden;
+    }}
+
+    .panel pre {{
+        white-space:pre-wrap;
+        font-family:Arial,sans-serif;
+    }}
+
+    .chart {{
+        background:#111827;
+        border:1px solid #2d333b;
+        border-radius:14px;
+        padding:14px;
+        min-height:360px;
+        overflow:hidden;
+    }}
+
+    .table-wrap {{
+        overflow-x:auto;
+    }}
+
+    table {{
+        border-collapse:collapse;
+        width:100%;
+        margin-top:20px;
+        font-size:13px;
+    }}
+
+    th, td {{
+        border:1px solid #374151;
+        padding:8px;
+        text-align:left;
+    }}
+
+    th {{
+        background:#1f2937;
+    }}
+
+    td {{
+        background:#111827;
+    }}
+
+    .footer {{
+        margin-top:60px;
+        color:#9ca3af;
+        font-size:13px;
+    }}
+
+    </style>
+
+    </head>
+
+    <body>
+
+    <div class="page">
+
+    <h1>MORFRAC Marketing Intelligence Dashboard</h1>
+
+    <p class="note">
+    Generated: {run_date}
+    </p>
+
+    <h2>Executive Intelligence</h2>
+
+    <div class="summary-grid">
+
+    {metric_card(
+        "Commercial Traffic Quality",
+        f"{high_pct:.1f}%",
+        "High relevance traffic",
+        traffic_quality_status,
+        traffic_quality_color
+    )}
 
-</head>
+    {metric_card(
+        "Low-Confidence Traffic",
+        f"{low_pct:.1f}%",
+        "Low-tier traffic",
+        low_conf_status,
+        low_conf_color
+    )}
 
-<body>
+    {metric_card(
+        "Organic CTR",
+        f"{format_value(latest['organic_ctr'],2)}%",
+        f"{format_value(latest['organic_ctr_change'])}% change",
+        ctr_status,
+        ctr_color
+    )}
 
-<div class="page">
+    {metric_card(
+        "Average Position",
+        format_value(latest["avg_position"],2),
+        f"Change: {format_value(latest['avg_position_change'],2)}",
+        position_status,
+        position_color
+    )}
 
-<h1>MORFRAC Marketing Intelligence Dashboard</h1>
+    </div>
 
-<p class="note">
-Generated: {run_date}
-</p>
+    <h2>Executive Commentary</h2>
 
-<h2>Executive Intelligence</h2>
+    <div class="panel">
+    <pre>{executive_summary}</pre>
+    </div>
 
-<div class="summary-grid">
+    <h2>Strategic Risks & Opportunities</h2>
 
-{metric_card(
-    "Commercial Traffic Quality",
-    f"{high_pct:.1f}%",
-    "High relevance traffic",
-    traffic_quality_status,
-    traffic_quality_color
-)}
+    <div class="grid-2">
 
-{metric_card(
-    "Low-Confidence Traffic",
-    f"{low_pct:.1f}%",
-    "Low-tier traffic",
-    low_conf_status,
-    low_conf_color
-)}
+    <div class="panel">
+    <h3>Key Risks</h3>
+    <pre>{key_risks}</pre>
+    </div>
 
-{metric_card(
-    "Organic CTR",
-    f"{format_value(latest['organic_ctr'],2)}%",
-    f"{format_value(latest['organic_ctr_change'])}% change",
-    ctr_status,
-    ctr_color
-)}
+    <div class="panel">
+    <h3>Key Opportunities</h3>
+    <pre>{key_opportunities}</pre>
+    </div>
 
-{metric_card(
-    "Average Position",
-    format_value(latest["avg_position"],2),
-    f"Change: {format_value(latest['avg_position_change'],2)}",
-    position_status,
-    position_color
-)}
+    </div>
 
-</div>
+    <h2>Traffic Confidence</h2>
 
-<h2>Executive Commentary</h2>
+    <div class="grid-2">
 
-<div class="panel">
-<pre>{executive_summary}</pre>
-</div>
+    <div class="chart">
+    {charts["confidence"]}
+    </div>
 
-<h2>Strategic Risks & Opportunities</h2>
+    <div class="chart">
+    {charts["territory"]}
+    </div>
 
-<div class="grid-2">
+    </div>
 
-<div class="panel">
-<h3>Key Risks</h3>
-<pre>{key_risks}</pre>
-</div>
+    <h2>Performance Trends</h2>
 
-<div class="panel">
-<h3>Key Opportunities</h3>
-<pre>{key_opportunities}</pre>
-</div>
+    <div class="grid-2">
 
-</div>
+    <div class="chart">{charts["sessions"]}</div>
 
-<h2>Traffic Confidence</h2>
+    <div class="chart">{charts["clicks"]}</div>
 
-<div class="grid-2">
+    <div class="chart">{charts["ctr"]}</div>
 
-<div class="chart">
-{charts["confidence"]}
-</div>
+    <div class="chart">{charts["position"]}</div>
 
-<div class="chart">
-{charts["territory"]}
-</div>
+    </div>
 
-</div>
+    <h2>Recommended Executive Actions</h2>
 
-<h2>Performance Trends</h2>
+    <div class="panel">
+    <pre>{recommended_actions}</pre>
+    </div>
 
-<div class="grid-2">
+    <h2>Trend Data</h2>
 
-<div class="chart">{charts["sessions"]}</div>
+    <div class="table-wrap">
+    {df.to_html(index=False)}
+    </div>
 
-<div class="chart">{charts["clicks"]}</div>
+    <div class="footer">
 
-<div class="chart">{charts["ctr"]}</div>
+    Strategic Intelligence Source:<br>
+    {strategic_file}
 
-<div class="chart">{charts["position"]}</div>
+    <br><br>
 
-</div>
+    Traffic Quality Source:<br>
+    {traffic_quality_csv}
 
-<h2>Recommended Executive Actions</h2>
+    </div>
 
-<div class="panel">
-<pre>{recommended_actions}</pre>
-</div>
+    </div>
 
-<h2>Trend Data</h2>
+    </body>
 
-<div class="table-wrap">
-{df.to_html(index=False)}
-</div>
+    </html>
+    """
 
-<div class="footer">
+    dashboard_file.write_text(
+        html,
+        encoding="utf-8"
+    )
 
-Strategic Intelligence Source:<br>
-{strategic_file}
+    print("\nMARKETING DASHBOARD CREATED\n")
+    print(dashboard_file)
 
-<br><br>
-
-Traffic Quality Source:<br>
-{traffic_quality_csv}
-
-</div>
-
-</div>
-
-</body>
-
-</html>
-"""
-
-dashboard_file.write_text(
-    html,
-    encoding="utf-8"
-)
-
-print("\nMARKETING DASHBOARD CREATED\n")
-print(dashboard_file)
+if __name__ == "__main__":
+    main()

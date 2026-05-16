@@ -14,302 +14,307 @@ LEVERAGE_DIR = BASE_PATH / r"06_MARKETING\SEO_Agent\Leverage_Reports"
 
 OUTPUT_DIR = BASE_PATH / r"06_MARKETING\SEO_Agent\Internal_Linking"
 
-OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-
 # =========================================
 # LOAD FILES
 # =========================================
 
-crawl_files = sorted(CRAWL_DIR.glob("*_site_crawl.csv"))
 
-if not crawl_files:
-    raise FileNotFoundError("No crawl CSV found.")
+def main():
+    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
-crawl_file = crawl_files[-1]
+    crawl_files = sorted(CRAWL_DIR.glob("*_site_crawl.csv"))
 
-print(f"\nUsing crawl file:\n{crawl_file}\n")
+    if not crawl_files:
+        raise FileNotFoundError("No crawl CSV found.")
 
-crawl_df = pd.read_csv(crawl_file)
+    crawl_file = crawl_files[-1]
 
-# =========================================
-# HELPERS
-# =========================================
+    print(f"\nUsing crawl file:\n{crawl_file}\n")
 
-def classify_priority(row):
-    page_type = str(row.get("page_type", "")).lower()
-    business_priority = str(row.get("business_priority", "")).lower()
+    crawl_df = pd.read_csv(crawl_file)
 
-    if business_priority == "high":
-        return "high"
+    # =========================================
+    # HELPERS
+    # =========================================
 
-    if page_type in ["product", "landing", "category"]:
-        return "high"
+    def classify_priority(row):
+        page_type = str(row.get("page_type", "")).lower()
+        business_priority = str(row.get("business_priority", "")).lower()
 
-    if page_type == "blog":
-        return "medium"
+        if business_priority == "high":
+            return "high"
 
-    return "low"
+        if page_type in ["product", "landing", "category"]:
+            return "high"
 
+        if page_type == "blog":
+            return "medium"
 
-def estimate_link_score(row):
-    score = 0
-
-    internal_links = row.get("internal_link_count", 0)
-    issue_count = row.get("issue_count", 0)
-    page_type = str(row.get("page_type", "")).lower()
-    business_priority = str(row.get("business_priority", "")).lower()
-
-    if business_priority == "high":
-        score += 40
-
-    if page_type == "product":
-        score += 25
-
-    if page_type == "landing":
-        score += 20
-
-    if internal_links < 3:
-        score += 35
-    elif internal_links < 5:
-        score += 20
-    elif internal_links < 10:
-        score += 10
-
-    score += issue_count * 3
-
-    return score
+        return "low"
 
 
-def detect_missing_crosslinks(url):
-    url_lower = str(url).lower()
+    def estimate_link_score(row):
+        score = 0
 
-    opportunities = []
+        internal_links = row.get("internal_link_count", 0)
+        issue_count = row.get("issue_count", 0)
+        page_type = str(row.get("page_type", "")).lower()
+        business_priority = str(row.get("business_priority", "")).lower()
 
-    if "morfblock" in url_lower:
-        opportunities.append(
-            "Cross-link related morfblock size families"
-        )
+        if business_priority == "high":
+            score += 40
 
-    if "powerfurl" in url_lower:
-        opportunities.append(
-            "Cross-link compatible furling components"
-        )
+        if page_type == "product":
+            score += 25
 
-    if "dogbone" in url_lower:
-        opportunities.append(
-            "Cross-link aluminium/titanium variants"
-        )
+        if page_type == "landing":
+            score += 20
 
-    if "morfring" in url_lower:
-        opportunities.append(
-            "Cross-link related ring sizes"
-        )
+        if internal_links < 3:
+            score += 35
+        elif internal_links < 5:
+            score += 20
+        elif internal_links < 10:
+            score += 10
 
-    if "mloop" in url_lower:
-        opportunities.append(
-            "Cross-link loop sizing/configuration pages"
-        )
+        score += issue_count * 3
 
-    return "; ".join(opportunities)
+        return score
 
 
-def detect_authority_gaps(row):
-    gaps = []
+    def detect_missing_crosslinks(url):
+        url_lower = str(url).lower()
 
-    page_type = str(row.get("page_type", "")).lower()
-    internal_links = row.get("internal_link_count", 0)
-    word_count = row.get("word_count", 0)
+        opportunities = []
 
-    if page_type in ["product", "landing"] and internal_links < 5:
-        gaps.append("Weak internal authority support")
+        if "morfblock" in url_lower:
+            opportunities.append(
+                "Cross-link related morfblock size families"
+            )
 
-    if page_type == "blog" and word_count > 600:
-        gaps.append("Potential authority article")
+        if "powerfurl" in url_lower:
+            opportunities.append(
+                "Cross-link compatible furling components"
+            )
 
-    return "; ".join(gaps)
+        if "dogbone" in url_lower:
+            opportunities.append(
+                "Cross-link aluminium/titanium variants"
+            )
+
+        if "morfring" in url_lower:
+            opportunities.append(
+                "Cross-link related ring sizes"
+            )
+
+        if "mloop" in url_lower:
+            opportunities.append(
+                "Cross-link loop sizing/configuration pages"
+            )
+
+        return "; ".join(opportunities)
 
 
-# =========================================
-# BUILD ANALYSIS
-# =========================================
+    def detect_authority_gaps(row):
+        gaps = []
 
-records = []
+        page_type = str(row.get("page_type", "")).lower()
+        internal_links = row.get("internal_link_count", 0)
+        word_count = row.get("word_count", 0)
 
-for _, row in crawl_df.iterrows():
+        if page_type in ["product", "landing"] and internal_links < 5:
+            gaps.append("Weak internal authority support")
 
-    url = row.get("url", "")
-    page_type = row.get("page_type", "")
-    internal_links = row.get("internal_link_count", 0)
-    issue_count = row.get("issue_count", 0)
+        if page_type == "blog" and word_count > 600:
+            gaps.append("Potential authority article")
 
-    priority = classify_priority(row)
+        return "; ".join(gaps)
 
-    link_score = estimate_link_score(row)
 
-    opportunities = []
+    # =========================================
+    # BUILD ANALYSIS
+    # =========================================
 
-    if internal_links < 3:
-        opportunities.append(
-            "Increase internal links"
-        )
+    records = []
 
-    if page_type == "blog":
-        opportunities.append(
-            "Add contextual product links"
-        )
+    for _, row in crawl_df.iterrows():
 
-    if page_type == "product":
-        opportunities.append(
-            "Add related product links"
-        )
+        url = row.get("url", "")
+        page_type = row.get("page_type", "")
+        internal_links = row.get("internal_link_count", 0)
+        issue_count = row.get("issue_count", 0)
 
-    if page_type == "landing":
-        opportunities.append(
-            "Strengthen category/product reinforcement"
-        )
+        priority = classify_priority(row)
 
-    crosslinks = detect_missing_crosslinks(url)
+        link_score = estimate_link_score(row)
 
-    authority_gaps = detect_authority_gaps(row)
+        opportunities = []
 
-    records.append({
-        "url": url,
-        "page_type": page_type,
-        "business_priority": row.get("business_priority", ""),
-        "internal_link_count": internal_links,
-        "issue_count": issue_count,
-        "word_count": row.get("word_count", 0),
-        "priority": priority,
-        "authority_gap": authority_gaps,
-        "crosslink_opportunities": crosslinks,
-        "recommended_actions": "; ".join(opportunities),
-        "internal_link_opportunity_score": link_score,
-    })
+        if internal_links < 3:
+            opportunities.append(
+                "Increase internal links"
+            )
 
-# =========================================
-# EXPORT
-# =========================================
+        if page_type == "blog":
+            opportunities.append(
+                "Add contextual product links"
+            )
 
-df = pd.DataFrame(records)
+        if page_type == "product":
+            opportunities.append(
+                "Add related product links"
+            )
 
-df = df.sort_values(
-    "internal_link_opportunity_score",
-    ascending=False
-)
+        if page_type == "landing":
+            opportunities.append(
+                "Strengthen category/product reinforcement"
+            )
 
-run_date = datetime.today().strftime("%Y-%m-%d")
+        crosslinks = detect_missing_crosslinks(url)
 
-csv_file = (
-    OUTPUT_DIR /
-    f"{run_date}_internal_link_opportunities.csv"
-)
+        authority_gaps = detect_authority_gaps(row)
 
-md_file = (
-    OUTPUT_DIR /
-    f"{run_date}_internal_link_opportunities.md"
-)
+        records.append({
+            "url": url,
+            "page_type": page_type,
+            "business_priority": row.get("business_priority", ""),
+            "internal_link_count": internal_links,
+            "issue_count": issue_count,
+            "word_count": row.get("word_count", 0),
+            "priority": priority,
+            "authority_gap": authority_gaps,
+            "crosslink_opportunities": crosslinks,
+            "recommended_actions": "; ".join(opportunities),
+            "internal_link_opportunity_score": link_score,
+        })
 
-df.to_csv(csv_file, index=False)
+    # =========================================
+    # EXPORT
+    # =========================================
 
-# =========================================
-# SUMMARY TABLE
-# =========================================
+    df = pd.DataFrame(records)
 
-top_df = df.head(50)
-
-table = (
-    "| URL | Type | Links | Authority Gap | "
-    "Crosslink Opportunities | Actions | Score |\n"
-)
-
-table += "|---|---|---:|---|---|---|---:|\n"
-
-for _, row in top_df.iterrows():
-
-    table += (
-        f"| {row['url']} "
-        f"| {row['page_type']} "
-        f"| {row['internal_link_count']} "
-        f"| {row['authority_gap']} "
-        f"| {row['crosslink_opportunities']} "
-        f"| {row['recommended_actions']} "
-        f"| {row['internal_link_opportunity_score']} |\n"
+    df = df.sort_values(
+        "internal_link_opportunity_score",
+        ascending=False
     )
 
-# =========================================
-# MARKDOWN REPORT
-# =========================================
+    run_date = datetime.today().strftime("%Y-%m-%d")
 
-report = f"""# SEO Internal Linking Opportunities
+    csv_file = (
+        OUTPUT_DIR /
+        f"{run_date}_internal_link_opportunities.csv"
+    )
 
-## Generated
+    md_file = (
+        OUTPUT_DIR /
+        f"{run_date}_internal_link_opportunities.md"
+    )
 
-{run_date}
+    df.to_csv(csv_file, index=False)
 
-## Input
+    # =========================================
+    # SUMMARY TABLE
+    # =========================================
 
-{crawl_file}
+    top_df = df.head(50)
 
----
+    table = (
+        "| URL | Type | Links | Authority Gap | "
+        "Crosslink Opportunities | Actions | Score |\n"
+    )
 
-# Purpose
+    table += "|---|---|---:|---|---|---|---:|\n"
 
-This report identifies:
+    for _, row in top_df.iterrows():
 
-- weak internal authority support
-- weak product reinforcement
-- contextual linking opportunities
-- authority dead-ends
-- related product linking opportunities
-- high-value pages lacking support
+        table += (
+            f"| {row['url']} "
+            f"| {row['page_type']} "
+            f"| {row['internal_link_count']} "
+            f"| {row['authority_gap']} "
+            f"| {row['crosslink_opportunities']} "
+            f"| {row['recommended_actions']} "
+            f"| {row['internal_link_opportunity_score']} |\n"
+        )
 
----
+    # =========================================
+    # MARKDOWN REPORT
+    # =========================================
 
-# Highest Internal Linking Opportunities
+    report = f"""# SEO Internal Linking Opportunities
 
-{table}
+    ## Generated
 
----
+    {run_date}
 
-# Interpretation Notes
+    ## Input
 
-Higher scores indicate:
+    {crawl_file}
 
-- commercially important pages
-- weak internal authority reinforcement
-- insufficient contextual linking
-- missing product relationships
-- weak discoverability reinforcement
+    ---
 
-Priority should focus on:
+    # Purpose
 
-- product pages
-- landing pages
-- authority blog articles
-- category reinforcement
-- cross-product navigation
+    This report identifies:
 
-Avoid prioritizing:
+    - weak internal authority support
+    - weak product reinforcement
+    - contextual linking opportunities
+    - authority dead-ends
+    - related product linking opportunities
+    - high-value pages lacking support
 
-- legal pages
-- utility pages
-- archives
-- low-commercial-value pages
+    ---
 
----
+    # Highest Internal Linking Opportunities
 
-# Output Files
+    {table}
 
-- CSV:
-{csv_file}
+    ---
 
-- Markdown:
-{md_file}
-"""
+    # Interpretation Notes
 
-md_file.write_text(report, encoding="utf-8")
+    Higher scores indicate:
 
-print("\nSEO INTERNAL LINK OPPORTUNITY ANALYSIS COMPLETE\n")
+    - commercially important pages
+    - weak internal authority reinforcement
+    - insufficient contextual linking
+    - missing product relationships
+    - weak discoverability reinforcement
 
-print(csv_file)
-print(md_file)
+    Priority should focus on:
+
+    - product pages
+    - landing pages
+    - authority blog articles
+    - category reinforcement
+    - cross-product navigation
+
+    Avoid prioritizing:
+
+    - legal pages
+    - utility pages
+    - archives
+    - low-commercial-value pages
+
+    ---
+
+    # Output Files
+
+    - CSV:
+    {csv_file}
+
+    - Markdown:
+    {md_file}
+    """
+
+    md_file.write_text(report, encoding="utf-8")
+
+    print("\nSEO INTERNAL LINK OPPORTUNITY ANALYSIS COMPLETE\n")
+
+    print(csv_file)
+    print(md_file)
+
+if __name__ == "__main__":
+    main()
