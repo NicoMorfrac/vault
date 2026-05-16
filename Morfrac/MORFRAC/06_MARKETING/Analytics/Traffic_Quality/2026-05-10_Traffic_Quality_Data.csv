@@ -1,0 +1,11 @@
+country,territory,tier,sessions,users,confidence,notes
+Spain,Southern Europe,HIGH,42,26,High commercial relevance,
+Vietnam,Low Tier / Low Confidence,LOW,31,31,Low confidence or high-noise geography,Low-tier or low-confidence geography; High session volume from low-confidence geography
+China,Low Tier / Low Confidence,LOW,27,26,Low confidence or high-noise geography,Low-tier or low-confidence geography; High session volume from low-confidence geography
+United States,United States,US_MONITORING,24,24,Commercially relevant but crawler/noise prone,USA requires engagement validation due to crawler/datacenter noise risk; High USA session volume should be checked for engagement quality
+Hong Kong,Low Tier / Low Confidence,LOW,14,14,Low confidence or high-noise geography,Low-tier or low-confidence geography
+Singapore,Low Tier / Low Confidence,LOW,12,12,Low confidence or high-noise geography,Low-tier or low-confidence geography
+Brazil,South America,MEDIUM,10,10,Medium commercial relevance,
+Germany,Northern Europe,HIGH,10,9,High commercial relevance,
+India,Low Tier / Low Confidence,LOW,9,9,Low confidence or high-noise geography,Low-tier or low-confidence geography
+Italy,Southern Europe,HIGH,8,5,High commercial relevance,

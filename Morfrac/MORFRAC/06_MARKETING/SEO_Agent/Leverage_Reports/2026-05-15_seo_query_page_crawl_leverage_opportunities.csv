@@ -1,0 +1,27 @@
+query,page,clicks,impressions,ctr_percent,expected_ctr,ctr_gap,position,query_type,intent,page_type,issue_count,title_length,meta_description_length,issues,opportunity_score,opportunity_level
+mloop,https://www.morfrac.com/shop/mloop-dyneema-loop-12675,0.0,175.0,0.0,3.0,3.0,7.46,Non-branded,commercial,product,2.0,44.0,158.0,Multiple H1; Images missing alt text,134.0,VERY HIGH
+mloop,https://www.morfrac.com/es/shop/mloop-dyneema-loop-12675,0.0,123.0,0.0,4.0,4.0,5.84,Non-branded,commercial,product,2.0,44.0,158.0,Multiple H1; Images missing alt text,134.0,VERY HIGH
+dogbone,https://www.morfrac.com/dogbone,0.0,111.0,0.0,2.5,2.5,8.35,Non-branded,commercial,landing,3.0,19.0,134.0,Short title; Multiple H1; Images missing alt text,131.0,VERY HIGH
+dogbone,https://www.morfrac.com/es/dogbone,0.0,54.0,0.0,2.5,2.5,8.3,Non-branded,commercial,landing,3.0,19.0,134.0,Short title; Multiple H1; Images missing alt text,111.0,VERY HIGH
+dogbone shackle,https://www.morfrac.com/dogbone,0.0,7.0,0.0,4.0,4.0,5.57,Non-branded,commercial,landing,3.0,19.0,134.0,Short title; Multiple H1; Images missing alt text,111.0,VERY HIGH
+dogbone sailing,https://www.morfrac.com/dogbone,0.0,8.0,0.0,3.0,3.0,8.0,Non-branded,commercial,landing,3.0,19.0,134.0,Short title; Multiple H1; Images missing alt text,111.0,VERY HIGH
+dog bone steel,https://www.morfrac.com/dogbone,0.0,9.0,0.0,3.5,3.5,6.22,Non-branded,commercial,landing,3.0,19.0,134.0,Short title; Multiple H1; Images missing alt text,111.0,VERY HIGH
+dog bones,https://www.morfrac.com/es/dogbone,0.0,11.0,0.0,5.0,5.0,4.82,Non-branded,commercial,landing,3.0,19.0,134.0,Short title; Multiple H1; Images missing alt text,111.0,VERY HIGH
+dog bone shackle,https://www.morfrac.com/dogbone,0.0,9.0,0.0,4.0,4.0,6.0,Non-branded,commercial,landing,3.0,19.0,134.0,Short title; Multiple H1; Images missing alt text,111.0,VERY HIGH
+dog bone sailing,https://www.morfrac.com/dogbone,0.0,5.0,0.0,3.5,3.5,6.8,Non-branded,commercial,landing,3.0,19.0,134.0,Short title; Multiple H1; Images missing alt text,111.0,VERY HIGH
+dogbones,https://www.morfrac.com/dogbone,1.0,109.0,0.92,0.6,-0.32000000000000006,20.98,Non-branded,commercial,landing,3.0,19.0,134.0,Short title; Multiple H1; Images missing alt text,101.0,VERY HIGH
+cancamo pasante,https://www.morfrac.com/es/padeye,0.0,8.0,0.0,2.5,2.5,8.75,Non-branded,commercial,landing,3.0,18.0,133.0,Short title; Multiple H1; Images missing alt text,101.0,VERY HIGH
+farr x2 for sale,https://www.morfrac.com/blog/news-1/farr-x2-5,0.0,22.0,0.0,4.0,4.0,5.18,Non-branded,commercial,blog,0.0,0.0,0.0,,100.0,VERY HIGH
+dog bone connection,https://www.morfrac.com/dogbone,0.0,6.0,0.0,1.0,1.0,10.83,Non-branded,commercial,landing,3.0,19.0,134.0,Short title; Multiple H1; Images missing alt text,91.0,HIGH
+farr x2,https://www.morfrac.com/blog/news-1/farr-x2-5,1.0,47.0,2.13,3.5,1.37,6.89,Non-branded,commercial,blog,0.0,0.0,0.0,,90.0,HIGH
+dog bone rigging,https://www.morfrac.com/dogbone,0.0,7.0,0.0,10.0,10.0,2.57,Non-branded,commercial,landing,3.0,19.0,134.0,Short title; Multiple H1; Images missing alt text,86.0,HIGH
+d shackle,https://www.morfrac.com/es/shop/shackle-17-4ph-12827,0.0,11.0,0.0,1.0,1.0,10.91,Non-branded,commercial,product,2.0,45.0,170.0,Multiple H1; Images missing alt text,84.0,HIGH
+m loop,https://www.morfrac.com/shop/mloop-dyneema-loop-12675,0.0,17.0,0.0,1.0,1.0,10.53,Non-branded,commercial,product,2.0,44.0,158.0,Multiple H1; Images missing alt text,84.0,HIGH
+dogbones,https://www.morfrac.com/es/dogbone,0.0,34.0,0.0,0.8,0.8,17.59,Non-branded,commercial,landing,3.0,19.0,134.0,Short title; Multiple H1; Images missing alt text,81.0,HIGH
+mor 004,https://www.morfrac.com/shop/morfblock-light-4-p-12338,0.0,6.0,0.0,1.0,1.0,13.5,Non-branded,product_code,product,3.0,73.0,109.0,Long title; Multiple H1; Images missing alt text,76.0,HIGH
+sailing dogbone,https://www.morfrac.com/dogbone,1.0,44.0,2.27,0.6,-1.67,29.2,Non-branded,commercial,landing,3.0,19.0,134.0,Short title; Multiple H1; Images missing alt text,71.0,MEDIUM
+dogbone joint,https://www.morfrac.com/dogbone,0.0,41.0,0.0,0.2,0.2,84.98,Non-branded,commercial,landing,3.0,19.0,134.0,Short title; Multiple H1; Images missing alt text,66.0,MEDIUM
+helice de proa,https://www.morfrac.com/es/blog/historias-4/helice-de-proa-9,0.0,34.0,0.0,7.0,7.0,3.56,Non-branded,unknown,blog,0.0,0.0,0.0,,55.0,MEDIUM
+mor 004,https://www.morfrac.com/shop/morfblock-light-4-hl-12823,0.0,17.0,0.0,0.6,0.6,24.53,Non-branded,product_code,product,2.0,48.0,83.0,Multiple H1; Images missing alt text,54.0,MEDIUM
+helices de proa,https://www.morfrac.com/es/blog/historias-4/helice-de-proa-9,0.0,8.0,0.0,10.0,10.0,2.12,Non-branded,unknown,blog,0.0,0.0,0.0,,45.0,LOW
+3d printed molds uk,https://www.morfrac.com/blog/stories-4/3d-printed-molds-10,0.0,6.0,0.0,0.6,0.6,23.0,Non-branded,unknown,blog,4.0,26.0,28.0,Short title; Short meta description; Multiple H1; Images missing alt text,38.0,LOW

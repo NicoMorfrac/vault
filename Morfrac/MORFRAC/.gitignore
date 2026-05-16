@@ -1,0 +1,25 @@
+# Local credentials and runtime tokens
+.obsidian/plugins/obsidian-local-rest-api/data.json
+02_AGENTS/Marketing/token.pkl
+02_AGENTS/Marketing/token_search_console.pkl
+*.pkl
+
+# Local credential directories/files
+.env
+.env.*
+*.key
+*.pem
+*.crt
+*.p12
+*.pfx
+credentials*.json
+oauth_client.json
+ga4-service-account.json
+
+# Obsidian local workspace state
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+
+# Python cache
+__pycache__/
+*.py[cod]

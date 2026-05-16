@@ -1,0 +1,7 @@
+authority_cluster,supporting_urls,total_impressions,total_clicks,avg_opportunity_score,page_types,intents,example_queries,example_pages,hub_strength
+dogbone,2,414.0,1.0,103.14285714285714,landing,commercial,dog bone connection | dog bone rigging | dog bone sailing | dog bone shackle | dog bone soft shackle | dog bone steel | dog bones | dogbone | dogbone joint | dogbone sailing,https://www.morfrac.com/dogbone | https://www.morfrac.com/es/dogbone,STRONG
+mloop,2,319.0,0.0,117.33333333333333,product,commercial,m loop | mloop,https://www.morfrac.com/es/shop/mloop-dyneema-loop-12675 | https://www.morfrac.com/shop/mloop-dyneema-loop-12675,STRONG
+morfblock,2,23.0,0.0,65.0,product,product_code,mor 004,https://www.morfrac.com/shop/morfblock-light-4-hl-12823 | https://www.morfrac.com/shop/morfblock-light-4-p-12338,MEDIUM
+shackle,1,11.0,0.0,84.0,product,commercial,d shackle,https://www.morfrac.com/es/shop/shackle-17-4ph-12827,MEDIUM
+padeye,1,9.0,0.0,101.0,landing,commercial,cancamo pasante,https://www.morfrac.com/es/padeye,MEDIUM
+custom_engineering,1,5.0,0.0,38.0,blog,unknown,3d printed molds uk,https://www.morfrac.com/blog/stories-4/3d-printed-molds-10,WEAK

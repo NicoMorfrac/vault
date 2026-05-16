@@ -1,0 +1,4 @@
+url,page_type,business_priority,commercial_relevance,authority_value,authority_cluster,inbound_internal_links,unique_linking_pages,outbound_internal_links,unique_target_pages,total_search_impressions,max_opportunity_score,primary_queries,search_intents,internal_link_graph_score,internal_link_priority
+https://www.morfrac.com/shop/morfblock-light-4-p-12338,product,high,high,high,morfblock,0.0,0.0,38.0,38.0,6.0,70.0,mor 004,product_code,178.0,CRITICAL
+https://www.morfrac.com/shop/dogbone60-23-12467,product,high,high,high,dogbone,0.0,0.0,36.0,36.0,0.0,0.0,,,160.0,CRITICAL
+https://www.morfrac.com/es/shop/dogbone60-23-12467,product,high,high,high,dogbone,0.0,0.0,36.0,36.0,0.0,0.0,,,160.0,CRITICAL

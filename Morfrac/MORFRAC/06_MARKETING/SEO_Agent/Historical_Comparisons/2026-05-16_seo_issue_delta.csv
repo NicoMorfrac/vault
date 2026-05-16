@@ -1,0 +1,14 @@
+﻿issue,previous,latest,delta
+Missing title,2,0,-2
+Non-200 status,4,0,-4
+Missing canonical,4,0,-4
+Missing H1,6,0,-6
+Weak internal linking,8,0,-8
+Short meta description,9,0,-9
+Long meta description,12,0,-12
+Thin content,22,0,-22
+Long title,62,0,-62
+Missing meta description,94,0,-94
+Short title,152,0,-152
+Multiple H1,479,0,-479
+Images missing alt text,496,0,-496

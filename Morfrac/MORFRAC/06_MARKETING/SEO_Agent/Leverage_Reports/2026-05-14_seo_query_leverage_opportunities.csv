@@ -1,0 +1,7 @@
+query,clicks,impressions,ctr_percent,expected_ctr,ctr_gap,position,query_type,intent,opportunity_score,opportunity_level
+dogbones,1.0,134.0,0.75,0.8,0.050000000000000044,16.77,Non-branded,commercial,75,HIGH
+60-23,0.0,5.0,0.0,3.0,3.0,7.6,Non-branded,product_code,75,HIGH
+cancamo pasante,0.0,7.0,0.0,2.5,2.5,8.86,Non-branded,commercial,75,HIGH
+farr x2,2.0,38.0,5.26,3.5,-1.7599999999999998,6.68,Non-branded,commercial,65,HIGH
+d shackle,0.0,11.0,0.0,1.0,1.0,10.91,Non-branded,commercial,65,HIGH
+soft pad eye,1.0,5.0,20.0,4.0,-16.0,5.8,Non-branded,commercial,55,MEDIUM
