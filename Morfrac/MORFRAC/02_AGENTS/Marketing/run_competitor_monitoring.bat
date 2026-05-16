@@ -7,6 +7,7 @@ echo RUNNING COMPETITOR SUMMARY
 echo =========================
 
 py competitor_summary.py
+if errorlevel 1 exit /b %errorlevel%
 
 echo.
 echo =========================
@@ -14,6 +15,7 @@ echo RUNNING CHANGE DETECTION
 echo =========================
 
 py competitor_change_detection.py
+if errorlevel 1 exit /b %errorlevel%
 
 echo.
 echo =========================

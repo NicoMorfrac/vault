@@ -1,0 +1,10 @@
+pandas
+requests
+beautifulsoup4
+google-auth
+google-auth-oauthlib
+google-api-python-client
+google-analytics-data
+openai
+plotly
+scikit-learn

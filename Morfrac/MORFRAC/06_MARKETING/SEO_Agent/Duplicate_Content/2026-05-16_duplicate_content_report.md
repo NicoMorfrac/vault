@@ -115,9 +115,9 @@ C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Leverag
 
 | query    | ranking_pages                                                                                                    |   page_count |   total_impressions |   total_clicks |   best_position | intents      | page_types   | severity   |
 |:---------|:-----------------------------------------------------------------------------------------------------------------|-------------:|--------------------:|---------------:|----------------:|:-------------|:-------------|:-----------|
-| mloop    | https://www.morfrac.com/es/shop/mloop-dyneema-loop-12675 | https://www.morfrac.com/shop/mloop-dyneema-loop-12675 |            2 |                 288 |              0 |            5.82 | commercial   | product      | LOW        |
-| dogbone  | https://www.morfrac.com/dogbone | https://www.morfrac.com/es/dogbone                                             |            2 |                 163 |              0 |            8.3  | commercial   | landing      | LOW        |
-| dogbones | https://www.morfrac.com/dogbone | https://www.morfrac.com/es/dogbone                                             |            2 |                 138 |              1 |           18.06 | commercial   | landing      | LOW        |
+| mloop    | https://www.morfrac.com/es/shop/mloop-dyneema-loop-12675 | https://www.morfrac.com/shop/mloop-dyneema-loop-12675 |            2 |                 294 |              0 |            5.86 | commercial   | product      | LOW        |
+| dogbone  | https://www.morfrac.com/dogbone | https://www.morfrac.com/es/dogbone                                             |            2 |                 167 |              0 |            8.3  | commercial   | landing      | LOW        |
+| dogbones | https://www.morfrac.com/dogbone | https://www.morfrac.com/es/dogbone                                             |            2 |                 142 |              1 |           19.88 | commercial   | landing      | LOW        |
 | mor 004  | https://www.morfrac.com/shop/morfblock-light-4-hl-12823 | https://www.morfrac.com/shop/morfblock-light-4-p-12338 |            2 |                  23 |              0 |           13.5  | product_code | product      | LOW        |
 
 ---

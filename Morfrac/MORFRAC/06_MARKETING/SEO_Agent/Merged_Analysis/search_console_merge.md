@@ -9,7 +9,7 @@
 # Summary
 
 - Crawl pages: 500
-- Search Console URLs parsed: 51
+- Search Console URLs parsed: 50
 - Opportunity pages: 5
 
 ---
@@ -18,11 +18,11 @@
 
 | Opportunity | Priority Score | Impressions | CTR % | Position | URL |
 |---|---:|---:|---:|---:|---|
-| Low CTR Opportunity | 93.6 | 186 | 0.0 | 9.8 | https://www.morfrac.com/shop/mloop-dyneema-loop-12675 |
-| Low CTR Opportunity | 87.1 | 121 | 0.0 | 5.8 | https://www.morfrac.com/es/shop/mloop-dyneema-loop-12675 |
-| Low CTR Opportunity | 85.4 | 104 | 0.0 | 10.1 | https://www.morfrac.com/es/dogbone |
-| Ranking Improvement Opportunity | 66.9 | 363 | 5.17 | 22.2 | https://www.morfrac.com/dogbone |
-| Ranking Improvement Opportunity | 61.4 | 172 | 4.93 | 9.0 | https://www.morfrac.com/ |
+| Low CTR Opportunity | 94.2 | 192 | 0.0 | 9.8 | https://www.morfrac.com/shop/mloop-dyneema-loop-12675 |
+| Low CTR Opportunity | 87.3 | 123 | 0.0 | 5.9 | https://www.morfrac.com/es/shop/mloop-dyneema-loop-12675 |
+| Low CTR Opportunity | 85.6 | 106 | 0.0 | 10.4 | https://www.morfrac.com/es/dogbone |
+| Ranking Improvement Opportunity | 68.0 | 374 | 5.16 | 22.1 | https://www.morfrac.com/dogbone |
+| Ranking Improvement Opportunity | 62.0 | 178 | 4.73 | 9.0 | https://www.morfrac.com/ |
 
 
 ---

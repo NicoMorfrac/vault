@@ -1,10 +1,10 @@
 url,page_type,business_priority,commercial_relevance,authority_value,authority_cluster,inbound_internal_links,unique_linking_pages,outbound_internal_links,unique_target_pages,total_search_impressions,max_opportunity_score,primary_queries,search_intents,internal_link_graph_score,internal_link_priority
-https://www.morfrac.com/es/shop/mloop-dyneema-loop-12675,product,high,high,high,mloop,2.0,2.0,37.0,37.0,121.0,130.0,mloop,commercial,205.0,CRITICAL
-https://www.morfrac.com/shop/mloop-dyneema-loop-12675,product,high,high,high,mloop,2.0,2.0,37.0,37.0,184.0,130.0,m loop | mloop,commercial,205.0,CRITICAL
-https://www.morfrac.com/dogbone,product,high,high,high,dogbone,208.0,208.0,29.0,29.0,346.0,125.0,dog bone connection | dog bone rigging | dog bone sailing | dog bone shackle | dog bone steel | dogbone | dogbone joint | dogbone sailing | dogbone shackle | dogbones,commercial,180.0,CRITICAL
+https://www.morfrac.com/es/shop/mloop-dyneema-loop-12675,product,high,high,high,mloop,2.0,2.0,37.0,37.0,123.0,130.0,mloop,commercial,205.0,CRITICAL
+https://www.morfrac.com/shop/mloop-dyneema-loop-12675,product,high,high,high,mloop,2.0,2.0,37.0,37.0,190.0,130.0,m loop | mloop,commercial,205.0,CRITICAL
+https://www.morfrac.com/dogbone,product,high,high,high,dogbone,208.0,208.0,29.0,29.0,357.0,125.0,dog bone connection | dog bone rigging | dog bone sailing | dog bone shackle | dog bone steel | dogbone | dogbone joint | dogbone sailing | dogbone shackle | dogbones,commercial,180.0,CRITICAL
 https://www.morfrac.com/shop/morfblock-light-4-p-12338,product,high,high,high,morfblock,0.0,0.0,38.0,38.0,6.0,70.0,mor 004,product_code,178.0,CRITICAL
-https://www.morfrac.com/es/shop/shackle-17-4ph-12827,product,high,high,high,shackle,2.0,2.0,37.0,37.0,11.0,80.0,d shackle,commercial,173.0,CRITICAL
-https://www.morfrac.com/es/dogbone,product,high,high,high,dogbone,287.0,287.0,29.0,29.0,97.0,105.0,dog bones | dogbone | dogbones,commercial,165.0,CRITICAL
+https://www.morfrac.com/es/shop/shackle-17-4ph-12827,product,high,high,high,shackle,2.0,2.0,37.0,37.0,12.0,80.0,d shackle,commercial,173.0,CRITICAL
+https://www.morfrac.com/es/dogbone,product,high,high,high,dogbone,287.0,287.0,29.0,29.0,98.0,105.0,dog bones | dogbone | dogbones,commercial,165.0,CRITICAL
 https://www.morfrac.com/shop/morfblock-light-4-hl-12823,product,high,high,high,morfblock,2.0,2.0,37.0,37.0,17.0,50.0,mor 004,product_code,163.0,CRITICAL
 https://www.morfrac.com/shop/dogbone60-23-12467,product,high,high,high,dogbone,0.0,0.0,36.0,36.0,0.0,0.0,,,160.0,CRITICAL
 https://www.morfrac.com/es/shop/dogbone60-23-12467,product,high,high,high,dogbone,0.0,0.0,36.0,36.0,0.0,0.0,,,160.0,CRITICAL
@@ -396,7 +396,7 @@ https://www.morfrac.com/blog/stories-4/custom-padeyes-11,technical_blog,medium,m
 https://www.morfrac.com/blog/page/2,technical_blog,medium,medium,high,custom_engineering,3.0,3.0,47.0,47.0,0.0,0.0,,,80.0,HIGH
 https://www.morfrac.com/es/blog/blog-1/new-powerfurl-one-38,technical_blog,medium,medium,high,powerfurl,4.0,4.0,32.0,32.0,0.0,0.0,,,80.0,HIGH
 https://www.morfrac.com/blog/news-1/new-powerfurl-one-38,technical_blog,medium,medium,high,powerfurl,4.0,4.0,32.0,32.0,0.0,0.0,,,80.0,HIGH
-https://www.morfrac.com/blog/stories-4/3d-printed-molds-10,technical_blog,medium,medium,high,custom_engineering,5.0,5.0,31.0,31.0,6.0,30.0,3d printed molds uk,unknown,78.0,HIGH
+https://www.morfrac.com/blog/stories-4/3d-printed-molds-10,technical_blog,medium,medium,high,custom_engineering,5.0,5.0,31.0,31.0,7.0,30.0,3d printed molds uk,unknown,78.0,HIGH
 https://www.morfrac.com/documents/content/DJfhNPEwQOWKgG4br81f3Qo24,general,medium,medium,medium,other,1.0,1.0,0.0,0.0,0.0,0.0,,,75.0,HIGH
 https://www.morfrac.com/documents/content/PlGfSxqcRQqanrFuPh90wwo26,general,medium,medium,medium,other,1.0,1.0,0.0,0.0,0.0,0.0,,,75.0,HIGH
 https://www.morfrac.com/blog/news-1/set-sail-with-morfrac-16,technical_blog,medium,medium,high,other,8.0,8.0,34.0,34.0,0.0,0.0,,,70.0,MEDIUM
