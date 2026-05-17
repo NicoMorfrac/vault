@@ -98,13 +98,23 @@ py seo_topic_authority_map.py
 if errorlevel 1 exit /b %errorlevel%
 
 echo.
-echo STEP 19 - Executive SEO Review
+echo STEP 19 - Entity Relationship Map
+py seo_entity_relationship_map.py
+if errorlevel 1 exit /b %errorlevel%
+
+echo.
+echo STEP 20 - Executive SEO Review
 py seo_executive_review.py
 if errorlevel 1 exit /b %errorlevel%
 
 echo.
-echo STEP 20 - Historical SEO Comparison
+echo STEP 21 - Historical SEO Comparison
 py seo_historical_comparison.py
+if errorlevel 1 exit /b %errorlevel%
+
+echo.
+echo STEP 22 - Pipeline Health Check
+py seo_pipeline_health_check.py
 if errorlevel 1 exit /b %errorlevel%
 
 echo.

@@ -8,10 +8,10 @@
 
 # Source Files Used
 
-- Semantic cluster summary: `C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Semantic_Clusters\2026-05-16_semantic_clusters.csv`
-- Semantic cluster pages: `C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Semantic_Clusters\2026-05-16_semantic_cluster_pages.csv`
-- Content gap analysis: `C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Content_Gap_Analysis\2026-05-16_content_gap_analysis.csv`
-- Contextual link recommendations: `C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Contextual_Links\2026-05-16_contextual_link_recommendations_filtered.csv`
+- Semantic cluster summary: `C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Semantic_Clusters\2026-05-17_semantic_clusters.csv`
+- Semantic cluster pages: `C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Semantic_Clusters\2026-05-17_semantic_cluster_pages.csv`
+- Content gap analysis: `C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Content_Gap_Analysis\2026-05-17_content_gap_analysis.csv`
+- Contextual link recommendations: `C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Contextual_Links\2026-05-17_contextual_link_recommendations_filtered.csv`
 
 ---
 
@@ -21,7 +21,7 @@
 - High commercial / low authority topics: 10
 - Weak or at-risk topics: 12
 - Core topic strengths: 0
-- Average topic authority score: 12.46
+- Average topic authority score: 12.47
 
 ---
 
@@ -30,9 +30,9 @@
 | dominant_label | topic_authority_score | authority_tier | strategic_status | commercial_strength | authority_strength | structural_health | gap_penalty | page_count | product_pages | landing_pages | authority_content_pages | total_impressions | cluster_health | gap_type | contextual_link_density |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | other | 64.0 | MODERATE | TOPIC_AT_RISK | 80.0 | 60.0 | 50 | 0.0 | 52 | 20 | 3 | 17 | 0 | FRAGMENTED_TOPIC |  | 1.87 |
-| shackle | 31.35 | WEAK | TOPIC_AT_RISK | 65.46 | 61.26 | 40 | 25.0 | 24 | 16 | 2 | 4 | 358 | FRAGMENTED_TOPIC | Missing category support | 2.42 |
+| shackle | 31.32 | WEAK | TOPIC_AT_RISK | 65.46 | 61.16 | 40 | 25.0 | 24 | 16 | 2 | 4 | 363 | FRAGMENTED_TOPIC | Missing category support | 2.42 |
 | morfring | 16.95 | VERY_WEAK | HIGH_COMMERCIAL_LOW_AUTHORITY | 47.0 | 20.0 | 60 | 24.5 | 16 | 15 | 1 | 0 | 0 | OK | Missing technical authority content | 2.94 |
-| dogbone | 13.85 | VERY_WEAK | HIGH_COMMERCIAL_LOW_AUTHORITY | 49.16 | 27.56 | 40 | 25.0 | 31 | 30 | 1 | 0 | 363 | FRAGMENTED_TOPIC | Missing technical authority content | 6.9 |
+| dogbone | 13.96 | VERY_WEAK | HIGH_COMMERCIAL_LOW_AUTHORITY | 49.2 | 27.82 | 40 | 25.0 | 31 | 30 | 1 | 0 | 376 | FRAGMENTED_TOPIC | Missing technical authority content | 6.9 |
 | powerfurl | 9.25 | VERY_WEAK | HIGH_COMMERCIAL_LOW_AUTHORITY | 25.0 | 20.0 | 40 | 18.5 | 42 | 0 | 0 | 0 | 0 | FRAGMENTED_TOPIC | Missing category support | 2.43 |
 | powerfurl | 6.3 | VERY_WEAK | HIGH_COMMERCIAL_LOW_AUTHORITY | 20.0 | 8.0 | 50 | 18.5 | 5 | 5 | 0 | 0 | 0 | OK | Missing category support | 3.2 |
 | morfblock | 3.25 | VERY_WEAK | HIGH_COMMERCIAL_LOW_AUTHORITY | 35.0 | 20.0 | 30 | 25.0 | 30 | 30 | 0 | 0 | 0 | FRAGMENTED_TOPIC | Missing technical authority content | 6.5 |
@@ -49,7 +49,7 @@
 | dominant_label | topic_authority_score | authority_tier | strategic_status | commercial_strength | authority_strength | structural_health | gap_penalty | page_count | product_pages | landing_pages | authority_content_pages | total_impressions | cluster_health | gap_type | contextual_link_density |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | morfring | 16.95 | VERY_WEAK | HIGH_COMMERCIAL_LOW_AUTHORITY | 47.0 | 20.0 | 60 | 24.5 | 16 | 15 | 1 | 0 | 0 | OK | Missing technical authority content | 2.94 |
-| dogbone | 13.85 | VERY_WEAK | HIGH_COMMERCIAL_LOW_AUTHORITY | 49.16 | 27.56 | 40 | 25.0 | 31 | 30 | 1 | 0 | 363 | FRAGMENTED_TOPIC | Missing technical authority content | 6.9 |
+| dogbone | 13.96 | VERY_WEAK | HIGH_COMMERCIAL_LOW_AUTHORITY | 49.2 | 27.82 | 40 | 25.0 | 31 | 30 | 1 | 0 | 376 | FRAGMENTED_TOPIC | Missing technical authority content | 6.9 |
 | powerfurl | 9.25 | VERY_WEAK | HIGH_COMMERCIAL_LOW_AUTHORITY | 25.0 | 20.0 | 40 | 18.5 | 42 | 0 | 0 | 0 | 0 | FRAGMENTED_TOPIC | Missing category support | 2.43 |
 | powerfurl | 6.3 | VERY_WEAK | HIGH_COMMERCIAL_LOW_AUTHORITY | 20.0 | 8.0 | 50 | 18.5 | 5 | 5 | 0 | 0 | 0 | OK | Missing category support | 3.2 |
 | morfblock | 3.25 | VERY_WEAK | HIGH_COMMERCIAL_LOW_AUTHORITY | 35.0 | 20.0 | 30 | 25.0 | 30 | 30 | 0 | 0 | 0 | FRAGMENTED_TOPIC | Missing technical authority content | 6.5 |
@@ -66,9 +66,9 @@
 | dominant_label | topic_authority_score | authority_tier | strategic_status | commercial_strength | authority_strength | structural_health | gap_penalty | page_count | product_pages | landing_pages | authority_content_pages | total_impressions | cluster_health | gap_type | contextual_link_density |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | other | 64.0 | MODERATE | TOPIC_AT_RISK | 80.0 | 60.0 | 50 | 0.0 | 52 | 20 | 3 | 17 | 0 | FRAGMENTED_TOPIC |  | 1.87 |
-| shackle | 31.35 | WEAK | TOPIC_AT_RISK | 65.46 | 61.26 | 40 | 25.0 | 24 | 16 | 2 | 4 | 358 | FRAGMENTED_TOPIC | Missing category support | 2.42 |
+| shackle | 31.32 | WEAK | TOPIC_AT_RISK | 65.46 | 61.16 | 40 | 25.0 | 24 | 16 | 2 | 4 | 363 | FRAGMENTED_TOPIC | Missing category support | 2.42 |
 | morfring | 16.95 | VERY_WEAK | HIGH_COMMERCIAL_LOW_AUTHORITY | 47.0 | 20.0 | 60 | 24.5 | 16 | 15 | 1 | 0 | 0 | OK | Missing technical authority content | 2.94 |
-| dogbone | 13.85 | VERY_WEAK | HIGH_COMMERCIAL_LOW_AUTHORITY | 49.16 | 27.56 | 40 | 25.0 | 31 | 30 | 1 | 0 | 363 | FRAGMENTED_TOPIC | Missing technical authority content | 6.9 |
+| dogbone | 13.96 | VERY_WEAK | HIGH_COMMERCIAL_LOW_AUTHORITY | 49.2 | 27.82 | 40 | 25.0 | 31 | 30 | 1 | 0 | 376 | FRAGMENTED_TOPIC | Missing technical authority content | 6.9 |
 | powerfurl | 9.25 | VERY_WEAK | HIGH_COMMERCIAL_LOW_AUTHORITY | 25.0 | 20.0 | 40 | 18.5 | 42 | 0 | 0 | 0 | 0 | FRAGMENTED_TOPIC | Missing category support | 2.43 |
 | powerfurl | 6.3 | VERY_WEAK | HIGH_COMMERCIAL_LOW_AUTHORITY | 20.0 | 8.0 | 50 | 18.5 | 5 | 5 | 0 | 0 | 0 | OK | Missing category support | 3.2 |
 | morfblock | 3.25 | VERY_WEAK | HIGH_COMMERCIAL_LOW_AUTHORITY | 35.0 | 20.0 | 30 | 25.0 | 30 | 30 | 0 | 0 | 0 | FRAGMENTED_TOPIC | Missing technical authority content | 6.5 |
