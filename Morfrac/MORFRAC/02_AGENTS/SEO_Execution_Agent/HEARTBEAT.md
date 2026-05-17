@@ -2,13 +2,17 @@
 
 ## Schedule
 
-Weekly — Tuesday — 08:00 Europe/Madrid
+Weekly — Wednesday — 08:00 Europe/Madrid
 
 ## Purpose
 
 Review the latest MORFRAC SEO intelligence outputs and generate actionable SEO execution tasks for implementation review.
 
 This heartbeat is operational, not analytical.
+
+This agent does not perform crawl analysis, semantic clustering, authority modeling, or deterministic SEO scoring.
+
+Those responsibilities belong to the SEO Intelligence layer.
 
 It converts existing SEO intelligence into implementation-ready recommendations.
 
@@ -225,3 +229,23 @@ while maintaining:
 * commercial focus
 * controlled implementation quality
 * deterministic SEO planning
+
+## Reporting Requirement
+
+Every heartbeat execution must create saved output files.
+
+If execution succeeds, save all required execution outputs.
+
+If execution fails because of missing, stale, malformed, or invalid inputs, save:
+
+C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06\_MARKETING\SEO\_Execution\_Queue\YYYY-MM-DD\_EXECUTION\_FAILED.md
+
+The failed report must explain:
+
+* missing inputs
+* stale outputs
+* schema failures
+* crawl failures
+* pipeline reliability issues
+
+The agent must never complete silently.

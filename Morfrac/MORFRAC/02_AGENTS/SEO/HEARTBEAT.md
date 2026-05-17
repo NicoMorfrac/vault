@@ -4,7 +4,7 @@
 
 The SEO Intelligence Agent heartbeat is strategic and supervisory.
 
-It does not execute the deterministic pipeline.
+It does NOT execute the deterministic SEO pipeline.
 
 The deterministic SEO pipeline already runs automatically through:
 
@@ -15,29 +15,27 @@ run_seo_pipeline.bat
 The heartbeat exists to:
 
 * review long-term SEO intelligence
-* interpret historical changes
+* interpret historical SEO changes
 * validate pipeline reliability
 * detect structural SEO shifts
 * identify strategic SEO risks
 * recommend future intelligence improvements
 
-The heartbeat is not an operational execution workflow.
+This heartbeat is NOT an operational execution workflow.
 
 Operational execution planning belongs to:
 
-```text
-SEO_Execution_Agent
-```
+SEO\_Execution\_Agent
 
 ***
 
-# Schedule
+## Schedule
 
-Monthly - First Tuesday - 09:00 Europe/Madrid
+Monthly — First Thursday — 14:00 Europe/Madrid
 
 ***
 
-# Primary Responsibilities
+## Primary Responsibilities
 
 The heartbeat should:
 
@@ -50,17 +48,17 @@ The heartbeat should:
 * identify strategic SEO opportunities
 * identify intelligence-layer weaknesses
 
-The heartbeat should not:
+The heartbeat should NOT:
 
 * generate implementation queues
-* generate metadata tasks
-* generate link insertion tasks
+* generate metadata task lists
+* generate internal link insertion tasks
 * publish content
 * deploy website changes
 
 ***
 
-# Inputs
+## Inputs
 
 Review latest outputs from:
 
@@ -82,9 +80,9 @@ Semantic_Clusters
 
 ***
 
-# Monthly Review Objectives
+## Monthly Review Objectives
 
-## 1. Authority Growth Review
+### 1. Authority Growth Review
 
 Determine:
 
@@ -93,7 +91,9 @@ Determine:
 * which entities gained visibility
 * which commercial topics remain unsupported
 
-## 2. Structural SEO Review
+***
+
+### 2. Structural SEO Review
 
 Identify:
 
@@ -103,7 +103,9 @@ Identify:
 * unstable crawl behavior
 * semantic fragmentation
 
-## 3. Commercial Visibility Review
+***
+
+### 3. Commercial Visibility Review
 
 Evaluate:
 
@@ -113,7 +115,9 @@ Evaluate:
 * non-branded discoverability
 * engineering authority positioning
 
-## 4. Pipeline Reliability Review
+***
+
+### 4. Pipeline Reliability Review
 
 Review:
 
@@ -124,7 +128,9 @@ Review:
 * dependency failures
 * maintenance complexity
 
-## 5. Strategic Direction Review
+***
+
+### 5. Strategic Direction Review
 
 Recommend:
 
@@ -136,7 +142,7 @@ Recommend:
 
 ***
 
-# Required Output
+## Required Output
 
 Save:
 
@@ -160,7 +166,7 @@ Strategic Recommendations
 
 ***
 
-# Output Rules
+## Output Rules
 
 Outputs must:
 
@@ -171,7 +177,7 @@ Outputs must:
 * separate intelligence from execution
 * remain concise and strategic
 
-Do not:
+Do NOT:
 
 * generate operational task queues
 * create implementation plans
@@ -181,30 +187,47 @@ Do not:
 
 ***
 
-# System Role
-
-The SEO Intelligence Agent heartbeat acts as:
-
-```text
-SEO strategic review and intelligence supervision
-```
-
-not:
-
-```text
-SEO execution management
-```
-
-# Reporting Requirement
+## Reporting Requirement
 
 Every heartbeat run must produce a saved markdown report.
 
 If inputs are valid, save:
 
-06\_MARKETING/Reviews/YYYY-MM\_Monthly\_SEO\_Strategy\_Review.md
+```text
+06_MARKETING/Reviews/YYYY-MM_Monthly_SEO_Strategy_Review.md
+```
 
-If inputs are missing or invalid, save:
+If inputs are missing, stale, malformed, or invalid, save:
 
-06\_MARKETING/Reviews/YYYY-MM\_Monthly\_SEO\_Strategy\_Review\_FAILED.md
+```text
+06_MARKETING/Reviews/YYYY-MM_Monthly_SEO_Strategy_Review_FAILED.md
+```
 
-The agent must never complete silently.# Reporting Requirement
+The failed report must explain:
+
+* missing inputs
+* stale outputs
+* schema problems
+* crawl failures
+* dependency failures
+* pipeline reliability concerns
+
+The agent must never complete silently.
+
+Every heartbeat execution must leave a saved output file.
+
+***
+
+## System Role
+
+The SEO Intelligence Agent heartbeat acts as:
+
+* SEO strategic review
+* SEO intelligence supervision
+* pipeline reliability oversight
+
+It is NOT:
+
+* SEO execution management
+* implementation planning
+* publishing automation

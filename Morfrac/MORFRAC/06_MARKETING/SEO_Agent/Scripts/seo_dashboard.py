@@ -2,6 +2,7 @@ from pathlib import Path
 from datetime import datetime
 import csv
 import html
+import os
 import re
 
 
@@ -12,10 +13,12 @@ OUTPUT_PATH = SEO_AGENT_PATH / "Dashboard"
 REPORT_HTML_PATH = OUTPUT_PATH / "Reports"
 RUNNERS_PATH = OUTPUT_PATH / "Run_Scripts"
 MARKETING_DASHBOARD_PATH = OUTPUT_PATH / "Marketing"
+FOLDER_INDEX_PATH = OUTPUT_PATH / "Folders"
 OUTPUT_PATH.mkdir(parents=True, exist_ok=True)
 REPORT_HTML_PATH.mkdir(parents=True, exist_ok=True)
 RUNNERS_PATH.mkdir(parents=True, exist_ok=True)
 MARKETING_DASHBOARD_PATH.mkdir(parents=True, exist_ok=True)
+FOLDER_INDEX_PATH.mkdir(parents=True, exist_ok=True)
 
 TODAY = datetime.today().strftime("%Y-%m-%d")
 
@@ -100,6 +103,21 @@ def file_link(path, label=None):
     label = label or Path(path).name
     href = html.escape(rel_path(path), quote=True)
     return f'<a href="{href}">{html.escape(label)}</a>'
+
+
+def relative_link(path, label=None, from_dir=None):
+    if not path:
+        return '<span class="muted">Not available</span>'
+
+    path = Path(path)
+    label = label or path.name
+
+    if from_dir:
+        href = os.path.relpath(path, start=Path(from_dir)).replace("\\", "/")
+    else:
+        href = rel_path(path)
+
+    return f'<a href="{html.escape(href, quote=True)}">{html.escape(label)}</a>'
 
 
 def report_html_filename(path):
@@ -399,13 +417,156 @@ def render_markdown_report(source_path, title):
     return output_path
 
 
-def folder_link(folder, label="History"):
+def folder_index_filename(folder):
     folder = Path(folder)
     try:
-        href = folder.relative_to(SEO_AGENT_PATH).as_posix() + "/"
+        name = folder.relative_to(BASE_PATH).as_posix()
     except ValueError:
-        href = folder.as_uri() + "/"
-    href = html.escape(href, quote=True)
+        name = folder.as_posix()
+    safe_name = re.sub(r"[^a-zA-Z0-9_.-]+", "_", name).strip("_")
+    return FOLDER_INDEX_PATH / f"{safe_name}.html"
+
+
+def display_file_link(path):
+    path = Path(path)
+
+    if path.suffix.lower() == ".md":
+        rendered = render_markdown_report(path, path.stem.replace("_", " "))
+        return relative_link(rendered, path.name, from_dir=FOLDER_INDEX_PATH)
+
+    if path.suffix.lower() == ".html":
+        if str(path).startswith(str(SEO_AGENT_PATH)):
+            return relative_link(path, path.name, from_dir=FOLDER_INDEX_PATH)
+        return f'<a href="{html.escape(path.as_uri(), quote=True)}">{html.escape(path.name)}</a>'
+
+    if str(path).startswith(str(SEO_AGENT_PATH)):
+        return relative_link(path, path.name, from_dir=FOLDER_INDEX_PATH)
+
+    return f'<a href="{html.escape(path.as_uri(), quote=True)}">{html.escape(path.name)}</a>'
+
+
+def render_folder_index(folder):
+    folder = Path(folder)
+    output_path = folder_index_filename(folder)
+    generated_at = datetime.now().strftime("%Y-%m-%d %H:%M")
+
+    if folder.exists():
+        files = sorted(
+            [path for path in folder.iterdir() if path.is_file()],
+            key=lambda path: path.stat().st_mtime,
+            reverse=True,
+        )
+    else:
+        files = []
+
+    rows = []
+    for path in files:
+        modified = datetime.fromtimestamp(path.stat().st_mtime).strftime("%Y-%m-%d %H:%M")
+        rows.append(f"""
+        <tr>
+          <td>{display_file_link(path)}</td>
+          <td>{html.escape(path.suffix.lower() or "file")}</td>
+          <td>{path.stat().st_size:,}</td>
+          <td>{html.escape(modified)}</td>
+        </tr>
+        """)
+
+    if not rows:
+        rows.append('<tr><td colspan="4" class="muted">No files found.</td></tr>')
+
+    folder_html = f"""<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{html.escape(folder.name)} Files</title>
+  <style>
+    :root {{
+      color-scheme: dark;
+      --bg: #090d12;
+      --surface: #101722;
+      --line: #243244;
+      --text: #e6edf5;
+      --muted: #96a3b5;
+      --accent: #93c5fd;
+    }}
+    * {{ box-sizing: border-box; }}
+    body {{
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Segoe UI, Arial, sans-serif;
+      line-height: 1.45;
+    }}
+    header {{
+      padding: 22px 28px;
+      background: #101722;
+      border-bottom: 1px solid var(--line);
+    }}
+    main {{
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 24px 28px;
+    }}
+    h1 {{ margin: 0; font-size: 24px; letter-spacing: 0; }}
+    a {{ color: var(--accent); text-decoration: none; font-weight: 650; }}
+    a:hover {{ text-decoration: underline; }}
+    .meta {{ margin-top: 6px; color: var(--muted); font-size: 13px; }}
+    .button {{
+      display: inline-flex;
+      margin-top: 14px;
+      padding: 8px 11px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: #151f2d;
+      color: var(--text);
+    }}
+    .table-wrap {{
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--surface);
+    }}
+    table {{ width: 100%; border-collapse: collapse; font-size: 13px; }}
+    th, td {{ padding: 9px 10px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }}
+    th {{ background: #1a2635; color: #dbeafe; text-transform: uppercase; font-size: 11px; }}
+    tr:last-child td {{ border-bottom: 0; }}
+    .muted {{ color: var(--muted); }}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>{html.escape(folder.name)} Files</h1>
+    <div class="meta">{html.escape(str(folder))}</div>
+    <div class="meta">Generated {html.escape(generated_at)}</div>
+    <a class="button" href="../../seo_dashboard.html">Dashboard</a>
+  </header>
+  <main>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>File</th>
+            <th>Type</th>
+            <th>Bytes</th>
+            <th>Modified</th>
+          </tr>
+        </thead>
+        <tbody>
+          {''.join(rows)}
+        </tbody>
+      </table>
+    </div>
+  </main>
+</body>
+</html>
+"""
+    output_path.write_text(folder_html, encoding="utf-8")
+    return output_path
+
+
+def folder_link(folder, label="History"):
+    href = html.escape(rel_path(render_folder_index(folder)), quote=True)
     return f'<a class="secondary-link" href="{href}">{html.escape(label)}</a>'
 
 
@@ -615,6 +776,23 @@ def main():
         report_row("Historical Comparison", "Historical_Comparisons", "*_SEO_Historical_Comparison.md", None, "Trend and change report across pipeline runs."),
         report_row("Action Plan", "Action_Plans", "*_seo_action_plan.md", None, "Prioritized implementation actions."),
     ]
+    major_report_links = [
+        {
+            "label": "Marketing Reviews",
+            "link": folder_link(MARKETING_PATH / "Reviews", "Open folder"),
+            "note": r"C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\Reviews",
+        },
+        {
+            "label": "Marketing Executive Reports",
+            "link": folder_link(MARKETING_PATH / "Executive_Reports", "Open folder"),
+            "note": r"C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\Executive_Reports",
+        },
+        {
+            "label": "SEO Executive Reviews",
+            "link": folder_link(SEO_AGENT_PATH / "Executive_Reviews", "Open folder"),
+            "note": r"C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Executive_Reviews",
+        },
+    ]
 
     metrics = [
         metric_card("Pipeline Status", f"{health_fail} fail / {health_warn} warn", f"{health_pass} checks passing"),
@@ -743,6 +921,15 @@ def main():
         </tr>
         """
         for row in marketing_source_rows
+    )
+    major_report_table = "".join(
+        f"""
+        <tr>
+          <td><strong>{html.escape(row["label"])}</strong><div class="row-note">{html.escape(row["note"])}</div></td>
+          <td>{row["link"]}</td>
+        </tr>
+        """
+        for row in major_report_links
     )
     marketing_dashboard_copy = None
     if files["marketing_dashboard"] and Path(files["marketing_dashboard"]).exists():
@@ -1003,6 +1190,7 @@ def main():
     <nav class="quick-actions">
       <a class="button" href="Dashboard/Reports/Executive_Reviews__SEO_Executive_Review.html">Executive Review</a>
       <a class="button" href="Dashboard/Reports/Pipeline_Health__pipeline_health_report.html">Pipeline Health</a>
+      {folder_link(MARKETING_PATH / "Reviews", "Marketing Reviews").replace('class="secondary-link"', 'class="button"')}
       <a class="button" href="Topic_Authority_Map/topic_authority_map.csv">Topic Authority CSV</a>
       <a class="button" href="Entity_Relationship_Map/entity_opportunities.csv">Entity Opportunities CSV</a>
       <a class="button" href="Dashboard/">Dashboard Folder</a>
@@ -1043,6 +1231,21 @@ def main():
         </thead>
         <tbody>
           {''.join(report_rows)}
+        </tbody>
+      </table>
+    </div>
+
+    <h2>Major Report Folders</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Folder</th>
+            <th>Open</th>
+          </tr>
+        </thead>
+        <tbody>
+          {major_report_table}
         </tbody>
       </table>
     </div>
