@@ -1,0 +1,735 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MORFRAC SEO Dashboard</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #090d12;
+      --surface: #101722;
+      --surface-2: #151f2d;
+      --surface-3: #1a2635;
+      --line: #243244;
+      --text: #e6edf5;
+      --muted: #96a3b5;
+      --accent: #5eead4;
+      --accent-2: #93c5fd;
+      --risk: #fca5a5;
+      --warn: #fcd34d;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Segoe UI, Arial, sans-serif;
+      background: radial-gradient(circle at 20% -10%, rgba(94, 234, 212, 0.08), transparent 32%), var(--bg);
+      color: var(--text);
+      line-height: 1.45;
+    }
+    header {
+      padding: 28px 32px 20px;
+      background: rgba(16, 23, 34, 0.96);
+      border-bottom: 1px solid var(--line);
+      box-shadow: 0 16px 44px rgba(0, 0, 0, 0.24);
+    }
+    main {
+      padding: 24px 32px 40px;
+      max-width: 1500px;
+      margin: 0 auto;
+    }
+    h1, h2, h3 { margin: 0; letter-spacing: 0; }
+    h1 { font-size: 28px; font-weight: 700; }
+    h2 { font-size: 18px; margin: 28px 0 12px; }
+    h3 { font-size: 15px; margin: 0 0 10px; }
+    a {
+      color: var(--accent-2);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    a:hover { text-decoration: underline; }
+    .subhead {
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .quick-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+    .run-panel {
+      margin-top: 18px;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: rgba(21, 31, 45, 0.72);
+    }
+    .run-panel-title {
+      color: #f8fbff;
+      font-size: 14px;
+      font-weight: 750;
+      margin-bottom: 4px;
+    }
+    .run-panel-note {
+      color: var(--muted);
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      min-height: 36px;
+      padding: 8px 12px;
+      border: 1px solid var(--line);
+      background: var(--surface-2);
+      border-radius: 6px;
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 650;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .button.primary {
+      border-color: rgba(94, 234, 212, 0.55);
+      background: #10302d;
+      color: #ccfbf1;
+    }
+    .button:disabled {
+      cursor: wait;
+      opacity: 0.6;
+    }
+    .server-status {
+      margin-top: 12px;
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: #0d1420;
+      color: var(--muted);
+      font-size: 13px;
+      white-space: pre-wrap;
+    }
+    .tabs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 18px;
+      border-bottom: 1px solid var(--line);
+    }
+    .tab-button {
+      min-height: 40px;
+      padding: 9px 13px;
+      border: 1px solid transparent;
+      border-bottom: 0;
+      border-radius: 6px 6px 0 0;
+      background: transparent;
+      color: var(--muted);
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 750;
+      cursor: pointer;
+    }
+    .tab-button.active {
+      background: var(--surface);
+      border-color: var(--line);
+      color: #f8fbff;
+    }
+    .tab-panel {
+      display: none;
+    }
+    .tab-panel.active {
+      display: block;
+    }
+    .marketing-frame {
+      width: 100%;
+      min-height: 76vh;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: #0d1420;
+    }
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+    }
+    .metric {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 14px;
+      min-height: 106px;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+    }
+    .metric-label {
+      color: var(--muted);
+      font-size: 12px;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+    .metric-value {
+      margin-top: 8px;
+      font-size: 25px;
+      font-weight: 750;
+      white-space: nowrap;
+      color: #f8fbff;
+    }
+    .metric-note {
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .panel {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 16px;
+    }
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--surface);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    th, td {
+      padding: 9px 10px;
+      text-align: left;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+    }
+    th {
+      background: var(--surface-3);
+      font-size: 12px;
+      text-transform: uppercase;
+      color: #dbeafe;
+    }
+    tr:nth-child(even) td { background: rgba(255, 255, 255, 0.018); }
+    tr:last-child td { border-bottom: 0; }
+    .row-note, .muted, .secondary-link {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 500;
+    }
+    .empty {
+      color: var(--muted);
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--surface);
+    }
+    footer {
+      color: var(--muted);
+      font-size: 12px;
+      padding: 0 32px 26px;
+      max-width: 1500px;
+      margin: 0 auto;
+    }
+    @media (max-width: 900px) {
+      header, main, footer { padding-left: 16px; padding-right: 16px; }
+      .grid-2 { grid-template-columns: 1fr; }
+      .metric-value { font-size: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>MORFRAC SEO Dashboard</h1>
+    <div class="subhead">Generated 2026-05-17 19:49. Opens latest files directly and keeps folder access for historical reports.</div>
+    <nav class="quick-actions">
+      <a class="button" href="Dashboard/Reports/Executive_Reviews__SEO_Executive_Review.html">Executive Review</a>
+      <a class="button" href="Dashboard/Reports/Pipeline_Health__pipeline_health_report.html">Pipeline Health</a>
+      <a class="button" href="Topic_Authority_Map/topic_authority_map.csv">Topic Authority CSV</a>
+      <a class="button" href="Entity_Relationship_Map/entity_opportunities.csv">Entity Opportunities CSV</a>
+      <a class="button" href="Dashboard/">Dashboard Folder</a>
+    </nav>
+    <section class="run-panel">
+      <div class="run-panel-title">Run Scripts</div>
+      <div class="run-panel-note">To run scripts from buttons, open this dashboard through the local server: <code>start_seo_dashboard_server.bat</code>, then use <code>http://127.0.0.1:8765/</code>.</div>
+      <nav class="quick-actions">
+        <button class="button primary run-script-button" type="button" data-task="dashboard">Refresh Dashboard</button><button class="button primary run-script-button" type="button" data-task="pipeline">Run Full SEO Pipeline</button><button class="button primary run-script-button" type="button" data-task="marketing_reports">Run Marketing Reports</button><button class="button run-script-button" type="button" data-task="competitor_monitoring">Run Competitor Monitoring</button><button class="button run-script-button" type="button" data-task="health">Run Health Check</button><button class="button run-script-button" type="button" data-task="executive">Run Executive Review</button><button class="button run-script-button" type="button" data-task="topic_authority">Run Topic Authority</button><button class="button run-script-button" type="button" data-task="content_gaps">Run Content Gaps</button><button class="button run-script-button" type="button" data-task="entity_map">Run Entity Map</button>
+      </nav>
+      <div id="server-status" class="server-status">Checking dashboard server...</div>
+    </section>
+  </header>
+
+  <main>
+    <nav class="tabs" aria-label="Dashboard tabs">
+      <button class="tab-button active" type="button" data-tab="seo-tab">SEO Dashboard</button>
+      <button class="tab-button" type="button" data-tab="marketing-tab">Marketing Dashboard</button>
+    </nav>
+
+    <section id="seo-tab" class="tab-panel active">
+    <h2>Metrics</h2>
+    <section class="metrics">
+      
+    <section class="metric">
+      <div class="metric-label">Pipeline Status</div>
+      <div class="metric-value">0 fail / 0 warn</div>
+      <div class="metric-note">10 checks passing</div>
+    </section>
+    
+    <section class="metric">
+      <div class="metric-label">Pages In Merge</div>
+      <div class="metric-value">5</div>
+      <div class="metric-note">5 indexable</div>
+    </section>
+    
+    <section class="metric">
+      <div class="metric-label">Search Visibility</div>
+      <div class="metric-value">969</div>
+      <div class="metric-note">22 clicks</div>
+    </section>
+    
+    <section class="metric">
+      <div class="metric-label">Average Position</div>
+      <div class="metric-value">11.11</div>
+      <div class="metric-note">Search Console merged pages</div>
+    </section>
+    
+    <section class="metric">
+      <div class="metric-label">Semantic Clusters</div>
+      <div class="metric-value">12</div>
+      <div class="metric-note">0 orphan topics</div>
+    </section>
+    
+    <section class="metric">
+      <div class="metric-label">Cannibalization Pairs</div>
+      <div class="metric-value">246</div>
+      <div class="metric-note">Semantic risk pairs</div>
+    </section>
+    
+    <section class="metric">
+      <div class="metric-label">Content Gaps</div>
+      <div class="metric-value">10</div>
+      <div class="metric-note">Detected gap rows</div>
+    </section>
+    
+    <section class="metric">
+      <div class="metric-label">Avg Authority Score</div>
+      <div class="metric-value">12.47</div>
+      <div class="metric-note">12 topics scored</div>
+    </section>
+    
+    <section class="metric">
+      <div class="metric-label">Commercial Authority Gaps</div>
+      <div class="metric-value">10</div>
+      <div class="metric-note">High commercial / low authority</div>
+    </section>
+    
+    <section class="metric">
+      <div class="metric-label">Weak Topics</div>
+      <div class="metric-value">11</div>
+      <div class="metric-note">2 at risk</div>
+    </section>
+    
+    <section class="metric">
+      <div class="metric-label">Dominant Topics</div>
+      <div class="metric-value">0</div>
+      <div class="metric-note">Authority tier DOMINANT</div>
+    </section>
+    
+    <section class="metric">
+      <div class="metric-label">Contextual Links</div>
+      <div class="metric-value">911</div>
+      <div class="metric-note">Filtered recommendations</div>
+    </section>
+    
+    <section class="metric">
+      <div class="metric-label">Entity Opportunities</div>
+      <div class="metric-value">36</div>
+      <div class="metric-note">Entity relationship layer</div>
+    </section>
+    
+    <section class="metric">
+      <div class="metric-label">SC Base Exports</div>
+      <div class="metric-value">8</div>
+      <div class="metric-note">Marketing Search Console raw files</div>
+    </section>
+    
+    <section class="metric">
+      <div class="metric-label">GA4 Base Exports</div>
+      <div class="metric-value">4</div>
+      <div class="metric-note">Marketing analytics raw files</div>
+    </section>
+    
+    <section class="metric">
+      <div class="metric-label">Competitor Snapshots</div>
+      <div class="metric-value">42</div>
+      <div class="metric-note">Rows in competitor history</div>
+    </section>
+    
+    <section class="metric">
+      <div class="metric-label">Generated Content Assets</div>
+      <div class="metric-value">30</div>
+      <div class="metric-note">10 blog / 10 landing / 10 LinkedIn</div>
+    </section>
+    
+    <section class="metric">
+      <div class="metric-label">Marketing Dashboards</div>
+      <div class="metric-value">3</div>
+      <div class="metric-note">Historical dashboard files</div>
+    </section>
+    
+    </section>
+
+    <h2>Main Reports And History</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Area</th>
+            <th>Latest</th>
+            <th>Stable</th>
+            <th>Folder</th>
+            <th>Latest Modified</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+    <tr>
+      <td><strong>Executive SEO Review</strong><div class="row-note">Main executive intelligence report.</div></td>
+      <td><a href="Dashboard/Reports/Executive_Reviews__2026-05-17_SEO_Executive_Review.html">Latest</a></td>
+      <td><a href="Dashboard/Reports/Executive_Reviews__SEO_Executive_Review.html">Stable</a></td>
+      <td><a class="secondary-link" href="Executive_Reviews/">History</a></td>
+      <td>2026-05-17 16:36</td>
+    </tr>
+    
+    <tr>
+      <td><strong>Pipeline Health</strong><div class="row-note">Pass, warn, fail checks for latest outputs.</div></td>
+      <td><a href="Dashboard/Reports/Pipeline_Health__2026-05-17_pipeline_health_report.html">Latest</a></td>
+      <td><a href="Dashboard/Reports/Pipeline_Health__pipeline_health_report.html">Stable</a></td>
+      <td><a class="secondary-link" href="Pipeline_Health/">History</a></td>
+      <td>2026-05-17 19:30</td>
+    </tr>
+    
+    <tr>
+      <td><strong>Topic Authority Map</strong><div class="row-note">Authority tiers, commercial gaps, topic risks.</div></td>
+      <td><a href="Dashboard/Reports/Topic_Authority_Map__2026-05-17_topic_authority_report.html">Latest</a></td>
+      <td><span class="muted">No stable file</span></td>
+      <td><a class="secondary-link" href="Topic_Authority_Map/">History</a></td>
+      <td>2026-05-17 16:36</td>
+    </tr>
+    
+    <tr>
+      <td><strong>Entity Relationship Map</strong><div class="row-note">Entity opportunities and crawl-derived relationship graph.</div></td>
+      <td><a href="Dashboard/Reports/Entity_Relationship_Map__2026-05-17_entity_relationship_report.html">Latest</a></td>
+      <td><span class="muted">No stable file</span></td>
+      <td><a class="secondary-link" href="Entity_Relationship_Map/">History</a></td>
+      <td>2026-05-17 16:36</td>
+    </tr>
+    
+    <tr>
+      <td><strong>Content Gap Analysis</strong><div class="row-note">Missing pillars, authority gaps, orphan commercial topics.</div></td>
+      <td><a href="Dashboard/Reports/Content_Gap_Analysis__2026-05-17_content_gap_report.html">Latest</a></td>
+      <td><span class="muted">No stable file</span></td>
+      <td><a class="secondary-link" href="Content_Gap_Analysis/">History</a></td>
+      <td>2026-05-17 16:36</td>
+    </tr>
+    
+    <tr>
+      <td><strong>Semantic Cluster Analysis</strong><div class="row-note">Clusters, cannibalization and orphan topic risks.</div></td>
+      <td><a href="Dashboard/Reports/Semantic_Clusters__2026-05-17_semantic_cluster_report.html">Latest</a></td>
+      <td><span class="muted">No stable file</span></td>
+      <td><a class="secondary-link" href="Semantic_Clusters/">History</a></td>
+      <td>2026-05-17 16:36</td>
+    </tr>
+    
+    <tr>
+      <td><strong>Search Console Merge</strong><div class="row-note">Crawl data merged with Search Console visibility.</div></td>
+      <td><a href="Dashboard/Reports/Merged_Analysis__2026-05-17_search_console_merge.html">Latest</a></td>
+      <td><a href="Dashboard/Reports/Merged_Analysis__search_console_merge.html">Stable</a></td>
+      <td><a class="secondary-link" href="Merged_Analysis/">History</a></td>
+      <td>2026-05-17 16:36</td>
+    </tr>
+    
+    <tr>
+      <td><strong>Contextual Links</strong><div class="row-note">Filtered internal link recommendations.</div></td>
+      <td><span class="muted">No latest file</span></td>
+      <td><span class="muted">No stable file</span></td>
+      <td><a class="secondary-link" href="Contextual_Links/">History</a></td>
+      <td>Not available</td>
+    </tr>
+    
+    <tr>
+      <td><strong>Historical Comparison</strong><div class="row-note">Trend and change report across pipeline runs.</div></td>
+      <td><a href="Dashboard/Reports/Historical_Comparisons__2026-05-17_SEO_Historical_Comparison.html">Latest</a></td>
+      <td><span class="muted">No stable file</span></td>
+      <td><a class="secondary-link" href="Historical_Comparisons/">History</a></td>
+      <td>2026-05-17 16:36</td>
+    </tr>
+    
+    <tr>
+      <td><strong>Action Plan</strong><div class="row-note">Prioritized implementation actions.</div></td>
+      <td><a href="Dashboard/Reports/Action_Plans__2026-05-17_seo_action_plan.html">Latest</a></td>
+      <td><span class="muted">No stable file</span></td>
+      <td><a class="secondary-link" href="Action_Plans/">History</a></td>
+      <td>2026-05-17 16:35</td>
+    </tr>
+    
+        </tbody>
+      </table>
+    </div>
+
+    <h2>Marketing Base Files</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Source</th>
+            <th>Latest</th>
+            <th>Folder</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+        <tr>
+          <td><strong>Marketing Dashboard</strong><div class="row-note">Executive marketing KPIs and commentary.</div></td>
+          <td><a href="file:///C:/Users/nicol/Documents/Obsidian/Morfrac/MORFRAC/06_MARKETING/Dashboards/2026-05-10_Marketing_Dashboard.html">Latest dashboard</a></td>
+          <td><a class="secondary-link" href="file:///C:/Users/nicol/Documents/Obsidian/Morfrac/MORFRAC/06_MARKETING/Dashboards/">History</a></td>
+        </tr>
+        
+        <tr>
+          <td><strong>Marketing Executive Report</strong><div class="row-note">Executive marketing report generated by marketing pipeline.</div></td>
+          <td><span class="muted">Not available</span></td>
+          <td><a class="secondary-link" href="file:///C:/Users/nicol/Documents/Obsidian/Morfrac/MORFRAC/06_MARKETING/Executive_Reports/">History</a></td>
+        </tr>
+        
+        <tr>
+          <td><strong>Marketing Review</strong><div class="row-note">Base marketing review input.</div></td>
+          <td><a href="file:///C:/Users/nicol/Documents/Obsidian/Morfrac/MORFRAC/06_MARKETING/Reviews/2026-05-09_Marketing_Review.md">Latest review</a></td>
+          <td><a class="secondary-link" href="file:///C:/Users/nicol/Documents/Obsidian/Morfrac/MORFRAC/06_MARKETING/Reviews/">History</a></td>
+        </tr>
+        
+        <tr>
+          <td><strong>Competitor Summary</strong><div class="row-note">Competitor monitoring output.</div></td>
+          <td><a href="file:///C:/Users/nicol/Documents/Obsidian/Morfrac/MORFRAC/06_MARKETING/Competitors/Notes/2026-05-11_Competitor_Summary.md">Latest summary</a></td>
+          <td><a class="secondary-link" href="file:///C:/Users/nicol/Documents/Obsidian/Morfrac/MORFRAC/06_MARKETING/Competitors/Notes/">History</a></td>
+        </tr>
+        
+        <tr>
+          <td><strong>Search Console Raw Data</strong><div class="row-note">Upstream base file for SEO pipeline visibility.</div></td>
+          <td><a href="file:///C:/Users/nicol/Documents/Obsidian/Morfrac/MORFRAC/06_MARKETING/Analytics/Raw_Data/SearchConsole/2026-05-17_SearchConsole_Raw_Data.md">Latest raw export</a></td>
+          <td><a class="secondary-link" href="file:///C:/Users/nicol/Documents/Obsidian/Morfrac/MORFRAC/06_MARKETING/Analytics/Raw_Data/SearchConsole/">History</a></td>
+        </tr>
+        
+        <tr>
+          <td><strong>GA4 Raw Data</strong><div class="row-note">Upstream analytics base file.</div></td>
+          <td><a href="file:///C:/Users/nicol/Documents/Obsidian/Morfrac/MORFRAC/06_MARKETING/Analytics/Raw_Data/GA4/2026-05-11_GA4_Raw_Data.md">Latest raw export</a></td>
+          <td><a class="secondary-link" href="file:///C:/Users/nicol/Documents/Obsidian/Morfrac/MORFRAC/06_MARKETING/Analytics/Raw_Data/GA4/">History</a></td>
+        </tr>
+        
+        <tr>
+          <td><strong>Weekly Marketing Report</strong><div class="row-note">Weekly analytics summary.</div></td>
+          <td><a href="file:///C:/Users/nicol/Documents/Obsidian/Morfrac/MORFRAC/06_MARKETING/Analytics/Weekly_Reports/2026-05-11_Weekly_Marketing_Report.md">Latest report</a></td>
+          <td><a class="secondary-link" href="file:///C:/Users/nicol/Documents/Obsidian/Morfrac/MORFRAC/06_MARKETING/Analytics/Weekly_Reports/">History</a></td>
+        </tr>
+        
+        </tbody>
+      </table>
+    </div>
+
+    <section class="grid-2">
+      <div class="panel">
+        <h2>Latest Marketing Dashboard Metrics</h2>
+        
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Metric</th><th>Value</th><th>Note</th></tr></thead>
+        <tbody><tr><td>Commercial Traffic Quality</td><td>32.1%</td><td>High relevance traffic</td></tr><tr><td>Low-Confidence Traffic</td><td>49.7%</td><td>Low-tier traffic</td></tr><tr><td>Organic CTR</td><td>1.56%</td><td>-34.8% change</td></tr><tr><td>Average Position</td><td>15.41</td><td>Change: 3.94</td></tr></tbody>
+      </table>
+    </div>
+    
+      </div>
+      <div class="panel">
+        <h2>Competitor Base Signals</h2>
+        
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Date</th><th>Company</th><th>Website</th><th>Status</th></tr></thead>
+        <tbody><tr><td>2026-05-07</td><td>Karver</td><td>https://www.karver-systems.com</td><td>200.0</td></tr><tr><td>2026-05-07</td><td>Harken</td><td>https://www.harken.com</td><td>200.0</td></tr><tr><td>2026-05-07</td><td>Antal</td><td>https://www.antal.it</td><td>200.0</td></tr><tr><td>2026-05-07</td><td>Facnor</td><td>https://www.facnor.com</td><td>200.0</td></tr><tr><td>2026-05-07</td><td>Profurl</td><td>https://www.profurl.com</td><td>200.0</td></tr><tr><td>2026-05-07</td><td>Ubi Maior</td><td>https://www.ubimaioritalia.com</td><td>200.0</td></tr><tr><td>2026-05-07</td><td>KZ furlers</td><td>http://www.kzracefurlers.com/</td><td>200.0</td></tr><tr><td>2026-05-07</td><td>Ronstan</td><td>https://www.ronstan.com</td><td>200.0</td></tr><tr><td>2026-05-07</td><td>Lewmar</td><td>https://www.lewmar.com</td><td>200.0</td></tr><tr><td>2026-05-07</td><td>Spinlock</td><td>https://www.spinlock.co.uk</td><td>200.0</td></tr></tbody>
+      </table>
+    </div>
+    
+      </div>
+    </section>
+
+    <section class="grid-2">
+      <div class="panel">
+        <h2>Highest Topic Authority</h2>
+        
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Topic</th><th>Score</th><th>Tier</th><th>Status</th><th>Impressions</th><th>Clicks</th></tr></thead>
+        <tbody><tr><td>other</td><td>64.0</td><td>MODERATE</td><td>TOPIC_AT_RISK</td><td>0</td><td>0</td></tr><tr><td>shackle</td><td>31.32</td><td>WEAK</td><td>TOPIC_AT_RISK</td><td>363</td><td>19</td></tr><tr><td>morfring</td><td>16.95</td><td>VERY_WEAK</td><td>HIGH_COMMERCIAL_LOW_AUTHORITY</td><td>0</td><td>0</td></tr><tr><td>dogbone</td><td>13.96</td><td>VERY_WEAK</td><td>HIGH_COMMERCIAL_LOW_AUTHORITY</td><td>376</td><td>3</td></tr><tr><td>powerfurl</td><td>9.25</td><td>VERY_WEAK</td><td>HIGH_COMMERCIAL_LOW_AUTHORITY</td><td>0</td><td>0</td></tr><tr><td>powerfurl</td><td>6.3</td><td>VERY_WEAK</td><td>HIGH_COMMERCIAL_LOW_AUTHORITY</td><td>0</td><td>0</td></tr><tr><td>morfblock</td><td>3.25</td><td>VERY_WEAK</td><td>HIGH_COMMERCIAL_LOW_AUTHORITY</td><td>0</td><td>0</td></tr><tr><td>morfblock</td><td>1.75</td><td>VERY_WEAK</td><td>HIGH_COMMERCIAL_LOW_AUTHORITY</td><td>0</td><td>0</td></tr><tr><td>powerfurl</td><td>1.75</td><td>VERY_WEAK</td><td>HIGH_COMMERCIAL_LOW_AUTHORITY</td><td>0</td><td>0</td></tr><tr><td>morfblock</td><td>1.1</td><td>VERY_WEAK</td><td>HIGH_COMMERCIAL_LOW_AUTHORITY</td><td>0</td><td>0</td></tr></tbody>
+      </table>
+    </div>
+    
+      </div>
+      <div class="panel">
+        <h2>Commercial Authority Gaps</h2>
+        
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Topic</th><th>Score</th><th>Commercial</th><th>Authority</th><th>Action</th></tr></thead>
+        <tbody><tr><td>morfring</td><td>16.95</td><td>47.0</td><td>20.0</td><td>Create technical guide content supporting the morfring product family.</td></tr><tr><td>dogbone</td><td>13.96</td><td>49.2</td><td>27.82</td><td>Create technical guide content supporting the dogbone product family.</td></tr><tr><td>powerfurl</td><td>9.25</td><td>25.0</td><td>20.0</td><td>Create or improve category structure for powerfurl pages.</td></tr><tr><td>powerfurl</td><td>6.3</td><td>20.0</td><td>8.0</td><td>Create or improve category structure for powerfurl pages.</td></tr><tr><td>morfblock</td><td>3.25</td><td>35.0</td><td>20.0</td><td>Create technical guide content supporting the morfblock product family.</td></tr><tr><td>morfblock</td><td>1.75</td><td>35.0</td><td>20.0</td><td>Create technical guide content supporting the morfblock product family.</td></tr><tr><td>powerfurl</td><td>1.75</td><td>35.0</td><td>20.0</td><td>Create technical guide content supporting the powerfurl product family.</td></tr><tr><td>morfblock</td><td>1.1</td><td>24.0</td><td>20.0</td><td>Create or improve category structure for morfblock pages.</td></tr><tr><td>powerfurl</td><td>0.0</td><td>35.0</td><td>8.5</td><td>Create technical guide content supporting the powerfurl product family.</td></tr><tr><td>powerfurl</td><td>0.0</td><td>24.0</td><td>0.0</td><td>Create or improve category structure for powerfurl pages.</td></tr></tbody>
+      </table>
+    </div>
+    
+      </div>
+    </section>
+
+    <section class="grid-2">
+      <div class="panel">
+        <h2>Content Gap Priorities</h2>
+        
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Topic</th><th>Gap Type</th><th>Score</th><th>Action</th></tr></thead>
+        <tbody><tr><td>morfblock</td><td>Missing technical authority content</td><td>155.0</td><td>Create technical guide content supporting the morfblock product family.</td></tr><tr><td>powerfurl</td><td>Missing technical authority content</td><td>155.0</td><td>Create technical guide content supporting the powerfurl product family.</td></tr><tr><td>dogbone</td><td>Missing technical authority content</td><td>150.2</td><td>Create technical guide content supporting the dogbone product family.</td></tr><tr><td>powerfurl</td><td>Missing technical authority content</td><td>148.0</td><td>Create technical guide content supporting the powerfurl product family.</td></tr><tr><td>morfblock</td><td>Missing technical authority content</td><td>145.0</td><td>Create technical guide content supporting the morfblock product family.</td></tr><tr><td>shackle</td><td>Missing category support</td><td>135.46</td><td>Create or improve category structure for shackle pages.</td></tr><tr><td>morfring</td><td>Missing technical authority content</td><td>95.0</td><td>Create technical guide content supporting the morfring product family.</td></tr><tr><td>morfblock</td><td>Missing category support</td><td>68.0</td><td>Create or improve category structure for morfblock pages.</td></tr><tr><td>powerfurl</td><td>Missing category support</td><td>68.0</td><td>Create or improve category structure for powerfurl pages.</td></tr><tr><td>powerfurl</td><td>Missing category support</td><td>35.0</td><td>Create or improve category structure for powerfurl pages.</td></tr></tbody>
+      </table>
+    </div>
+    
+      </div>
+      <div class="panel">
+        <h2>Entity Opportunities</h2>
+        
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Type</th><th>Entity</th><th>Score</th><th>Opportunity</th><th>Impressions</th></tr></thead>
+        <tbody><tr><td>product_family</td><td>dogbone</td><td>95.04</td><td>COMMERCIAL_ENTITY_NEEDS_AUTHORITY_CONTENT</td><td>376</td></tr><tr><td>application</td><td>soft_connection</td><td>87.6</td><td>COMMERCIAL_ENTITY_NEEDS_AUTHORITY_CONTENT</td><td>190</td></tr><tr><td>material</td><td>dyneema</td><td>87.6</td><td>COMMERCIAL_ENTITY_NEEDS_AUTHORITY_CONTENT</td><td>190</td></tr><tr><td>engineering_concept</td><td>marine_hardware</td><td>86.92</td><td>COMMERCIAL_ENTITY_NEEDS_AUTHORITY_CONTENT</td><td>173</td></tr><tr><td>product_family</td><td>mloop</td><td>82.6</td><td>COMMERCIAL_ENTITY_NEEDS_AUTHORITY_CONTENT</td><td>190</td></tr><tr><td>material</td><td>ptfe</td><td>80.0</td><td>COMMERCIAL_ENTITY_NEEDS_AUTHORITY_CONTENT</td><td>0</td></tr><tr><td>engineering_concept</td><td>cnc_machining</td><td>80.0</td><td>COMMERCIAL_ENTITY_NEEDS_AUTHORITY_CONTENT</td><td>0</td></tr><tr><td>product_family</td><td>morfring</td><td>80.0</td><td>COMMERCIAL_ENTITY_NEEDS_AUTHORITY_CONTENT</td><td>0</td></tr><tr><td>product_family</td><td>shackle</td><td>80.0</td><td>COMMERCIAL_ENTITY_NEEDS_AUTHORITY_CONTENT</td><td>0</td></tr><tr><td>intent</td><td>technical</td><td>62.6</td><td>COMMERCIAL_ENTITY_NEEDS_PILLAR_PAGE</td><td>190</td></tr></tbody>
+      </table>
+    </div>
+    
+      </div>
+    </section>
+
+    <section class="grid-2">
+      <div class="panel">
+        <h2>Pipeline Health Checks</h2>
+        
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Check</th><th>Status</th><th>Severity</th><th>Rows</th><th>Notes</th></tr></thead>
+        <tbody><tr><td>Crawl CSV</td><td>PASS</td><td>OK</td><td>500</td><td>Output looks usable.</td></tr><tr><td>Search Console Merge</td><td>PASS</td><td>OK</td><td>5</td><td>Output looks usable.</td></tr><tr><td>Internal Link Graph Pages</td><td>PASS</td><td>OK</td><td>500</td><td>Output looks usable.</td></tr><tr><td>Contextual Link Recommendations</td><td>PASS</td><td>OK</td><td>911</td><td>Output looks usable.</td></tr><tr><td>Semantic Cluster Summary</td><td>PASS</td><td>OK</td><td>12</td><td>Output looks usable.</td></tr><tr><td>Semantic Cluster Pages</td><td>PASS</td><td>OK</td><td>256</td><td>Output looks usable.</td></tr><tr><td>Content Gap Analysis</td><td>PASS</td><td>OK</td><td>10</td><td>Output looks usable.</td></tr><tr><td>Topic Authority Map</td><td>PASS</td><td>OK</td><td>12</td><td>Output looks usable.</td></tr><tr><td>Executive Review</td><td>PASS</td><td>OK</td><td>210</td><td>Output looks usable.</td></tr><tr><td>Historical Comparison</td><td>PASS</td><td>OK</td><td>93</td><td>Output looks usable.</td></tr></tbody>
+      </table>
+    </div>
+    
+      </div>
+      <div class="panel">
+        <h2>Semantic Cannibalization Risks</h2>
+        
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Risk</th><th>Label A</th><th>Label B</th><th>Similarity</th><th>URL A</th><th>URL B</th></tr></thead>
+        <tbody><tr><td>possible_cannibalization</td><td>powerfurl</td><td>powerfurl</td><td>1.0</td><td>https://www.morfrac.com/blog/news-1/morfrac-de-walle-sails-33</td><td>https://www.morfrac.com/es/blog/blog-1/morfrac-de-walle-sails-33</td></tr><tr><td>possible_cannibalization</td><td>morfblock</td><td>morfblock</td><td>1.0</td><td>https://www.morfrac.com/shop/category/morfblock-morfblock-wood-20</td><td>https://www.morfrac.com/shop/category/morfblock-morfblockwood-20</td></tr><tr><td>possible_cannibalization</td><td>morfblock</td><td>morfblock</td><td>1.0</td><td>https://www.morfrac.com/shop/category/morfblock-morfblock-ultra-38</td><td>https://www.morfrac.com/shop/category/morfblock-morfblockmax-38</td></tr><tr><td>possible_cannibalization</td><td>morfblock</td><td>morfblock</td><td>1.0</td><td>https://www.morfrac.com/shop/category/morfblock-morfblock-light-18</td><td>https://www.morfrac.com/shop/category/morfblock-morfblocklight-18</td></tr><tr><td>possible_cannibalization</td><td>morfblock</td><td>morfblock</td><td>1.0</td><td>https://www.morfrac.com/shop/category/morfblock-morfblock-xl-21</td><td>https://www.morfrac.com/shop/category/morfblock-morfblockxl-21</td></tr><tr><td>possible_cannibalization</td><td>powerfurl</td><td>powerfurl</td><td>1.0</td><td>https://www.morfrac.com/shop/category/powerfurl-continuous-line-powerfurleight-10</td><td>https://www.morfrac.com/shop/category/powerfurl-continuous-line-powerfurlsix-13</td></tr><tr><td>possible_cannibalization</td><td>powerfurl</td><td>powerfurl</td><td>1.0</td><td>https://www.morfrac.com/shop/category/powerfurl-continuous-line-powerfurleight-10</td><td>https://www.morfrac.com/shop/category/powerfurl-continuous-line-powerfurlone-12</td></tr><tr><td>possible_cannibalization</td><td>powerfurl</td><td>powerfurl</td><td>1.0</td><td>https://www.morfrac.com/shop/category/powerfurl-continuous-line-powerfurleight-10</td><td>https://www.morfrac.com/shop/category/powerfurl-continuous-line-powerfurlfour-11</td></tr></tbody>
+      </table>
+    </div>
+    
+      </div>
+    </section>
+    </section>
+
+    <section id="marketing-tab" class="tab-panel">
+      <h2>Marketing Dashboard</h2>
+      <div class="panel">
+        <div class="quick-actions" style="margin-top: 0; margin-bottom: 12px;">
+          <a href="Dashboard/Marketing/latest_marketing_dashboard.html">Open embedded marketing dashboard</a>
+          <a href="file:///C:/Users/nicol/Documents/Obsidian/Morfrac/MORFRAC/06_MARKETING/Dashboards/2026-05-10_Marketing_Dashboard.html">Open original latest marketing dashboard</a>
+          <a class="secondary-link" href="file:///C:/Users/nicol/Documents/Obsidian/Morfrac/MORFRAC/06_MARKETING/Dashboards/">Marketing dashboard history</a>
+        </div>
+        <iframe class="marketing-frame" src="Dashboard/Marketing/latest_marketing_dashboard.html" title="Marketing Dashboard"></iframe>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Dashboard source: Scripts/seo_dashboard.py. Re-run the script after pipeline output changes to refresh this file.
+  </footer>
+  <script>
+    const statusBox = document.getElementById("server-status");
+    const runButtons = Array.from(document.querySelectorAll(".run-script-button"));
+    const tabButtons = Array.from(document.querySelectorAll(".tab-button"));
+    const tabPanels = Array.from(document.querySelectorAll(".tab-panel"));
+
+    function setStatus(message) {
+      statusBox.textContent = message;
+    }
+
+    function isServerMode() {
+      return location.protocol === "http:" && location.hostname === "127.0.0.1" && location.port === "8765";
+    }
+
+    async function refreshStatus() {
+      if (!isServerMode()) {
+        runButtons.forEach((button) => button.disabled = true);
+        setStatus("Script buttons are disabled in file mode. Open start_seo_dashboard_server.bat, then use http://127.0.0.1:8765/ to run scripts from the dashboard.");
+        return;
+      }
+
+      try {
+        const response = await fetch("/api/tasks");
+        const data = await response.json();
+        const running = Object.values(data.running || {});
+        const latest = (data.history || [])[0];
+
+        runButtons.forEach((button) => {
+          button.disabled = running.length > 0;
+        });
+
+        if (running.length > 0) {
+          setStatus("Running: " + running.map((item) => item.label).join(", "));
+        } else if (latest) {
+          setStatus("Last run: " + latest.label + " - " + latest.status + ". Reload the page to see refreshed metrics after dashboard generation completes.");
+        } else {
+          setStatus("Server connected. Choose a script to run.");
+        }
+      } catch (error) {
+        runButtons.forEach((button) => button.disabled = true);
+        setStatus("Dashboard server is not reachable. Start it with start_seo_dashboard_server.bat.");
+      }
+    }
+
+    runButtons.forEach((button) => {
+      button.addEventListener("click", async () => {
+        if (!isServerMode()) {
+          setStatus("Open start_seo_dashboard_server.bat first, then use http://127.0.0.1:8765/.");
+          return;
+        }
+
+        const taskId = button.dataset.task;
+        button.disabled = true;
+        setStatus("Starting: " + button.textContent);
+
+        try {
+          const response = await fetch("/api/run/" + encodeURIComponent(taskId), { method: "POST" });
+          const data = await response.json();
+          setStatus(data.label + ": " + data.status);
+          setTimeout(refreshStatus, 1000);
+        } catch (error) {
+          setStatus("Could not start script. Check the dashboard server window.");
+        }
+      });
+    });
+
+    tabButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const target = button.dataset.tab;
+        tabButtons.forEach((item) => item.classList.toggle("active", item === button));
+        tabPanels.forEach((panel) => panel.classList.toggle("active", panel.id === target));
+      });
+    });
+
+    refreshStatus();
+    setInterval(refreshStatus, 3000);
+  </script>
+</body>
+</html>

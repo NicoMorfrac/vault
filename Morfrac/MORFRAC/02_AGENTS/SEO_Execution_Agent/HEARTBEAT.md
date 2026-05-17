@@ -2,7 +2,7 @@
 
 ## Schedule
 
-Weekly — Thursday — 08:00 Europe/Madrid
+Weekly — Tuesday — 08:00 Europe/Madrid
 
 ## Purpose
 
@@ -12,26 +12,26 @@ This heartbeat is operational, not analytical.
 
 It converts existing SEO intelligence into implementation-ready recommendations.
 
----
+***
 
 # Inputs
 
 Read latest outputs from:
 
-C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\
+C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06\_MARKETING\SEO\_Agent\\
 
 Priority folders:
 
-Executive_Reviews
-Topic_Authority_Map
-Content_Gap_Analysis
-Entity_Relationship_Map
-Contextual_Links
-Pipeline_Health
-Semantic_Clusters
-Merged_Analysis
+Executive\_Reviews
+Topic\_Authority\_Map
+Content\_Gap\_Analysis
+Entity\_Relationship\_Map
+Contextual\_Links
+Pipeline\_Health
+Semantic\_Clusters
+Merged\_Analysis
 
----
+***
 
 # Required Actions
 
@@ -51,7 +51,7 @@ STOP execution and generate only a warning summary.
 
 Do not create execution tasks from broken data.
 
----
+***
 
 ## 2. Identify Highest-Priority Opportunities
 
@@ -66,7 +66,7 @@ Focus only on:
 
 Avoid low-value SEO work.
 
----
+***
 
 ## 3. Generate Execution Recommendations
 
@@ -83,7 +83,7 @@ Include:
 * reason
 * priority
 
----
+***
 
 ### Internal Link Tasks
 
@@ -101,7 +101,7 @@ Prioritize:
 * pillar → category/product
 * high authority → weak commercial targets
 
----
+***
 
 ### Content Brief Recommendations
 
@@ -114,7 +114,7 @@ Generate only:
 
 Do not generate generic SEO filler content.
 
----
+***
 
 ### Pillar Page Opportunities
 
@@ -125,7 +125,7 @@ Identify:
 * fragmented semantic clusters
 * weak commercial routing
 
----
+***
 
 ## 4. Build Weekly Execution Queue
 
@@ -133,15 +133,15 @@ Create a concise implementation queue.
 
 Required fields:
 
-task_id
-task_type
+task\_id
+task\_type
 topic
-target_url
+target\_url
 priority
 effort
 impact
 reason
-evidence_source
+evidence\_source
 status
 
 Priority scale:
@@ -155,23 +155,23 @@ Status default:
 
 Draft
 
----
+***
 
 # Required Outputs
 
 Save outputs under:
 
-C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Execution_Queue
+C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06\_MARKETING\SEO\_Execution\_Queue
 
 Required files:
 
-YYYY-MM-DD_SEO_Execution_Plan.md
-YYYY-MM-DD_Metadata_Tasks.md
-YYYY-MM-DD_Internal_Link_Tasks.md
-YYYY-MM-DD_Content_Briefs.md
-YYYY-MM-DD_Pillar_Page_Tasks.md
+YYYY-MM-DD\_SEO\_Execution\_Plan.md
+YYYY-MM-DD\_Metadata\_Tasks.md
+YYYY-MM-DD\_Internal\_Link\_Tasks.md
+YYYY-MM-DD\_Content\_Briefs.md
+YYYY-MM-DD\_Pillar\_Page\_Tasks.md
 
----
+***
 
 # Output Rules
 
@@ -192,7 +192,7 @@ Avoid:
 * excessive keyword repetition
 * low-value AI content
 
----
+***
 
 # Human Review Requirement
 
@@ -209,7 +209,7 @@ All outputs are recommendations only.
 
 Human review is mandatory before implementation.
 
----
+***
 
 # Strategic Objective
 
@@ -218,7 +218,6 @@ The objective of this heartbeat is to bridge:
 SEO intelligence
 →
 SEO operational execution
-
 
 while maintaining:
 

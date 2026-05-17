@@ -118,6 +118,11 @@ py seo_pipeline_health_check.py
 if errorlevel 1 exit /b %errorlevel%
 
 echo.
+echo STEP 23 - SEO Dashboard
+py seo_dashboard.py
+if errorlevel 1 exit /b %errorlevel%
+
+echo.
 echo ==============================
 echo MORFRAC SEO PIPELINE COMPLETE
 echo ==============================

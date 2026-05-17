@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Semantic Cluster Analysis</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #090d12;
+      --surface: #101722;
+      --surface-2: #151f2d;
+      --line: #243244;
+      --text: #e6edf5;
+      --muted: #96a3b5;
+      --accent: #5eead4;
+      --accent-2: #93c5fd;
+      --code: #dbeafe;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Segoe UI, Arial, sans-serif;
+      line-height: 1.58;
+    }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      padding: 18px 28px;
+      background: rgba(9, 13, 18, 0.94);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(8px);
+    }
+    main {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 28px;
+    }
+    h1 { margin: 0; font-size: 24px; letter-spacing: 0; }
+    h2 { margin: 32px 0 12px; font-size: 20px; letter-spacing: 0; color: #f8fbff; }
+    h3 { margin: 24px 0 10px; font-size: 17px; letter-spacing: 0; }
+    h4 { margin: 18px 0 8px; font-size: 15px; letter-spacing: 0; color: var(--accent); }
+    p { margin: 10px 0; color: #d7e1ee; }
+    a { color: var(--accent-2); text-decoration: none; font-weight: 650; }
+    a:hover { text-decoration: underline; }
+    .meta { margin-top: 6px; color: var(--muted); font-size: 13px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 7px 11px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--surface-2);
+      color: var(--text);
+    }
+    hr { border: 0; border-top: 1px solid var(--line); margin: 26px 0; }
+    ul, ol { margin: 10px 0 14px 24px; padding: 0; }
+    li { margin: 6px 0; }
+    code {
+      color: var(--code);
+      background: #172033;
+      border: 1px solid #26364d;
+      border-radius: 4px;
+      padding: 1px 5px;
+      font-size: 0.92em;
+    }
+    pre {
+      overflow-x: auto;
+      background: #0d1420;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 14px;
+    }
+    pre code { border: 0; background: transparent; padding: 0; }
+    .report-table-wrap {
+      overflow-x: auto;
+      margin: 14px 0 22px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--surface);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    th, td {
+      padding: 9px 10px;
+      text-align: left;
+      vertical-align: top;
+      border-bottom: 1px solid var(--line);
+    }
+    th {
+      position: sticky;
+      top: 72px;
+      background: #182334;
+      color: #dbeafe;
+      text-transform: uppercase;
+      font-size: 11px;
+      letter-spacing: 0;
+    }
+    tr:nth-child(even) td { background: rgba(255, 255, 255, 0.018); }
+    tr:last-child td { border-bottom: 0; }
+    @media (max-width: 800px) {
+      header, main { padding-left: 16px; padding-right: 16px; }
+      th { position: static; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Semantic Cluster Analysis</h1>
+    <div class="meta">Formatted view generated 2026-05-17 19:49 from Semantic_Clusters/2026-05-17_semantic_cluster_report.md</div>
+    <div class="actions">
+      <a class="button" href="../../seo_dashboard.html">Dashboard</a>
+      <a class="button" href="../../Semantic_Clusters/2026-05-17_semantic_cluster_report.md">Source Markdown</a>
+      <a class="button" href="../../Semantic_Clusters/">Report Folder</a>
+    </div>
+  </header>
+  <main>
+    <h1>MORFRAC SEO Semantic Cluster Analysis</h1>
+<h2>Generated</h2>
+<p>2026-05-17</p>
+<hr>
+<h1>Purpose</h1>
+<p>This report groups MORFRAC pages by deterministic semantic similarity using TF-IDF and cosine similarity.</p>
+<p>V2 filters out:</p>
+<ul>
+<li>paginated category pages</li>
+<li>blog tag/archive pages</li>
+<li>legal/system pages</li>
+<li>checkout/account/web pages</li>
+<li>outlet pages</li>
+<li>EN/ES route duplicates where equivalent</li>
+</ul>
+<p>It identifies:</p>
+<ul>
+<li>semantic clusters</li>
+<li>likely cannibalization pairs</li>
+<li>SKU variant similarity</li>
+<li>orphan topics</li>
+<li>fragmented clusters</li>
+<li>product-heavy clusters without clear pillar support</li>
+<li>authority content without commercial targets</li>
+</ul>
+<hr>
+<h1>Source Files</h1>
+<ul>
+<li>Crawl file: <code>C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Crawls\2026-05-17_site_crawl.csv</code></li>
+<li>Search Console merge file: <code>C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Merged_Analysis\2026-05-17_search_console_merge.csv</code></li>
+</ul>
+<hr>
+<h1>Summary</h1>
+<ul>
+<li>Pages analyzed: 256</li>
+<li>Semantic clusters: 12</li>
+<li>Similar page pairs above threshold: 256</li>
+<li>Cannibalization/topic-overlap pairs: 246</li>
+<li>Orphan topic clusters: 0</li>
+</ul>
+<p>Similarity threshold:</p>
+<p><code>0.68</code></p>
+<hr>
+<h1>Cluster Summary</h1>
+
+    <div class="report-table-wrap">
+      <table>
+        <thead><tr><th>semantic_cluster_id</th><th>dominant_label</th><th>page_count</th><th>product_pages</th><th>category_pages</th><th>landing_pages</th><th>authority_content_pages</th><th>total_impressions</th><th>total_clicks</th><th>avg_seo_priority_score</th><th>cluster_health</th><th>top_terms</th><th>role_counts</th><th>label_counts</th></tr></thead>
+        <tbody><tr><td>1</td><td>other</td><td>52</td><td>20</td><td>2</td><td>3</td><td>17</td><td>0</td><td>0</td><td>0</td><td>FRAGMENTED_TOPIC</td><td>padeye, morfrac, wood, deck, morfblock, wooden, wooden sailing, morfblock wood, sailing, morfwing</td><td>{&#x27;product&#x27;: 20, &#x27;authority_content&#x27;: 17, &#x27;general&#x27;: 10, &#x27;landing&#x27;: 3, &#x27;category&#x27;: 2}</td><td>{&#x27;other&#x27;: 13, &#x27;morfblock&#x27;: 12, &#x27;padeye&#x27;: 7, &#x27;morfwing&#x27;: 5, &#x27;powerfurl&#x27;: 5, &#x27;custom_engineering&#x27;: 4, &#x27;mreel&#x27;: 4, &#x27;dogbone&#x27;: 1, &#x27;hoistlock&#x27;: 1}</td></tr><tr><td>3</td><td>powerfurl</td><td>42</td><td>0</td><td>42</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>FRAGMENTED_TOPIC</td><td>shop, morfrac shop, shop morfrac, powerfurl, morfrac, shop powerfurl, powerfurl morfrac, shop shop, morfblock, shop morfblock</td><td>{&#x27;category&#x27;: 42}</td><td>{&#x27;powerfurl&#x27;: 16, &#x27;morfblock&#x27;: 10, &#x27;other&#x27;: 6, &#x27;dogbone&#x27;: 3, &#x27;shackle&#x27;: 2, &#x27;custom_engineering&#x27;: 1, &#x27;mloop&#x27;: 1, &#x27;morfring&#x27;: 1, &#x27;mreel&#x27;: 1, &#x27;padeye&#x27;: 1}</td></tr><tr><td>5</td><td>dogbone</td><td>31</td><td>30</td><td>0</td><td>1</td><td>0</td><td>376</td><td>3</td><td>2.2</td><td>FRAGMENTED_TOPIC</td><td>dogbone, morfrac dogbone, length, aluminium, morfrac, length morfrac, total, total length, titanium, faced</td><td>{&#x27;product&#x27;: 30, &#x27;landing&#x27;: 1}</td><td>{&#x27;dogbone&#x27;: 31}</td></tr><tr><td>6</td><td>morfblock</td><td>30</td><td>30</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>FRAGMENTED_TOPIC</td><td>morfblock light, light, lightweight sailing, sailing block, block, sailing, morfblock, swl, lightweight, high</td><td>{&#x27;product&#x27;: 30}</td><td>{&#x27;morfblock&#x27;: 30}</td></tr><tr><td>4</td><td>shackle</td><td>24</td><td>16</td><td>0</td><td>2</td><td>4</td><td>363</td><td>19</td><td>6.46</td><td>FRAGMENTED_TOPIC</td><td>shackle, custom, ti shackle, ti, titanium, titanium shackle, high, ultra, snatch, performance</td><td>{&#x27;product&#x27;: 16, &#x27;authority_content&#x27;: 4, &#x27;general&#x27;: 2, &#x27;landing&#x27;: 2}</td><td>{&#x27;shackle&#x27;: 9, &#x27;morfblock&#x27;: 4, &#x27;mloop&#x27;: 4, &#x27;powerfurl&#x27;: 3, &#x27;custom_engineering&#x27;: 1, &#x27;padeye&#x27;: 1, &#x27;dogbone&#x27;: 1, &#x27;morfring&#x27;: 1}</td></tr><tr><td>10</td><td>morfring</td><td>16</td><td>15</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>OK</td><td>ring, friction, friction ring, morfring, aluminium friction, ptfe, aluminium, ring morfrac, morfrac morfring, groove max</td><td>{&#x27;product&#x27;: 15, &#x27;landing&#x27;: 1}</td><td>{&#x27;morfring&#x27;: 13, &#x27;padeye&#x27;: 3}</td></tr><tr><td>8</td><td>powerfurl</td><td>5</td><td>5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>OK</td><td>integrator, swl integrator, powerfurl, td, powerfurl td, td integrator, designed smooth, smooth reliable, integrators, tdis</td><td>{&#x27;product&#x27;: 5}</td><td>{&#x27;powerfurl&#x27;: 5}</td></tr><tr><td>11</td><td>powerfurl</td><td>19</td><td>19</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>PRODUCT_HEAVY_NO_PILLAR</td><td>kit, furling, powerfurl, 5t, 5t swl, furling kit, swl, swl morfrac, powerfurl furling, powerfurl kit</td><td>{&#x27;product&#x27;: 19}</td><td>{&#x27;powerfurl&#x27;: 16, &#x27;shackle&#x27;: 3}</td></tr><tr><td>0</td><td>morfblock</td><td>14</td><td>14</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>PRODUCT_HEAVY_NO_PILLAR</td><td>xl, morfblock xl, xl sailing, sailing block, block, morfblock, sailing, swl, sheave, handling</td><td>{&#x27;product&#x27;: 14}</td><td>{&#x27;morfblock&#x27;: 14}</td></tr><tr><td>9</td><td>powerfurl</td><td>11</td><td>11</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>PRODUCT_HEAVY_NO_PILLAR</td><td>unit, drum, powerfurl, furling, powerfurl drum, unit powerfurl, furling unit, unit morfrac, powerfurl engineered, swl</td><td>{&#x27;product&#x27;: 11}</td><td>{&#x27;powerfurl&#x27;: 11}</td></tr><tr><td>2</td><td>morfblock</td><td>6</td><td>6</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>PRODUCT_HEAVY_NO_PILLAR</td><td>morfblock max, max, sailing, efficiency, sailing block, block, delivering low, dimensions maximum, efficiency level, reliability strength</td><td>{&#x27;product&#x27;: 6}</td><td>{&#x27;morfblock&#x27;: 6}</td></tr><tr><td>7</td><td>powerfurl</td><td>6</td><td>6</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>PRODUCT_HEAVY_NO_PILLAR</td><td>fork, powerfurl fork, fitting, 10t, 10t swl, fork fitting, powerfurl, fork fork, swl, swl morfrac</td><td>{&#x27;product&#x27;: 6}</td><td>{&#x27;powerfurl&#x27;: 6}</td></tr></tbody>
+      </table>
+    </div>
+    
+<hr>
+<h1>Likely Cannibalization / Duplicate Intent</h1>
+
+    <div class="report-table-wrap">
+      <table>
+        <thead><tr><th>url_a</th><th>role_a</th><th>label_a</th><th>cluster_a</th><th>url_b</th><th>role_b</th><th>label_b</th><th>cluster_b</th><th>similarity_score</th><th>same_family</th><th>risk_type</th></tr></thead>
+        <tbody><tr><td>https://www.morfrac.com/blog/news-1/morfrac-de-walle-sails-33</td><td>authority_content</td><td>powerfurl</td><td>1</td><td>https://www.morfrac.com/es/blog/blog-1/morfrac-de-walle-sails-33</td><td>authority_content</td><td>powerfurl</td><td>1</td><td>1</td><td>False</td><td>possible_cannibalization</td></tr><tr><td>https://www.morfrac.com/shop/category/morfblock-morfblock-wood-20</td><td>category</td><td>morfblock</td><td>3</td><td>https://www.morfrac.com/shop/category/morfblock-morfblockwood-20</td><td>category</td><td>morfblock</td><td>3</td><td>1</td><td>False</td><td>possible_cannibalization</td></tr><tr><td>https://www.morfrac.com/shop/category/morfblock-morfblock-ultra-38</td><td>category</td><td>morfblock</td><td>3</td><td>https://www.morfrac.com/shop/category/morfblock-morfblockmax-38</td><td>category</td><td>morfblock</td><td>3</td><td>1</td><td>False</td><td>possible_cannibalization</td></tr><tr><td>https://www.morfrac.com/shop/category/morfblock-morfblock-light-18</td><td>category</td><td>morfblock</td><td>3</td><td>https://www.morfrac.com/shop/category/morfblock-morfblocklight-18</td><td>category</td><td>morfblock</td><td>3</td><td>1</td><td>False</td><td>possible_cannibalization</td></tr><tr><td>https://www.morfrac.com/shop/category/morfblock-morfblock-xl-21</td><td>category</td><td>morfblock</td><td>3</td><td>https://www.morfrac.com/shop/category/morfblock-morfblockxl-21</td><td>category</td><td>morfblock</td><td>3</td><td>1</td><td>False</td><td>possible_cannibalization</td></tr><tr><td>https://www.morfrac.com/shop/category/powerfurl-continuous-line-powerfurleight-10</td><td>category</td><td>powerfurl</td><td>3</td><td>https://www.morfrac.com/shop/category/powerfurl-continuous-line-powerfurlsix-13</td><td>category</td><td>powerfurl</td><td>3</td><td>1</td><td>False</td><td>possible_cannibalization</td></tr><tr><td>https://www.morfrac.com/shop/category/powerfurl-continuous-line-powerfurleight-10</td><td>category</td><td>powerfurl</td><td>3</td><td>https://www.morfrac.com/shop/category/powerfurl-continuous-line-powerfurlone-12</td><td>category</td><td>powerfurl</td><td>3</td><td>1</td><td>False</td><td>possible_cannibalization</td></tr><tr><td>https://www.morfrac.com/shop/category/powerfurl-continuous-line-powerfurleight-10</td><td>category</td><td>powerfurl</td><td>3</td><td>https://www.morfrac.com/shop/category/powerfurl-continuous-line-powerfurlfour-11</td><td>category</td><td>powerfurl</td><td>3</td><td>1</td><td>False</td><td>possible_cannibalization</td></tr><tr><td>https://www.morfrac.com/shop/category/powerfurl-continuous-line-powerfurlfour-11</td><td>category</td><td>powerfurl</td><td>3</td><td>https://www.morfrac.com/shop/category/powerfurl-continuous-line-powerfurlone-12</td><td>category</td><td>powerfurl</td><td>3</td><td>1</td><td>False</td><td>possible_cannibalization</td></tr><tr><td>https://www.morfrac.com/shop/category/powerfurl-continuous-line-powerfurlfour-11</td><td>category</td><td>powerfurl</td><td>3</td><td>https://www.morfrac.com/shop/category/powerfurl-continuous-line-powerfurlsix-13</td><td>category</td><td>powerfurl</td><td>3</td><td>1</td><td>False</td><td>possible_cannibalization</td></tr><tr><td>https://www.morfrac.com/shop/category/powerfurl-continuous-line-powerfurleight-10</td><td>category</td><td>powerfurl</td><td>3</td><td>https://www.morfrac.com/shop/category/powerfurl-continuous-line-powerfurlthree-15</td><td>category</td><td>powerfurl</td><td>3</td><td>1</td><td>False</td><td>possible_cannibalization</td></tr><tr><td>https://www.morfrac.com/shop/category/powerfurl-continuous-line-powerfurleight-10</td><td>category</td><td>powerfurl</td><td>3</td><td>https://www.morfrac.com/shop/category/powerfurl-continuous-line-powerfurltwelve-16</td><td>category</td><td>powerfurl</td><td>3</td><td>1</td><td>False</td><td>possible_cannibalization</td></tr><tr><td>https://www.morfrac.com/shop/category/powerfurl-continuous-line-powerfurleight-10</td><td>category</td><td>powerfurl</td><td>3</td><td>https://www.morfrac.com/shop/category/powerfurl-continuous-line-powerfurlten-14</td><td>category</td><td>powerfurl</td><td>3</td><td>1</td><td>False</td><td>possible_cannibalization</td></tr><tr><td>https://www.morfrac.com/shop/category/powerfurl-continuous-line-powerfurlfour-11</td><td>category</td><td>powerfurl</td><td>3</td><td>https://www.morfrac.com/shop/category/powerfurl-continuous-line-powerfurltwelve-16</td><td>category</td><td>powerfurl</td><td>3</td><td>1</td><td>False</td><td>possible_cannibalization</td></tr><tr><td>https://www.morfrac.com/shop/category/powerfurl-continuous-line-powerfurlfour-11</td><td>category</td><td>powerfurl</td><td>3</td><td>https://www.morfrac.com/shop/category/powerfurl-continuous-line-powerfurlthree-15</td><td>category</td><td>powerfurl</td><td>3</td><td>1</td><td>False</td><td>possible_cannibalization</td></tr><tr><td>https://www.morfrac.com/shop/category/powerfurl-continuous-line-powerfurlfour-11</td><td>category</td><td>powerfurl</td><td>3</td><td>https://www.morfrac.com/shop/category/powerfurl-continuous-line-powerfurlten-14</td><td>category</td><td>powerfurl</td><td>3</td><td>1</td><td>False</td><td>possible_cannibalization</td></tr><tr><td>https://www.morfrac.com/shop/category/powerfurl-continuous-line-powerfurlsix-13</td><td>category</td><td>powerfurl</td><td>3</td><td>https://www.morfrac.com/shop/category/powerfurl-continuous-line-powerfurlthree-15</td><td>category</td><td>powerfurl</td><td>3</td><td>1</td><td>False</td><td>possible_cannibalization</td></tr><tr><td>https://www.morfrac.com/shop/category/powerfurl-continuous-line-powerfurlone-12</td><td>category</td><td>powerfurl</td><td>3</td><td>https://www.morfrac.com/shop/category/powerfurl-continuous-line-powerfurlsix-13</td><td>category</td><td>powerfurl</td><td>3</td><td>1</td><td>False</td><td>possible_cannibalization</td></tr><tr><td>https://www.morfrac.com/shop/category/powerfurl-continuous-line-powerfurlone-12</td><td>category</td><td>powerfurl</td><td>3</td><td>https://www.morfrac.com/shop/category/powerfurl-continuous-line-powerfurltwelve-16</td><td>category</td><td>powerfurl</td><td>3</td><td>1</td><td>False</td><td>possible_cannibalization</td></tr><tr><td>https://www.morfrac.com/shop/category/powerfurl-continuous-line-powerfurlone-12</td><td>category</td><td>powerfurl</td><td>3</td><td>https://www.morfrac.com/shop/category/powerfurl-continuous-line-powerfurlthree-15</td><td>category</td><td>powerfurl</td><td>3</td><td>1</td><td>False</td><td>possible_cannibalization</td></tr><tr><td>https://www.morfrac.com/shop/category/powerfurl-continuous-line-powerfurlone-12</td><td>category</td><td>powerfurl</td><td>3</td><td>https://www.morfrac.com/shop/category/powerfurl-continuous-line-powerfurlten-14</td><td>category</td><td>powerfurl</td><td>3</td><td>1</td><td>False</td><td>possible_cannibalization</td></tr><tr><td>https://www.morfrac.com/shop/category/powerfurl-continuous-line-powerfurlsix-13</td><td>category</td><td>powerfurl</td><td>3</td><td>https://www.morfrac.com/shop/category/powerfurl-continuous-line-powerfurltwelve-16</td><td>category</td><td>powerfurl</td><td>3</td><td>1</td><td>False</td><td>possible_cannibalization</td></tr><tr><td>https://www.morfrac.com/shop/category/powerfurl-continuous-line-powerfurlsix-13</td><td>category</td><td>powerfurl</td><td>3</td><td>https://www.morfrac.com/shop/category/powerfurl-continuous-line-powerfurlten-14</td><td>category</td><td>powerfurl</td><td>3</td><td>1</td><td>False</td><td>possible_cannibalization</td></tr><tr><td>https://www.morfrac.com/shop/category/powerfurl-continuous-line-powerfurlten-14</td><td>category</td><td>powerfurl</td><td>3</td><td>https://www.morfrac.com/shop/category/powerfurl-continuous-line-powerfurlthree-15</td><td>category</td><td>powerfurl</td><td>3</td><td>1</td><td>False</td><td>possible_cannibalization</td></tr><tr><td>https://www.morfrac.com/shop/dogbone-25/dogbone-50-15-titanium-12465</td><td>product</td><td>dogbone</td><td>5</td><td>https://www.morfrac.com/es/shop/dogbone-dogbone-ti-29/dogbone-50-15-titanium-12465</td><td>product</td><td>dogbone</td><td>5</td><td>1</td><td>False</td><td>possible_cannibalization</td></tr><tr><td>https://www.morfrac.com/shop/dogbone-25/dogbone-50-15-aluminium-12464</td><td>product</td><td>dogbone</td><td>5</td><td>https://www.morfrac.com/es/shop/dogbone-dogbone-al-28/dogbone-50-15-aluminium-12464</td><td>product</td><td>dogbone</td><td>5</td><td>1</td><td>False</td><td>possible_cannibalization</td></tr><tr><td>https://www.morfrac.com/shop/dogbone-25/dogbone-45-19-aluminium-12463</td><td>product</td><td>dogbone</td><td>5</td><td>https://www.morfrac.com/es/shop/dogbone-dogbone-al-28/dogbone-45-19-aluminium-12463</td><td>product</td><td>dogbone</td><td>5</td><td>1</td><td>False</td><td>possible_cannibalization</td></tr><tr><td>https://www.morfrac.com/shop/dogbone-25/dogbone-40-12-titanium-12462</td><td>product</td><td>dogbone</td><td>5</td><td>https://www.morfrac.com/es/shop/dogbone-dogbone-ti-29/dogbone-40-12-titanium-12462</td><td>product</td><td>dogbone</td><td>5</td><td>1</td><td>False</td><td>possible_cannibalization</td></tr><tr><td>https://www.morfrac.com/shop/dogbone-25/dogbone-40-12-aluminium-12461</td><td>product</td><td>dogbone</td><td>5</td><td>https://www.morfrac.com/es/shop/dogbone-dogbone-al-28/dogbone-40-12-aluminium-12461</td><td>product</td><td>dogbone</td><td>5</td><td>1</td><td>False</td><td>possible_cannibalization</td></tr><tr><td>https://www.morfrac.com/shop/dogbone-25/dogbone-25-7-aluminium-12460</td><td>product</td><td>dogbone</td><td>5</td><td>https://www.morfrac.com/es/shop/dogbone-dogbone-al-28/dogbone-25-7-aluminium-12460</td><td>product</td><td>dogbone</td><td>5</td><td>1</td><td>False</td><td>possible_cannibalization</td></tr></tbody>
+      </table>
+    </div>
+    
+<hr>
+<h1>Orphan Topic Clusters</h1>
+<p>No orphan topic clusters detected.</p>
+<hr>
+<h1>Interpretation Notes</h1>
+<p>Cluster health meanings:</p>
+<ul>
+<li><code>ORPHAN_TOPIC</code>: only one page in the cluster. It may lack supporting content.</li>
+<li><code>FRAGMENTED_TOPIC</code>: too many pages in one cluster. This may indicate topic sprawl or cannibalization.</li>
+<li><code>PRODUCT_HEAVY_NO_PILLAR</code>: many product pages but no clear category or landing page support.</li>
+<li><code>CONTENT_WITHOUT_COMMERCIAL_TARGET</code>: content exists but does not clearly support product/category pages.</li>
+<li><code>OK</code>: structurally acceptable cluster.</li>
+</ul>
+<p>Risk type meanings:</p>
+<ul>
+<li><code>sku_variant_similarity</code>: similar SKU pages; not automatically bad.</li>
+<li><code>possible_cannibalization</code>: similar pages with same role and topic.</li>
+<li><code>same_topic_overlap</code>: similar pages in same topic but different roles.</li>
+<li><code>semantic_overlap</code>: related but not necessarily conflicting.</li>
+</ul>
+<p>Recommended next actions:</p>
+<ol>
+<li>Review <code>possible_cannibalization</code> before writing more content.</li>
+<li>Treat <code>sku_variant_similarity</code> separately from true cannibalization.</li>
+<li>Build or strengthen pillar pages for product-heavy clusters.</li>
+<li>Link authority content toward commercial category/product pages.</li>
+<li>Expand orphan topics only if they support commercial search demand.</li>
+<li>Avoid creating new pages inside already fragmented topics unless consolidation is planned.</li>
+</ol>
+<hr>
+<h1>Output Files</h1>
+<ul>
+<li>Cluster summary: <code>C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Semantic_Clusters\2026-05-17_semantic_clusters.csv</code></li>
+<li>Page cluster mapping: <code>C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Semantic_Clusters\2026-05-17_semantic_cluster_pages.csv</code></li>
+<li>Similarity pairs: <code>C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Semantic_Clusters\2026-05-17_semantic_similarity_pairs.csv</code></li>
+<li>Cannibalization: <code>C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Semantic_Clusters\2026-05-17_semantic_cannibalization.csv</code></li>
+<li>Orphan topics: <code>C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Semantic_Clusters\2026-05-17_semantic_orphan_topics.csv</code></li>
+</ul>
+  </main>
+</body>
+</html>

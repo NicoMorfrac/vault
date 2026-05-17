@@ -1,389 +1,210 @@
-# SEO AGENT HEARTBEAT
+# SEO Intelligence Agent Heartbeat
 
-## PURPOSE
+## Purpose
 
-The SEO heartbeat defines recurring workflows, execution logic, prioritization patterns, deterministic pipeline integration, and reporting behavior.
+The SEO Intelligence Agent heartbeat is strategic and supervisory.
 
-The SEO system operates continuously as a commercial SEO intelligence layer.
+It does not execute the deterministic pipeline.
 
-The system combines:
+The deterministic SEO pipeline already runs automatically through:
 
-- deterministic SEO intelligence
-- crawl analysis
-- Search Console correlation
-- strategic interpretation
-- commercial prioritization
+```text
+run_seo_pipeline.bat
+```
 
-The heartbeat exists to ensure repeatable, evidence-based SEO operations.
+The heartbeat exists to:
 
----
+* review long-term SEO intelligence
+* interpret historical changes
+* validate pipeline reliability
+* detect structural SEO shifts
+* identify strategic SEO risks
+* recommend future intelligence improvements
 
-# OPERATIONAL MODEL
+The heartbeat is not an operational execution workflow.
 
-The SEO system operates in two layers.
+Operational execution planning belongs to:
 
-## Layer 1 — Deterministic Intelligence
+```text
+SEO_Execution_Agent
+```
 
-Handled by scripts.
+***
 
-Responsible for:
+# Schedule
 
-- crawling
-- parsing
-- scoring
-- clustering
-- query-page correlation
-- issue detection
-- leverage scoring
-- template analysis
-- metadata analysis
-- crawl correlation
+Monthly - First Tuesday - 09:00 Europe/Madrid
 
-Primary deterministic outputs:
+***
 
-- crawl CSVs
-- SEO audits
-- leverage reports
-- template cluster analysis
-- query-page-crawl reports
-- fix recommendation reports
+# Primary Responsibilities
 
-These outputs are considered authoritative baseline intelligence.
+The heartbeat should:
 
-The SEO Agent should not duplicate deterministic processing.
+* review historical SEO comparisons
+* review topic authority changes
+* review content gap evolution
+* review entity relationship evolution
+* review pipeline health
+* detect structural SEO shifts
+* identify strategic SEO opportunities
+* identify intelligence-layer weaknesses
 
----
+The heartbeat should not:
 
-## Layer 2 — Strategic Interpretation
+* generate implementation queues
+* generate metadata tasks
+* generate link insertion tasks
+* publish content
+* deploy website changes
 
-Handled by the SEO Agent.
+***
 
-Responsible for:
+# Inputs
 
-- prioritization
-- commercial interpretation
-- authority strategy
-- execution sequencing
-- opportunity evaluation
-- competitive interpretation
-- business relevance assessment
-- content direction
+Review latest outputs from:
 
-The SEO Agent interprets deterministic outputs rather than replacing them.
+```text
+06_MARKETING/SEO_Agent/
+```
 
----
+Priority folders:
 
-# RECURRING WORKFLOW
+```text
+Executive_Reviews
+Historical_Comparisons
+Topic_Authority_Map
+Entity_Relationship_Map
+Content_Gap_Analysis
+Pipeline_Health
+Semantic_Clusters
+```
 
-## STEP 1 — LOAD INPUTS
+***
 
-Load latest available:
+# Monthly Review Objectives
 
-- crawl CSV
-- crawl audit
-- Search Console analysis
-- GA4 report
-- query leverage reports
-- query-page-crawl leverage reports
-- template cluster analysis
-- traffic quality analysis
-- strategic intelligence reports
-- competitor monitoring
+## 1. Authority Growth Review
 
-If critical inputs are missing:
+Determine:
 
-STOP and report missing inputs.
+* which topics gained authority
+* which topics remain weak
+* which entities gained visibility
+* which commercial topics remain unsupported
 
-Do not invent missing data.
+## 2. Structural SEO Review
 
-Deterministic pipeline outputs take priority over inferred interpretation.
+Identify:
 
----
+* recurring structural failures
+* persistent template weaknesses
+* unresolved discoverability bottlenecks
+* unstable crawl behavior
+* semantic fragmentation
 
-# STEP 2 — VALIDATE INPUT QUALITY
+## 3. Commercial Visibility Review
 
-Before interpretation:
+Evaluate:
 
-- verify crawl freshness
-- verify Search Console freshness
-- verify report completeness
-- detect malformed reports
-- detect crawl anomalies
-- detect excessive crawl noise
-- detect duplicate inflation
-- detect template contamination
+* high-value product visibility
+* commercial topic growth
+* CTR trend direction
+* non-branded discoverability
+* engineering authority positioning
 
-If deterministic outputs appear compromised:
+## 4. Pipeline Reliability Review
 
-- flag reliability concerns
-- reduce confidence levels
-- avoid strategic overinterpretation
+Review:
 
----
+* stale outputs
+* schema consistency
+* crawl stability
+* script reliability
+* dependency failures
+* maintenance complexity
 
-# STEP 3 — FILTER LOW-VALUE NOISE
+## 5. Strategic Direction Review
 
-De-prioritize:
+Recommend:
 
-- legal pages
-- cookie pages
-- login pages
-- archives
-- tag pages
-- utility/system pages
-- low-commercial pages
-- irrelevant traffic sources
+* next-month SEO priorities
+* future analysis layers
+* future intelligence improvements
+* automation opportunities
+* reporting improvements
 
-Do not spend strategic focus on low-commercial-value pages.
+***
 
-Commercial relevance overrides raw traffic volume.
+# Required Output
 
----
+Save:
 
-# STEP 4 — IDENTIFY HIGH-LEVERAGE PAGES
+```text
+06_MARKETING/Reviews/YYYY-MM_Monthly_SEO_Strategy_Review.md
+```
 
-Prioritize pages with:
+Required sections:
 
-- high commercial relevance
-- high authority value
-- existing impressions
-- weak CTR
-- poor metadata
-- weak structure
-- ranking positions near page one
-- strong product relevance
-- repeated template weaknesses
+```text
+Executive Summary
+Biggest Gains
+Biggest Weaknesses
+Commercial Opportunities
+Authority Shifts
+Technical Risks
+Pipeline Risks
+Next-Month Priorities
+Strategic Recommendations
+```
 
-Highest-value targets include:
+***
 
-- product category pages
-- technical landing pages
-- engineering articles
-- authority content
-- comparison pages
-- integration pages
-- high-intent product pages
-
-Template-level failures take priority over isolated page defects.
-
----
-
-# STEP 5 — IDENTIFY SEO FAILURE TYPES
-
-Detect:
-
-- weak metadata
-- title weaknesses
-- missing descriptions
-- poor heading structure
-- thin content
-- poor internal linking
-- authority fragmentation
-- crawl inefficiencies
-- weak search intent alignment
-- template-level repetition
-- poor SERP capture
-- discoverability bottlenecks
-
-Distinguish between:
-
-- structural problems
-- discoverability problems
-- CTR problems
-- authority problems
-- crawl problems
-- template problems
-- content problems
-
-Repeated structural defects should be escalated above isolated defects.
-
----
-
-# STEP 6 — INTERPRET DETERMINISTIC OUTPUTS
-
-Use leverage reports to determine:
-
-- highest-impact pages
-- highest-impact templates
-- strongest commercial opportunities
-- CTR capture failures
-- near-page-one opportunities
-- authority gaps
-
-Use template cluster analysis to determine:
-
-- systemic weaknesses
-- repeated metadata defects
-- repeated structural defects
-- scaling opportunities
-- template-level remediation targets
-
-The SEO Agent should reason from deterministic evidence rather than subjective SEO heuristics.
-
----
-
-# STEP 7 — COMMERCIAL INTERPRETATION
-
-Interpret findings commercially.
-
-Questions to answer:
-
-- Does this affect discoverability?
-- Does this weaken authority?
-- Does this reduce search capture?
-- Does this impact conversion potential?
-- Is this strategically important?
-- Is this high leverage?
-- Is this scalable?
-- Is this template-driven?
-- Does this strengthen MORFRAC's engineering authority?
-
-Avoid overreacting to:
-
-- low-value traffic
-- low-priority pages
-- vanity metrics
-- weak-intent keywords
-- unstable short-term fluctuations
-
-Commercial leverage matters more than raw SEO volume.
-
----
-
-# STEP 8 — PRIORITIZE ACTIONS
-
-Actions must be ranked:
-
-- Critical
-- High priority
-- Medium priority
-- Low priority
-
-Prioritization order:
-
-1. template-level structural defects
-2. high-opportunity commercial pages
-3. high-impression low-CTR pages
-4. near-page-one ranking opportunities
-5. internal linking weaknesses
-6. metadata weaknesses
-7. authority content opportunities
-
-Each action should include:
-
-- issue
-- affected pages
-- affected template cluster
-- commercial implication
-- expected impact
-- implementation complexity
-- confidence level
-- scalability potential
-
-Prefer scalable fixes over isolated manual edits.
-
----
-
-# STEP 9 — IDENTIFY CONTENT OPPORTUNITIES
-
-Focus on:
-
-- engineering authority
-- technical education
-- component-level intent
-- load-path discussions
-- system integration topics
-- product decision support
-- application-specific searches
-- engineering problem-solving
-- performance optimization
-- technical comparisons
-
-Avoid:
-
-- generic sailing content
-- broad lifestyle content
-- low-intent informational topics
-- vanity publishing
-- weak topical relevance
-
-Content should strengthen technical authority and commercial intent simultaneously.
-
----
-
-# STEP 10 — GENERATE EXECUTIVE SUMMARY
-
-Summarize:
-
-- what matters
-- what changed
-- what is urgent
-- where leverage exists
-- what should be ignored
-- what creates strategic advantage
-- what creates scalable improvement
-- what blocks discoverability
-
-Executive summaries must be:
-
-- concise
-- commercially realistic
-- technically informed
-- evidence-based
-- non-generic
-- prioritized by leverage
-
----
-
-# REPORTING PRINCIPLES
+# Output Rules
 
 Outputs must:
 
-- prioritize leverage over volume
-- prioritize commercial value over traffic volume
-- focus on technical authority
-- remain evidence-based
-- support engineering differentiation
-- separate deterministic findings from strategic interpretation
-- distinguish systemic defects from isolated defects
+* remain evidence-based
+* prioritize leverage over traffic volume
+* focus on commercial relevance
+* support engineering authority
+* separate intelligence from execution
+* remain concise and strategic
 
 Do not:
 
-- generate generic SEO summaries
-- recommend untargeted content volume
-- overreact to short-term volatility
-- optimize vanity metrics
-- duplicate deterministic analysis
-- invent unsupported SEO conclusions
+* generate operational task queues
+* create implementation plans
+* repeat deterministic tables
+* recommend generic SEO tactics
+* overreact to short-term volatility
 
----
+***
 
-# SUCCESS CONDITIONS
+# System Role
 
-The SEO system succeeds when:
+The SEO Intelligence Agent heartbeat acts as:
 
-- non-branded discoverability improves
-- technical authority strengthens
-- CTR improves
-- product/category visibility improves
-- commercial traffic quality improves
-- search capture improves
-- engineering differentiation becomes more visible
-- template-level SEO quality improves
-- scalable SEO defects are systematically reduced
+```text
+SEO strategic review and intelligence supervision
+```
 
----
+not:
 
-# OUTPUT STORAGE RULE
+```text
+SEO execution management
+```
 
-All completed SEO agent analyses must be saved to:
+# Reporting Requirement
 
-06_MARKETING/SEO_Agent/Opportunities
+Every heartbeat run must produce a saved markdown report.
 
-Use filename format:
+If inputs are valid, save:
 
-YYYY-MM-DD_SEO_Action_Plan.md
+06\_MARKETING/Reviews/YYYY-MM\_Monthly\_SEO\_Strategy\_Review.md
 
-Deterministic outputs should remain separated from strategic interpretation outputs.
+If inputs are missing or invalid, save:
 
-Do not only reply in chat unless explicitly requested.
+06\_MARKETING/Reviews/YYYY-MM\_Monthly\_SEO\_Strategy\_Review\_FAILED.md
+
+The agent must never complete silently.# Reporting Requirement

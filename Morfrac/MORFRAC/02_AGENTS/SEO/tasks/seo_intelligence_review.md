@@ -2,135 +2,88 @@
 
 ## Objective
 
-Interpret the latest deterministic SEO intelligence outputs and produce a strategic SEO action review for MORFRAC.
+Interpret the latest deterministic SEO intelligence outputs and produce a strategic SEO review for MORFRAC.
 
-The goal is NOT to restate tables.
+This task belongs to the SEO Intelligence layer.
 
-The goal IS to identify:
+It is not an operational execution workflow.
 
-- highest commercial leverage opportunities
+Do not generate:
+
+- implementation queues
+- metadata task lists
+- publishing actions
+- autonomous execution plans
+
+Operational execution belongs to:
+
+```text
+SEO_Execution_Agent
+```
+
+---
+
+# Goals
+
+Identify:
+
+- highest commercial SEO leverage
 - structural SEO bottlenecks
 - template-level failures
-- fastest ROI fixes
+- authority weaknesses
+- discoverability risks
+- semantic fragmentation
 - strategic content gaps
-- internal linking priorities
-- SERP CTR optimization opportunities
-- ranking opportunities already near page 1
+- entity-level authority weaknesses
+- systemic SEO risks
+
+The goal is strategic interpretation, not operational implementation.
 
 ---
 
 # Inputs
 
-Review the latest files from:
+Review latest outputs from:
 
-## Query/Page/Crawl Leverage
+```text
+06_MARKETING/SEO_Agent/
+```
 
-06_MARKETING/SEO_Agent/Leverage_Reports/
+Priority sources:
 
-Use:
-- *_seo_query_page_crawl_leverage_opportunities.md
-- *_seo_query_page_crawl_leverage_opportunities.csv
-
----
-
-## Template Cluster Analysis
-
-06_MARKETING/SEO_Agent/Template_Analysis/
-
-Use:
-- *_template_cluster_analysis.md
-- *_template_cluster_analysis.csv
-
----
-
-## SEO Fix Recommendations
-
-06_MARKETING/SEO_Agent/Fix_Recommendations/
-
-Use:
-- *_seo_fix_recommendations.md
-- *_seo_fix_recommendations.csv
+```text
+Leverage_Reports
+Template_Analysis
+Fix_Recommendations
+Topic_Authority_Map
+Entity_Relationship_Map
+Content_Gap_Analysis
+Historical_Comparisons
+Pipeline_Health
+```
 
 ---
 
 # Analysis Rules
 
-## Rule 1 — Prioritize business leverage
-
 Focus on:
-- commercial intent
-- product discovery
-- non-branded traffic growth
-- high-impression opportunities
-- near-page-one ranking opportunities
 
-Do NOT prioritize:
-- vanity keywords
-- low-value informational traffic
-- obvious search noise
+- leverage
+- scalability
+- commercial relevance
+- authority positioning
+- discoverability
+- structural weaknesses
+- systemic SEO issues
 
----
+Avoid:
 
-## Rule 2 — Detect systemic problems
+- generic SEO advice
+- vanity metrics
+- low-value traffic interpretation
+- isolated low-value defects
 
-Identify:
-- repeated template failures
-- repeated H1 duplication
-- repeated title/meta defects
-- repeated alt-text failures
-- repeated internal linking weaknesses
-
-Explain:
-- root causes
-- probable Odoo template causes
-- leverage of fixing structurally
-
----
-
-## Rule 3 — Identify highest ROI fixes
-
-Determine:
-- which fixes affect the largest number of pages
-- which fixes likely improve CTR fastest
-- which pages already have visibility but poor capture
-
-Explain:
-- expected impact
-- implementation complexity
-- priority order
-
----
-
-## Rule 4 — Detect query clusters
-
-Group opportunities into semantic/commercial families such as:
-- dogbone
-- mloop
-- shackle
-- padeye
-- powerfurl
-- morfblock
-
-Explain:
-- search intent
-- ranking status
-- content adequacy
-- commercial value
-
----
-
-## Rule 5 — Distinguish page intent mismatch
-
-Identify:
-- informational queries landing on commercial pages
-- commercial queries landing on blogs
-- product searches landing on weak category pages
-
-Recommend:
-- new landing pages
-- content restructuring
-- internal linking changes
-- SERP optimization
+Template-level failures take priority over isolated defects.
 
 ---
 
@@ -139,54 +92,59 @@ Recommend:
 ## Executive Summary
 
 Summarize:
+
 - biggest SEO bottlenecks
 - biggest commercial opportunities
-- fastest ROI actions
+- biggest authority weaknesses
+- biggest structural SEO risks
 
----
-
-## Structural SEO Failures
+## Structural SEO Interpretation
 
 Identify:
-- template-level problems
-- repeated technical failures
-- highest-risk template families
 
----
+- repeated template failures
+- repeated metadata defects
+- semantic fragmentation
+- discoverability bottlenecks
+- structural crawl weaknesses
 
-## Highest Commercial Opportunity Clusters
+## Topic Authority Interpretation
 
-For each cluster:
-- current ranking status
-- impressions
-- CTR weakness
-- landing page quality
-- commercial value
-- recommended next action
+Review:
 
----
+- strongest authority clusters
+- weakest authority clusters
+- unsupported commercial topics
+- entity-level authority gaps
 
-## Priority Action Plan
+## Commercial SEO Interpretation
 
-Produce:
-- Priority 1
-- Priority 2
-- Priority 3
+Identify:
 
-For each:
-- expected impact
-- implementation difficulty
-- likely ROI
+- strongest commercial opportunities
+- high-value weak-authority topics
+- weak CTR capture areas
+- semantic routing weaknesses
 
----
+## Pipeline Reliability Review
 
-## Recommended Next SEO System Improvements
+Review:
+
+- stale outputs
+- schema drift
+- crawl reliability
+- dependency stability
+- intelligence-layer risks
+
+## Strategic Recommendations
 
 Recommend:
-- additional analysis layers
-- automation opportunities
-- execution improvements
-- strategic intelligence upgrades
+
+- future intelligence improvements
+- strategic focus shifts
+- authority focus areas
+- semantic consolidation priorities
+- future analysis opportunities
 
 ---
 
@@ -194,7 +152,7 @@ Recommend:
 
 - Do not invent metrics
 - Do not fabricate rankings
-- Do not produce generic SEO advice
-- Use deterministic outputs as primary evidence
-- Focus on actionable business impact
+- Do not generate operational execution plans
+- Do not duplicate deterministic analysis
+- Focus on strategic interpretation
 - Focus on leverage and scalability
