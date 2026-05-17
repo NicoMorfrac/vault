@@ -83,12 +83,27 @@ py seo_search_console_merge.py
 if errorlevel 1 exit /b %errorlevel%
 
 echo.
-echo STEP 16 - Executive SEO Review
+echo STEP 16 - Semantic Cluster Analysis
+py seo_semantic_cluster_analysis.py
+if errorlevel 1 exit /b %errorlevel%
+
+echo.
+echo STEP 17 - Content Gap Analysis
+py seo_content_gap_analysis.py
+if errorlevel 1 exit /b %errorlevel%
+
+echo.
+echo STEP 18 - Topic Authority Map
+py seo_topic_authority_map.py
+if errorlevel 1 exit /b %errorlevel%
+
+echo.
+echo STEP 19 - Executive SEO Review
 py seo_executive_review.py
 if errorlevel 1 exit /b %errorlevel%
 
 echo.
-echo STEP 17 - Historical SEO Comparison
+echo STEP 20 - Historical SEO Comparison
 py seo_historical_comparison.py
 if errorlevel 1 exit /b %errorlevel%
 

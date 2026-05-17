@@ -8,3 +8,4 @@ google-analytics-data
 openai
 plotly
 scikit-learn
+tabulate
