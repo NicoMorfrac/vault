@@ -44,6 +44,13 @@ def file_count(folder, pattern):
     return len(list(folder.glob(pattern))) if folder.exists() else 0
 
 
+def latest_files(folder, pattern, limit=10):
+    folder = Path(folder)
+    if not folder.exists():
+        return []
+    return sorted(folder.glob(pattern), key=lambda path: path.stat().st_mtime, reverse=True)[:limit]
+
+
 def latest_marketing_cards(path):
     if not path or not Path(path).exists():
         return []
@@ -726,6 +733,11 @@ def main():
         "search_console_raw": latest_file(MARKETING_PATH / r"Analytics\Raw_Data\SearchConsole", "*_SearchConsole_Raw_Data.md"),
         "ga4_raw": latest_file(MARKETING_PATH / r"Analytics\Raw_Data\GA4", "*_GA4_Raw_Data.md"),
         "weekly_report": latest_file(MARKETING_PATH / r"Analytics\Weekly_Reports", "*_Weekly_Marketing_Report.md"),
+        "seo_execution_plan": latest_file(MARKETING_PATH / "SEO_Execution_Queue", "*_SEO_Execution_Plan.md"),
+        "seo_execution_content_briefs": latest_file(MARKETING_PATH / "SEO_Execution_Queue", "*_Content_Briefs.md"),
+        "seo_execution_internal_links": latest_file(MARKETING_PATH / "SEO_Execution_Queue", "*_Internal_Link_Tasks.md"),
+        "seo_execution_metadata": latest_file(MARKETING_PATH / "SEO_Execution_Queue", "*_Metadata_Tasks.md"),
+        "seo_execution_pillars": latest_file(MARKETING_PATH / "SEO_Execution_Queue", "*_Pillar_Page_Tasks.md"),
     }
 
     merged_rows = read_csv_rows(files["merged"])
@@ -763,6 +775,8 @@ def main():
     blog_assets = file_count(MARKETING_PATH / r"Content\Blog", "*.md")
     landing_assets = file_count(MARKETING_PATH / r"Content\Landing_Pages", "*.md")
     linkedin_assets = file_count(MARKETING_PATH / r"Content\Social\LinkedIn", "*.md")
+    execution_queue_files = file_count(MARKETING_PATH / "SEO_Execution_Queue", "*.md")
+    implementation_plan_files = file_count(SEO_AGENT_PATH / "Implementation_Plans", "*")
 
     report_rows = [
         report_row("Executive SEO Review", "Executive_Reviews", "*_SEO_Executive_Review.md", "SEO_Executive_Review.md", "Main executive intelligence report."),
@@ -792,9 +806,19 @@ def main():
             "link": folder_link(SEO_AGENT_PATH / "Executive_Reviews", "Open folder"),
             "note": r"C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Executive_Reviews",
         },
+        {
+            "label": "SEO Execution Queue",
+            "link": folder_link(MARKETING_PATH / "SEO_Execution_Queue", "Open folder"),
+            "note": r"C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Execution_Queue",
+        },
+        {
+            "label": "SEO Implementation Plans",
+            "link": folder_link(SEO_AGENT_PATH / "Implementation_Plans", "Open folder"),
+            "note": r"C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Implementation_Plans",
+        },
     ]
 
-    metrics = [
+    seo_metrics = [
         metric_card("Pipeline Status", f"{health_fail} fail / {health_warn} warn", f"{health_pass} checks passing"),
         metric_card("Pages In Merge", fmt_number(len(merged_rows)), f"{fmt_number(indexed_pages)} indexable"),
         metric_card("Search Visibility", fmt_number(total_impressions), f"{fmt_number(total_clicks)} clicks"),
@@ -808,11 +832,25 @@ def main():
         metric_card("Dominant Topics", fmt_number(len(dominant_topics)), "Authority tier DOMINANT"),
         metric_card("Contextual Links", fmt_number(len(contextual_rows)), "Filtered recommendations"),
         metric_card("Entity Opportunities", fmt_number(len(entity_rows)), "Entity relationship layer"),
+    ]
+
+    marketing_metrics = [
         metric_card("SC Base Exports", fmt_number(search_console_exports), "Marketing Search Console raw files"),
         metric_card("GA4 Base Exports", fmt_number(ga4_exports), "Marketing analytics raw files"),
         metric_card("Competitor Snapshots", fmt_number(len(competitor_history_rows)), "Rows in competitor history"),
-        metric_card("Generated Content Assets", fmt_number(blog_assets + landing_assets + linkedin_assets), f"{fmt_number(blog_assets)} blog / {fmt_number(landing_assets)} landing / {fmt_number(linkedin_assets)} LinkedIn"),
         metric_card("Marketing Dashboards", fmt_number(marketing_dashboards), "Historical dashboard files"),
+    ]
+
+    content_metrics = [
+        metric_card("Generated Content Assets", fmt_number(blog_assets + landing_assets + linkedin_assets), f"{fmt_number(blog_assets)} blog / {fmt_number(landing_assets)} landing / {fmt_number(linkedin_assets)} LinkedIn"),
+        metric_card("Blog Articles", fmt_number(blog_assets), "Generated blog drafts"),
+        metric_card("Landing Pages", fmt_number(landing_assets), "Generated landing page drafts"),
+        metric_card("LinkedIn Assets", fmt_number(linkedin_assets), "Generated LinkedIn drafts"),
+    ]
+
+    execution_metrics = [
+        metric_card("SEO Execution Queue", fmt_number(execution_queue_files), "Execution task documents"),
+        metric_card("Implementation Plans", fmt_number(implementation_plan_files), "Link implementation outputs"),
     ]
 
     dashboard_runner = write_runner(
@@ -912,6 +950,144 @@ def main():
         }
         for card in marketing_cards[:8]
     ]
+    execution_rows = [
+        {
+            "type": "Execution Plan",
+            "latest": file_link(render_markdown_report(files["seo_execution_plan"], "SEO Execution Plan"), "Open") if files["seo_execution_plan"] else '<span class="muted">Not available</span>',
+            "folder": folder_link(MARKETING_PATH / "SEO_Execution_Queue"),
+        },
+        {
+            "type": "Content Briefs",
+            "latest": file_link(render_markdown_report(files["seo_execution_content_briefs"], "SEO Content Briefs"), "Open") if files["seo_execution_content_briefs"] else '<span class="muted">Not available</span>',
+            "folder": folder_link(MARKETING_PATH / "SEO_Execution_Queue"),
+        },
+        {
+            "type": "Internal Link Tasks",
+            "latest": file_link(render_markdown_report(files["seo_execution_internal_links"], "SEO Internal Link Tasks"), "Open") if files["seo_execution_internal_links"] else '<span class="muted">Not available</span>',
+            "folder": folder_link(MARKETING_PATH / "SEO_Execution_Queue"),
+        },
+        {
+            "type": "Metadata Tasks",
+            "latest": file_link(render_markdown_report(files["seo_execution_metadata"], "SEO Metadata Tasks"), "Open") if files["seo_execution_metadata"] else '<span class="muted">Not available</span>',
+            "folder": folder_link(MARKETING_PATH / "SEO_Execution_Queue"),
+        },
+        {
+            "type": "Pillar Page Tasks",
+            "latest": file_link(render_markdown_report(files["seo_execution_pillars"], "SEO Pillar Page Tasks"), "Open") if files["seo_execution_pillars"] else '<span class="muted">Not available</span>',
+            "folder": folder_link(MARKETING_PATH / "SEO_Execution_Queue"),
+        },
+        {
+            "type": "Link Implementation Plans",
+            "latest": file_link(
+                render_markdown_report(
+                    latest_file(SEO_AGENT_PATH / "Implementation_Plans", "*_seo_link_implementation_plan.md"),
+                    "SEO Link Implementation Plan",
+                ),
+                "Open",
+            ),
+            "folder": folder_link(SEO_AGENT_PATH / "Implementation_Plans"),
+        },
+    ]
+    execution_table = "".join(
+        f"""
+        <tr>
+          <td><strong>{html.escape(row["type"])}</strong></td>
+          <td>{row["latest"]}</td>
+          <td>{row["folder"]}</td>
+        </tr>
+        """
+        for row in execution_rows
+    )
+
+    content_asset_folders = [
+        {
+            "type": "Blog Articles",
+            "folder": MARKETING_PATH / r"Content\Blog",
+            "pattern": "*.md",
+            "note": "Long-form generated article drafts.",
+        },
+        {
+            "type": "Landing Pages",
+            "folder": MARKETING_PATH / r"Content\Landing_Pages",
+            "pattern": "*.md",
+            "note": "Generated landing page drafts.",
+        },
+        {
+            "type": "Social Posts",
+            "folder": MARKETING_PATH / r"Content\Social",
+            "pattern": "*.md",
+            "note": "Generated social post drafts.",
+        },
+        {
+            "type": "LinkedIn Posts",
+            "folder": MARKETING_PATH / r"Content\Social\LinkedIn",
+            "pattern": "*.md",
+            "note": "Generated LinkedIn-specific post drafts.",
+        },
+        {
+            "type": "LinkedIn Topic Proposals",
+            "folder": MARKETING_PATH / r"Content\Social\LinkedIn_Topic_Proposals",
+            "pattern": "*.md",
+            "note": "Topic planning outputs for LinkedIn.",
+        },
+        {
+            "type": "Content Strategy",
+            "folder": MARKETING_PATH / r"Content\Strategy",
+            "pattern": "*.md",
+            "note": "Generated content strategy documents.",
+        },
+        {
+            "type": "SEO Content Opportunities",
+            "folder": MARKETING_PATH / r"SEO\Content_Opportunities",
+            "pattern": "*.md",
+            "note": "SEO opportunity reports used by generated content.",
+        },
+        {
+            "type": "Product Page Assets",
+            "folder": MARKETING_PATH / r"Content\Product_Pages",
+            "pattern": "*.md",
+            "note": "Product page source/draft assets.",
+        },
+    ]
+
+    content_asset_table = "".join(
+        f"""
+        <tr>
+          <td><strong>{html.escape(item["type"])}</strong><div class="row-note">{html.escape(item["note"])}</div></td>
+          <td>{fmt_number(file_count(item["folder"], item["pattern"]))}</td>
+          <td>{file_link(render_markdown_report(latest_file(item["folder"], item["pattern"]), item["type"]), "Latest")}</td>
+          <td>{folder_link(item["folder"], "History")}</td>
+        </tr>
+        """
+        for item in content_asset_folders
+    )
+
+    recent_content_files = []
+    for item in content_asset_folders:
+        for path in latest_files(item["folder"], item["pattern"], limit=5):
+            recent_content_files.append({
+                "type": item["type"],
+                "path": path,
+                "modified_ts": path.stat().st_mtime,
+                "modified": datetime.fromtimestamp(path.stat().st_mtime).strftime("%Y-%m-%d %H:%M"),
+            })
+
+    recent_content_files = sorted(
+        recent_content_files,
+        key=lambda row: row["modified_ts"],
+        reverse=True,
+    )[:20]
+
+    recent_content_table = "".join(
+        f"""
+        <tr>
+          <td><strong>{html.escape(row["type"])}</strong></td>
+          <td>{file_link(render_markdown_report(row["path"], row["path"].stem.replace("_", " ")), row["path"].name)}</td>
+          <td>{html.escape(row["modified"])}</td>
+        </tr>
+        """
+        for row in recent_content_files
+    ) or '<tr><td colspan="3" class="muted">No generated content assets found.</td></tr>'
     marketing_source_table = "".join(
         f"""
         <tr>
@@ -1209,12 +1385,14 @@ def main():
     <nav class="tabs" aria-label="Dashboard tabs">
       <button class="tab-button active" type="button" data-tab="seo-tab">SEO Dashboard</button>
       <button class="tab-button" type="button" data-tab="marketing-tab">Marketing Dashboard</button>
+      <button class="tab-button" type="button" data-tab="content-tab">Content Assets</button>
+      <button class="tab-button" type="button" data-tab="execution-tab">SEO Execution</button>
     </nav>
 
     <section id="seo-tab" class="tab-panel active">
     <h2>Metrics</h2>
     <section class="metrics">
-      {''.join(metrics)}
+      {''.join(seo_metrics)}
     </section>
 
     <h2>Main Reports And History</h2>
@@ -1249,50 +1427,6 @@ def main():
         </tbody>
       </table>
     </div>
-
-    <h2>Marketing Base Files</h2>
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>Source</th>
-            <th>Latest</th>
-            <th>Folder</th>
-          </tr>
-        </thead>
-        <tbody>
-          {marketing_source_table}
-        </tbody>
-      </table>
-    </div>
-
-    <section class="grid-2">
-      <div class="panel">
-        <h2>Latest Marketing Dashboard Metrics</h2>
-        {table(
-            marketing_card_rows,
-            [
-                ("metric", "Metric"),
-                ("value", "Value"),
-                ("note", "Note"),
-            ],
-            limit=8,
-        )}
-      </div>
-      <div class="panel">
-        <h2>Competitor Base Signals</h2>
-        {table(
-            competitor_history_rows[:10],
-            [
-                ("date", "Date"),
-                ("company", "Company"),
-                ("website", "Website"),
-                ("status", "Status"),
-            ],
-            limit=10,
-        )}
-      </div>
-    </section>
 
     <section class="grid-2">
       <div class="panel">
@@ -1390,6 +1524,55 @@ def main():
     </section>
 
     <section id="marketing-tab" class="tab-panel">
+      <h2>Marketing Metrics</h2>
+      <section class="metrics">
+        {''.join(marketing_metrics)}
+      </section>
+
+      <h2>Marketing Base Files</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Source</th>
+              <th>Latest</th>
+              <th>Folder</th>
+            </tr>
+          </thead>
+          <tbody>
+            {marketing_source_table}
+          </tbody>
+        </table>
+      </div>
+
+      <section class="grid-2">
+        <div class="panel">
+          <h2>Latest Marketing Dashboard Metrics</h2>
+          {table(
+              marketing_card_rows,
+              [
+                  ("metric", "Metric"),
+                  ("value", "Value"),
+                  ("note", "Note"),
+              ],
+              limit=8,
+          )}
+        </div>
+        <div class="panel">
+          <h2>Competitor Base Signals</h2>
+          {table(
+              competitor_history_rows[:10],
+              [
+                  ("date", "Date"),
+                  ("company", "Company"),
+                  ("website", "Website"),
+                  ("status", "Status"),
+              ],
+              limit=10,
+          )}
+        </div>
+      </section>
+
       <h2>Marketing Dashboard</h2>
       <div class="panel">
         <div class="quick-actions" style="margin-top: 0; margin-bottom: 12px;">
@@ -1398,6 +1581,69 @@ def main():
           {folder_link(MARKETING_PATH / "Dashboards", "Marketing dashboard history")}
         </div>
         <iframe class="marketing-frame" src="{html.escape(rel_path(marketing_dashboard_copy), quote=True) if marketing_dashboard_copy else 'about:blank'}" title="Marketing Dashboard"></iframe>
+      </div>
+    </section>
+
+    <section id="content-tab" class="tab-panel">
+      <h2>Content Metrics</h2>
+      <section class="metrics">
+        {''.join(content_metrics)}
+      </section>
+
+      <h2>Generated Content Assets</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Asset Type</th>
+              <th>Files</th>
+              <th>Latest</th>
+              <th>History</th>
+            </tr>
+          </thead>
+          <tbody>
+            {content_asset_table}
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Recent Generated Assets</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Type</th>
+              <th>File</th>
+              <th>Modified</th>
+            </tr>
+          </thead>
+          <tbody>
+            {recent_content_table}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="execution-tab" class="tab-panel">
+      <h2>Execution Metrics</h2>
+      <section class="metrics">
+        {''.join(execution_metrics)}
+      </section>
+
+      <h2>SEO Execution Results</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Execution Area</th>
+              <th>Latest</th>
+              <th>History</th>
+            </tr>
+          </thead>
+          <tbody>
+            {execution_table}
+          </tbody>
+        </table>
       </div>
     </section>
   </main>
