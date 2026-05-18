@@ -14,11 +14,13 @@ REPORT_HTML_PATH = OUTPUT_PATH / "Reports"
 RUNNERS_PATH = OUTPUT_PATH / "Run_Scripts"
 MARKETING_DASHBOARD_PATH = OUTPUT_PATH / "Marketing"
 FOLDER_INDEX_PATH = OUTPUT_PATH / "Folders"
+ASSETS_PATH = OUTPUT_PATH / "Assets"
 OUTPUT_PATH.mkdir(parents=True, exist_ok=True)
 REPORT_HTML_PATH.mkdir(parents=True, exist_ok=True)
 RUNNERS_PATH.mkdir(parents=True, exist_ok=True)
 MARKETING_DASHBOARD_PATH.mkdir(parents=True, exist_ok=True)
 FOLDER_INDEX_PATH.mkdir(parents=True, exist_ok=True)
+ASSETS_PATH.mkdir(parents=True, exist_ok=True)
 
 TODAY = datetime.today().strftime("%Y-%m-%d")
 
@@ -29,6 +31,23 @@ def latest_file(folder, pattern):
     if not files:
         return None
     return max(files, key=lambda path: path.stat().st_mtime)
+
+
+def write_dashboard_icon():
+    icon_path = ASSETS_PATH / "seo_dashboard_icon.svg"
+    icon = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="14" fill="#090d12"/>
+  <path d="M14 42h36" stroke="#5eead4" stroke-width="4" stroke-linecap="round"/>
+  <path d="M18 34l8-10 8 6 12-16" fill="none" stroke="#93c5fd" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="18" cy="34" r="4" fill="#5eead4"/>
+  <circle cx="26" cy="24" r="4" fill="#5eead4"/>
+  <circle cx="34" cy="30" r="4" fill="#5eead4"/>
+  <circle cx="46" cy="14" r="4" fill="#5eead4"/>
+  <path d="M16 50h10M32 50h16" stroke="#e6edf5" stroke-width="3" stroke-linecap="round" opacity=".8"/>
+</svg>
+"""
+    icon_path.write_text(icon, encoding="utf-8")
+    return icon_path
 
 
 def read_csv_rows(path):
@@ -708,6 +727,7 @@ def sort_by_number(rows, column, reverse=True):
 
 
 def main():
+    dashboard_icon = write_dashboard_icon()
     files = {
         "merged": latest_file(SEO_AGENT_PATH / "Merged_Analysis", "*_search_console_merge.csv")
         or SEO_AGENT_PATH / "Merged_Analysis" / "search_console_merge.csv",
@@ -772,8 +792,6 @@ def main():
     search_console_exports = file_count(MARKETING_PATH / r"Analytics\Raw_Data\SearchConsole", "*_SearchConsole_Raw_Data.md")
     ga4_exports = file_count(MARKETING_PATH / r"Analytics\Raw_Data\GA4", "*_GA4_Raw_Data.md")
     marketing_dashboards = file_count(MARKETING_PATH / "Dashboards", "*_Marketing_Dashboard.html")
-    blog_assets = file_count(MARKETING_PATH / r"Content\Blog", "*.md")
-    landing_assets = file_count(MARKETING_PATH / r"Content\Landing_Pages", "*.md")
     linkedin_assets = file_count(MARKETING_PATH / r"Content\Social\LinkedIn", "*.md")
     execution_queue_files = file_count(MARKETING_PATH / "SEO_Execution_Queue", "*.md")
     implementation_plan_files = file_count(SEO_AGENT_PATH / "Implementation_Plans", "*")
@@ -842,9 +860,7 @@ def main():
     ]
 
     content_metrics = [
-        metric_card("Generated Content Assets", fmt_number(blog_assets + landing_assets + linkedin_assets), f"{fmt_number(blog_assets)} blog / {fmt_number(landing_assets)} landing / {fmt_number(linkedin_assets)} LinkedIn"),
-        metric_card("Blog Articles", fmt_number(blog_assets), "Generated blog drafts"),
-        metric_card("Landing Pages", fmt_number(landing_assets), "Generated landing page drafts"),
+        metric_card("Generated Content Assets", fmt_number(linkedin_assets), f"{fmt_number(linkedin_assets)} LinkedIn"),
         metric_card("LinkedIn Assets", fmt_number(linkedin_assets), "Generated LinkedIn drafts"),
     ]
 
@@ -1001,24 +1017,6 @@ def main():
 
     content_asset_folders = [
         {
-            "type": "Blog Articles",
-            "folder": MARKETING_PATH / r"Content\Blog",
-            "pattern": "*.md",
-            "note": "Long-form generated article drafts.",
-        },
-        {
-            "type": "Landing Pages",
-            "folder": MARKETING_PATH / r"Content\Landing_Pages",
-            "pattern": "*.md",
-            "note": "Generated landing page drafts.",
-        },
-        {
-            "type": "Social Posts",
-            "folder": MARKETING_PATH / r"Content\Social",
-            "pattern": "*.md",
-            "note": "Generated social post drafts.",
-        },
-        {
             "type": "LinkedIn Posts",
             "folder": MARKETING_PATH / r"Content\Social\LinkedIn",
             "pattern": "*.md",
@@ -1123,6 +1121,7 @@ def main():
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>MORFRAC SEO Dashboard</title>
+  <link rel="icon" type="image/svg+xml" href="{html.escape(rel_path(dashboard_icon), quote=True)}">
   <style>
     :root {{
       color-scheme: dark;
@@ -1171,6 +1170,19 @@ def main():
       margin-top: 6px;
       color: var(--muted);
       font-size: 14px;
+    }}
+    .brand-title {{
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }}
+    .brand-icon {{
+      width: 38px;
+      height: 38px;
+      border-radius: 9px;
+      border: 1px solid var(--line);
+      background: #090d12;
+      flex: 0 0 auto;
     }}
     .quick-actions {{
       display: flex;
@@ -1361,7 +1373,10 @@ def main():
 </head>
 <body>
   <header>
-    <h1>MORFRAC SEO Dashboard</h1>
+    <div class="brand-title">
+      <img class="brand-icon" src="{html.escape(rel_path(dashboard_icon), quote=True)}" alt="">
+      <h1>MORFRAC SEO Dashboard</h1>
+    </div>
     <div class="subhead">Generated {html.escape(generated_at)}. Opens latest files directly and keeps folder access for historical reports.</div>
     <nav class="quick-actions">
       <a class="button" href="Dashboard/Reports/Executive_Reviews__SEO_Executive_Review.html">Executive Review</a>

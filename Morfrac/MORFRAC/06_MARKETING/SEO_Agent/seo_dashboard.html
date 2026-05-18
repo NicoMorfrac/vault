@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>MORFRAC SEO Dashboard</title>
+  <link rel="icon" type="image/svg+xml" href="Dashboard/Assets/seo_dashboard_icon.svg">
   <style>
     :root {
       color-scheme: dark;
@@ -52,6 +53,19 @@
       margin-top: 6px;
       color: var(--muted);
       font-size: 14px;
+    }
+    .brand-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .brand-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 9px;
+      border: 1px solid var(--line);
+      background: #090d12;
+      flex: 0 0 auto;
     }
     .quick-actions {
       display: flex;
@@ -242,8 +256,11 @@
 </head>
 <body>
   <header>
-    <h1>MORFRAC SEO Dashboard</h1>
-    <div class="subhead">Generated 2026-05-17 21:48. Opens latest files directly and keeps folder access for historical reports.</div>
+    <div class="brand-title">
+      <img class="brand-icon" src="Dashboard/Assets/seo_dashboard_icon.svg" alt="">
+      <h1>MORFRAC SEO Dashboard</h1>
+    </div>
+    <div class="subhead">Generated 2026-05-18 09:37. Opens latest files directly and keeps folder access for historical reports.</div>
     <nav class="quick-actions">
       <a class="button" href="Dashboard/Reports/Executive_Reviews__SEO_Executive_Review.html">Executive Review</a>
       <a class="button" href="Dashboard/Reports/Pipeline_Health__pipeline_health_report.html">Pipeline Health</a>
@@ -698,20 +715,8 @@
         
     <section class="metric">
       <div class="metric-label">Generated Content Assets</div>
-      <div class="metric-value">30</div>
-      <div class="metric-note">10 blog / 10 landing / 10 LinkedIn</div>
-    </section>
-    
-    <section class="metric">
-      <div class="metric-label">Blog Articles</div>
       <div class="metric-value">10</div>
-      <div class="metric-note">Generated blog drafts</div>
-    </section>
-    
-    <section class="metric">
-      <div class="metric-label">Landing Pages</div>
-      <div class="metric-value">10</div>
-      <div class="metric-note">Generated landing page drafts</div>
+      <div class="metric-note">10 LinkedIn</div>
     </section>
     
     <section class="metric">
@@ -735,27 +740,6 @@
           </thead>
           <tbody>
             
-        <tr>
-          <td><strong>Blog Articles</strong><div class="row-note">Long-form generated article drafts.</div></td>
-          <td>10</td>
-          <td><a href="Dashboard/Reports/Blog__2026-05-08_padeye_Blog.html">Latest</a></td>
-          <td><a class="secondary-link" href="Dashboard/Folders/06_MARKETING_Content_Blog.html">History</a></td>
-        </tr>
-        
-        <tr>
-          <td><strong>Landing Pages</strong><div class="row-note">Generated landing page drafts.</div></td>
-          <td>10</td>
-          <td><a href="Dashboard/Reports/Landing_Pages__2026-05-08_dogbone_LandingPage.html">Latest</a></td>
-          <td><a class="secondary-link" href="Dashboard/Folders/06_MARKETING_Content_Landing_Pages.html">History</a></td>
-        </tr>
-        
-        <tr>
-          <td><strong>Social Posts</strong><div class="row-note">Generated social post drafts.</div></td>
-          <td>10</td>
-          <td><a href="Dashboard/Reports/Social__2026-05-08_dogbone_joint_Social.html">Latest</a></td>
-          <td><a class="secondary-link" href="Dashboard/Folders/06_MARKETING_Content_Social.html">History</a></td>
-        </tr>
-        
         <tr>
           <td><strong>LinkedIn Posts</strong><div class="row-note">Generated LinkedIn-specific post drafts.</div></td>
           <td>10</td>
@@ -880,50 +864,8 @@
         </tr>
         
         <tr>
-          <td><strong>Social Posts</strong></td>
-          <td><a href="Dashboard/Reports/Social__2026-05-08_dogbone_joint_Social.html">2026-05-08_dogbone_joint_Social.md</a></td>
-          <td>2026-05-08 17:28</td>
-        </tr>
-        
-        <tr>
-          <td><strong>Social Posts</strong></td>
-          <td><a href="Dashboard/Reports/Social__2026-05-08_dogbones_Social.html">2026-05-08_dogbones_Social.md</a></td>
-          <td>2026-05-08 17:28</td>
-        </tr>
-        
-        <tr>
-          <td><strong>Social Posts</strong></td>
-          <td><a href="Dashboard/Reports/Social__2026-05-08_padeye_Social.html">2026-05-08_padeye_Social.md</a></td>
-          <td>2026-05-08 16:21</td>
-        </tr>
-        
-        <tr>
-          <td><strong>Social Posts</strong></td>
-          <td><a href="Dashboard/Reports/Social__2026-05-08_mloop_Social.html">2026-05-08_mloop_Social.md</a></td>
-          <td>2026-05-08 16:15</td>
-        </tr>
-        
-        <tr>
-          <td><strong>Social Posts</strong></td>
-          <td><a href="Dashboard/Reports/Social__2026-05-08_dogbone_Social.html">2026-05-08_dogbone_Social.md</a></td>
-          <td>2026-05-08 16:15</td>
-        </tr>
-        
-        <tr>
-          <td><strong>Landing Pages</strong></td>
-          <td><a href="Dashboard/Reports/Landing_Pages__2026-05-08_dogbone_LandingPage.html">2026-05-08_dogbone_LandingPage.md</a></td>
-          <td>2026-05-08 16:15</td>
-        </tr>
-        
-        <tr>
-          <td><strong>Blog Articles</strong></td>
-          <td><a href="Dashboard/Reports/Blog__2026-05-08_padeye_Blog.html">2026-05-08_padeye_Blog.md</a></td>
-          <td>2026-05-08 16:14</td>
-        </tr>
-        
-        <tr>
-          <td><strong>Blog Articles</strong></td>
-          <td><a href="Dashboard/Reports/Blog__2026-05-08_dogbones_Blog.html">2026-05-08_dogbones_Blog.md</a></td>
+          <td><strong>SEO Content Opportunities</strong></td>
+          <td><a href="Dashboard/Reports/Content_Opportunities__2026-05-08_Content_Opportunities.html">2026-05-08_Content_Opportunities.md</a></td>
           <td>2026-05-08 16:14</td>
         </tr>
         
