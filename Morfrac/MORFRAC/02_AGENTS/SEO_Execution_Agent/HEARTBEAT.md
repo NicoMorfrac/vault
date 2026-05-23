@@ -37,6 +37,29 @@ Merged\_Analysis
 
 ***
 
+## Automatic Production Handoff
+
+Approved authority opportunities should automatically transition into production preparation.
+
+When:
+
+* authority opportunity status \= Approved
+* strategic priority \= High or Medium
+
+the heartbeat should:
+
+* generate production briefs
+* create production handoff tasks
+* assign production tasks to:
+  Technical\_Content\_Production\_Agent
+* define:
+  * master content requirements
+  * derivative content requirements
+  * internal-link requirements
+  * commercial routing requirements
+
+The execution layer should not stop after brief generation unless validation fails.
+
 # Required Actions
 
 ## 1. Validate Pipeline Health

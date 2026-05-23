@@ -22,6 +22,31 @@ Turn MORFRAC SEO intelligence into actionable work for:
 * semantic consolidation
 * commercial SEO prioritization
 
+## Production Handoff Responsibility
+
+When an authority opportunity is marked:
+
+Approved
+Priority: High or Medium
+
+the SEO Execution Agent should:
+
+* generate the production brief
+* create a production handoff task
+* assign the task to:
+  Technical\_Content\_Production\_Agent
+* specify required outputs
+* specify routing requirements
+* specify derivative distribution requirements
+
+The workflow should continue automatically into content production unless:
+
+* approval is missing
+* the opportunity is marked Deferred
+* the opportunity is marked Rejected
+* required routing inputs are missing
+* the production brief is incomplete
+
 ## Inputs
 
 Use existing outputs from:
