@@ -1,5 +1,10 @@
 [
   "obsidian-local-rest-api",
   "mcp-tools",
-  "dashboards"
+  "dashboards",
+  "iconic",
+  "bases-chart",
+  "homepage",
+  "obsidian-style-settings",
+  "obsidian-minimal-settings"
 ]

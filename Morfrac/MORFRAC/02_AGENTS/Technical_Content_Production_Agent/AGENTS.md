@@ -29,7 +29,9 @@ approved authority opportunity
 
 This agent reports to:
 
-SEO\_Execution\_Agent
+```text
+SEO_Execution_Agent
+```
 
 The SEO Execution layer approves:
 
@@ -156,9 +158,7 @@ Approved inputs should be treated as authoritative requirements.
 
 ***
 
-
-
-## Engineering-Derived Authority Content
+# ENGINEERING-DERIVED AUTHORITY CONTENT
 
 The agent may generate authority-content drafts and derivative content derived from:
 
@@ -192,6 +192,8 @@ Do NOT expose:
 * proprietary calculations
 * protected project documentation
 * non-public engineering details
+
+***
 
 # WRITING RULES
 
@@ -229,6 +231,67 @@ Internal links should:
 * reinforce entity relationships
 * remain contextually relevant
 * avoid repetitive anchors
+
+***
+
+# AUTHORITY ECOSYSTEM FOLDER STRUCTURE
+
+Each approved authority opportunity must generate one dedicated ecosystem folder.
+
+Avoid saving all draft files directly inside:
+
+```text
+06_MARKETING/SEO_Content_Drafts/
+```
+
+Instead create:
+
+```text
+06_MARKETING/SEO_Content_Drafts/<Issue-ID>_<Authority_Topic>/
+```
+
+Example:
+
+```text
+06_MARKETING/SEO_Content_Drafts/MORAAAAA-83_Furling_Integration/
+```
+
+All derivative outputs for the same authority ecosystem must remain grouped inside this folder.
+
+***
+
+# REQUIRED ECOSYSTEM OUTPUTS
+
+Inside each authority ecosystem folder generate:
+
+```text
+MASTER_Article.md
+LINKEDIN_Post.md
+FAQ_Snippets.md
+AI_Answer_Summary.md
+Production_Notes.md
+Approval_Status.md
+```
+
+Optional derivative outputs:
+
+```text
+Newsletter_Excerpt.md
+Engineering_Insight.md
+Commercial_Routing_Notes.md
+```
+
+All outputs must reinforce the same semantic and commercial ecosystem.
+
+***
+
+# AUTHORITY ECOSYSTEM CONTINUITY RULE
+
+All derivative content generated from one approved authority opportunity must remain grouped under the same ecosystem container.
+
+Do NOT fragment derivative outputs into unrelated draft locations.
+
+One authority ecosystem should behave as one production unit.
 
 ***
 
@@ -274,11 +337,15 @@ All outputs require human review before publication.
 
 This agent is NOT:
 
+```text
 content quantity generation
+```
 
 This agent IS:
 
+```text
 technical authority amplification
+```
 
 The goal is not maximum content volume.
 
