@@ -1,3 +1,4 @@
+
 # MORFRAC SEO Dashboard
 
 ```dashboard
@@ -36,6 +37,8 @@ rows:
           value: "ENABLED"
           trend: +1
 
+
+
   - height: 420
     columns:
 
@@ -72,26 +75,52 @@ rows:
             - Continuous-Line Furling
             - Load-Path Engineering
 
-  - height: 520
+  - height: 500
     columns:
 
       - width: 6
         widget:
-          type: embed
-          target: "[[06_MARKETING/SEO_Execution_Queue]]"
+          type: markdown
+          content: |
+            ## SEO Execution Queue
+
+            ### Weekly Execution
+            - Metadata Tasks
+            - Internal Link Tasks
+            - Pillar Opportunities
+            - Authority Routing
+            - Commercial Reinforcement
+
+            ### Current Focus
+            - Technical authority
+            - AI retrieval visibility
+            - Product discoverability
+            - Semantic reinforcement
 
       - width: 6
         widget:
-          type: embed
-          target: "[[06_MARKETING/SEO_Content_Proposals]]"
+          type: markdown
+          content: |
+            ## Production Queue
 
-  - height: 520
+            ### Active Draft Ecosystems
+            - MASTER_Article.md
+            - LINKEDIN_Post.md
+            - FAQ_Snippets.md
+            - AI_Answer_Summary.md
+            - Approval_Status.md
+
+            ### Workflow
+            Approved
+            →
+            Production
+            →
+            Human Review
+            →
+            Publishing
+
+  - height: 500
     columns:
-
-      - width: 6
-        widget:
-          type: embed
-          target: "[[06_MARKETING/SEO_Content_Drafts]]"
 
       - width: 6
         widget:
@@ -115,7 +144,27 @@ rows:
             - Gemini
             - Perplexity
 
-  - height: 380
+      - width: 6
+        widget:
+          type: markdown
+          content: |
+            ## Commercial Authority Focus
+
+            ### Product Ecosystems
+            - powerfurl
+            - morfring
+            - morfblock
+            - mloop
+            - dogbone systems
+
+            ### Authority Goals
+            - Engineering credibility
+            - Technical differentiation
+            - AI discoverability
+            - Commercial routing
+            - B2B positioning
+
+  - height: 400
     columns:
 
       - width: 12
@@ -139,7 +188,17 @@ rows:
             Publishing
 
             ---
-            
+
             Current Focus:
             Build engineering authority ecosystems instead of generic SEO content.
+
+            ---
+
+            Current Architecture:
+            - Deterministic SEO analysis
+            - Authority opportunity discovery
+            - Semantic ecosystem planning
+            - AI retrieval positioning
+            - Derivative content generation
+            - Controlled publishing workflow
 ```
