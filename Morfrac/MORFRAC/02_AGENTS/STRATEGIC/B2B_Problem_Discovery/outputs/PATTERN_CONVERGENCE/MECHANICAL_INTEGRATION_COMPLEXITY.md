@@ -31,15 +31,15 @@ Recurring evidence increasingly suggests that retrofit and servicing complexity 
 
 # LINKED FINDINGS
 
-| Finding ID | Summary | Relevance |
-|---|---|---|
-| MORAAAAA-86 | Retrofit load-path uncertainty in deck hardware and chainplates | HIGH |
-| MORAAAAA-88 | Geometry-sensitive furling retrofit and serviceability constraints | HIGH |
-| MORAAAAA-89 | Strategic convergence around retrofit uncertainty and bounded validation | HIGH |
-| MORAAAAA-90-03 | Autopilot drive geometry and mounting constraints | MEDIUM |
-| MORAAAAA-91-01 | Mast-handling access and staging dependency | HIGH |
-| MORAAAAA-91-02 | Rig-specific measurement and sequencing uncertainty | HIGH |
-| MORAAAAA-92-01 | Bowsprit retrofit geometry and service-access instability | HIGH |
+| Finding ID     | Summary                                                                  | Relevance |
+| -------------- | ------------------------------------------------------------------------ | --------- |
+| MORAAAAA-86    | Retrofit load-path uncertainty in deck hardware and chainplates          | HIGH      |
+| MORAAAAA-88    | Geometry-sensitive furling retrofit and serviceability constraints       | HIGH      |
+| MORAAAAA-89    | Strategic convergence around retrofit uncertainty and bounded validation | HIGH      |
+| MORAAAAA-90-03 | Autopilot drive geometry and mounting constraints                        | MEDIUM    |
+| MORAAAAA-91-01 | Mast-handling access and staging dependency                              | HIGH      |
+| MORAAAAA-91-02 | Rig-specific measurement and sequencing uncertainty                      | HIGH      |
+| MORAAAAA-92-01 | Bowsprit retrofit geometry and service-access instability                | HIGH      |
 
 ---
 
