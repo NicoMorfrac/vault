@@ -460,3 +460,118 @@ body.dashboard-resizing * {
   border-radius: 4px;
   font-size: var(--font-ui-small);
 }
+
+/* MORFRAC dashboard polish */
+.dashboard-root {
+  max-width: 1180px;
+  padding: 10px 8px 38px;
+}
+
+.dashboard-header {
+  margin-bottom: 14px;
+}
+
+.dashboard-title {
+  font-size: 22px;
+  letter-spacing: 0;
+}
+
+.dashboard-rows {
+  gap: 16px;
+}
+
+.dashboard-row-grid {
+  gap: 16px;
+}
+
+.dashboard-column-body {
+  height: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  background: linear-gradient(180deg, #2a2a2a, #222);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.dashboard-widget {
+  height: 100%;
+}
+
+.dashboard-stat {
+  min-height: 0;
+  padding: 20px;
+  background:
+    radial-gradient(circle at top right, rgba(78, 121, 167, 0.28), transparent 42%),
+    linear-gradient(180deg, #2c2c2c, #222);
+}
+
+.dashboard-row:nth-child(1) .dashboard-column:nth-child(2) .dashboard-stat {
+  background:
+    radial-gradient(circle at top right, rgba(89, 161, 79, 0.28), transparent 42%),
+    linear-gradient(180deg, #2c2c2c, #222);
+}
+
+.dashboard-row:nth-child(1) .dashboard-column:nth-child(3) .dashboard-stat,
+.dashboard-row:nth-child(1) .dashboard-column:nth-child(4) .dashboard-stat {
+  background:
+    radial-gradient(circle at top right, rgba(242, 142, 43, 0.27), transparent 42%),
+    linear-gradient(180deg, #2c2c2c, #222);
+}
+
+.dashboard-stat-value {
+  font-size: 42px;
+  line-height: 1;
+}
+
+.dashboard-stat-label {
+  margin-top: 8px;
+}
+
+.dashboard-stat-icon {
+  opacity: 0.32;
+}
+
+.dashboard-widget--markdown .markdown-rendered {
+  height: 100%;
+  padding: 20px 22px;
+  box-sizing: border-box;
+}
+
+.dashboard-widget--markdown .markdown-rendered h2 {
+  margin: 0 0 14px;
+  font-size: 19px;
+  line-height: 1.2;
+  letter-spacing: 0;
+}
+
+.dashboard-widget--markdown .markdown-rendered ul,
+.dashboard-widget--markdown .markdown-rendered ol {
+  margin: 0;
+  padding-inline-start: 20px;
+}
+
+.dashboard-widget--markdown .markdown-rendered li {
+  margin: 9px 0;
+}
+
+.dashboard-widget--markdown .internal-link {
+  color: #b89cff;
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.dashboard-widget--chart {
+  padding: 12px 14px 10px;
+  box-sizing: border-box;
+  background: #202020;
+}
+
+.dashboard-root:not(.is-edit-mode) .dashboard-column-body:hover {
+  transform: translateY(-1px);
+  border-color: rgba(184, 156, 255, 0.35);
+  transition: transform 140ms ease, border-color 140ms ease;
+}
+
+.dashboard-root.is-edit-mode .dashboard-column-body {
+  box-shadow: none;
+}

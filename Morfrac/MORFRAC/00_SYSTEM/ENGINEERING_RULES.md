@@ -51,7 +51,7 @@ For plain bearings:
 
 Follow:
 
-- [[TASK_PATTERNS]]
+- [[02_AGENTS/Archive/task_patterns]]
 - [[bearing_design]]
 
 ---
