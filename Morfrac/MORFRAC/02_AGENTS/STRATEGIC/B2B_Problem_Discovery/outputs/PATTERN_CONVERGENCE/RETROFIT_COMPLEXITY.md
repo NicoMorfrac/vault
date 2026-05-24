@@ -2,9 +2,27 @@
 
 ## DESCRIPTION
 
-Recurring pattern where marine retrofit projects escalate from simple hardware replacement into broader engineering, structural, geometry, servicing, or integration problems.
+Recurring pattern where marine retrofit projects escalate from:
+- simple hardware replacement
+to:
+- broader engineering
+- structural interpretation
+- geometry validation
+- sequencing management
+- serviceability planning
+- staged installation coordination
+- uncertainty management
 
-Retrofit work repeatedly fails to remain modular because legacy boats contain undocumented conditions, incompatible geometries, hidden structural variation, and mixed installation histories.
+Retrofit work repeatedly fails to remain modular because legacy boats contain:
+- undocumented conditions
+- incompatible geometries
+- hidden structural variation
+- mixed installation histories
+- uncertain access constraints
+- staged servicing dependencies
+- accumulated prior modifications
+
+Recurring evidence increasingly suggests that retrofit escalation is driven less by hardware replacement itself and more by uncertainty propagation through mechanically constrained workflows.
 
 ---
 
@@ -15,6 +33,10 @@ Retrofit work repeatedly fails to remain modular because legacy boats contain un
 | MORAAAAA-86 | Deck hardware and chainplate retrofit uncertainty | HIGH |
 | MORAAAAA-88 | Furling retrofit geometry and servicing constraints | HIGH |
 | MORAAAAA-89 | Strategic convergence synthesis | HIGH |
+| MORAAAAA-90-03 | Autopilot drive geometry and mounting constraints | MEDIUM |
+| MORAAAAA-91-01 | Mast-handling access and staging dependency | HIGH |
+| MORAAAAA-91-02 | Rig-specific measurement and sequencing uncertainty | HIGH |
+| MORAAAAA-92-01 | Bowsprit retrofit geometry and access constraints | MEDIUM |
 
 ---
 
@@ -29,6 +51,15 @@ Retrofit work repeatedly fails to remain modular because legacy boats contain un
 - mixed retrofit histories
 - hidden moisture and corrosion
 - nonstandard prior modifications
+- hidden-condition dependency
+- uncertain load paths
+- mast-access dependency
+- finite adjustment margins
+- sequencing sensitivity
+- staging constraints
+- uncertain installation geometry
+- retrofit adaptation burden
+- undocumented rig variation
 
 ---
 
@@ -43,6 +74,15 @@ Retrofit work repeatedly fails to remain modular because legacy boats contain un
 - uncertainty-driven redesign
 - installer risk transfer
 - repeated dependency on specialist interpretation
+- sequencing conflicts
+- installation rework
+- workflow destabilization
+- staging inefficiency
+- labor escalation
+- callback risk
+- uncertainty-driven troubleshooting
+- limited service-window pressure
+- operational bottlenecks before installation begins
 
 ---
 
@@ -53,16 +93,38 @@ The recurring issue is not that retrofit components are unavailable.
 The recurring issue is that:
 - existing boats contain hidden complexity
 - integration conditions are poorly understood
-- safe modification requires interpretation before installation
+- geometry-sensitive systems reduce installation tolerance
+- servicing constraints amplify workflow instability
+- retrofit sequencing becomes operationally critical
+- hidden conditions shift uncertainty onto installers and yards
 
 Retrofit complexity repeatedly shifts projects from:
 - installation work
 to:
 - engineering-risk management
+- workflow-risk management
+- uncertainty management
+
+Recurring evidence increasingly suggests that retrofit escalation is driven by:
+- uncertainty transfer
+- hidden-condition dependency
+- staged installation constraints
+- geometry-sensitive integration
+- serviceability limitations
+
+rather than isolated hardware limitations.
 
 ---
 
 # STRATEGIC IMPLICATIONS
+
+Recurring evidence suggests:
+- retrofit workflows become unstable when uncertainty is discovered after disassembly
+- geometry-sensitive systems amplify installation risk
+- sequencing dependency increases labor escalation
+- staging constraints increase retrofit cost
+- hidden conditions destabilize planning and scope control
+- installers repeatedly inherit unresolved engineering ambiguity
 
 Potential strategic leverage exists where MORFRAC can:
 - reduce retrofit ambiguity
@@ -70,8 +132,22 @@ Potential strategic leverage exists where MORFRAC can:
 - reduce installation uncertainty
 - clarify geometry compatibility
 - support bounded integration decisions
+- improve installation-readiness validation
+- support retrofit sequencing
+- reduce uncertainty before escalation occurs
+- clarify serviceability constraints
 
-This appears strategically stronger than competing on commodity hardware alone.
+This appears strategically stronger than:
+- competing on commodity hardware
+- generic retrofit consulting
+- open-ended troubleshooting
+
+The strongest recurring leverage increasingly appears to be:
+- bounded engineering-risk reduction
+- geometry-sensitive retrofit clarification
+- installation-readiness validation
+- retrofit sequencing support
+- mechanically focused uncertainty reduction
 
 ---
 
@@ -84,12 +160,41 @@ Potential opportunity structure:
 - bounded modernization support
 - installation planning support
 - hardware-attached engineering review
+- retrofit sequencing review
+- geometry/load-path clarification
+- installation-readiness validation
+- serviceability-focused retrofit support
 
 Potential buyers:
 - refit yards
 - premium riggers
 - retrofit specialists
 - integration partners
+- technically advanced owners
+
+Potential leverage appears strongest where:
+- service windows are constrained
+- mast access is operationally expensive
+- geometry sensitivity increases installation risk
+- hidden conditions amplify labor escalation
+- retrofit workflows become sequencing-sensitive
+
+---
+
+# STRATEGIC BOUNDARY
+
+This convergence does NOT support:
+- generic project management consultancy
+- open-ended custom engineering
+- electronics integration businesses
+- software-centric retrofit ecosystems
+- unlimited troubleshooting models
+
+The strongest evidence currently supports:
+- mechanically focused retrofit uncertainty reduction
+- bounded retrofit engineering validation
+- geometry-sensitive installation support
+- serviceability-focused retrofit clarification
 
 ---
 
@@ -101,6 +206,12 @@ Potential buyers:
 - unclear project boundaries
 - low repeatability outside defined scopes
 - difficult scaling without intake gates
+- uncontrolled escalation after disassembly
+- vessel-specific workflow instability
+- difficult remote validation
+- staging dependency outside MORFRAC control
+- installer execution variability
+- uncertain certification responsibility
 
 ---
 
@@ -109,6 +220,18 @@ Potential buyers:
 MEDIUM
 
 Reason:
-Retrofit complexity now appears repeatedly across unrelated systems and workflows.
+Retrofit complexity now appears repeatedly across:
+- rigging retrofit
+- furling systems
+- servicing workflows
+- geometry-sensitive installations
+- staging constraints
+- sequencing-sensitive retrofit operations
 
-Commercial scalability remains unvalidated.
+The convergence increasingly appears structural rather than isolated.
+
+However:
+- commercial scalability remains unvalidated
+- willingness-to-pay evidence remains limited
+- operational delivery models remain hypothetical
+- scalability boundaries remain uncertain

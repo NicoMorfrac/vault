@@ -2,11 +2,27 @@
 
 ## DESCRIPTION
 
-Recurring industry pattern where retrofit, upgrade, servicing or modernization work depends on undocumented structure, unclear geometry, uncertain load paths, hidden installation conditions, or missing engineering validation.
+Recurring industry pattern where retrofit, upgrade, servicing or modernization work depends on:
+- undocumented structure
+- unclear geometry
+- uncertain load paths
+- hidden installation conditions
+- missing engineering validation
+- sequencing uncertainty
+- access dependency
+- rig-specific variation
 
 The recurring pain is not component failure alone.
 
-The recurring pain is uncertainty around whether the existing system can safely support modification, integration, servicing, or continued operation.
+The recurring pain is uncertainty around whether the existing system can safely support:
+- modification
+- integration
+- servicing
+- staged maintenance
+- modernization
+- continued operation
+
+Recurring evidence increasingly suggests that installers and yards inherit unresolved engineering ambiguity from legacy physical systems before retrofit work even begins.
 
 ---
 
@@ -17,6 +33,9 @@ The recurring pain is uncertainty around whether the existing system can safely 
 | MORAAAAA-86 | Retrofit load-path uncertainty in rigging and deck hardware | HIGH |
 | MORAAAAA-88 | Geometry-sensitive furling serviceability and retrofit complexity | HIGH |
 | MORAAAAA-89 | Strategic convergence around retrofit uncertainty and bounded validation | HIGH |
+| MORAAAAA-90-03 | Autopilot drive geometry and mounting constraints | MEDIUM |
+| MORAAAAA-91-01 | Mast-handling access and staging dependency | HIGH |
+| MORAAAAA-91-02 | Rig-specific measurement and sequencing uncertainty | HIGH |
 
 ---
 
@@ -33,6 +52,13 @@ The recurring pain is uncertainty around whether the existing system can safely 
 - uncertain substrate conditions
 - coupled mechanical systems
 - service-access constraints
+- finite adjustment margins
+- hidden installation dependencies
+- mast-down dependency
+- sequencing sensitivity
+- staged maintenance constraints
+- undocumented prior modifications
+- retrofit adaptation burden
 
 ---
 
@@ -48,6 +74,13 @@ The recurring pain is uncertainty around whether the existing system can safely 
 - repeated diagnosis escalation
 - difficult service planning
 - delayed decision-making
+- workflow destabilization
+- sequencing conflicts
+- rework propagation
+- staging inefficiency
+- callback risk
+- installation-margin failures
+- uncertainty-driven labor escalation
 
 ---
 
@@ -58,17 +91,32 @@ Recurring evidence suggests:
 - installers inherit unresolved engineering ambiguity
 - hidden conditions drive scope instability
 - geometry-sensitive systems amplify integration risk
-- value may exist in bounded validation and integration support
+- sequencing dependency amplifies labor escalation
+- staging constraints increase operational friction
+- serviceability limitations increase retrofit complexity
 
-The strongest recurring leverage is not generic consulting.
+The convergence increasingly suggests that recurring commercial pain originates from:
+- uncertainty transfer
+- installation-risk transfer
+- hidden-condition dependency
+- geometry-sensitive retrofit workflows
+- bounded but recurring engineering ambiguity
+
+The strongest recurring leverage is not:
+- generic consulting
+- generic project management
+- product-only positioning
 
 The strongest leverage appears to be:
 - bounded engineering-risk reduction
 - retrofit validation
-- integration decision support
 - geometry/load-path clarification
+- installation-readiness validation
+- retrofit sequencing support
+- serviceability assessment
+- integration decision support
 
-Commercial validation still limited.
+Commercial validation remains limited.
 
 ---
 
@@ -80,7 +128,10 @@ Potential opportunity structure:
 - geometry compatibility review
 - installation decision support
 - serviceability assessment
+- retrofit sequencing validation
+- mast-service planning support
 - hardware-backed integration package
+- bounded retrofit engineering review
 
 Potential buyers:
 - refit yards
@@ -88,6 +139,30 @@ Potential buyers:
 - premium installers
 - integration specialists
 - technically involved owners
+
+Potential leverage appears strongest where:
+- retrofit workflows are geometry-sensitive
+- service windows are operationally constrained
+- uncertainty creates labor escalation
+- installation sequencing becomes critical
+- hidden conditions increase liability exposure
+
+---
+
+# STRATEGIC BOUNDARY
+
+This convergence does NOT support:
+- generic engineering consultancy
+- open-ended troubleshooting
+- electronics integration businesses
+- marine IT support
+- software-centric operational models
+
+The strongest evidence currently supports:
+- mechanically focused retrofit uncertainty reduction
+- bounded engineering validation
+- geometry-sensitive installation support
+- serviceability-focused retrofit workflows
 
 ---
 
@@ -100,6 +175,10 @@ Potential buyers:
 - low-margin custom engineering
 - weak pricing validation
 - difficult remote diagnosis
+- excessive vessel-specific customization
+- staging dependency outside MORFRAC control
+- installer execution variability
+- unclear certification responsibility
 
 ---
 
@@ -108,6 +187,18 @@ Potential buyers:
 MEDIUM
 
 Reason:
-Multiple findings now converge around the same uncertainty patterns across unrelated retrofit and servicing domains.
+Multiple findings now converge around the same uncertainty patterns across:
+- rigging retrofit
+- furling systems
+- servicing workflows
+- installer staging constraints
+- geometry-sensitive integration
+- retrofit sequencing
 
-Commercial demand and scalable delivery model remain unvalidated.
+The convergence increasingly appears structural rather than isolated.
+
+However:
+- commercial demand remains unvalidated
+- willingness-to-pay evidence is limited
+- scalability boundaries remain uncertain
+- operational delivery models are still hypothetical
