@@ -31,13 +31,29 @@ function Run-Step {
     Write-Log "Command: py $ScriptName"
     Write-Log "Step log: $StepLog"
 
+    $StdOutLog = $StepLog
+    $StdErrLog = $StepLog -replace '\.log$', '_stderr.log'
+
     Push-Location $WorkingDirectory
     try {
-        & py $ScriptName *> $StepLog
-        $exitCode = $LASTEXITCODE
+        try {
+            $process = Start-Process -FilePath "py" -ArgumentList @($ScriptName) -WorkingDirectory $WorkingDirectory -NoNewWindow -Wait -PassThru -RedirectStandardOutput $StdOutLog -RedirectStandardError $StdErrLog
+            $exitCode = $process.ExitCode
+        }
+        catch {
+            $exitCode = 1
+            $_ | Out-File -FilePath $StdErrLog -Append -Encoding utf8
+        }
     }
     finally {
         Pop-Location
+    }
+
+    if (Test-Path $StdErrLog) {
+        $stderrSize = (Get-Item $StdErrLog).Length
+        if ($stderrSize -gt 0) {
+            Write-Log "stderr log: $StdErrLog"
+        }
     }
 
     if ($exitCode -ne 0) {
@@ -100,3 +116,6 @@ foreach ($step in $SeoSteps) {
 
 Write-Log "MORFRAC automation completed successfully."
 exit 0
+
+
+

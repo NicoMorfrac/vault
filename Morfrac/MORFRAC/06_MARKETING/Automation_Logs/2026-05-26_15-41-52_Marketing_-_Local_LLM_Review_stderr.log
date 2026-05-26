@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\02_AGENTS\Marketing\marketing_llm_review.py", line 362, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\02_AGENTS\Marketing\marketing_llm_review.py", line 279, in main
+    llm_output = run_ollama(full_prompt)
+  File "C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\02_AGENTS\Marketing\marketing_llm_review.py", line 125, in run_ollama
+    print(result.stderr)
+    ~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\nicol\AppData\Local\Python\pythoncore-3.14-64\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2819' in position 18: character maps to <undefined>

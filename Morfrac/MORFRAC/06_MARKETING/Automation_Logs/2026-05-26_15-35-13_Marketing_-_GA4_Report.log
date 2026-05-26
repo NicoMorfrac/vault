@@ -1,0 +1,7 @@
+﻿py.exe : Traceback (most recent call last):
+At C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\02_AGENTS\run_morfrac_automation.ps1:38 char:13
++             & py $ScriptName *> $StepLog
++             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Traceback (most recent call last)::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
