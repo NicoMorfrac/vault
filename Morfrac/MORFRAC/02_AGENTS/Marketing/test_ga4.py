@@ -1,38 +1,23 @@
-import os
-import pickle
+from pathlib import Path
 
 from google.analytics.data_v1beta import BetaAnalyticsDataClient
 from google.analytics.data_v1beta.types import RunReportRequest, DateRange, Metric, Dimension
-
-from google_auth_oauthlib.flow import InstalledAppFlow
-from google.auth.transport.requests import Request
-from google.oauth2.credentials import Credentials
+from google.oauth2 import service_account
 
 SCOPES = ["https://www.googleapis.com/auth/analytics.readonly"]
 
 PROPERTY_ID = "435000386"
+SERVICE_ACCOUNT_FILE = Path(r"C:\Users\nicol\.credentials\paperclip-ga4.json")
 
-TOKEN_PATH = "token.pkl"
-CLIENT_SECRET_FILE = r"C:\Users\nicol\.credentials\oauth_client.json"
+if not SERVICE_ACCOUNT_FILE.exists():
+    raise FileNotFoundError(
+        f"GA4 service-account credentials file not found: {SERVICE_ACCOUNT_FILE}"
+    )
 
-creds = None
-
-if os.path.exists(TOKEN_PATH):
-    with open(TOKEN_PATH, "rb") as token:
-        creds = pickle.load(token)
-
-if not creds or not creds.valid:
-    if creds and creds.expired and creds.refresh_token:
-        creds.refresh(Request())
-    else:
-        flow = InstalledAppFlow.from_client_secrets_file(
-            CLIENT_SECRET_FILE,
-            SCOPES
-        )
-        creds = flow.run_local_server(port=0)
-
-    with open(TOKEN_PATH, "wb") as token:
-        pickle.dump(creds, token)
+creds = service_account.Credentials.from_service_account_file(
+    str(SERVICE_ACCOUNT_FILE),
+    scopes=SCOPES,
+)
 
 client = BetaAnalyticsDataClient(credentials=creds)
 

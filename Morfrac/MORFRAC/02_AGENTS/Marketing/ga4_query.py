@@ -1,5 +1,3 @@
-import os
-import pickle
 import argparse
 from pathlib import Path
 from datetime import datetime
@@ -12,8 +10,7 @@ from google.analytics.data_v1beta.types import (
     Dimension,
 )
 
-from google_auth_oauthlib.flow import InstalledAppFlow
-from google.auth.transport.requests import Request
+from google.oauth2 import service_account
 
 # =========================================
 # CONFIG
@@ -25,9 +22,7 @@ BASE_PATH = Path(r"C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC")
 
 RAW_OUTPUT_PATH = BASE_PATH / r"06_MARKETING\Analytics\Raw_Data\GA4"
 
-CLIENT_SECRET_FILE = r"C:\Users\nicol\.credentials\oauth_client.json"
-
-TOKEN_PATH = Path(__file__).parent / "token.pkl"
+SERVICE_ACCOUNT_FILE = Path(r"C:\Users\nicol\.credentials\paperclip-ga4.json")
 
 SCOPES = ["https://www.googleapis.com/auth/analytics.readonly"]
 
@@ -37,27 +32,15 @@ SCOPES = ["https://www.googleapis.com/auth/analytics.readonly"]
 # =========================================
 
 def get_credentials():
-    creds = None
+    if not SERVICE_ACCOUNT_FILE.exists():
+        raise FileNotFoundError(
+            f"GA4 service-account credentials file not found: {SERVICE_ACCOUNT_FILE}"
+        )
 
-    if TOKEN_PATH.exists():
-        with open(TOKEN_PATH, "rb") as token:
-            creds = pickle.load(token)
-
-    if not creds or not creds.valid:
-        if creds and creds.expired and creds.refresh_token:
-            creds.refresh(Request())
-        else:
-            flow = InstalledAppFlow.from_client_secrets_file(
-                CLIENT_SECRET_FILE,
-                SCOPES
-            )
-            creds = flow.run_local_server(port=0)
-
-        with open(TOKEN_PATH, "wb") as token:
-            pickle.dump(creds, token)
-
-    return creds
-
+    return service_account.Credentials.from_service_account_file(
+        str(SERVICE_ACCOUNT_FILE),
+        scopes=SCOPES,
+    )
 
 # =========================================
 # MARKDOWN TABLE
@@ -207,3 +190,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
