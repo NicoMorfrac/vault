@@ -2,8 +2,37 @@ import re
 import pandas as pd
 from pathlib import Path
 from datetime import datetime
-import plotly.express as px
-from plotly.offline import plot
+
+try:
+    import plotly.express as px
+    from plotly.offline import plot
+except ModuleNotFoundError:
+    px = None
+
+    class FallbackFigure:
+        def __init__(self, title):
+            self.title = title
+
+    class FallbackPlotlyExpress:
+        @staticmethod
+        def line(*args, **kwargs):
+            return FallbackFigure(kwargs.get("title", "Trend"))
+
+        @staticmethod
+        def bar(*args, **kwargs):
+            return FallbackFigure(kwargs.get("title", "Distribution"))
+
+    def plot(fig, output_type="div", include_plotlyjs=False):
+        title = getattr(fig, "title", "Chart")
+        return (
+            "<div class='panel'>"
+            f"<strong>{title}</strong><br>"
+            "Chart rendering unavailable because Plotly is not installed in this Python runtime. "
+            "The dashboard data table below is still current."
+            "</div>"
+        )
+
+    px = FallbackPlotlyExpress()
 
 # =========================================
 # CONFIG
@@ -77,6 +106,9 @@ def extract_section(text, heading):
 
 
 def style_chart(fig):
+    if not hasattr(fig, "update_layout"):
+        return fig
+
     fig.update_layout(
         template="plotly_dark",
         paper_bgcolor="#0d1117",
@@ -166,6 +198,20 @@ def main():
                 df[col],
                 errors="coerce"
             )
+
+    column_aliases = {
+        "organic_click_change": "click_change",
+        "organic_ctr_change": "ctr_change",
+        "avg_position_change": "position_change",
+        "organic_clicks": "click_change",
+        "organic_ctr": "ctr_change",
+        "avg_position": "position_change",
+        "sessions_28": "sessions_28_change",
+    }
+
+    for target, source in column_aliases.items():
+        if target not in df.columns and source in df.columns:
+            df[target] = df[source]
 
     latest = df.iloc[-1]
 

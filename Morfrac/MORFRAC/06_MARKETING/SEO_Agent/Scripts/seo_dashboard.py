@@ -7,6 +7,7 @@ import re
 
 
 BASE_PATH = Path(r"C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC")
+PYTHON_EXE = Path(r"C:\Users\nicol\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe")
 MARKETING_PATH = BASE_PATH / "06_MARKETING"
 SEO_AGENT_PATH = BASE_PATH / r"06_MARKETING\SEO_Agent"
 OUTPUT_PATH = SEO_AGENT_PATH / "Dashboard"
@@ -874,7 +875,7 @@ def main():
         "MORFRAC SEO DASHBOARD REFRESH",
         [
             rf"cd /d {SEO_AGENT_PATH}\Scripts",
-            "py seo_dashboard.py",
+            rf'"{PYTHON_EXE}" seo_dashboard.py',
         ],
     )
     full_pipeline_runner = write_runner(

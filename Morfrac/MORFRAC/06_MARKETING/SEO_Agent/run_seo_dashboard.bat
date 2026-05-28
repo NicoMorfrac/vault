@@ -6,7 +6,9 @@ echo.
 
 cd /d C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Scripts
 
-py seo_dashboard.py
+set "PYTHON_EXE=C:\Users\nicol\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe"
+
+"%PYTHON_EXE%" seo_dashboard.py
 if errorlevel 1 (
     echo.
     echo Dashboard refresh failed.

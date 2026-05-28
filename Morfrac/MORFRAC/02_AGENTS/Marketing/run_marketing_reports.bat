@@ -2,11 +2,13 @@
 
 cd /d C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\02_AGENTS\Marketing
 
+set "PYTHON_EXE=C:\Users\nicol\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe"
+
 echo =========================
 echo RUNNING GA4 REPORT
 echo =========================
 
-py weekly_ga4_report.py
+"%PYTHON_EXE%" weekly_ga4_report.py
 if errorlevel 1 exit /b %errorlevel%
 
 echo.
@@ -14,7 +16,7 @@ echo =========================
 echo RUNNING SEARCH CONSOLE REPORT
 echo =========================
 
-py search_console_report.py
+"%PYTHON_EXE%" search_console_report.py
 if errorlevel 1 exit /b %errorlevel%
 
 echo.
@@ -22,7 +24,7 @@ echo =========================
 echo RUNNING MARKETING REVIEW
 echo =========================
 
-py marketing_review.py
+"%PYTHON_EXE%" marketing_review.py
 if errorlevel 1 exit /b %errorlevel%
 
 echo.
@@ -30,7 +32,7 @@ echo =========================
 echo RUNNING LOCAL LLM REVIEW
 echo =========================
 
-py marketing_llm_review.py
+"%PYTHON_EXE%" marketing_llm_review.py
 if errorlevel 1 exit /b %errorlevel%
 
 echo.
@@ -38,7 +40,7 @@ echo =========================
 echo RUNNING MARKETING DASHBOARD
 echo =========================
 
-py marketing_dashboard.py
+"%PYTHON_EXE%" marketing_dashboard.py
 if errorlevel 1 exit /b %errorlevel%
 
 echo.
@@ -46,7 +48,7 @@ echo =========================
 echo RUNNING KEYWORD OPPORTUNITIES
 echo =========================
 
-py keyword_opportunities.py
+"%PYTHON_EXE%" keyword_opportunities.py
 if errorlevel 1 exit /b %errorlevel%
 
 echo.
@@ -54,7 +56,7 @@ echo =========================
 echo RUNNING CONTENT ARCHETYPES
 echo =========================
 
-py content_archetypes.py
+"%PYTHON_EXE%" content_archetypes.py
 if errorlevel 1 exit /b %errorlevel%
 
 echo.
@@ -62,7 +64,7 @@ echo =========================
 echo RUNNING COMPETITOR SUMMARY
 echo =========================
 
-py competitor_summary.py
+"%PYTHON_EXE%" competitor_summary.py
 if errorlevel 1 exit /b %errorlevel%
 
 echo.
@@ -70,7 +72,7 @@ echo =========================
 echo RUNNING COMPETITOR CHANGES
 echo =========================
 
-py competitor_change_detection.py
+"%PYTHON_EXE%" competitor_change_detection.py
 if errorlevel 1 exit /b %errorlevel%
 
 echo.
@@ -78,7 +80,7 @@ echo =========================
 echo RUNNING LINKEDIN TOPIC PROPOSALS
 echo =========================
 
-py linkedin_topic_proposals.py
+"%PYTHON_EXE%" linkedin_topic_proposals.py
 if errorlevel 1 exit /b %errorlevel%
 
 echo.
