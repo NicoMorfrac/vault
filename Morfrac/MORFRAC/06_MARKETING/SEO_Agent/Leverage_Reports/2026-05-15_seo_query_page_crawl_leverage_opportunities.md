@@ -1,3 +1,14 @@
+---
+type: generated_report
+source_agent: SEO_Agent
+created: 2026-05-15
+related_findings: []
+related_concepts: []
+related_projects:
+  - Search Console
+related_reports: []
+---
+
 # SEO Query-Page-Crawl Leverage Opportunity Report
 
 ## Generated
@@ -98,3 +109,8 @@ Page types:
 - other = uncategorized
 
 This is the first Search Console + crawl correlation leverage report.
+
+## Related Links
+
+### Projects
+- [[Search Console]]

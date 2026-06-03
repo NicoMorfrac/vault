@@ -1,3 +1,13 @@
+---
+type: generated_report
+source_agent: Marketing
+created: 2026-05-09
+related_findings: []
+related_concepts: []
+related_projects: []
+related_reports: []
+---
+
 # Competitor Summary
 
 ## Date
@@ -43,3 +53,7 @@ This does not yet perform:
 - ad monitoring
 - LinkedIn monitoring
 - backlink analysis
+
+## Related Links
+
+No structured related links identified.

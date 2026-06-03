@@ -1,3 +1,18 @@
+---
+type: generated_report
+source_agent: SEO_Agent
+created: 2026-05-16
+related_findings: []
+related_concepts:
+  - FRAGMENTED_TOPIC
+  - PRODUCT_HEAVY_NO_PILLAR
+  - ORPHAN_TOPIC
+  - CONTENT_WITHOUT_COMMERCIAL_TARGET
+related_projects:
+  - Search Console
+related_reports: []
+---
+
 # MORFRAC SEO Semantic Cluster Analysis
 
 ## Generated
@@ -149,3 +164,14 @@ Recommended next actions:
 - Similarity pairs: `C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Semantic_Clusters\2026-05-16_semantic_similarity_pairs.csv`
 - Cannibalization: `C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Semantic_Clusters\2026-05-16_semantic_cannibalization.csv`
 - Orphan topics: `C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Semantic_Clusters\2026-05-16_semantic_orphan_topics.csv`
+
+## Related Links
+
+### Concepts
+- [[FRAGMENTED_TOPIC]]
+- [[PRODUCT_HEAVY_NO_PILLAR]]
+- [[ORPHAN_TOPIC]]
+- [[CONTENT_WITHOUT_COMMERCIAL_TARGET]]
+
+### Projects
+- [[Search Console]]

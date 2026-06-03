@@ -1,3 +1,13 @@
+---
+type: analysis_report
+source_agent: SEO_Agent
+created: 2026-05-17
+related_findings: []
+related_concepts: []
+related_projects: []
+related_reports: []
+---
+
 # SEO Internal Link Graph Analysis
 
 ## Generated
@@ -172,3 +182,7 @@ Avoid prioritizing:
 - Weak support pages: C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Internal_Linking\2026-05-17_weak_internal_support_pages.csv
 - Authority flow summary: C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Internal_Linking\2026-05-17_authority_flow_summary.csv
 - Report: C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Internal_Linking\2026-05-17_internal_link_graph_analysis.md
+
+## Related Links
+
+No structured related links identified.

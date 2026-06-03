@@ -1,3 +1,13 @@
+---
+type: generated_report
+source_agent: Marketing
+created: 2026-05-08
+related_findings: []
+related_concepts: []
+related_projects: []
+related_reports: []
+---
+
 # LinkedIn Post
 
 ## Generated
@@ -29,3 +39,7 @@ The Farr X2 sits in the kind of sailing environment where these trade-offs are e
 At MORFRAC, we focus on that intersection: performance, structural integrity, and practical control under real sailing loads.
 
 For sailors and designers, where do you see the biggest performance gains today: reduced friction, lower weight, or better load distribution?
+
+## Related Links
+
+No structured related links identified.

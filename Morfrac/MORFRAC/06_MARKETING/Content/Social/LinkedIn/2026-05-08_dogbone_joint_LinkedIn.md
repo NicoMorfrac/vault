@@ -1,3 +1,13 @@
+---
+type: generated_report
+source_agent: Marketing
+created: 2026-05-09
+related_findings: []
+related_concepts: []
+related_projects: []
+related_reports: []
+---
+
 # LinkedIn Post
 
 ## Generated
@@ -33,3 +43,7 @@ That balance is central to modern sailing hardware design: minimum mass, maximum
 At MORFRAC, this is the kind of problem we focus on across structural sailing systems, textile interfaces, and custom hardware. The detail is never just the detail. It is the difference between acceptable and optimized.
 
 How are you approaching joint design in high-load, high-cycle sailing applications: by specifying to strength alone, or by engineering for the full load case?
+
+## Related Links
+
+No structured related links identified.

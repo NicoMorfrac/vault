@@ -1,3 +1,25 @@
+---
+type: generated_report
+source_agent: B2B_Problem_Discovery
+created: 2026-05-24
+related_findings:
+  - MORAAAAA-90
+  - MORAAAAA-90-01
+  - MORAAAAA-90-02
+  - MORAAAAA-90-03
+  - MORAAAAA-90-04
+  - MORAAAAA-90-05
+related_concepts:
+  - SYSTEM_INTEGRATION
+  - HIGH_PERFORMANCE_SYSTEMS
+  - PERFORMANCE_CRUISING
+  - OEM_BUILDERS
+  - SUPPLIER_DEPENDENCY
+  - MARINE_HARDWARE_BRANDS
+related_projects: []
+related_reports: []
+---
+
 # MORAAAAA-90 Summary Report
 
 Date: 2026-05-24
@@ -88,3 +110,21 @@ Further monitoring is warranted, especially in:
 - B&G / Raymarine / Garmin mixed networks
 - premium production boats with dense OEM electronics packages
 - installer and yard discussions with direct commissioning or callback evidence
+
+## Related Links
+
+### Findings
+- [[MORAAAAA-90]]
+- [[MORAAAAA-90-01]]
+- [[MORAAAAA-90-02]]
+- [[MORAAAAA-90-03]]
+- [[MORAAAAA-90-04]]
+- [[MORAAAAA-90-05]]
+
+### Concepts
+- [[SYSTEM_INTEGRATION]]
+- [[HIGH_PERFORMANCE_SYSTEMS]]
+- [[PERFORMANCE_CRUISING]]
+- [[OEM_BUILDERS]]
+- [[SUPPLIER_DEPENDENCY]]
+- [[MARINE_HARDWARE_BRANDS]]

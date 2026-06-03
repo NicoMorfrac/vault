@@ -1,3 +1,13 @@
+---
+type: generated_report
+source_agent: Marketing
+created: 2026-05-08
+related_findings: []
+related_concepts: []
+related_projects: []
+related_reports: []
+---
+
 # Content Strategy Classification
 
 ## Generated
@@ -309,3 +319,6 @@ Discuss engineering and optimization
 
 ---
 
+## Related Links
+
+No structured related links identified.

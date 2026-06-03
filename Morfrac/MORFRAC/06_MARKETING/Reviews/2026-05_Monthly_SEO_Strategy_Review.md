@@ -1,3 +1,17 @@
+---
+type: review
+source_agent: Marketing
+created: 2026-05-17
+related_findings: []
+related_concepts:
+  - FRAGMENTED_TOPIC
+  - PRODUCT_HEAVY_NO_PILLAR
+  - HIGH_COMMERCIAL_LOW_AUTHORITY
+related_projects:
+  - Search Console
+related_reports: []
+---
+
 # MORFRAC Monthly SEO Strategy Review
 
 Date: 2026-05-17
@@ -71,3 +85,13 @@ No measurable authority gains were detected in the available day-over-day histor
 - Treat `dogbone` as the best commercial proof point because it already shows demand. If MORFRAC cannot deepen authority where impressions already exist, broader SEO expansion will be less efficient.
 - Treat `powerfurl` and `morfblock` as template-level discoverability problems. Their repeated weak clusters indicate system-level structural gaps rather than isolated page issues.
 - Keep semantic risk interpretation conservative. The overlap volume is too high to ignore, but it should be triaged as variant duplication, multilingual duplication, or true intent conflict before being used for downstream execution planning.
+
+## Related Links
+
+### Concepts
+- [[FRAGMENTED_TOPIC]]
+- [[PRODUCT_HEAVY_NO_PILLAR]]
+- [[HIGH_COMMERCIAL_LOW_AUTHORITY]]
+
+### Projects
+- [[Search Console]]

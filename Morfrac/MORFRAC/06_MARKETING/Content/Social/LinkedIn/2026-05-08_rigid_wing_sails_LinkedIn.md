@@ -1,3 +1,13 @@
+---
+type: generated_report
+source_agent: Marketing
+created: 2026-05-08
+related_findings: []
+related_concepts: []
+related_projects: []
+related_reports: []
+---
+
 # LinkedIn Post
 
 ## Generated
@@ -31,3 +41,7 @@ For MORFRAC, this is where high-performance hardware matters: lightweight constr
 Rigid wing sails are still a niche topic in much of sailing, but they raise an important question for the industry: as rig concepts evolve, are we designing only for aerodynamic performance, or for the full system that makes that performance usable?
 
 I’d be interested in hearing where you think the biggest challenge lies: control, structure, handling, or reliability.
+
+## Related Links
+
+No structured related links identified.

@@ -1,3 +1,16 @@
+---
+type: weekly_report
+source_agent: B2B_Problem_Discovery
+created: 2026-05-24
+related_findings: []
+related_concepts:
+  - HIGH_VALUE_FINDINGS
+  - ENGINEERING_SERVICE_OPPORTUNITIES
+  - LONG_TERM_TRENDS
+related_projects: []
+related_reports: []
+---
+
 # WEEKLY STRATEGIC REPORT
 
 Date:
@@ -94,3 +107,10 @@ Track:
 - growing markets
 - persistent industry weaknesses
 - strategic positioning opportunities
+
+## Related Links
+
+### Concepts
+- [[HIGH_VALUE_FINDINGS]]
+- [[ENGINEERING_SERVICE_OPPORTUNITIES]]
+- [[LONG_TERM_TRENDS]]

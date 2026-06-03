@@ -1,3 +1,13 @@
+---
+type: review
+source_agent: SEO_Agent
+created: 2026-05-16
+related_findings: []
+related_concepts: []
+related_projects: []
+related_reports: []
+---
+
 # MORFRAC SEO Executive Review
 
     ## Generated
@@ -53,3 +63,7 @@
 - Crawl: 2026-05-16_site_crawl.csv
 - Contextual Links: 2026-05-16_contextual_link_recommendations_filtered.csv
 - Implementation Plan: 2026-05-16_seo_link_implementation_plan.csv
+
+## Related Links
+
+No structured related links identified.

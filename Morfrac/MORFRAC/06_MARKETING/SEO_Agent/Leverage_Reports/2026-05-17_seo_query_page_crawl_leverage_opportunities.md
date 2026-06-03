@@ -1,3 +1,15 @@
+---
+type: generated_report
+source_agent: SEO_Agent
+created: 2026-05-17
+related_findings: []
+related_concepts: []
+related_projects:
+  - Search Console
+related_reports:
+  - 2026-05-17_SEO_Query_Analysis
+---
+
 # SEO Query-Page-Crawl Leverage Opportunity Report
 
     ## Generated
@@ -106,4 +118,11 @@
     - Search Console report: `C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO\Query_Analysis\2026-05-17_SEO_Query_Analysis.md`
     - Crawl file: `C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Crawls\2026-05-17_site_crawl.csv`
     - Unmatched query-page debug file: `C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Leverage_Reports\2026-05-17_unmatched_query_pages.csv`
-    
+
+## Related Links
+
+### Projects
+- [[Search Console]]
+
+### Reports
+- [[2026-05-17_SEO_Query_Analysis]]

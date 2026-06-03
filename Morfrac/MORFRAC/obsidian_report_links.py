@@ -263,5 +263,7 @@ def normalize_values(values: Iterable[str]) -> list[str]:
 def normalize_value(value: object) -> str:
     clean = str(value).strip()
     clean = clean.strip("`[](){}.,;:")
+    while clean.lower().endswith(".md"):
+        clean = clean[:-3]
     clean = re.sub(r"\s+", " ", clean)
     return clean

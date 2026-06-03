@@ -1,3 +1,13 @@
+---
+type: generated_report
+source_agent: Marketing
+created: 2026-05-09
+related_findings: []
+related_concepts: []
+related_projects: []
+related_reports: []
+---
+
 # LinkedIn Topic Proposals
 
 ## Generated
@@ -351,3 +361,6 @@ Technical, direct, and evidence-led; confident without being promotional.
 
 ---
 
+## Related Links
+
+No structured related links identified.

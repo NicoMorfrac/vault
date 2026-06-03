@@ -1,3 +1,16 @@
+---
+type: generated_report
+source_agent: SEO_Agent
+created: 2026-05-16
+related_findings: []
+related_concepts:
+  - PRODUCT_HEAVY_NO_PILLAR
+  - FRAGMENTED_TOPIC
+related_projects:
+  - Search Console
+related_reports: []
+---
+
 # MORFRAC SEO Content Gap Analysis
 
 ## Generated
@@ -127,3 +140,12 @@ Recommended actions:
 - Missing pillar pages: `C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Content_Gap_Analysis\2026-05-16_missing_pillar_pages.csv`
 - Orphan commercial topics: `C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Content_Gap_Analysis\2026-05-16_orphan_commercial_topics.csv`
 - Page support summary: `C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Content_Gap_Analysis\2026-05-16_page_support_summary.csv`
+
+## Related Links
+
+### Concepts
+- [[PRODUCT_HEAVY_NO_PILLAR]]
+- [[FRAGMENTED_TOPIC]]
+
+### Projects
+- [[Search Console]]

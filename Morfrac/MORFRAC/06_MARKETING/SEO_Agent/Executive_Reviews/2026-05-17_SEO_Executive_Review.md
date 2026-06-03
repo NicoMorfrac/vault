@@ -1,3 +1,19 @@
+---
+type: review
+source_agent: SEO_Agent
+created: 2026-05-17
+related_findings: []
+related_concepts:
+  - VERY_WEAK
+  - HIGH_COMMERCIAL_LOW_AUTHORITY
+  - PRODUCT_HEAVY_NO_PILLAR
+  - FRAGMENTED_TOPIC
+  - TOPIC_AT_RISK
+related_projects:
+  - Search Console
+related_reports: []
+---
+
 # MORFRAC SEO Executive Review
 
 ## Generated
@@ -208,3 +224,15 @@ It synthesizes current outputs from the MORFRAC SEO pipeline into an executive-l
 - topic authority
 - internal linking opportunity
 - implementation priorities
+
+## Related Links
+
+### Concepts
+- [[VERY_WEAK]]
+- [[HIGH_COMMERCIAL_LOW_AUTHORITY]]
+- [[PRODUCT_HEAVY_NO_PILLAR]]
+- [[FRAGMENTED_TOPIC]]
+- [[TOPIC_AT_RISK]]
+
+### Projects
+- [[Search Console]]

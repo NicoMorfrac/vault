@@ -1,3 +1,16 @@
+---
+type: plan
+source_agent: SEO_Agent
+created: 2026-05-11
+related_findings: []
+related_concepts: []
+related_projects:
+  - Search Console
+related_reports:
+  - 2026-05-10_seo_audit
+  - 2026-05-11_SEO_Query_Analysis
+---
+
 # SEO Action Plan
 
 ## Generated
@@ -593,3 +606,12 @@ But it fails to capture clicks because:
 Fix metadata → Fix structure → Measure CTR improvement → Scale to content optimization.
 
 This is a high-leverage, low-effort opportunity to restore non-branded discoverability and commercial search capture.
+
+## Related Links
+
+### Projects
+- [[Search Console]]
+
+### Reports
+- [[2026-05-10_seo_audit]]
+- [[2026-05-11_SEO_Query_Analysis]]

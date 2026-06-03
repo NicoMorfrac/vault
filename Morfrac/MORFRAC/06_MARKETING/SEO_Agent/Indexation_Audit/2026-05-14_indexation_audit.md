@@ -1,3 +1,13 @@
+---
+type: generated_report
+source_agent: SEO_Agent
+created: 2026-05-14
+related_findings: []
+related_concepts: []
+related_projects: []
+related_reports: []
+---
+
 # SEO Indexation Audit
 
 ## Generated
@@ -121,3 +131,7 @@ Common Odoo SEO risks include:
 
 - CSV: C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Indexation_Audit\2026-05-14_indexation_audit.csv
 - Markdown: C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Indexation_Audit\2026-05-14_indexation_audit.md
+
+## Related Links
+
+No structured related links identified.

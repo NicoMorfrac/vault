@@ -1,3 +1,14 @@
+---
+type: plan
+source_agent: Marketing
+created: 2026-05-17
+related_findings: []
+related_concepts:
+  - PRODUCT_HEAVY_NO_PILLAR
+related_projects: []
+related_reports: []
+---
+
 # MORFRAC SEO Execution Plan
 
 ## Date
@@ -35,3 +46,8 @@
 - Start with metadata and link tasks because they affect already-visible commercial pages.
 - The pillar page should be scoped before writing supporting `powerfurl` content so briefs can link to a stable commercial hub.
 - Content briefs should route internal links toward commercial landing/category pages, not stand alone.
+
+## Related Links
+
+### Concepts
+- [[PRODUCT_HEAVY_NO_PILLAR]]

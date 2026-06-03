@@ -9,6 +9,7 @@ from obsidian_report_links import (
     RELATED_KEYS,
     enrich_report,
     extract_structured_links,
+    parse_frontmatter,
     split_frontmatter,
 )
 
@@ -91,7 +92,7 @@ def infer_source_agent(path: Path) -> str:
         return "SEO_Agent"
     if "Marketing" in parts or "06_MARKETING" in parts:
         return "Marketing"
-    if "Buisiness_Intel" in parts:
+    if "Business_Intel" in parts or "Buisiness_Intel" in parts:
         return "Business_Intel"
     if "B2B_PROBLEM_DISCOVERY" in parts:
         return "B2B_Problem_Discovery"
@@ -101,11 +102,17 @@ def infer_source_agent(path: Path) -> str:
 
 
 def migrate_content(path: Path, content: str) -> str:
+    frontmatter, _ = split_frontmatter(content)
+    existing_metadata = parse_frontmatter(frontmatter)
+    created = existing_metadata.get("created")
+    if not isinstance(created, str) or not created:
+        created = datetime.fromtimestamp(path.stat().st_mtime).date().isoformat()
+
     return enrich_report(
         content,
         report_type=infer_type(path),
         source_agent=infer_source_agent(path),
-        created=datetime.fromtimestamp(path.stat().st_mtime).date().isoformat(),
+        created=created,
         report_path=path,
     )
 
@@ -132,6 +139,7 @@ def run(apply: bool) -> int:
     checked = 0
     changed = 0
     warnings: list[str] = []
+    changed_by_source_agent: dict[str, int] = {}
 
     for path in iter_markdown_files():
         checked += 1
@@ -144,6 +152,10 @@ def run(apply: bool) -> int:
             continue
 
         changed += 1
+        source_agent = infer_source_agent(path)
+        changed_by_source_agent[source_agent] = (
+            changed_by_source_agent.get(source_agent, 0) + 1
+        )
         links = extract_structured_links(content, report_path=path).as_dict()
         missing = metadata_missing(content)
         rel = path.relative_to(VAULT_ROOT)
@@ -154,7 +166,9 @@ def run(apply: bool) -> int:
             if values:
                 print(f"  {key}: {', '.join(values)}")
         if not any(links.values()):
-            print("  warning: no structured related links identified")
+            warning = f"{rel}: no structured related links identified"
+            warnings.append(warning)
+            print(f"  warning: {warning}")
 
         if apply:
             backup = backup_file(path)
@@ -166,8 +180,19 @@ def run(apply: bool) -> int:
     print(f"{mode} SUMMARY")
     print(f"  checked: {checked}")
     print(f"  changed: {changed}")
+
+    if changed_by_source_agent:
+        print("")
+        print("BY SOURCE_AGENT")
+        for source_agent, count in sorted(changed_by_source_agent.items()):
+            print(f"  {source_agent}: {count}")
+
     if warnings:
-        print(f"  warnings: {len(warnings)}")
+        print("")
+        print("WARNINGS")
+        print(f"  count: {len(warnings)}")
+        for warning in warnings:
+            print(f"  - {warning}")
     return 0
 
 

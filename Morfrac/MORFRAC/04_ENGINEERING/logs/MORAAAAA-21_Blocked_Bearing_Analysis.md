@@ -1,3 +1,19 @@
+---
+type: analysis_report
+source_agent: Engineering
+created: 2026-05-01
+related_findings:
+  - MORAAAAA-21
+related_concepts:
+  - FILE_RULES
+  - ENGINEERING_RULES
+  - TASK_PATTERNS
+related_projects: []
+related_reports:
+  - iglidur_X_bearing_data
+  - FILE_RULES.md.md, ENGINEERING_RULES.md.md, TASK_PATTERNS
+---
+
 # BLOCKED ANALYSIS LOG
 
 **Issue ID**: MORAAAAA-21  
@@ -64,3 +80,17 @@ Check iglidur X bearing for a block.
 - Project folder "Test_Write 2" does not exist - cannot write analysis to project location
 - Analysis blocked per ENGINEERING_RULES: "If missing → BLOCK"
 - Following BLOCKED BEHAVIOR: "Do not perform calculations, Do not provide scenarios, Only list missing inputs, Stop"
+
+## Related Links
+
+### Findings
+- [[MORAAAAA-21]]
+
+### Concepts
+- [[FILE_RULES]]
+- [[ENGINEERING_RULES]]
+- [[TASK_PATTERNS]]
+
+### Reports
+- [[iglidur_X_bearing_data]]
+- [[FILE_RULES.md.md, ENGINEERING_RULES.md.md, TASK_PATTERNS]]

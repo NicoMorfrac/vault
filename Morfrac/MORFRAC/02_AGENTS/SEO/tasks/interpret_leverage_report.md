@@ -1,3 +1,14 @@
+---
+type: generated_report
+source_agent: MORFRAC
+created: 2026-05-17
+related_findings: []
+related_concepts: []
+related_projects:
+  - Search Console
+related_reports: []
+---
+
 # Interpret SEO Leverage Report
 
 ## Task
@@ -201,3 +212,8 @@ Higher scores mean:
 - authority opportunity
 
 The goal is commercial SEO intelligence, not generic SEO reporting.
+
+## Related Links
+
+### Projects
+- [[Search Console]]

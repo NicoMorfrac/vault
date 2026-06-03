@@ -1,3 +1,13 @@
+---
+type: plan
+source_agent: SEO_Agent
+created: 2026-05-15
+related_findings: []
+related_concepts: []
+related_projects: []
+related_reports: []
+---
+
 # MORFRAC SEO Action Plan
 
 ## Generated
@@ -186,3 +196,7 @@ C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Interna
 
 Metadata targets:
 C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Metadata_Targets\2026-05-15_seo_metadata_targets.csv
+
+## Related Links
+
+No structured related links identified.

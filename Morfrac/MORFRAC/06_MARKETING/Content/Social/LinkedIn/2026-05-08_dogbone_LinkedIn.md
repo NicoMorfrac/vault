@@ -1,3 +1,13 @@
+---
+type: generated_report
+source_agent: Marketing
+created: 2026-05-08
+related_findings: []
+related_concepts: []
+related_projects: []
+related_reports: []
+---
+
 # LinkedIn Post
 
 ## Generated
@@ -29,3 +39,7 @@ In high-performance sailing, that difference matters. Every gram, every millimet
 At MORFRAC, we look at dogbone hardware the same way we look at every structural sailing component: as an engineering problem first, and a product second.
 
 Curious how others are approaching dogbone design for performance applications: what matters most in your view, geometry, material behavior, or integration with the broader system?
+
+## Related Links
+
+No structured related links identified.

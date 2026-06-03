@@ -1,3 +1,14 @@
+---
+type: recommendation_report
+source_agent: SEO_Agent
+created: 2026-05-15
+related_findings: []
+related_concepts: []
+related_projects:
+  - Search Console
+related_reports: []
+---
+
 # SEO Fix Recommendations
 
 ## Generated
@@ -112,3 +123,8 @@ This report is deterministic.
 It does not publish or edit website content.
 
 It generates fix recommendations for review before implementation.
+
+## Related Links
+
+### Projects
+- [[Search Console]]

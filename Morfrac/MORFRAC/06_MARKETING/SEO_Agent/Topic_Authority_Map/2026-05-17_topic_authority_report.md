@@ -1,3 +1,21 @@
+---
+type: generated_report
+source_agent: SEO_Agent
+created: 2026-05-17
+related_findings: []
+related_concepts:
+  - TOPIC_AT_RISK
+  - FRAGMENTED_TOPIC
+  - VERY_WEAK
+  - HIGH_COMMERCIAL_LOW_AUTHORITY
+  - PRODUCT_HEAVY_NO_PILLAR
+  - AUTHORITY_WITHOUT_COMMERCIAL_CAPTURE
+  - CORE_TOPIC_STRENGTH
+related_projects:
+  - Search Console
+related_reports: []
+---
+
 # MORFRAC SEO Topic Authority Map
 
 ## Generated
@@ -143,3 +161,17 @@ Strategic statuses:
 - High commercial / low authority topics: `C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Topic_Authority_Map\2026-05-17_high_commercial_low_authority.csv`
 - Topic risk topics: `C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Topic_Authority_Map\2026-05-17_topic_risk_topics.csv`
 - Core topic strengths: `C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Topic_Authority_Map\2026-05-17_core_topic_strengths.csv`
+
+## Related Links
+
+### Concepts
+- [[TOPIC_AT_RISK]]
+- [[FRAGMENTED_TOPIC]]
+- [[VERY_WEAK]]
+- [[HIGH_COMMERCIAL_LOW_AUTHORITY]]
+- [[PRODUCT_HEAVY_NO_PILLAR]]
+- [[AUTHORITY_WITHOUT_COMMERCIAL_CAPTURE]]
+- [[CORE_TOPIC_STRENGTH]]
+
+### Projects
+- [[Search Console]]

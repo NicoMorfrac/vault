@@ -1,3 +1,13 @@
+---
+type: generated_report
+source_agent: Marketing
+created: 2026-05-11
+related_findings: []
+related_concepts: []
+related_projects: []
+related_reports: []
+---
+
 # LinkedIn Topic Proposals
 
 ## Generated
@@ -343,3 +353,6 @@ Technical, precise, evidence-led, and practical for sailmakers, riggers, and per
 
 ---
 
+## Related Links
+
+No structured related links identified.

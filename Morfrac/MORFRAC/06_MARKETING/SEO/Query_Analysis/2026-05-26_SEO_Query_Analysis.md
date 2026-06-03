@@ -1,3 +1,15 @@
+---
+type: analysis_report
+source_agent: Marketing
+created: 2026-05-26
+related_findings: []
+related_concepts: []
+related_projects:
+  - Search Console
+related_reports:
+  - 2026-05-26_SearchConsole_Raw_Data
+---
+
 # SEO Query Analysis
 
 ## Objective
@@ -340,3 +352,11 @@ Trigger:
 - Raw Search Console file written: C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\Analytics\Raw_Data\SearchConsole\2026-05-26_SearchConsole_Raw_Data.md
 - SEO analysis file written: C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO\Query_Analysis\2026-05-26_SEO_Query_Analysis.md
 - Script used: search_console_report.py
+
+## Related Links
+
+### Projects
+- [[Search Console]]
+
+### Reports
+- [[2026-05-26_SearchConsole_Raw_Data]]

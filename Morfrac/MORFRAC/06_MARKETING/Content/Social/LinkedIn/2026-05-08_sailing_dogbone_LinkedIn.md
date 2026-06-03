@@ -1,3 +1,13 @@
+---
+type: generated_report
+source_agent: Marketing
+created: 2026-05-08
+related_findings: []
+related_concepts: []
+related_projects: []
+related_reports: []
+---
+
 # LinkedIn Post
 
 ## Generated
@@ -29,3 +39,7 @@ This is why engineering choices around material selection, radius control, and i
 At MORFRAC, this is the level we work at: designing hardware and structural sailing systems with the load case first, then the hardware geometry, then the weight.
 
 If you are specifying or optimizing dogbone-style interfaces in a performance application, what matters more in your experience: minimum weight, articulation, or long-term wear control?
+
+## Related Links
+
+No structured related links identified.

@@ -1,3 +1,21 @@
+---
+type: generated_report
+source_agent: SEO_Agent
+created: 2026-05-17
+related_findings: []
+related_concepts:
+  - COMMERCIAL_ENTITY_NEEDS_AUTHORITY_CONTENT
+  - VERY_WEAK
+  - HIGH_COMMERCIAL_LOW_AUTHORITY
+  - TOPIC_AT_RISK
+  - COMMERCIAL_ENTITY_NEEDS_PILLAR_PAGE
+  - ENTITY_HAS_CONTENT_GAP
+  - SEARCH_VISIBLE_COMMERCIAL_ENTITY
+  - ENTITY_RULES
+related_projects: []
+related_reports: []
+---
+
 # MORFRAC SEO Entity Relationship Map
 
 ## Generated
@@ -196,3 +214,15 @@ Recommended actions:
 - Stable page relationship edges: `C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Entity_Relationship_Map\page_relationship_edges.csv`
 - Entity relationship edges: `C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Entity_Relationship_Map\2026-05-17_entity_relationship_edges.csv`
 - Entity opportunities: `C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Entity_Relationship_Map\2026-05-17_entity_opportunities.csv`
+
+## Related Links
+
+### Concepts
+- [[COMMERCIAL_ENTITY_NEEDS_AUTHORITY_CONTENT]]
+- [[VERY_WEAK]]
+- [[HIGH_COMMERCIAL_LOW_AUTHORITY]]
+- [[TOPIC_AT_RISK]]
+- [[COMMERCIAL_ENTITY_NEEDS_PILLAR_PAGE]]
+- [[ENTITY_HAS_CONTENT_GAP]]
+- [[SEARCH_VISIBLE_COMMERCIAL_ENTITY]]
+- [[ENTITY_RULES]]

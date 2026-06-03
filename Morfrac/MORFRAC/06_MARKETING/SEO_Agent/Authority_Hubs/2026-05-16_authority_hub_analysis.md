@@ -1,3 +1,13 @@
+---
+type: analysis_report
+source_agent: SEO_Agent
+created: 2026-05-16
+related_findings: []
+related_concepts: []
+related_projects: []
+related_reports: []
+---
+
 # SEO Authority Hub Analysis
 
 ## Generated
@@ -80,3 +90,7 @@ Avoid:
 - Hub analysis: C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Authority_Hubs\2026-05-16_authority_hub_analysis.csv
 - Recommendations: C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Authority_Hubs\2026-05-16_authority_hub_recommendations.csv
 - Report: C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Authority_Hubs\2026-05-16_authority_hub_analysis.md
+
+## Related Links
+
+No structured related links identified.

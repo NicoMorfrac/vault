@@ -1,3 +1,13 @@
+---
+type: generated_report
+source_agent: SEO_Agent
+created: 2026-05-17
+related_findings: []
+related_concepts: []
+related_projects: []
+related_reports: []
+---
+
 # MORFRAC SEO Historical Comparison
 
     ## Generated
@@ -90,4 +100,7 @@
     - Metric comparison CSV: `C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Historical_Comparisons\2026-05-17_seo_historical_metric_comparison.csv`
     - Page-level changes CSV: `C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Historical_Comparisons\2026-05-17_seo_page_level_changes.csv`
     - Issue delta CSV: `C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Historical_Comparisons\2026-05-17_seo_issue_delta.csv`
-    
+
+## Related Links
+
+No structured related links identified.

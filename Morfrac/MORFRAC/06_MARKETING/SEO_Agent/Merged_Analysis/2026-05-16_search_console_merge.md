@@ -1,3 +1,15 @@
+---
+type: generated_report
+source_agent: SEO_Agent
+created: 2026-05-16
+related_findings: []
+related_concepts: []
+related_projects:
+  - Search Console
+related_reports:
+  - 2026-05-16_SEO_Query_Analysis
+---
+
 # Search Console Merge Analysis
 
 ## Generated
@@ -49,3 +61,11 @@
 This report merges crawl quality, commercial priority, structural SEO issues, and Search Console page performance.
 
 It reads the existing Search Console markdown report directly, so no Search Console CSV export is required.
+
+## Related Links
+
+### Projects
+- [[Search Console]]
+
+### Reports
+- [[2026-05-16_SEO_Query_Analysis]]

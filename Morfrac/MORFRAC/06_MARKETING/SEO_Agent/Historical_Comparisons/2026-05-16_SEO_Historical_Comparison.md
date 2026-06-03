@@ -1,3 +1,13 @@
+---
+type: generated_report
+source_agent: SEO_Agent
+created: 2026-05-16
+related_findings: []
+related_concepts: []
+related_projects: []
+related_reports: []
+---
+
 # MORFRAC SEO Historical Comparison
 
 ## Generated
@@ -135,3 +145,7 @@ Negative delta means the issue appeared on fewer pages.
 - Metric comparison CSV: `C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Historical_Comparisons\2026-05-16_seo_historical_metric_comparison.csv`
 - Page-level changes CSV: `C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Historical_Comparisons\2026-05-16_seo_page_level_changes.csv`
 - Issue delta CSV: `C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Historical_Comparisons\2026-05-16_seo_issue_delta.csv`
+
+## Related Links
+
+No structured related links identified.

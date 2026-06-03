@@ -1,3 +1,13 @@
+---
+type: generated_report
+source_agent: Marketing
+created: 2026-05-08
+related_findings: []
+related_concepts: []
+related_projects: []
+related_reports: []
+---
+
 # LinkedIn Post
 
 ## Generated
@@ -29,3 +39,7 @@ This is where custom hardware earns its place. A padeye designed for a specific 
 At MORFRAC, we approach padeyes the same way we approach every structural sailing component: as an engineered interface, not a standard part.
 
 Where do you see the biggest opportunity in padeye design today: load alignment, weight reduction, or integration with surrounding structure?
+
+## Related Links
+
+No structured related links identified.

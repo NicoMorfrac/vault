@@ -1,3 +1,13 @@
+---
+type: generated_report
+source_agent: SEO_Agent
+created: 2026-05-16
+related_findings: []
+related_concepts: []
+related_projects: []
+related_reports: []
+---
+
 # SEO Internal Linking Opportunities
 
 ## Generated
@@ -115,3 +125,7 @@ C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Interna
 
 - Markdown:
 C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Internal_Linking\2026-05-16_internal_link_opportunities.md
+
+## Related Links
+
+No structured related links identified.

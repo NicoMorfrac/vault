@@ -1,3 +1,13 @@
+---
+type: recommendation_report
+source_agent: SEO_Agent
+created: 2026-05-16
+related_findings: []
+related_concepts: []
+related_projects: []
+related_reports: []
+---
+
 # SEO Metadata Recommendations
 
 ## Generated
@@ -67,3 +77,7 @@ Before implementation, verify:
 
 - CSV: C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Metadata_Recommendations\2026-05-16_seo_metadata_recommendations.csv
 - Markdown: C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Metadata_Recommendations\2026-05-16_seo_metadata_recommendations.md
+
+## Related Links
+
+No structured related links identified.

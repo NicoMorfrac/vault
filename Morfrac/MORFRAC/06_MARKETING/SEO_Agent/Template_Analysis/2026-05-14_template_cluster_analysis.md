@@ -1,3 +1,13 @@
+---
+type: analysis_report
+source_agent: SEO_Agent
+created: 2026-05-14
+related_findings: []
+related_concepts: []
+related_projects: []
+related_reports: []
+---
+
 # SEO Template Cluster Analysis
 
 ## Generated
@@ -53,3 +63,7 @@ Primary template-level signals include:
 - weak internal linking
 
 This report should be used to prioritize structural fixes before page-by-page edits.
+
+## Related Links
+
+No structured related links identified.

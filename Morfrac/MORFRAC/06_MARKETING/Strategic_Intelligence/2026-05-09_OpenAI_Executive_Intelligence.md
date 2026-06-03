@@ -1,3 +1,22 @@
+---
+type: generated_report
+source_agent: Marketing
+created: 2026-05-09
+related_findings: []
+related_concepts: []
+related_projects:
+  - GA4
+  - Search Console
+related_reports:
+  - 2026-05-09_Weekly_Marketing_Report
+  - 2026-05-09_SEO_Query_Analysis
+  - 2026-05-09_Marketing_Review
+  - 2026-05-09_Content_Opportunities
+  - 2026-05-09_Content_Strategy
+  - 2026-05-09_LinkedIn_Topic_Proposals
+  - 2026-05-07_Competitor_Changes
+---
+
 # OpenAI Executive Intelligence
 
 ## Generated
@@ -248,3 +267,18 @@ Why:
 **Mixed.**
 
 MORFRAC has identifiable technical demand and some short-term traffic improvement, but the underlying 28-day trend remains negative and search efficiency has worsened materially. The good news is that the opportunity set is concentrated and actionable: dogbone, padeye, mloop, soft pad eye, and Farr X2 all offer leverage. The bad news is that visibility is not converting efficiently enough, and the site is currently too dependent on branded/direct signals rather than scalable non-branded discovery.
+
+## Related Links
+
+### Projects
+- [[GA4]]
+- [[Search Console]]
+
+### Reports
+- [[2026-05-09_Weekly_Marketing_Report]]
+- [[2026-05-09_SEO_Query_Analysis]]
+- [[2026-05-09_Marketing_Review]]
+- [[2026-05-09_Content_Opportunities]]
+- [[2026-05-09_Content_Strategy]]
+- [[2026-05-09_LinkedIn_Topic_Proposals]]
+- [[2026-05-07_Competitor_Changes]]

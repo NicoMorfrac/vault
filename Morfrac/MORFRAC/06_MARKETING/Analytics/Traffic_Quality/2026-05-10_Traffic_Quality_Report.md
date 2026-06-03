@@ -1,3 +1,15 @@
+---
+type: generated_report
+source_agent: Marketing
+created: 2026-05-10
+related_findings: []
+related_concepts:
+  - US_MONITORING
+related_projects: []
+related_reports:
+  - 2026-05-09_Weekly_Marketing_Report
+---
+
 # Traffic Quality Analysis
 
 ## Generated
@@ -93,3 +105,11 @@ Low tier / low confidence:
 This report is a rule-based traffic qualification layer.
 It does not prove whether traffic is human, bot, commercial, or non-commercial.
 It provides a confidence filter for executive interpretation.
+
+## Related Links
+
+### Concepts
+- [[US_MONITORING]]
+
+### Reports
+- [[2026-05-09_Weekly_Marketing_Report]]

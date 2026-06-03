@@ -1,3 +1,23 @@
+---
+type: generated_report
+source_agent: Marketing
+created: 2026-05-10
+related_findings: []
+related_concepts: []
+related_projects:
+  - GA4
+  - Search Console
+related_reports:
+  - 2026-05-09_Weekly_Marketing_Report
+  - 2026-05-10_Traffic_Quality_Report
+  - 2026-05-09_SEO_Query_Analysis
+  - 2026-05-09_Marketing_Review
+  - 2026-05-09_Content_Opportunities
+  - 2026-05-09_Content_Strategy
+  - 2026-05-09_LinkedIn_Topic_Proposals
+  - 2026-05-07_Competitor_Changes
+---
+
 # OpenAI Executive Intelligence
 
 ## Generated
@@ -354,3 +374,19 @@ Why:
 - Positive: MORFRAC still has meaningful visibility around core technical product terms, and some high-confidence markets are present.
 - Negative: organic CTR, clicks, and ranking all deteriorated over 28 days, and traffic quality is materially diluted by low-confidence and suspicious signals.
 - Net: this is a recoverable visibility problem, but only if MORFRAC tightens SEO execution and focuses on engineering-led, commercially relevant content rather than chasing volume.
+
+## Related Links
+
+### Projects
+- [[GA4]]
+- [[Search Console]]
+
+### Reports
+- [[2026-05-09_Weekly_Marketing_Report]]
+- [[2026-05-10_Traffic_Quality_Report]]
+- [[2026-05-09_SEO_Query_Analysis]]
+- [[2026-05-09_Marketing_Review]]
+- [[2026-05-09_Content_Opportunities]]
+- [[2026-05-09_Content_Strategy]]
+- [[2026-05-09_LinkedIn_Topic_Proposals]]
+- [[2026-05-07_Competitor_Changes]]

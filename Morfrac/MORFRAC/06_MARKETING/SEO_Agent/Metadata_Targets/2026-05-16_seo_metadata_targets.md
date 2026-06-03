@@ -1,3 +1,13 @@
+---
+type: generated_report
+source_agent: SEO_Agent
+created: 2026-05-16
+related_findings: []
+related_concepts: []
+related_projects: []
+related_reports: []
+---
+
 # SEO Metadata Targets
 
 ## Generated
@@ -68,3 +78,7 @@ The agent should generate final metadata recommendations using:
 
 - CSV: C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Metadata_Targets\2026-05-16_seo_metadata_targets.csv
 - Markdown: C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Metadata_Targets\2026-05-16_seo_metadata_targets.md
+
+## Related Links
+
+No structured related links identified.

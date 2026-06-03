@@ -1,3 +1,16 @@
+---
+type: generated_report
+source_agent: B2B_Problem_Discovery
+created: 2026-05-24
+related_findings:
+  - MORAAAAA-92
+  - MORAAAAA-92-01
+related_concepts:
+  - HIGH_PERFORMANCE_SYSTEMS
+related_projects: []
+related_reports: []
+---
+
 # MORAAAAA-92 Summary Report
 
 Date: 2026-05-24
@@ -67,3 +80,12 @@ The strategic relevance is not that bowsprits are unavailable. It is that even a
 Evidence suggests that "standardized retrofit workflow" should not be treated as a synonym for low-friction installation. In performance sailing systems, commoditized hardware still leaves recurring physical-interface uncertainty around geometry, coexistence, and maintainable access.
 
 Commercial validation remains limited. What is well supported is repeated technical friction that is close to MORFRAC's retrofit-engineering, serviceability, and installation-risk-reduction scope.
+
+## Related Links
+
+### Findings
+- [[MORAAAAA-92]]
+- [[MORAAAAA-92-01]]
+
+### Concepts
+- [[HIGH_PERFORMANCE_SYSTEMS]]

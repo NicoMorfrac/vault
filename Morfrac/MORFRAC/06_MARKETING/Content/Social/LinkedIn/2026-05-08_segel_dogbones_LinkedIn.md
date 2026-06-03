@@ -1,3 +1,13 @@
+---
+type: generated_report
+source_agent: Marketing
+created: 2026-05-09
+related_findings: []
+related_concepts: []
+related_projects: []
+related_reports: []
+---
+
 # LinkedIn Post
 
 ## Generated
@@ -29,3 +39,7 @@ That is why material choice, fiber construction, termination detail, and interfa
 At MORFRAC, we look at these details as part of a larger structural system. The goal is not simply to make a lighter component, but to make a better-engineered one that performs consistently in real sailing conditions.
 
 Where have you seen the biggest gains in dogbone or textile-link optimization: stiffness, durability, or handling consistency?
+
+## Related Links
+
+No structured related links identified.

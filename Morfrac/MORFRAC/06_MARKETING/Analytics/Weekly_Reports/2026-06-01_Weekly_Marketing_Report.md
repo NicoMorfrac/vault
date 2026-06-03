@@ -1,3 +1,15 @@
+---
+type: weekly_report
+source_agent: Marketing
+created: 2026-06-01
+related_findings: []
+related_concepts: []
+related_projects:
+  - GA4
+related_reports:
+  - 2026-06-01_GA4_Raw_Data
+---
+
 # Weekly Marketing Report
 
 ## Objective
@@ -112,3 +124,11 @@ Review manually:
 - Raw GA4 file written: C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\Analytics\Raw_Data\GA4\2026-06-01_GA4_Raw_Data.md
 - Weekly report written: C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\Analytics\Weekly_Reports\2026-06-01_Weekly_Marketing_Report.md
 - Script used: weekly_ga4_report.py
+
+## Related Links
+
+### Projects
+- [[GA4]]
+
+### Reports
+- [[2026-06-01_GA4_Raw_Data]]

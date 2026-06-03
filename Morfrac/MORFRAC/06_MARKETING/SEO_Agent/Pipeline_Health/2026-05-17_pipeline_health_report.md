@@ -1,3 +1,15 @@
+---
+type: generated_report
+source_agent: SEO_Agent
+created: 2026-05-23
+related_findings: []
+related_concepts: []
+related_projects:
+  - Search Console
+related_reports:
+  - pipeline_health_report
+---
+
 # MORFRAC SEO Pipeline Health Check
 
 ## Generated
@@ -65,3 +77,11 @@ If this report fails, fix the failing upstream script before relying on executiv
 - Stable health CSV: `C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Pipeline_Health\pipeline_health_check.csv`
 - Health report: `C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Pipeline_Health\2026-05-17_pipeline_health_report.md`
 - Stable health report: `C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Pipeline_Health\pipeline_health_report.md`
+
+## Related Links
+
+### Projects
+- [[Search Console]]
+
+### Reports
+- [[pipeline_health_report]]

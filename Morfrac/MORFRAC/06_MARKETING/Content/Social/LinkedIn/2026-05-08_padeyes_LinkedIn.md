@@ -1,3 +1,13 @@
+---
+type: generated_report
+source_agent: Marketing
+created: 2026-05-22
+related_findings: []
+related_concepts: []
+related_projects: []
+related_reports: []
+---
+
 # LinkedIn Post
 
 ## Generated
@@ -31,3 +41,7 @@ At MORFRAC, we approach padeyes as part of a system, not a standalone fitting. T
 For performance projects, the real question is not whether a padeye is strong enough in isolation. It is whether the entire load path is optimized.
 
 How do you approach padeye design: minimum mass, maximum stiffness, or serviceability over the full life of the boat?
+
+## Related Links
+
+No structured related links identified.

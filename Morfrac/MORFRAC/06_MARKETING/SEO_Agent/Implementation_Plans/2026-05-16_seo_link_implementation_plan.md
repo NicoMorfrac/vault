@@ -1,3 +1,13 @@
+---
+type: plan
+source_agent: SEO_Agent
+created: 2026-05-16
+related_findings: []
+related_concepts: []
+related_projects: []
+related_reports: []
+---
+
 # SEO Internal Link Implementation Plan
 
 ## Generated
@@ -721,3 +731,7 @@ https://www.morfrac.com/shop/shackle-17-4ph-12827
 | https://www.morfrac.com/shop/outlet-36/shackle-17-4ph-12827 | 11 | d-shackle, deal, online, shackle, outlet |
 
 ---
+
+## Related Links
+
+No structured related links identified.

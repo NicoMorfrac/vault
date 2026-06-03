@@ -1,3 +1,13 @@
+---
+type: recommendation_report
+source_agent: SEO_Agent
+created: 2026-05-17
+related_findings: []
+related_concepts: []
+related_projects: []
+related_reports: []
+---
+
 # Contextual Link Recommendations
 
     ## Generated
@@ -71,3 +81,7 @@
 | https://www.morfrac.com/es/shop/dogbone-25/dogbone-flat-faced-large-titanium-12821 | https://www.morfrac.com/es/shop/outlet-36/dogbone-flat-faced-medium-titanium-12820 | 11 |
 | https://www.morfrac.com/shop/morfblock-17/morfblock-light-01-high-load-sailing-block-12324 | https://www.morfrac.com/shop/morfblock-light-4-hl-12823 | 11 |
 | https://www.morfrac.com/es/shop/morfring-26/morfring-60xl-12828 | https://www.morfrac.com/es/shop/morfring-26/morfring-60xl-ptfe-friction-ring-12482 | 11 |
+
+## Related Links
+
+No structured related links identified.

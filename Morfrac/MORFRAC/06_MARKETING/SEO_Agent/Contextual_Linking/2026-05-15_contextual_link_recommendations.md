@@ -1,3 +1,13 @@
+---
+type: recommendation_report
+source_agent: SEO_Agent
+created: 2026-05-15
+related_findings: []
+related_concepts: []
+related_projects: []
+related_reports: []
+---
+
 # SEO Contextual Link Recommendations
 
 ## Generated
@@ -137,3 +147,7 @@ C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Context
 Markdown:
 
 C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Contextual_Linking\2026-05-15_contextual_link_recommendations.md
+
+## Related Links
+
+No structured related links identified.

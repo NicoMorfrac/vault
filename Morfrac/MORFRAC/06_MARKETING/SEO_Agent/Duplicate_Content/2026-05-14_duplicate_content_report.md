@@ -1,3 +1,13 @@
+---
+type: generated_report
+source_agent: SEO_Agent
+created: 2026-05-14
+related_findings: []
+related_concepts: []
+related_projects: []
+related_reports: []
+---
+
 # SEO Duplicate Content Analysis
 
 ## Generated
@@ -153,3 +163,7 @@ Focus first on duplicates that reduce search intent clarity or split authority a
 - Cannibalization candidates: C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Duplicate_Content\2026-05-14_cannibalization_candidates.csv
 - Product/category overlap: C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Duplicate_Content\2026-05-14_product_category_overlap.csv
 - Report: C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Duplicate_Content\2026-05-14_duplicate_content_report.md
+
+## Related Links
+
+No structured related links identified.

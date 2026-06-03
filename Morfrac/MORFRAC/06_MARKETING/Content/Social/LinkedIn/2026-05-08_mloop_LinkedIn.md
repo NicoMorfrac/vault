@@ -1,3 +1,13 @@
+---
+type: generated_report
+source_agent: Marketing
+created: 2026-05-09
+related_findings: []
+related_concepts: []
+related_projects: []
+related_reports: []
+---
+
 # LinkedIn Post
 
 ## Generated
@@ -31,3 +41,7 @@ At MORFRAC, we view components like mloops as part of a wider structural system,
 For sailors and riggers, the question is no longer whether textile solutions have a place. The question is where they deliver measurable gains.
 
 Where do you see mloops being most effective: control systems, furling applications, or custom structural rigging?
+
+## Related Links
+
+No structured related links identified.

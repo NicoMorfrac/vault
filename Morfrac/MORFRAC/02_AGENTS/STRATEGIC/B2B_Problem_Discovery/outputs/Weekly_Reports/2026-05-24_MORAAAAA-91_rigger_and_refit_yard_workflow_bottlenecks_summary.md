@@ -1,3 +1,17 @@
+---
+type: generated_report
+source_agent: B2B_Problem_Discovery
+created: 2026-05-24
+related_findings:
+  - MORAAAAA-91
+  - MORAAAAA-91-01
+  - MORAAAAA-91-02
+related_concepts:
+  - REFIT_YARDS
+related_projects: []
+related_reports: []
+---
+
 # MORAAAAA-91 Summary Report
 
 Date: 2026-05-24
@@ -70,3 +84,13 @@ The strongest convergence is not around a missing piece of hardware. It is aroun
 Evidence suggests recurring value in bounded support layers around rigging refits: access planning, geometry capture, sequence control, and installation-readiness validation.
 
 Commercial validation remains limited. What is well supported is repeated technical friction that consumes yard capacity, creates callback risk, and increases liability ambiguity around high-consequence mechanical retrofit work.
+
+## Related Links
+
+### Findings
+- [[MORAAAAA-91]]
+- [[MORAAAAA-91-01]]
+- [[MORAAAAA-91-02]]
+
+### Concepts
+- [[REFIT_YARDS]]

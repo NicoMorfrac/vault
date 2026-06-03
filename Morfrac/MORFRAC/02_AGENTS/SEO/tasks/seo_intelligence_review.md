@@ -1,3 +1,13 @@
+---
+type: review
+source_agent: MORFRAC
+created: 2026-05-17
+related_findings: []
+related_concepts: []
+related_projects: []
+related_reports: []
+---
+
 # SEO Intelligence Review
 
 ## Objective
@@ -156,3 +166,7 @@ Recommend:
 - Do not duplicate deterministic analysis
 - Focus on strategic interpretation
 - Focus on leverage and scalability
+
+## Related Links
+
+No structured related links identified.
