@@ -125,3 +125,49 @@ rows:
               - "#f4a261"
             height: 265
 ```
+## Recent Reports
+
+```dataview
+TABLE source_agent, type, created
+FROM ""
+WHERE source_agent
+SORT created DESC
+LIMIT 25
+```
+
+## Findings
+
+```dataview
+TABLE related_concepts
+FROM ""
+WHERE contains(file.name,"MORAAAAAA")
+SORT file.name DESC
+```
+
+## Retrofit Complexity
+
+```dataview
+LIST
+WHERE contains(related_concepts,"RETROFIT_COMPLEXITY")
+```
+
+## Reports by Agent
+
+```dataview
+TABLE length(related_findings) AS Findings
+FROM ""
+WHERE source_agent
+SORT source_agent ASC
+```
+
+## Reports Missing Relationships
+
+```dataview
+TABLE source_agent, created
+FROM ""
+WHERE
+length(related_findings)=0 AND
+length(related_concepts)=0 AND
+length(related_projects)=0 AND
+length(related_reports)=0
+```
