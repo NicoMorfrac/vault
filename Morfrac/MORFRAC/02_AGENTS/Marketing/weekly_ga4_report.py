@@ -1,5 +1,6 @@
 from datetime import datetime
 from pathlib import Path
+import sys
 
 from google.analytics.data_v1beta import BetaAnalyticsDataClient
 from google.analytics.data_v1beta.types import RunReportRequest, DateRange, Metric, Dimension
@@ -12,6 +13,15 @@ from google.oauth2 import service_account
 PROPERTY_ID = "435000386"
 
 BASE_PATH = Path(r"C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC")
+
+if str(BASE_PATH) not in sys.path:
+    sys.path.insert(0, str(BASE_PATH))
+
+from obsidian_report_links import write_markdown_report
+
+REPORT_TYPE = "weekly_report"
+SOURCE_AGENT = "Marketing"
+
 
 SERVICE_ACCOUNT_FILE = Path(r"C:\Users\nicol\.credentials\paperclip-ga4.json")
 
@@ -234,7 +244,7 @@ def main():
 {markdown_table(country_rows[:20], ["country", "sessions", "totalUsers"])}
 """
 
-    raw_file.write_text(raw_content, encoding="utf-8")
+    write_markdown_report(raw_file, raw_content, report_type="raw_data_report", source_agent=SOURCE_AGENT)
 
     # Report file
     report_file = REPORTS_PATH / f"{today}_Weekly_Marketing_Report.md"
@@ -334,7 +344,7 @@ Review manually:
 - Script used: weekly_ga4_report.py
 """
 
-    report_file.write_text(report_content, encoding="utf-8")
+    write_markdown_report(report_file, report_content, report_type=REPORT_TYPE, source_agent=SOURCE_AGENT)
 
     print("\nWEEKLY GA4 REPORT CREATED\n")
     print(f"Raw data: {raw_file}")

@@ -4,6 +4,7 @@
 # ============================================================
 
 from pathlib import Path
+import sys
 from datetime import datetime
 import pandas as pd
 
@@ -12,6 +13,15 @@ import pandas as pd
 # ============================================================
 
 BASE_PATH = Path(r"C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC")
+
+if str(BASE_PATH) not in sys.path:
+    sys.path.insert(0, str(BASE_PATH))
+
+from obsidian_report_links import write_markdown_report
+
+REPORT_TYPE = "seo_content_gap_report"
+SOURCE_AGENT = "SEO_Agent"
+
 
 SEO_AGENT_PATH = BASE_PATH / r"06_MARKETING\SEO_Agent"
 
@@ -442,7 +452,7 @@ Recommended actions:
 - Page support summary: `{page_support_csv}`
 """
 
-    report_md.write_text(report, encoding="utf-8")
+    write_markdown_report(report_md, report, report_type=REPORT_TYPE, source_agent=SOURCE_AGENT)
 
     # ============================================================
     # COMPLETE

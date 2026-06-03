@@ -1,4 +1,5 @@
 from pathlib import Path
+import sys
 from datetime import datetime
 from urllib.parse import urlparse
 import pandas as pd
@@ -8,6 +9,15 @@ import pandas as pd
 # =========================================
 
 BASE_PATH = Path(r"C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC")
+
+if str(BASE_PATH) not in sys.path:
+    sys.path.insert(0, str(BASE_PATH))
+
+from obsidian_report_links import write_markdown_report
+
+REPORT_TYPE = "seo_internal_link_opportunities"
+SOURCE_AGENT = "SEO_Agent"
+
 
 CRAWL_DIR = BASE_PATH / r"06_MARKETING\SEO_Agent\Crawls"
 LEVERAGE_DIR = BASE_PATH / r"06_MARKETING\SEO_Agent\Leverage_Reports"
@@ -309,7 +319,7 @@ def main():
     {md_file}
     """
 
-    md_file.write_text(report, encoding="utf-8")
+    write_markdown_report(md_file, report, report_type=REPORT_TYPE, source_agent=SOURCE_AGENT)
 
     print("\nSEO INTERNAL LINK OPPORTUNITY ANALYSIS COMPLETE\n")
 

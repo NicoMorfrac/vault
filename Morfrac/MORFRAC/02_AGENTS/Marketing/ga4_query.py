@@ -1,5 +1,6 @@
 import argparse
 from pathlib import Path
+import sys
 from datetime import datetime
 
 from google.analytics.data_v1beta import BetaAnalyticsDataClient
@@ -19,6 +20,15 @@ from google.oauth2 import service_account
 PROPERTY_ID = "435000386"
 
 BASE_PATH = Path(r"C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC")
+
+if str(BASE_PATH) not in sys.path:
+    sys.path.insert(0, str(BASE_PATH))
+
+from obsidian_report_links import write_markdown_report
+
+REPORT_TYPE = "raw_data_report"
+SOURCE_AGENT = "Marketing"
+
 
 RAW_OUTPUT_PATH = BASE_PATH / r"06_MARKETING\Analytics\Raw_Data\GA4"
 
@@ -182,7 +192,7 @@ def main():
 {markdown_table(headers, output_rows)}
 """
 
-        filepath.write_text(md_content, encoding="utf-8")
+        write_markdown_report(filepath, md_content, report_type=REPORT_TYPE, source_agent=SOURCE_AGENT)
 
         print("\nMARKDOWN FILE CREATED\n")
         print(filepath)

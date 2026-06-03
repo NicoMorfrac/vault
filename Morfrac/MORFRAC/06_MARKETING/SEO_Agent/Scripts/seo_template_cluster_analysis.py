@@ -1,9 +1,19 @@
 from pathlib import Path
+import sys
 from datetime import datetime
 
 import pandas as pd
 
 BASE_PATH = Path(r"C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC")
+
+if str(BASE_PATH) not in sys.path:
+    sys.path.insert(0, str(BASE_PATH))
+
+from obsidian_report_links import write_markdown_report
+
+REPORT_TYPE = "seo_template_cluster_analysis"
+SOURCE_AGENT = "SEO_Agent"
+
 
 CRAWL_PATH = BASE_PATH / r"06_MARKETING\SEO_Agent\Crawls"
 OUTPUT_PATH = BASE_PATH / r"06_MARKETING\SEO_Agent\Template_Analysis"
@@ -205,7 +215,7 @@ Primary template-level signals include:
 This report should be used to prioritize structural fixes before page-by-page edits.
 """
 
-    output_md.write_text(summary, encoding="utf-8")
+    write_markdown_report(output_md, summary, report_type=REPORT_TYPE, source_agent=SOURCE_AGENT)
 
     print("\nSEO TEMPLATE CLUSTER ANALYSIS COMPLETE\n")
     print(output_csv)

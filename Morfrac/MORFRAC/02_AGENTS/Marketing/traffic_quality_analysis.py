@@ -1,4 +1,5 @@
 from pathlib import Path
+import sys
 from datetime import datetime
 import re
 import pandas as pd
@@ -8,6 +9,15 @@ import pandas as pd
 # =========================================
 
 BASE_PATH = Path(r"C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC")
+
+if str(BASE_PATH) not in sys.path:
+    sys.path.insert(0, str(BASE_PATH))
+
+from obsidian_report_links import write_markdown_report
+
+REPORT_TYPE = "traffic_quality_report"
+SOURCE_AGENT = "Marketing"
+
 
 WEEKLY_REPORTS = BASE_PATH / r"06_MARKETING\Analytics\Weekly_Reports"
 
@@ -494,10 +504,7 @@ It does not prove whether traffic is human, bot, commercial, or non-commercial.
 It provides a confidence filter for executive interpretation.
 """
 
-    report_file.write_text(
-        report,
-        encoding="utf-8"
-    )
+    write_markdown_report(report_file, report, report_type=REPORT_TYPE, source_agent=SOURCE_AGENT)
 
     print("\nTRAFFIC QUALITY ANALYSIS COMPLETE\n")
     print(f"CSV: {csv_file}")

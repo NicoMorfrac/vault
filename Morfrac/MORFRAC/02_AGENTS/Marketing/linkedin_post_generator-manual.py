@@ -1,6 +1,7 @@
 import os
 import re
 from pathlib import Path
+import sys
 from datetime import datetime
 
 from openai import OpenAI
@@ -10,6 +11,15 @@ from openai import OpenAI
 # =========================================
 
 BASE_PATH = Path(r"C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC")
+
+if str(BASE_PATH) not in sys.path:
+    sys.path.insert(0, str(BASE_PATH))
+
+from obsidian_report_links import write_markdown_report
+
+REPORT_TYPE = "linkedin_post"
+SOURCE_AGENT = "Marketing"
+
 
 INPUT_PATH = BASE_PATH / r"06_MARKETING\Content\Strategy"
 
@@ -231,10 +241,7 @@ Requirements:
 {post_text}
 """
 
-            output_file.write_text(
-                output_content,
-                encoding="utf-8"
-            )
+            write_markdown_report(output_file, output_content, report_type=REPORT_TYPE, source_agent=SOURCE_AGENT)
 
             generated += 1
 

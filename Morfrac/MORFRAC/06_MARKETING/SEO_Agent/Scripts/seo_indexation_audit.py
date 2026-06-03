@@ -1,4 +1,5 @@
 from pathlib import Path
+import sys
 from datetime import datetime
 from urllib.parse import urlparse
 
@@ -9,6 +10,15 @@ import pandas as pd
 # =========================================
 
 BASE_PATH = Path(r"C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC")
+
+if str(BASE_PATH) not in sys.path:
+    sys.path.insert(0, str(BASE_PATH))
+
+from obsidian_report_links import write_markdown_report
+
+REPORT_TYPE = "seo_indexation_audit"
+SOURCE_AGENT = "SEO_Agent"
+
 
 CRAWL_PATH = BASE_PATH / r"06_MARKETING\SEO_Agent\Crawls"
 OUTPUT_PATH = BASE_PATH / r"06_MARKETING\SEO_Agent\Indexation_Audit"
@@ -311,7 +321,7 @@ Common Odoo SEO risks include:
 - Markdown: {output_md}
 """
 
-    output_md.write_text(report, encoding="utf-8")
+    write_markdown_report(output_md, report, report_type=REPORT_TYPE, source_agent=SOURCE_AGENT)
 
     print("\nSEO INDEXATION AUDIT COMPLETE\n")
     print(output_csv)

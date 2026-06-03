@@ -1,5 +1,6 @@
 import pickle
 from pathlib import Path
+import sys
 from datetime import datetime, timedelta
 
 from google_auth_oauthlib.flow import InstalledAppFlow
@@ -11,6 +12,15 @@ from googleapiclient.discovery import build
 # =========================================
 
 BASE_PATH = Path(r"C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC")
+
+if str(BASE_PATH) not in sys.path:
+    sys.path.insert(0, str(BASE_PATH))
+
+from obsidian_report_links import write_markdown_report
+
+REPORT_TYPE = "seo_query_analysis"
+SOURCE_AGENT = "Marketing"
+
 
 RAW_OUTPUT_PATH = BASE_PATH / r"06_MARKETING\Analytics\Raw_Data\SearchConsole"
 SEO_OUTPUT_PATH = BASE_PATH / r"06_MARKETING\SEO\Query_Analysis"
@@ -433,7 +443,7 @@ def main():
 {simple_dim_table(current_countries, "country", limit=50)}
 """
 
-    raw_file.write_text(raw_content, encoding="utf-8")
+    write_markdown_report(raw_file, raw_content, report_type="raw_data_report", source_agent=SOURCE_AGENT)
 
     # SEO report
     report_file = SEO_OUTPUT_PATH / f"{run_date}_SEO_Query_Analysis.md"
@@ -548,7 +558,7 @@ Trigger:
 - Script used: search_console_report.py
 """
 
-    report_file.write_text(report_content, encoding="utf-8")
+    write_markdown_report(report_file, report_content, report_type=REPORT_TYPE, source_agent=SOURCE_AGENT)
 
     print("\nSEARCH CONSOLE REPORT CREATED\n")
     print(f"Raw data: {raw_file}")

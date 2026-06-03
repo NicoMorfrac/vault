@@ -1,4 +1,5 @@
 from pathlib import Path
+import sys
 from datetime import datetime
 
 import pandas as pd
@@ -8,6 +9,15 @@ import pandas as pd
 # =========================================
 
 BASE_PATH = Path(r"C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC")
+
+if str(BASE_PATH) not in sys.path:
+    sys.path.insert(0, str(BASE_PATH))
+
+from obsidian_report_links import write_markdown_report
+
+REPORT_TYPE = "seo_fix_recommendations"
+SOURCE_AGENT = "SEO_Agent"
+
 
 LEVERAGE_PATH = BASE_PATH / r"06_MARKETING\SEO_Agent\Leverage_Reports"
 TEMPLATE_PATH = BASE_PATH / r"06_MARKETING\SEO_Agent\Template_Analysis"
@@ -334,7 +344,7 @@ It does not publish or edit website content.
 It generates fix recommendations for review before implementation.
 """
 
-    output_md.write_text(summary, encoding="utf-8")
+    write_markdown_report(output_md, summary, report_type=REPORT_TYPE, source_agent=SOURCE_AGENT)
 
     print("\nSEO FIX RECOMMENDATIONS COMPLETE\n")
     print(output_csv)

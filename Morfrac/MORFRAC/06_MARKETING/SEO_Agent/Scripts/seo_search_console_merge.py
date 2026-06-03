@@ -1,5 +1,6 @@
 import re
 from pathlib import Path
+import sys
 from datetime import datetime
 import pandas as pd
 
@@ -8,6 +9,15 @@ import pandas as pd
 # =========================================
 
 BASE_PATH = Path(r"C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC")
+
+if str(BASE_PATH) not in sys.path:
+    sys.path.insert(0, str(BASE_PATH))
+
+from obsidian_report_links import write_markdown_report
+
+REPORT_TYPE = "seo_search_console_merge"
+SOURCE_AGENT = "SEO_Agent"
+
 
 CRAWL_PATH = BASE_PATH / r"06_MARKETING\SEO_Agent\Crawls"
 SEARCH_CONSOLE_PATH = BASE_PATH / r"06_MARKETING\SEO\Query_Analysis"
@@ -315,8 +325,8 @@ def main():
     md_output = OUTPUT_PATH / f"{TODAY}_search_console_merge.md"
     stable_md = OUTPUT_PATH / "search_console_merge.md"
 
-    md_output.write_text(report, encoding="utf-8")
-    stable_md.write_text(report, encoding="utf-8")
+    write_markdown_report(md_output, report, report_type=REPORT_TYPE, source_agent=SOURCE_AGENT)
+    write_markdown_report(stable_md, report, report_type=REPORT_TYPE, source_agent=SOURCE_AGENT)
 
     # =========================================
     # COMPLETE

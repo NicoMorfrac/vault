@@ -1,5 +1,6 @@
 import pandas as pd
 from pathlib import Path
+import sys
 from datetime import datetime
 
 # =========================================
@@ -7,6 +8,15 @@ from datetime import datetime
 # =========================================
 
 BASE_PATH = Path(r"C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC")
+
+if str(BASE_PATH) not in sys.path:
+    sys.path.insert(0, str(BASE_PATH))
+
+from obsidian_report_links import write_markdown_report
+
+REPORT_TYPE = "competitor_change_report"
+SOURCE_AGENT = "Marketing"
+
 
 HISTORY_FILE = BASE_PATH / r"06_MARKETING\Competitors\History\competitor_history.csv"
 
@@ -167,7 +177,7 @@ Future checks may include:
 - campaign detection
 """
 
-    output_file.write_text(content, encoding="utf-8")
+    write_markdown_report(output_file, content, report_type=REPORT_TYPE, source_agent=SOURCE_AGENT)
 
     print("\nCOMPETITOR CHANGE REPORT CREATED\n")
     print(output_file)

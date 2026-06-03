@@ -1,9 +1,20 @@
 # ============================================================
+BASE_PATH = Path(r"C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC")
+
+if str(BASE_PATH) not in sys.path:
+    sys.path.insert(0, str(BASE_PATH))
+
+from obsidian_report_links import write_markdown_report
+
+REPORT_TYPE = "seo_contextual_link_report"
+SOURCE_AGENT = "SEO_Agent"
+
 # MORFRAC SEO CONTEXTUAL LINK RECOMMENDER
 # FILTERED + STRATEGIC VERSION
 # ============================================================
 
 from pathlib import Path
+import sys
 from datetime import datetime
 from urllib.parse import urlparse
 from collections import defaultdict
@@ -436,10 +447,7 @@ def main():
             f"| {row['relevance_score']} |\n"
         )
 
-    summary_file.write_text(
-        md,
-        encoding="utf-8"
-    )
+    write_markdown_report(summary_file, md, report_type=REPORT_TYPE, source_agent=SOURCE_AGENT)
 
     # ============================================================
     # COMPLETE

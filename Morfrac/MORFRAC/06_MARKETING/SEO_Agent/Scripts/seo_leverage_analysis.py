@@ -1,5 +1,6 @@
 import re
 from pathlib import Path
+import sys
 from datetime import datetime
 
 import pandas as pd
@@ -9,6 +10,15 @@ import pandas as pd
 # =========================================
 
 BASE_PATH = Path(r"C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC")
+
+if str(BASE_PATH) not in sys.path:
+    sys.path.insert(0, str(BASE_PATH))
+
+from obsidian_report_links import write_markdown_report
+
+REPORT_TYPE = "seo_leverage_report"
+SOURCE_AGENT = "SEO_Agent"
+
 
 SEARCH_CONSOLE_PATH = BASE_PATH / r"06_MARKETING\SEO\Query_Analysis"
 CRAWL_PATH = BASE_PATH / r"06_MARKETING\SEO_Agent\Crawls"
@@ -628,10 +638,7 @@ def main():
     - Unmatched query-page debug file: `{debug_file}`
     """
 
-    output_md.write_text(
-        summary,
-        encoding="utf-8"
-    )
+    write_markdown_report(output_md, summary, report_type=REPORT_TYPE, source_agent=SOURCE_AGENT)
 
     print("\nSEO QUERY-PAGE-CRAWL LEVERAGE ANALYSIS COMPLETE\n")
     print(output_csv)

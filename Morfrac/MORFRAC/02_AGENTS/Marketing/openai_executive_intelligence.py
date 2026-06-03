@@ -1,5 +1,6 @@
 import os
 from pathlib import Path
+import sys
 from datetime import datetime
 
 from openai import OpenAI
@@ -9,6 +10,15 @@ from openai import OpenAI
 # =========================================
 
 BASE_PATH = Path(r"C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC")
+
+if str(BASE_PATH) not in sys.path:
+    sys.path.insert(0, str(BASE_PATH))
+
+from obsidian_report_links import write_markdown_report
+
+REPORT_TYPE = "executive_intelligence"
+SOURCE_AGENT = "Marketing"
+
 
 WEEKLY_REPORTS = BASE_PATH / r"06_MARKETING\Analytics\Weekly_Reports"
 SEO_REPORTS = BASE_PATH / r"06_MARKETING\SEO\Query_Analysis"
@@ -323,10 +333,7 @@ def main():
 {output_text}
 """
 
-    output_file.write_text(
-        content,
-        encoding="utf-8"
-    )
+    write_markdown_report(output_file, content, report_type=REPORT_TYPE, source_agent=SOURCE_AGENT)
 
     print("\nOPENAI EXECUTIVE INTELLIGENCE CREATED\n")
     print(output_file)

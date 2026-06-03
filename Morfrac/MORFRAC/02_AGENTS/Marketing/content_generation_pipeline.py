@@ -1,5 +1,6 @@
 import re
 from pathlib import Path
+import sys
 from datetime import datetime
 
 # =========================================
@@ -7,6 +8,15 @@ from datetime import datetime
 # =========================================
 
 BASE_PATH = Path(r"C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC")
+
+if str(BASE_PATH) not in sys.path:
+    sys.path.insert(0, str(BASE_PATH))
+
+from obsidian_report_links import write_markdown_report
+
+REPORT_TYPE = "content_asset"
+SOURCE_AGENT = "Marketing"
+
 
 INPUT_PATH = BASE_PATH / r"06_MARKETING\SEO\Content_Opportunities"
 
@@ -250,10 +260,7 @@ def main():
             f"{run_date}_{slug}_Blog.md"
         )
 
-        blog_file.write_text(
-            blog_content,
-            encoding="utf-8"
-        )
+        write_markdown_report(blog_file, blog_content, report_type="blog_post", source_agent=SOURCE_AGENT)
 
         # =====================================
         # LANDING PAGE
@@ -265,10 +272,7 @@ def main():
             f"{run_date}_{slug}_LandingPage.md"
         )
 
-        landing_file.write_text(
-            landing_content,
-            encoding="utf-8"
-        )
+        write_markdown_report(landing_file, landing_content, report_type="landing_page", source_agent=SOURCE_AGENT)
 
         # =====================================
         # SOCIAL
@@ -280,10 +284,7 @@ def main():
             f"{run_date}_{slug}_Social.md"
         )
 
-        social_file.write_text(
-            social_content,
-            encoding="utf-8"
-        )
+        write_markdown_report(social_file, social_content, report_type="social_post", source_agent=SOURCE_AGENT)
 
         generated += 1
 

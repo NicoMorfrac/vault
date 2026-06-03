@@ -4,6 +4,7 @@
 # ============================================================
 
 from pathlib import Path
+import sys
 from datetime import datetime
 import re
 
@@ -17,6 +18,15 @@ from sklearn.cluster import KMeans
 # ============================================================
 
 BASE_PATH = Path(r"C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC")
+
+if str(BASE_PATH) not in sys.path:
+    sys.path.insert(0, str(BASE_PATH))
+
+from obsidian_report_links import write_markdown_report
+
+REPORT_TYPE = "seo_semantic_cluster_report"
+SOURCE_AGENT = "SEO_Agent"
+
 
 SEO_AGENT_PATH = BASE_PATH / r"06_MARKETING\SEO_Agent"
 
@@ -253,520 +263,526 @@ def classify_similarity_risk(row):
 
 
 # ============================================================
-# LOAD DATA
-# ============================================================
 
-print("Loading crawl data...")
+def main():
+    # LOAD DATA
+    # ============================================================
 
-crawl_file = latest_file(CRAWL_PATH, "*_site_crawl.csv")
+    print("Loading crawl data...")
 
-if not crawl_file:
-    raise FileNotFoundError("No *_site_crawl.csv file found.")
+    crawl_file = latest_file(CRAWL_PATH, "*_site_crawl.csv")
 
-crawl_df = pd.read_csv(crawl_file).fillna("")
+    if not crawl_file:
+        raise FileNotFoundError("No *_site_crawl.csv file found.")
 
-print(f"Crawl file: {crawl_file}")
+    crawl_df = pd.read_csv(crawl_file).fillna("")
 
-merge_file = latest_file(MERGE_PATH, "*_search_console_merge.csv")
+    print(f"Crawl file: {crawl_file}")
 
-if merge_file:
-    merge_df = pd.read_csv(merge_file).fillna("")
-    print(f"Search Console merge file: {merge_file}")
-else:
-    merge_df = pd.DataFrame()
-    print("No Search Console merge file found. Continuing without it.")
+    merge_file = latest_file(MERGE_PATH, "*_search_console_merge.csv")
 
-# ============================================================
-# VALIDATE CRAWL
-# ============================================================
-
-required_cols = [
-    "url",
-    "title",
-    "h1",
-    "meta_description",
-    "word_count",
-    "page_type",
-    "business_priority",
-    "commercial_relevance",
-    "authority_value",
-]
-
-for col in required_cols:
-    if col not in crawl_df.columns:
-        crawl_df[col] = ""
-
-# ============================================================
-# PREPARE PAGE DATA
-# ============================================================
-
-print("Preparing semantic text...")
-
-crawl_df["word_count"] = pd.to_numeric(
-    crawl_df["word_count"],
-    errors="coerce"
-).fillna(0)
-
-df = crawl_df[
-    crawl_df["word_count"] >= MIN_WORDS
-].copy()
-
-# Remove low-value/noisy URLs before clustering.
-df = df[
-    ~df["url"].apply(should_exclude_semantic)
-].copy()
-
-# Remove EN/ES duplicates, preferring English version.
-df = remove_language_duplicate_priority(df)
-
-df["normalized_url"] = df["url"].apply(normalize_url)
-
-df["page_role"] = df.apply(
-    lambda row: classify_page_role(row["url"], row["page_type"]),
-    axis=1
-)
-
-df["semantic_text"] = df.apply(
-    lambda row: clean_text(
-        f"{row['url']} {row['title']} {row['h1']} {row['meta_description']}"
-    ),
-    axis=1
-)
-
-df["manual_topic_label"] = df["semantic_text"].apply(detect_cluster_label)
-
-df = df[
-    df["semantic_text"].str.len() > 20
-].copy()
-
-if len(df) < 3:
-    raise Exception("Not enough pages for semantic clustering.")
-
-# ============================================================
-# MERGE SEARCH CONSOLE DATA IF AVAILABLE
-# ============================================================
-
-if not merge_df.empty and "url_clean" in merge_df.columns:
-    merge_cols = [
-        col for col in [
-            "url_clean",
-            "clicks",
-            "impressions",
-            "ctr_percent",
-            "position",
-            "seo_opportunity",
-            "seo_priority_score",
-        ]
-        if col in merge_df.columns
-    ]
-
-    df = df.merge(
-        merge_df[merge_cols],
-        left_on="normalized_url",
-        right_on="url_clean",
-        how="left"
-    )
-
-for col in [
-    "clicks",
-    "impressions",
-    "ctr_percent",
-    "position",
-    "seo_priority_score",
-]:
-    if col not in df.columns:
-        df[col] = 0
-
-df["clicks"] = pd.to_numeric(df["clicks"], errors="coerce").fillna(0)
-df["impressions"] = pd.to_numeric(df["impressions"], errors="coerce").fillna(0)
-df["seo_priority_score"] = pd.to_numeric(df["seo_priority_score"], errors="coerce").fillna(0)
-
-# ============================================================
-# TF-IDF
-# ============================================================
-
-print("Running TF-IDF...")
-
-CUSTOM_STOPWORDS = [
-    "morfrac",
-    "shop",
-    "products",
-    "product",
-    "sailing",
-    "marine",
-    "hardware",
-    "high",
-    "performance",
-    "online",
-    "reliable",
-    "customizable",
-    "smart",
-    "solutions",
-    "solution",
-    "page",
-    "error",
-    "404",
-]
-
-vectorizer = TfidfVectorizer(
-    max_features=1500,
-    stop_words="english",
-    ngram_range=(1, 2),
-    min_df=1,
-)
-
-tfidf_matrix = vectorizer.fit_transform(df["semantic_text"])
-
-# ============================================================
-# KMEANS CLUSTERING
-# ============================================================
-
-print("Clustering pages...")
-
-n_pages = len(df)
-
-n_clusters = min(
-    MAX_CLUSTERS,
-    max(2, int(n_pages ** 0.5))
-)
-
-kmeans = KMeans(
-    n_clusters=n_clusters,
-    random_state=42,
-    n_init=10
-)
-
-df["semantic_cluster_id"] = kmeans.fit_predict(tfidf_matrix)
-
-# ============================================================
-# COSINE SIMILARITY
-# ============================================================
-
-print("Calculating similarity...")
-
-similarity_matrix = cosine_similarity(tfidf_matrix)
-
-similar_pairs = []
-
-urls = df["url"].tolist()
-roles = df["page_role"].tolist()
-labels = df["manual_topic_label"].tolist()
-clusters = df["semantic_cluster_id"].tolist()
-family_keys = [product_family_key(url) for url in urls]
-
-for i in range(len(df)):
-    for j in range(i + 1, len(df)):
-        score = similarity_matrix[i][j]
-
-        if score >= SIMILARITY_THRESHOLD:
-            same_family = family_keys[i] == family_keys[j]
-
-            row = {
-                "url_a": urls[i],
-                "role_a": roles[i],
-                "label_a": labels[i],
-                "cluster_a": clusters[i],
-                "url_b": urls[j],
-                "role_b": roles[j],
-                "label_b": labels[j],
-                "cluster_b": clusters[j],
-                "similarity_score": round(score, 4),
-                "same_family": same_family,
-            }
-
-            row["risk_type"] = classify_similarity_risk(row)
-
-            similar_pairs.append(row)
-
-similar_df = pd.DataFrame(similar_pairs)
-
-if not similar_df.empty:
-    similar_df = similar_df.sort_values(
-        "similarity_score",
-        ascending=False
-    )
-
-# ============================================================
-# CLUSTER SUMMARY
-# ============================================================
-
-print("Building cluster summary...")
-
-cluster_rows = []
-
-for cluster_id, group in df.groupby("semantic_cluster_id"):
-    indices = list(group.index)
-
-    index_positions = [
-        df.index.get_loc(idx)
-        for idx in indices
-    ]
-
-    role_counts = group["page_role"].value_counts().to_dict()
-    label_counts = group["manual_topic_label"].value_counts().to_dict()
-
-    dominant_label = group["manual_topic_label"].value_counts().idxmax()
-
-    top_terms = top_terms_for_cluster(
-        vectorizer,
-        tfidf_matrix,
-        index_positions,
-        top_n=10
-    )
-
-    page_count = len(group)
-    product_pages = role_counts.get("product", 0)
-    category_pages = role_counts.get("category", 0)
-    authority_pages = role_counts.get("authority_content", 0)
-    landing_pages = role_counts.get("landing", 0)
-
-    total_impressions = int(group["impressions"].sum())
-    total_clicks = int(group["clicks"].sum())
-    avg_priority = round(group["seo_priority_score"].mean(), 2)
-
-    if page_count == 1:
-        cluster_health = "ORPHAN_TOPIC"
-    elif page_count > 20:
-        cluster_health = "FRAGMENTED_TOPIC"
-    elif product_pages > 5 and category_pages == 0 and landing_pages == 0:
-        cluster_health = "PRODUCT_HEAVY_NO_PILLAR"
-    elif authority_pages > 3 and product_pages == 0 and category_pages == 0 and landing_pages == 0:
-        cluster_health = "CONTENT_WITHOUT_COMMERCIAL_TARGET"
+    if merge_file:
+        merge_df = pd.read_csv(merge_file).fillna("")
+        print(f"Search Console merge file: {merge_file}")
     else:
-        cluster_health = "OK"
+        merge_df = pd.DataFrame()
+        print("No Search Console merge file found. Continuing without it.")
 
-    cluster_rows.append({
-        "semantic_cluster_id": cluster_id,
-        "dominant_label": dominant_label,
-        "page_count": page_count,
-        "product_pages": product_pages,
-        "category_pages": category_pages,
-        "landing_pages": landing_pages,
-        "authority_content_pages": authority_pages,
-        "total_impressions": total_impressions,
-        "total_clicks": total_clicks,
-        "avg_seo_priority_score": avg_priority,
-        "cluster_health": cluster_health,
-        "top_terms": top_terms,
-        "role_counts": str(role_counts),
-        "label_counts": str(label_counts),
-    })
+    # ============================================================
+    # VALIDATE CRAWL
+    # ============================================================
 
-cluster_summary_df = pd.DataFrame(cluster_rows)
+    required_cols = [
+        "url",
+        "title",
+        "h1",
+        "meta_description",
+        "word_count",
+        "page_type",
+        "business_priority",
+        "commercial_relevance",
+        "authority_value",
+    ]
 
-cluster_summary_df = cluster_summary_df.sort_values(
-    ["cluster_health", "page_count"],
-    ascending=[True, False]
-)
+    for col in required_cols:
+        if col not in crawl_df.columns:
+            crawl_df[col] = ""
 
-# ============================================================
-# ORPHAN / CANNIBALIZATION EXPORTS
-# ============================================================
+    # ============================================================
+    # PREPARE PAGE DATA
+    # ============================================================
 
-orphan_topics_df = cluster_summary_df[
-    cluster_summary_df["cluster_health"] == "ORPHAN_TOPIC"
-].copy()
+    print("Preparing semantic text...")
 
-if not similar_df.empty:
-    cannibalization_df = similar_df[
-        similar_df["risk_type"].isin([
-            "possible_cannibalization",
-            "same_topic_overlap",
-        ])
+    crawl_df["word_count"] = pd.to_numeric(
+        crawl_df["word_count"],
+        errors="coerce"
+    ).fillna(0)
+
+    df = crawl_df[
+        crawl_df["word_count"] >= MIN_WORDS
     ].copy()
-else:
-    cannibalization_df = pd.DataFrame()
 
-# ============================================================
-# PAGE EXPORT
-# ============================================================
+    # Remove low-value/noisy URLs before clustering.
+    df = df[
+        ~df["url"].apply(should_exclude_semantic)
+    ].copy()
 
-page_export_cols = [
-    "url",
-    "title",
-    "h1",
-    "page_type",
-    "page_role",
-    "business_priority",
-    "commercial_relevance",
-    "authority_value",
-    "word_count",
-    "manual_topic_label",
-    "semantic_cluster_id",
-    "clicks",
-    "impressions",
-    "seo_priority_score",
-]
+    # Remove EN/ES duplicates, preferring English version.
+    df = remove_language_duplicate_priority(df)
 
-page_export_df = df[page_export_cols].copy()
+    df["normalized_url"] = df["url"].apply(normalize_url)
 
-# ============================================================
-# OUTPUT FILES
-# ============================================================
+    df["page_role"] = df.apply(
+        lambda row: classify_page_role(row["url"], row["page_type"]),
+        axis=1
+    )
 
-clusters_csv = OUTPUT_PATH / f"{TODAY}_semantic_clusters.csv"
-pages_csv = OUTPUT_PATH / f"{TODAY}_semantic_cluster_pages.csv"
-similarity_csv = OUTPUT_PATH / f"{TODAY}_semantic_similarity_pairs.csv"
-cannibalization_csv = OUTPUT_PATH / f"{TODAY}_semantic_cannibalization.csv"
-orphans_csv = OUTPUT_PATH / f"{TODAY}_semantic_orphan_topics.csv"
-report_md = OUTPUT_PATH / f"{TODAY}_semantic_cluster_report.md"
+    df["semantic_text"] = df.apply(
+        lambda row: clean_text(
+            f"{row['url']} {row['title']} {row['h1']} {row['meta_description']}"
+        ),
+        axis=1
+    )
 
-stable_clusters_csv = OUTPUT_PATH / "semantic_clusters.csv"
-stable_pages_csv = OUTPUT_PATH / "semantic_cluster_pages.csv"
-stable_cannibalization_csv = OUTPUT_PATH / "semantic_cannibalization.csv"
+    df["manual_topic_label"] = df["semantic_text"].apply(detect_cluster_label)
 
-cluster_summary_df.to_csv(clusters_csv, index=False, encoding="utf-8-sig")
-cluster_summary_df.to_csv(stable_clusters_csv, index=False, encoding="utf-8-sig")
+    df = df[
+        df["semantic_text"].str.len() > 20
+    ].copy()
 
-page_export_df.to_csv(pages_csv, index=False, encoding="utf-8-sig")
-page_export_df.to_csv(stable_pages_csv, index=False, encoding="utf-8-sig")
+    if len(df) < 3:
+        raise Exception("Not enough pages for semantic clustering.")
 
-similar_df.to_csv(similarity_csv, index=False, encoding="utf-8-sig")
+    # ============================================================
+    # MERGE SEARCH CONSOLE DATA IF AVAILABLE
+    # ============================================================
 
-cannibalization_df.to_csv(cannibalization_csv, index=False, encoding="utf-8-sig")
-cannibalization_df.to_csv(stable_cannibalization_csv, index=False, encoding="utf-8-sig")
+    if not merge_df.empty and "url_clean" in merge_df.columns:
+        merge_cols = [
+            col for col in [
+                "url_clean",
+                "clicks",
+                "impressions",
+                "ctr_percent",
+                "position",
+                "seo_opportunity",
+                "seo_priority_score",
+            ]
+            if col in merge_df.columns
+        ]
 
-orphan_topics_df.to_csv(orphans_csv, index=False, encoding="utf-8-sig")
+        df = df.merge(
+            merge_df[merge_cols],
+            left_on="normalized_url",
+            right_on="url_clean",
+            how="left"
+        )
 
-# ============================================================
-# MARKDOWN REPORT
-# ============================================================
+    for col in [
+        "clicks",
+        "impressions",
+        "ctr_percent",
+        "position",
+        "seo_priority_score",
+    ]:
+        if col not in df.columns:
+            df[col] = 0
 
-top_clusters = cluster_summary_df.head(20).to_markdown(index=False)
+    df["clicks"] = pd.to_numeric(df["clicks"], errors="coerce").fillna(0)
+    df["impressions"] = pd.to_numeric(df["impressions"], errors="coerce").fillna(0)
+    df["seo_priority_score"] = pd.to_numeric(df["seo_priority_score"], errors="coerce").fillna(0)
 
-if not cannibalization_df.empty:
-    top_cannibalization = cannibalization_df.head(30).to_markdown(index=False)
-else:
-    top_cannibalization = "No high-confidence cannibalization pairs detected."
+    # ============================================================
+    # TF-IDF
+    # ============================================================
 
-if not orphan_topics_df.empty:
-    orphan_table = orphan_topics_df.head(30).to_markdown(index=False)
-else:
-    orphan_table = "No orphan topic clusters detected."
+    print("Running TF-IDF...")
 
-report = f"""# MORFRAC SEO Semantic Cluster Analysis
+    CUSTOM_STOPWORDS = [
+        "morfrac",
+        "shop",
+        "products",
+        "product",
+        "sailing",
+        "marine",
+        "hardware",
+        "high",
+        "performance",
+        "online",
+        "reliable",
+        "customizable",
+        "smart",
+        "solutions",
+        "solution",
+        "page",
+        "error",
+        "404",
+    ]
 
-## Generated
+    vectorizer = TfidfVectorizer(
+        max_features=1500,
+        stop_words="english",
+        ngram_range=(1, 2),
+        min_df=1,
+    )
 
-{TODAY}
+    tfidf_matrix = vectorizer.fit_transform(df["semantic_text"])
 
----
+    # ============================================================
+    # KMEANS CLUSTERING
+    # ============================================================
 
-# Purpose
+    print("Clustering pages...")
 
-This report groups MORFRAC pages by deterministic semantic similarity using TF-IDF and cosine similarity.
+    n_pages = len(df)
 
-V2 filters out:
+    n_clusters = min(
+        MAX_CLUSTERS,
+        max(2, int(n_pages ** 0.5))
+    )
 
-- paginated category pages
-- blog tag/archive pages
-- legal/system pages
-- checkout/account/web pages
-- outlet pages
-- EN/ES route duplicates where equivalent
+    kmeans = KMeans(
+        n_clusters=n_clusters,
+        random_state=42,
+        n_init=10
+    )
 
-It identifies:
+    df["semantic_cluster_id"] = kmeans.fit_predict(tfidf_matrix)
 
-- semantic clusters
-- likely cannibalization pairs
-- SKU variant similarity
-- orphan topics
-- fragmented clusters
-- product-heavy clusters without clear pillar support
-- authority content without commercial targets
+    # ============================================================
+    # COSINE SIMILARITY
+    # ============================================================
 
----
+    print("Calculating similarity...")
 
-# Source Files
+    similarity_matrix = cosine_similarity(tfidf_matrix)
 
-- Crawl file: `{crawl_file}`
-- Search Console merge file: `{merge_file if merge_file else "Not available"}`
+    similar_pairs = []
 
----
+    urls = df["url"].tolist()
+    roles = df["page_role"].tolist()
+    labels = df["manual_topic_label"].tolist()
+    clusters = df["semantic_cluster_id"].tolist()
+    family_keys = [product_family_key(url) for url in urls]
 
-# Summary
+    for i in range(len(df)):
+        for j in range(i + 1, len(df)):
+            score = similarity_matrix[i][j]
 
-- Pages analyzed: {len(df)}
-- Semantic clusters: {n_clusters}
-- Similar page pairs above threshold: {len(similar_df)}
-- Cannibalization/topic-overlap pairs: {len(cannibalization_df)}
-- Orphan topic clusters: {len(orphan_topics_df)}
+            if score >= SIMILARITY_THRESHOLD:
+                same_family = family_keys[i] == family_keys[j]
 
-Similarity threshold:
+                row = {
+                    "url_a": urls[i],
+                    "role_a": roles[i],
+                    "label_a": labels[i],
+                    "cluster_a": clusters[i],
+                    "url_b": urls[j],
+                    "role_b": roles[j],
+                    "label_b": labels[j],
+                    "cluster_b": clusters[j],
+                    "similarity_score": round(score, 4),
+                    "same_family": same_family,
+                }
 
-`{SIMILARITY_THRESHOLD}`
+                row["risk_type"] = classify_similarity_risk(row)
 
----
+                similar_pairs.append(row)
 
-# Cluster Summary
+    similar_df = pd.DataFrame(similar_pairs)
 
-{top_clusters}
+    if not similar_df.empty:
+        similar_df = similar_df.sort_values(
+            "similarity_score",
+            ascending=False
+        )
 
----
+    # ============================================================
+    # CLUSTER SUMMARY
+    # ============================================================
 
-# Likely Cannibalization / Duplicate Intent
+    print("Building cluster summary...")
 
-{top_cannibalization}
+    cluster_rows = []
 
----
+    for cluster_id, group in df.groupby("semantic_cluster_id"):
+        indices = list(group.index)
 
-# Orphan Topic Clusters
+        index_positions = [
+            df.index.get_loc(idx)
+            for idx in indices
+        ]
 
-{orphan_table}
+        role_counts = group["page_role"].value_counts().to_dict()
+        label_counts = group["manual_topic_label"].value_counts().to_dict()
 
----
+        dominant_label = group["manual_topic_label"].value_counts().idxmax()
 
-# Interpretation Notes
+        top_terms = top_terms_for_cluster(
+            vectorizer,
+            tfidf_matrix,
+            index_positions,
+            top_n=10
+        )
 
-Cluster health meanings:
+        page_count = len(group)
+        product_pages = role_counts.get("product", 0)
+        category_pages = role_counts.get("category", 0)
+        authority_pages = role_counts.get("authority_content", 0)
+        landing_pages = role_counts.get("landing", 0)
 
-- `ORPHAN_TOPIC`: only one page in the cluster. It may lack supporting content.
-- `FRAGMENTED_TOPIC`: too many pages in one cluster. This may indicate topic sprawl or cannibalization.
-- `PRODUCT_HEAVY_NO_PILLAR`: many product pages but no clear category or landing page support.
-- `CONTENT_WITHOUT_COMMERCIAL_TARGET`: content exists but does not clearly support product/category pages.
-- `OK`: structurally acceptable cluster.
+        total_impressions = int(group["impressions"].sum())
+        total_clicks = int(group["clicks"].sum())
+        avg_priority = round(group["seo_priority_score"].mean(), 2)
 
-Risk type meanings:
+        if page_count == 1:
+            cluster_health = "ORPHAN_TOPIC"
+        elif page_count > 20:
+            cluster_health = "FRAGMENTED_TOPIC"
+        elif product_pages > 5 and category_pages == 0 and landing_pages == 0:
+            cluster_health = "PRODUCT_HEAVY_NO_PILLAR"
+        elif authority_pages > 3 and product_pages == 0 and category_pages == 0 and landing_pages == 0:
+            cluster_health = "CONTENT_WITHOUT_COMMERCIAL_TARGET"
+        else:
+            cluster_health = "OK"
 
-- `sku_variant_similarity`: similar SKU pages; not automatically bad.
-- `possible_cannibalization`: similar pages with same role and topic.
-- `same_topic_overlap`: similar pages in same topic but different roles.
-- `semantic_overlap`: related but not necessarily conflicting.
+        cluster_rows.append({
+            "semantic_cluster_id": cluster_id,
+            "dominant_label": dominant_label,
+            "page_count": page_count,
+            "product_pages": product_pages,
+            "category_pages": category_pages,
+            "landing_pages": landing_pages,
+            "authority_content_pages": authority_pages,
+            "total_impressions": total_impressions,
+            "total_clicks": total_clicks,
+            "avg_seo_priority_score": avg_priority,
+            "cluster_health": cluster_health,
+            "top_terms": top_terms,
+            "role_counts": str(role_counts),
+            "label_counts": str(label_counts),
+        })
 
-Recommended next actions:
+    cluster_summary_df = pd.DataFrame(cluster_rows)
 
-1. Review `possible_cannibalization` before writing more content.
-2. Treat `sku_variant_similarity` separately from true cannibalization.
-3. Build or strengthen pillar pages for product-heavy clusters.
-4. Link authority content toward commercial category/product pages.
-5. Expand orphan topics only if they support commercial search demand.
-6. Avoid creating new pages inside already fragmented topics unless consolidation is planned.
+    cluster_summary_df = cluster_summary_df.sort_values(
+        ["cluster_health", "page_count"],
+        ascending=[True, False]
+    )
 
----
+    # ============================================================
+    # ORPHAN / CANNIBALIZATION EXPORTS
+    # ============================================================
 
-# Output Files
+    orphan_topics_df = cluster_summary_df[
+        cluster_summary_df["cluster_health"] == "ORPHAN_TOPIC"
+    ].copy()
 
-- Cluster summary: `{clusters_csv}`
-- Page cluster mapping: `{pages_csv}`
-- Similarity pairs: `{similarity_csv}`
-- Cannibalization: `{cannibalization_csv}`
-- Orphan topics: `{orphans_csv}`
-"""
+    if not similar_df.empty:
+        cannibalization_df = similar_df[
+            similar_df["risk_type"].isin([
+                "possible_cannibalization",
+                "same_topic_overlap",
+            ])
+        ].copy()
+    else:
+        cannibalization_df = pd.DataFrame()
 
-report_md.write_text(report, encoding="utf-8")
+    # ============================================================
+    # PAGE EXPORT
+    # ============================================================
 
-# ============================================================
-# COMPLETE
-# ============================================================
+    page_export_cols = [
+        "url",
+        "title",
+        "h1",
+        "page_type",
+        "page_role",
+        "business_priority",
+        "commercial_relevance",
+        "authority_value",
+        "word_count",
+        "manual_topic_label",
+        "semantic_cluster_id",
+        "clicks",
+        "impressions",
+        "seo_priority_score",
+    ]
 
-print("")
-print("================================================")
-print("SEO SEMANTIC CLUSTER ANALYSIS COMPLETE")
-print("================================================")
-print(f"Pages analyzed: {len(df)}")
-print(f"Clusters: {n_clusters}")
-print(f"Similar pairs: {len(similar_df)}")
-print(f"Cannibalization/topic-overlap pairs: {len(cannibalization_df)}")
-print(f"Orphan topic clusters: {len(orphan_topics_df)}")
-print(f"Report: {report_md}")
-print("================================================")
+    page_export_df = df[page_export_cols].copy()
+
+    # ============================================================
+    # OUTPUT FILES
+    # ============================================================
+
+    clusters_csv = OUTPUT_PATH / f"{TODAY}_semantic_clusters.csv"
+    pages_csv = OUTPUT_PATH / f"{TODAY}_semantic_cluster_pages.csv"
+    similarity_csv = OUTPUT_PATH / f"{TODAY}_semantic_similarity_pairs.csv"
+    cannibalization_csv = OUTPUT_PATH / f"{TODAY}_semantic_cannibalization.csv"
+    orphans_csv = OUTPUT_PATH / f"{TODAY}_semantic_orphan_topics.csv"
+    report_md = OUTPUT_PATH / f"{TODAY}_semantic_cluster_report.md"
+
+    stable_clusters_csv = OUTPUT_PATH / "semantic_clusters.csv"
+    stable_pages_csv = OUTPUT_PATH / "semantic_cluster_pages.csv"
+    stable_cannibalization_csv = OUTPUT_PATH / "semantic_cannibalization.csv"
+
+    cluster_summary_df.to_csv(clusters_csv, index=False, encoding="utf-8-sig")
+    cluster_summary_df.to_csv(stable_clusters_csv, index=False, encoding="utf-8-sig")
+
+    page_export_df.to_csv(pages_csv, index=False, encoding="utf-8-sig")
+    page_export_df.to_csv(stable_pages_csv, index=False, encoding="utf-8-sig")
+
+    similar_df.to_csv(similarity_csv, index=False, encoding="utf-8-sig")
+
+    cannibalization_df.to_csv(cannibalization_csv, index=False, encoding="utf-8-sig")
+    cannibalization_df.to_csv(stable_cannibalization_csv, index=False, encoding="utf-8-sig")
+
+    orphan_topics_df.to_csv(orphans_csv, index=False, encoding="utf-8-sig")
+
+    # ============================================================
+    # MARKDOWN REPORT
+    # ============================================================
+
+    top_clusters = cluster_summary_df.head(20).to_markdown(index=False)
+
+    if not cannibalization_df.empty:
+        top_cannibalization = cannibalization_df.head(30).to_markdown(index=False)
+    else:
+        top_cannibalization = "No high-confidence cannibalization pairs detected."
+
+    if not orphan_topics_df.empty:
+        orphan_table = orphan_topics_df.head(30).to_markdown(index=False)
+    else:
+        orphan_table = "No orphan topic clusters detected."
+
+    report = f"""# MORFRAC SEO Semantic Cluster Analysis
+
+    ## Generated
+
+    {TODAY}
+
+    ---
+
+    # Purpose
+
+    This report groups MORFRAC pages by deterministic semantic similarity using TF-IDF and cosine similarity.
+
+    V2 filters out:
+
+    - paginated category pages
+    - blog tag/archive pages
+    - legal/system pages
+    - checkout/account/web pages
+    - outlet pages
+    - EN/ES route duplicates where equivalent
+
+    It identifies:
+
+    - semantic clusters
+    - likely cannibalization pairs
+    - SKU variant similarity
+    - orphan topics
+    - fragmented clusters
+    - product-heavy clusters without clear pillar support
+    - authority content without commercial targets
+
+    ---
+
+    # Source Files
+
+    - Crawl file: `{crawl_file}`
+    - Search Console merge file: `{merge_file if merge_file else "Not available"}`
+
+    ---
+
+    # Summary
+
+    - Pages analyzed: {len(df)}
+    - Semantic clusters: {n_clusters}
+    - Similar page pairs above threshold: {len(similar_df)}
+    - Cannibalization/topic-overlap pairs: {len(cannibalization_df)}
+    - Orphan topic clusters: {len(orphan_topics_df)}
+
+    Similarity threshold:
+
+    `{SIMILARITY_THRESHOLD}`
+
+    ---
+
+    # Cluster Summary
+
+    {top_clusters}
+
+    ---
+
+    # Likely Cannibalization / Duplicate Intent
+
+    {top_cannibalization}
+
+    ---
+
+    # Orphan Topic Clusters
+
+    {orphan_table}
+
+    ---
+
+    # Interpretation Notes
+
+    Cluster health meanings:
+
+    - `ORPHAN_TOPIC`: only one page in the cluster. It may lack supporting content.
+    - `FRAGMENTED_TOPIC`: too many pages in one cluster. This may indicate topic sprawl or cannibalization.
+    - `PRODUCT_HEAVY_NO_PILLAR`: many product pages but no clear category or landing page support.
+    - `CONTENT_WITHOUT_COMMERCIAL_TARGET`: content exists but does not clearly support product/category pages.
+    - `OK`: structurally acceptable cluster.
+
+    Risk type meanings:
+
+    - `sku_variant_similarity`: similar SKU pages; not automatically bad.
+    - `possible_cannibalization`: similar pages with same role and topic.
+    - `same_topic_overlap`: similar pages in same topic but different roles.
+    - `semantic_overlap`: related but not necessarily conflicting.
+
+    Recommended next actions:
+
+    1. Review `possible_cannibalization` before writing more content.
+    2. Treat `sku_variant_similarity` separately from true cannibalization.
+    3. Build or strengthen pillar pages for product-heavy clusters.
+    4. Link authority content toward commercial category/product pages.
+    5. Expand orphan topics only if they support commercial search demand.
+    6. Avoid creating new pages inside already fragmented topics unless consolidation is planned.
+
+    ---
+
+    # Output Files
+
+    - Cluster summary: `{clusters_csv}`
+    - Page cluster mapping: `{pages_csv}`
+    - Similarity pairs: `{similarity_csv}`
+    - Cannibalization: `{cannibalization_csv}`
+    - Orphan topics: `{orphans_csv}`
+    """
+
+    write_markdown_report(report_md, report, report_type=REPORT_TYPE, source_agent=SOURCE_AGENT)
+
+    # ============================================================
+    # COMPLETE
+    # ============================================================
+
+    print("")
+    print("================================================")
+    print("SEO SEMANTIC CLUSTER ANALYSIS COMPLETE")
+    print("================================================")
+    print(f"Pages analyzed: {len(df)}")
+    print(f"Clusters: {n_clusters}")
+    print(f"Similar pairs: {len(similar_df)}")
+    print(f"Cannibalization/topic-overlap pairs: {len(cannibalization_df)}")
+    print(f"Orphan topic clusters: {len(orphan_topics_df)}")
+    print(f"Report: {report_md}")
+    print("================================================")
+
+
+if __name__ == "__main__":
+    main()
