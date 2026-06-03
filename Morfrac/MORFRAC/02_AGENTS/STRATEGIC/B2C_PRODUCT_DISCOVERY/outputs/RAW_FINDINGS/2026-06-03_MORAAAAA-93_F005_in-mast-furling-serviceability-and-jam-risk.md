@@ -1,13 +1,20 @@
-***
-
+---
 type: strategic_finding
 source_agent: B2C_Product_Discovery
 created: 2026-06-03
-related_findings: []
-related_concepts: []
+related_findings:
+  - 2026-06-03_MORAAAAA-93_F001_single-line-reefing-friction
+  - 2026-06-03_MORAAAAA-93_F002_lines-led-aft-clutter-and-friction
+  - 2026-06-03_MORAAAAA-93_F003_lazy-jack-and-stack-pack-snag
+  - 2026-06-03_MORAAAAA-93_F004_headsail-furler-tension-and-jam
+related_concepts:
+  - USABILITY_FRICTION
+  - PRODUCT_COMPLEXITY
+  - MAINTENANCE_AVOIDANCE
 related_projects: []
-related_reports: []
----------------------
+related_reports:
+  - 2026-06-03_MORAAAAA-93_summary_report
+---
 
 # MOR-B2C-PD-093-F005
 
@@ -145,4 +152,16 @@ Evidence is mixed: some owners report years of trouble-free use when systems are
 
 ## Related Links
 
-No structured related links identified.
+### Related Findings
+- [[2026-06-03_MORAAAAA-93_F001_single-line-reefing-friction]]
+- [[2026-06-03_MORAAAAA-93_F002_lines-led-aft-clutter-and-friction]]
+- [[2026-06-03_MORAAAAA-93_F003_lazy-jack-and-stack-pack-snag]]
+- [[2026-06-03_MORAAAAA-93_F004_headsail-furler-tension-and-jam]]
+
+### Related Concepts
+- [[USABILITY_FRICTION]]
+- [[PRODUCT_COMPLEXITY]]
+- [[MAINTENANCE_AVOIDANCE]]
+
+### Related Reports
+- [[2026-06-03_MORAAAAA-93_summary_report]]

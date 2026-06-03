@@ -121,7 +121,7 @@ ASCII only:
 
 ## Output Format Enforcement
 
-Output must strictly follow these sections:
+Engineering report bodies must strictly follow these sections:
 
 1. Problem Statement  
 2. Inputs and Assumptions  
@@ -140,6 +140,8 @@ Rules:
 - No reordered sections allowed  
 - No sub-sections like "Material Properties" allowed  
 - All content must be placed within these sections  
+- YAML frontmatter required by [[OBSIDIAN_REPORT_STANDARD]] is allowed before the engineering body and does not count as an engineering section
+- Exactly one `## Related Links` section required by [[OBSIDIAN_REPORT_STANDARD]] is allowed after `## Sources` and does not count as an engineering calculation section
 
 If violated:
 

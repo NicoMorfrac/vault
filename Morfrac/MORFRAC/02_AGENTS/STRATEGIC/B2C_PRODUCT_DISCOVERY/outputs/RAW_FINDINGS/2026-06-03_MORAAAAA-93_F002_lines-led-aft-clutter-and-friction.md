@@ -1,13 +1,21 @@
-***
-
+---
 type: strategic_finding
 source_agent: B2C_Product_Discovery
 created: 2026-06-03
-related_findings: []
-related_concepts: []
+related_findings:
+  - 2026-06-03_MORAAAAA-93_F001_single-line-reefing-friction
+  - 2026-06-03_MORAAAAA-93_F003_lazy-jack-and-stack-pack-snag
+  - 2026-06-03_MORAAAAA-93_F004_headsail-furler-tension-and-jam
+  - 2026-06-03_MORAAAAA-93_F005_in-mast-furling-serviceability-and-jam-risk
+related_concepts:
+  - USABILITY_FRICTION
+  - WORKFLOW_INEFFICIENCY
+  - PRODUCT_COMPLEXITY
+  - INSTALLATION_COMPLEXITY
 related_projects: []
-related_reports: []
----------------------
+related_reports:
+  - 2026-06-03_MORAAAAA-93_summary_report
+---
 
 # MOR-B2C-PD-093-F002
 
@@ -143,4 +151,17 @@ The tradeoff is highly boat-size and crew-style dependent. Some owners strongly 
 
 ## Related Links
 
-No structured related links identified.
+### Related Findings
+- [[2026-06-03_MORAAAAA-93_F001_single-line-reefing-friction]]
+- [[2026-06-03_MORAAAAA-93_F003_lazy-jack-and-stack-pack-snag]]
+- [[2026-06-03_MORAAAAA-93_F004_headsail-furler-tension-and-jam]]
+- [[2026-06-03_MORAAAAA-93_F005_in-mast-furling-serviceability-and-jam-risk]]
+
+### Related Concepts
+- [[USABILITY_FRICTION]]
+- [[WORKFLOW_INEFFICIENCY]]
+- [[PRODUCT_COMPLEXITY]]
+- [[INSTALLATION_COMPLEXITY]]
+
+### Related Reports
+- [[2026-06-03_MORAAAAA-93_summary_report]]

@@ -1,13 +1,21 @@
-***
-
+---
 type: strategic_finding
 source_agent: B2C_Product_Discovery
 created: 2026-06-03
-related_findings: []
-related_concepts: []
+related_findings:
+  - 2026-06-03_MORAAAAA-93_F001_single-line-reefing-friction
+  - 2026-06-03_MORAAAAA-93_F002_lines-led-aft-clutter-and-friction
+  - 2026-06-03_MORAAAAA-93_F003_lazy-jack-and-stack-pack-snag
+  - 2026-06-03_MORAAAAA-93_F005_in-mast-furling-serviceability-and-jam-risk
+related_concepts:
+  - USABILITY_FRICTION
+  - WORKFLOW_INEFFICIENCY
+  - PRODUCT_COMPLEXITY
+  - MAINTENANCE_AVOIDANCE
 related_projects: []
-related_reports: []
----------------------
+related_reports:
+  - 2026-06-03_MORAAAAA-93_summary_report
+---
 
 # MOR-B2C-PD-093-F004
 
@@ -145,4 +153,17 @@ Some failure cases come from older or poorly maintained systems, and user techni
 
 ## Related Links
 
-No structured related links identified.
+### Related Findings
+- [[2026-06-03_MORAAAAA-93_F001_single-line-reefing-friction]]
+- [[2026-06-03_MORAAAAA-93_F002_lines-led-aft-clutter-and-friction]]
+- [[2026-06-03_MORAAAAA-93_F003_lazy-jack-and-stack-pack-snag]]
+- [[2026-06-03_MORAAAAA-93_F005_in-mast-furling-serviceability-and-jam-risk]]
+
+### Related Concepts
+- [[USABILITY_FRICTION]]
+- [[WORKFLOW_INEFFICIENCY]]
+- [[PRODUCT_COMPLEXITY]]
+- [[MAINTENANCE_AVOIDANCE]]
+
+### Related Reports
+- [[2026-06-03_MORAAAAA-93_summary_report]]

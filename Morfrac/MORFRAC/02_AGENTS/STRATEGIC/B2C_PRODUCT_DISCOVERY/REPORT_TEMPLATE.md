@@ -3,11 +3,11 @@
 type: strategic\_report
 source\_agent: B2C\_Product\_Discovery
 created:
-related\_findings: \[]
-related\_concepts: \[]
-related\_projects: \[]
-related\_reports: \[]
----------------------
+related\_findings:
+related\_concepts:
+related\_projects:
+related\_reports:
+-----------------
 
 # REPORT\_TITLE
 
@@ -58,6 +58,18 @@ Explain significance.
 
 ***
 
+# RELATED FINDINGS
+
+List all findings contributing to this report.
+
+Examples:
+
+* \[\[2026-06-03\_MORAAAAAA-93\_F001\_single-line-reefing]]
+* \[\[2026-06-03\_MORAAAAAA-93\_F002\_lines-led-aft]]
+* \[\[2026-06-03\_MORAAAAAA-93\_F003\_lazy-jack-and-stowage]]
+
+***
+
 # PRODUCT IMPLICATIONS
 
 Potential implications for:
@@ -67,6 +79,26 @@ Potential implications for:
 * retrofit kits
 * modular systems
 * serviceability improvements
+* workflow simplification
+
+Only include implications supported by evidence.
+
+***
+
+# WHAT SHOULD MORFRAC DO NEXT
+
+Select one or more:
+
+* Investigate Further
+* Monitor
+* Discard
+* Explore Product Concept
+* Explore Product Improvement
+* Explore Retrofit Kit
+* Explore Modular System
+* Explore Serviceability Improvement
+
+Provide justification.
 
 ***
 
@@ -74,11 +106,53 @@ Potential implications for:
 
 Discuss commercial significance.
 
-Do not assume demand.
+Do not assume:
+
+* demand
+* willingness to pay
+* market size
+
+Clearly distinguish evidence from interpretation.
 
 ***
 
-# RISKS
+# CONVERGENCE SIGNALS
+
+Applicable recurring themes:
+
+* \[\[USABILITY\_FRICTION]]
+* \[\[WORKFLOW\_INEFFICIENCY]]
+* \[\[PRODUCT\_COMPLEXITY]]
+* \[\[INSTALLATION\_COMPLEXITY]]
+* \[\[MAINTENANCE\_AVOIDANCE]]
+
+Remove non-applicable items.
+
+***
+
+# RELATED CONCEPTS
+
+Examples:
+
+* \[\[USABILITY\_FRICTION]]
+* \[\[WORKFLOW\_INEFFICIENCY]]
+* \[\[PRODUCT\_COMPLEXITY]]
+
+***
+
+# RELATED PROJECTS
+
+Examples:
+
+* \[\[MORFBLOCK]]
+* \[\[MORFRING]]
+* \[\[POWERFURL]]
+
+Only include if directly relevant.
+
+***
+
+# COMMERCIAL RISKS
 
 Document:
 
@@ -86,6 +160,20 @@ Document:
 * poor repeatability
 * limited market size
 * unclear willingness to pay
+* scalability concerns
+* operational constraints
+
+***
+
+# LIMITATIONS
+
+Document:
+
+* source limitations
+* evidence limitations
+* sampling limitations
+* bias risks
+* validation gaps
 
 ***
 
@@ -98,25 +186,19 @@ Overall conclusion.
 # CONFIDENCE\_LEVEL
 
 LOW
+
 MEDIUM
+
 HIGH
 
 ***
 
 ## Related Links
 
-No structured related links identified.---
+### Related Findings
 
-type: strategic\_report
+### Related Concepts
 
-source\_agent: B2C\_Product\_Discovery
+### Related Reports
 
-created:
-
-related\_findings: \[]
-
-related\_concepts: \[]
-
-related\_projects: \[]
-
-related\_reports: \[]
+Populate using Obsidian wiki-links whenever valid relationships exist.

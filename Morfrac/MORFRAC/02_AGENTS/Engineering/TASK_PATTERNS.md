@@ -91,6 +91,7 @@ Compare:
 
 ## Output Structure
 
+0. YAML frontmatter required by [[OBSIDIAN_REPORT_STANDARD]]
 1. Problem  
 2. Inputs  
 3. Missing Inputs  
@@ -100,6 +101,7 @@ Compare:
 7. Safety  
 8. Recommendations  
 9. Sources  
+10. Related Links section required by [[OBSIDIAN_REPORT_STANDARD]]
 
 ---
 
@@ -114,3 +116,4 @@ Compare:
 
 Comply with:
 - [[ENGINEERING_RULES]]
+- [[OBSIDIAN_REPORT_STANDARD]]

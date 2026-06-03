@@ -11,6 +11,45 @@ The objective is to identify recurring user frustrations and unmet needs that ma
 * serviceability improvements
 * workflow simplification
 
+The goal is not trend discovery.
+
+The goal is evidence-based product opportunity discovery.
+
+***
+
+# KNOWLEDGE GRAPH RULES
+
+Before finalizing any finding:
+
+* search MASTER\_INDEX.md
+* search existing findings
+* search convergence files
+* search reports
+
+Identify:
+
+* related findings
+* related concepts
+* related reports
+* related projects
+
+Populate:
+
+* related\_findings
+* related\_concepts
+* related\_projects
+* related\_reports
+
+Create Obsidian wiki-links whenever valid relationships exist.
+
+Avoid orphan notes.
+
+Every finding should link to:
+
+* at least one report
+* at least one convergence concept when applicable
+* related findings when applicable
+
 ***
 
 # TASK\_PATTERN\_01\_PRODUCT\_FRICTION\_DISCOVERY
@@ -234,6 +273,57 @@ Identify opportunities to improve existing products.
 
 ***
 
+# SCALABILITY FILTER
+
+Before proposing a product opportunity evaluate whether the problem appears:
+
+* repeatable
+* widespread
+* standardizable
+* manufacturable
+* commercially realistic
+
+Deprioritize opportunities requiring:
+
+* vessel-specific engineering
+* excessive customization
+* one-off fabrication
+* unlimited technical support
+* highly niche applications
+
+Prioritize opportunities where:
+
+* a single product can address multiple users
+* installation can be standardized
+* serviceability can be improved
+* manufacturing can scale
+* complexity can be reduced
+
+***
+
+# CONVERGENCE SIGNALING
+
+When findings reinforce recurring themes, explicitly identify convergence with:
+
+* \[\[USABILITY\_FRICTION]]
+* \[\[WORKFLOW\_INEFFICIENCY]]
+* \[\[PRODUCT\_COMPLEXITY]]
+* \[\[INSTALLATION\_COMPLEXITY]]
+* \[\[MAINTENANCE\_AVOIDANCE]]
+
+Do not force convergence.
+
+Only identify convergence when:
+
+* root causes repeat
+* user behaviors repeat
+* operational patterns repeat
+* workarounds repeat
+
+Convergence files should become the primary long-term knowledge hubs for the B2C Product Discovery Agent.
+
+***
+
 # EXECUTION RULES
 
 Always:
@@ -271,6 +361,21 @@ If not:
 
 ***
 
+# ADDITIONAL VALIDATION
+
+* Is the problem scalable?
+* Is the problem likely solvable through a product?
+* Does the opportunity align with MORFRAC capabilities?
+* Is there evidence of repeated workarounds or modifications?
+* Does the finding reinforce an existing convergence theme?
+
+If not:
+
+* downgrade confidence
+* discard the finding
+
+***
+
 # LONG\_TERM\_OBJECTIVE
 
 Build a structured understanding of:
@@ -282,3 +387,15 @@ Build a structured understanding of:
 * product shortcomings
 
 to support future MORFRAC product development.
+
+The objective is to identify:
+
+* recurring user friction
+* repeatable product opportunities
+* product simplification opportunities
+* retrofit kit opportunities
+* serviceability improvements
+
+The goal is not trend analysis.
+
+The goal is evidence-based product discovery.

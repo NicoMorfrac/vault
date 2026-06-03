@@ -143,7 +143,9 @@ Only report:
 Always separate:
 
 * evidence
-  from
+
+from
+
 * interpretation
 
 ***
@@ -156,12 +158,15 @@ Symptom:
 
 * difficult reefing
 
-Root cause:
+Possible root causes:
 
 * excessive line friction
 * poor routing
 * excessive adjustment steps
 * poor ergonomics
+* difficult access
+* poor maintenance access
+* excessive system complexity
 
 Do not stop at symptoms.
 
@@ -206,6 +211,167 @@ Deprioritize:
 * software
 * engines
 * marina services
+
+***
+
+# SCALABILITY FILTER
+
+Prioritize opportunities that appear:
+
+* repeatable
+* standardizable
+* manufacturable
+* operationally meaningful
+* broadly applicable
+
+Deprioritize opportunities requiring:
+
+* excessive customization
+* vessel-specific engineering
+* open-ended consulting
+* unlimited support burden
+
+***
+
+# STRATEGIC CAUTION RULE
+
+Repeated frustration does not automatically validate:
+
+* market size
+* willingness to pay
+* product demand
+* commercial viability
+
+The agent must distinguish:
+
+* recurring frustration
+
+from
+
+* validated product opportunity
+
+Do not generate exaggerated strategic conclusions from weak evidence.
+
+***
+
+# CONFIDENCE LEVEL RULES
+
+LOW
+
+* isolated complaint
+* weak evidence
+* unclear recurrence
+
+MEDIUM
+
+* repeated evidence across multiple discussions
+* moderate operational specificity
+
+HIGH
+
+* repeated cross-platform evidence
+* strong operational specificity
+* recurring real-world impact clearly demonstrated
+
+***
+
+# OBSIDIAN OUTPUT RULES
+
+All outputs must:
+
+* be markdown files
+* include valid YAML frontmatter
+* include a Related Links section
+* use absolute filesystem paths
+* be compatible with Obsidian graph relationships
+* update MASTER\_INDEX.md
+* remain accessible after execution
+
+Never save findings only in temporary workspaces.
+
+Always write directly into the MORFRAC Obsidian vault.
+
+***
+
+# OUTPUT STORAGE RULES
+
+RAW FINDINGS
+
+C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\02\_AGENTS\STRATEGIC\B2C\_PRODUCT\_DISCOVERY\outputs\RAW\_FINDINGS\\
+
+WEEKLY REPORTS
+
+C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\02\_AGENTS\STRATEGIC\B2C\_PRODUCT\_DISCOVERY\outputs\WEEKLY\_REPORTS\\
+
+MASTER INDEX
+
+C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\02\_AGENTS\STRATEGIC\B2C\_PRODUCT\_DISCOVERY\outputs\MASTER\_INDEX.md
+
+Always report final absolute output paths.
+
+***
+
+# KNOWLEDGE GRAPH LINKING RULES
+
+Before finalizing any finding or report:
+
+1. Search existing findings
+2. Search convergence files
+3. Search reports
+4. Search MASTER\_INDEX.md
+
+Identify:
+
+* related findings
+* related concepts
+* related reports
+
+Populate:
+
+* related\_findings
+* related\_concepts
+* related\_projects
+* related\_reports
+
+whenever valid relationships exist.
+
+Do not leave relationship fields empty if a valid relationship is identified.
+
+Every finding should link to:
+
+* at least one report
+* at least one related finding when applicable
+* at least one convergence file when applicable
+
+Use Obsidian wiki-links.
+
+Examples:
+
+\[\[USABILITY\_FRICTION]]
+
+\[\[WORKFLOW\_INEFFICIENCY]]
+
+\[\[2026-06-03\_MORAAAAAA-93\_summary\_report]]
+
+\[\[2026-06-03\_MORAAAAAA-93\_F001\_single-line-reefing]]
+
+***
+
+# RELATED LINKS SECTION
+
+Every finding and report must end with:
+
+## Related Links
+
+### Related Findings
+
+### Related Concepts
+
+### Related Reports
+
+Populate whenever relationships exist.
+
+Use Obsidian wiki-links only.
 
 ***
 
