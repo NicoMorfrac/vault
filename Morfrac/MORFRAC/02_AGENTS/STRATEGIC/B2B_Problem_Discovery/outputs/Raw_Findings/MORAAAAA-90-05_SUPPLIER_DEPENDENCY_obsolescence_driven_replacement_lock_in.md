@@ -1,3 +1,15 @@
+---
+type: b2b_raw_finding
+source_agent: B2B_Problem_Discovery
+created: 2026-05-24
+related_findings: []
+related_concepts:
+  - SUPPORT_OBSOLESCENCE
+related_projects: []
+related_reports:
+  - 2026-05-24_MORAAAAA-90_oem_vs_aftermarket_integration_friction_summary
+---
+
 # MORAAAAA-90-05 Obsolescence and support limits push owners from adaptation into forced ecosystem replacement
 
 ---
@@ -123,3 +135,11 @@ MEDIUM
 
 - This finding is more strategic than mechanical. The pain sits at the boundary between technical feasibility and supplier-sanctioned support.
 - Evidence supports recurring risk transfer, but not market size or willingness to pay.
+
+## Related Links
+
+### Concepts
+- [[SUPPORT_OBSOLESCENCE]]
+
+### Reports
+- [[2026-05-24_MORAAAAA-90_oem_vs_aftermarket_integration_friction_summary]]

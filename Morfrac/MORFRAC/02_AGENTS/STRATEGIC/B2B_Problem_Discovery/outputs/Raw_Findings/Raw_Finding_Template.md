@@ -1,3 +1,13 @@
+---
+type: b2b_raw_finding
+source_agent: B2B_Problem_Discovery
+created: YYYY-MM-DD
+related_findings: []
+related_concepts: []
+related_projects: []
+related_reports: []
+---
+
 # TITLE
 
 Short descriptive title.
@@ -100,3 +110,9 @@ Must align with:
 # NOTES
 
 Additional strategic observations.
+
+---
+
+## Related Links
+
+No structured related links identified.

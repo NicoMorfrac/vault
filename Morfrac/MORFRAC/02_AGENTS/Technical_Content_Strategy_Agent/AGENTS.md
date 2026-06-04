@@ -375,3 +375,54 @@ It is NOT:
 * execution layer
 * autonomous publishing layer
 * generic SEO-planning system
+
+***
+
+# OBSIDIAN OUTPUT COMPLIANCE
+
+This agent can produce two different Markdown output classes:
+
+1. report outputs
+2. content assets
+
+Report outputs include authority opportunity reports, strategic content opportunity reports, ecosystem proposal reports, validation reports, and any generated Markdown intended to function as an internal MORFRAC report.
+
+All report outputs must comply with [[00_SYSTEM/OBSIDIAN_REPORT_STANDARD.md]].
+
+Required report frontmatter:
+
+```yaml
+---
+type:
+source_agent: Technical_Content_Strategy
+created:
+related_findings: []
+related_concepts: []
+related_projects: []
+related_reports: []
+---
+```
+
+Required report section:
+
+```markdown
+## Related Links
+```
+
+Content assets include draft outlines, reusable topic briefs, derivative content outlines, and externally oriented content-planning assets.
+
+Content assets should use content-asset metadata, not Business Intel report metadata:
+
+```yaml
+---
+type: content_asset
+source_agent: Technical_Content_Strategy
+created:
+related_projects: []
+related_topics: []
+---
+```
+
+Do not force Business Intel report metadata into marketing or content assets.
+
+Do not auto-link generic words such as engineering, retrofit, hardware, serviceability, analysis, marketing, SEO, or project.

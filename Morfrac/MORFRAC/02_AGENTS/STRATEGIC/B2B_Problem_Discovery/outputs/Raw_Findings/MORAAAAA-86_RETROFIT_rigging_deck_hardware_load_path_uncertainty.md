@@ -1,3 +1,16 @@
+---
+type: b2b_raw_finding
+source_agent: B2B_Problem_Discovery
+created: 2026-05-24
+related_findings: []
+related_concepts:
+  - ENGINEERING_UNCERTAINTY
+  - MECHANICAL_INTEGRATION_COMPLEXITY
+  - RETROFIT_COMPLEXITY
+related_projects: []
+related_reports: []
+---
+
 # MORAAAAA-86 Retrofit rigging and deck hardware load-path uncertainty
 
 ---
@@ -129,3 +142,10 @@ MEDIUM
 - Evidence quality is strongest where the discussion moves from sealing into structure, access, core condition, and load-transfer logic.
 - The main strategic value is not a commodity hardware sale. It is engineering-risk reduction for refit decisions involving chainplates, winches, organizers, and adjacent deck structures.
 - Commercial viability is not proven here. What is proven is recurring technical friction with clear engineering content and repeated hidden-structure uncertainty.
+
+## Related Links
+
+### Concepts
+- [[ENGINEERING_UNCERTAINTY]]
+- [[MECHANICAL_INTEGRATION_COMPLEXITY]]
+- [[RETROFIT_COMPLEXITY]]

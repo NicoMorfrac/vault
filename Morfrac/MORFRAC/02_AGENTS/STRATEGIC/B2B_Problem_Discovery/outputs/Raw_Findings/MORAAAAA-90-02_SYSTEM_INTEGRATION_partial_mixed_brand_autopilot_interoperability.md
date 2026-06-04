@@ -1,3 +1,15 @@
+---
+type: b2b_raw_finding
+source_agent: B2B_Problem_Discovery
+created: 2026-05-24
+related_findings: []
+related_concepts:
+  - INTEGRATION_FRAGMENTATION
+related_projects: []
+related_reports:
+  - 2026-05-24_MORAAAAA-90_oem_vs_aftermarket_integration_friction_summary
+---
+
 # MORAAAAA-90-02 Partial mixed-brand autopilot interoperability creates hidden control gaps
 
 ---
@@ -123,3 +135,11 @@ MEDIUM
 
 - This finding is strategically stronger than generic "marine electronics are proprietary" complaints because the pain concentrates around autopilot command integrity, which is operationally critical.
 - Reddit evidence is lower reliability and is used as supporting confirmation rather than the core of the finding.
+
+## Related Links
+
+### Concepts
+- [[INTEGRATION_FRAGMENTATION]]
+
+### Reports
+- [[2026-05-24_MORAAAAA-90_oem_vs_aftermarket_integration_friction_summary]]

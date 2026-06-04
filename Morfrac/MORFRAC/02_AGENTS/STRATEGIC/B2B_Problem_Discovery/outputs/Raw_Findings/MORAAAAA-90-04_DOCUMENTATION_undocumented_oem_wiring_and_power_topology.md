@@ -1,3 +1,15 @@
+---
+type: b2b_raw_finding
+source_agent: B2B_Problem_Discovery
+created: 2026-05-24
+related_findings: []
+related_concepts:
+  - INTEGRATION_FRAGMENTATION
+related_projects: []
+related_reports:
+  - 2026-05-24_MORAAAAA-90_oem_vs_aftermarket_integration_friction_summary
+---
+
 # MORAAAAA-90-04 Undocumented OEM wiring and power topology inflate integration risk
 
 ---
@@ -122,3 +134,11 @@ MEDIUM
 
 - Source reliability is mixed because owner discussions dominate, but the repeated need to reverse engineer existing boats is strong.
 - This finding matters commercially because documentation gaps are a recurring prerequisite problem that creates paid engineering work before the visible installation starts.
+
+## Related Links
+
+### Concepts
+- [[INTEGRATION_FRAGMENTATION]]
+
+### Reports
+- [[2026-05-24_MORAAAAA-90_oem_vs_aftermarket_integration_friction_summary]]

@@ -1,21 +1,19 @@
 ---
-type: generated_report
+type: b2b_weekly_report
 source_agent: B2B_Problem_Discovery
 created: 2026-05-24
 related_findings:
-  - MORAAAAA-90
-  - MORAAAAA-90-01
-  - MORAAAAA-90-02
-  - MORAAAAA-90-03
-  - MORAAAAA-90-04
-  - MORAAAAA-90-05
+  - MORAAAAA-90-01_SYSTEM_INTEGRATION_proprietary_network_connector_fragmentation
+  - MORAAAAA-90-02_SYSTEM_INTEGRATION_partial_mixed_brand_autopilot_interoperability
+  - MORAAAAA-90-03_RETROFIT_autopilot_drive_geometry_and_mounting_constraints
+  - MORAAAAA-90-04_DOCUMENTATION_undocumented_oem_wiring_and_power_topology
+  - MORAAAAA-90-05_SUPPLIER_DEPENDENCY_obsolescence_driven_replacement_lock_in
 related_concepts:
-  - SYSTEM_INTEGRATION
-  - HIGH_PERFORMANCE_SYSTEMS
-  - PERFORMANCE_CRUISING
-  - OEM_BUILDERS
-  - SUPPLIER_DEPENDENCY
-  - MARINE_HARDWARE_BRANDS
+  - ENGINEERING_UNCERTAINTY
+  - INTEGRATION_FRAGMENTATION
+  - MECHANICAL_INTEGRATION_COMPLEXITY
+  - RETROFIT_COMPLEXITY
+  - SUPPORT_OBSOLESCENCE
 related_projects: []
 related_reports: []
 ---
@@ -114,17 +112,15 @@ Further monitoring is warranted, especially in:
 ## Related Links
 
 ### Findings
-- [[MORAAAAA-90]]
-- [[MORAAAAA-90-01]]
-- [[MORAAAAA-90-02]]
-- [[MORAAAAA-90-03]]
-- [[MORAAAAA-90-04]]
-- [[MORAAAAA-90-05]]
+- [[MORAAAAA-90-01_SYSTEM_INTEGRATION_proprietary_network_connector_fragmentation]]
+- [[MORAAAAA-90-02_SYSTEM_INTEGRATION_partial_mixed_brand_autopilot_interoperability]]
+- [[MORAAAAA-90-03_RETROFIT_autopilot_drive_geometry_and_mounting_constraints]]
+- [[MORAAAAA-90-04_DOCUMENTATION_undocumented_oem_wiring_and_power_topology]]
+- [[MORAAAAA-90-05_SUPPLIER_DEPENDENCY_obsolescence_driven_replacement_lock_in]]
 
 ### Concepts
-- [[SYSTEM_INTEGRATION]]
-- [[HIGH_PERFORMANCE_SYSTEMS]]
-- [[PERFORMANCE_CRUISING]]
-- [[OEM_BUILDERS]]
-- [[SUPPLIER_DEPENDENCY]]
-- [[MARINE_HARDWARE_BRANDS]]
+- [[ENGINEERING_UNCERTAINTY]]
+- [[INTEGRATION_FRAGMENTATION]]
+- [[MECHANICAL_INTEGRATION_COMPLEXITY]]
+- [[RETROFIT_COMPLEXITY]]
+- [[SUPPORT_OBSOLESCENCE]]

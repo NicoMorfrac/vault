@@ -1,3 +1,15 @@
+---
+type: b2b_raw_finding
+source_agent: B2B_Problem_Discovery
+created: 2026-05-24
+related_findings: []
+related_concepts:
+  - INTEGRATION_FRAGMENTATION
+related_projects: []
+related_reports:
+  - 2026-05-24_MORAAAAA-90_oem_vs_aftermarket_integration_friction_summary
+---
+
 # MORAAAAA-90-01 Proprietary network and connector fragmentation in sailing-electronics upgrades
 
 ---
@@ -121,3 +133,11 @@ MEDIUM
 
 - This finding is distinct from general electronics unreliability. The repeated pain is integration overhead created by partially compatible ecosystems.
 - Evidence quality is moderate because the strongest material comes from technical troubleshooting rather than installer postmortems, but the recurrence across years is clear.
+
+## Related Links
+
+### Concepts
+- [[INTEGRATION_FRAGMENTATION]]
+
+### Reports
+- [[2026-05-24_MORAAAAA-90_oem_vs_aftermarket_integration_friction_summary]]

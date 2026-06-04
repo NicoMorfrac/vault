@@ -1,3 +1,18 @@
+---
+type: b2b_raw_finding
+source_agent: B2B_Problem_Discovery
+created: 2026-05-24
+related_findings:
+  - MORAAAAA-88_SERVICING_furling_system_service_access_and_retrofit_geometry_constraints
+related_concepts:
+  - MECHANICAL_INTEGRATION_COMPLEXITY
+  - RETROFIT_COMPLEXITY
+  - SERVICEABILITY_COMPLEXITY
+related_projects: []
+related_reports:
+  - 2026-05-24_MORAAAAA-92_standardized_performance_sailing_retrofit_workflows_summary
+---
+
 # MORAAAAA-92-01 Aftermarket bowsprit retrofit foredeck geometry and service-access constraints
 
 ---
@@ -125,3 +140,16 @@ MEDIUM
 - Convergence signals: `MECHANICAL_INTEGRATION_COMPLEXITY`, `SERVICEABILITY_COMPLEXITY`, `RETROFIT_COMPLEXITY`.
 - This finding is adjacent to `MORAAAAA-88`, but the dominant issue here is bowsprit-specific interface and access instability rather than furling-system diagnosis in general.
 - Evidence suggests recurring value in pre-fit geometry validation and maintainable interface design more than in a new commodity bowsprit product.
+
+## Related Links
+
+### Findings
+- [[MORAAAAA-88_SERVICING_furling_system_service_access_and_retrofit_geometry_constraints]]
+
+### Concepts
+- [[MECHANICAL_INTEGRATION_COMPLEXITY]]
+- [[RETROFIT_COMPLEXITY]]
+- [[SERVICEABILITY_COMPLEXITY]]
+
+### Reports
+- [[2026-05-24_MORAAAAA-92_standardized_performance_sailing_retrofit_workflows_summary]]

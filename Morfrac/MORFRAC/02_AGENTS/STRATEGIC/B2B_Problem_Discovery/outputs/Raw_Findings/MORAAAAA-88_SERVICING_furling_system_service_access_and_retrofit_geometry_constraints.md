@@ -1,3 +1,17 @@
+---
+type: b2b_raw_finding
+source_agent: B2B_Problem_Discovery
+created: 2026-05-24
+related_findings: []
+related_concepts:
+  - ENGINEERING_UNCERTAINTY
+  - MECHANICAL_INTEGRATION_COMPLEXITY
+  - RETROFIT_COMPLEXITY
+  - SERVICEABILITY_COMPLEXITY
+related_projects: []
+related_reports: []
+---
+
 # MORAAAAA-88 Furling system service-access and retrofit geometry constraints
 
 ---
@@ -133,3 +147,11 @@ MEDIUM
 - This finding is adjacent to `RETROFIT_COMPLEXITY`, but the dominant pattern here is lifecycle serviceability and geometry-sensitive diagnosis rather than generic upgrade difficulty.
 - Evidence quality is strongest where the discussion shifts from user preference into exact service steps, measurement issues, sail-conversion constraints, mast-access workarounds, and spares/support friction.
 - Commercial viability is not proven. What is well supported is repeated B2B-grade technical friction that lands on riggers, yards, and technically involved owners.
+
+## Related Links
+
+### Concepts
+- [[ENGINEERING_UNCERTAINTY]]
+- [[MECHANICAL_INTEGRATION_COMPLEXITY]]
+- [[RETROFIT_COMPLEXITY]]
+- [[SERVICEABILITY_COMPLEXITY]]

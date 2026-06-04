@@ -565,6 +565,10 @@ Always:
 - report final absolute output paths
 - save outputs as markdown files
 - update MASTER_INDEX.md when creating findings
+- comply with 00_SYSTEM/OBSIDIAN_REPORT_STANDARD.md
+- include YAML frontmatter with type, source_agent, created, related_findings, related_concepts, related_projects, and related_reports
+- include exactly one ## Related Links section
+- use Obsidian wiki links only for structured entities: finding note names, taxonomy/concept note names, project note names, report note names, and agent note names
 
 Never:
 - save only inside temporary workspaces
@@ -572,6 +576,7 @@ Never:
     findings/
     outputs/
     reports/
+- auto-link generic words such as engineering, retrofit, hardware, serviceability, analysis, marketing, SEO, or project
 
 All outputs must remain accessible after execution.
 

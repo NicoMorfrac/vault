@@ -1,13 +1,15 @@
 ---
-type: generated_report
+type: b2b_weekly_report
 source_agent: B2B_Problem_Discovery
 created: 2026-05-24
 related_findings:
-  - MORAAAAA-91
-  - MORAAAAA-91-01
-  - MORAAAAA-91-02
+  - MORAAAAA-91-01_INSTALLATION_mast_handling_access_and_staging_dependencies
+  - MORAAAAA-91-02_DOCUMENTATION_rig_specific_measurement_and_sequencing_uncertainty
 related_concepts:
-  - REFIT_YARDS
+  - ENGINEERING_UNCERTAINTY
+  - MECHANICAL_INTEGRATION_COMPLEXITY
+  - RETROFIT_COMPLEXITY
+  - SERVICEABILITY_COMPLEXITY
 related_projects: []
 related_reports: []
 ---
@@ -88,9 +90,11 @@ Commercial validation remains limited. What is well supported is repeated techni
 ## Related Links
 
 ### Findings
-- [[MORAAAAA-91]]
-- [[MORAAAAA-91-01]]
-- [[MORAAAAA-91-02]]
+- [[MORAAAAA-91-01_INSTALLATION_mast_handling_access_and_staging_dependencies]]
+- [[MORAAAAA-91-02_DOCUMENTATION_rig_specific_measurement_and_sequencing_uncertainty]]
 
 ### Concepts
-- [[REFIT_YARDS]]
+- [[ENGINEERING_UNCERTAINTY]]
+- [[MECHANICAL_INTEGRATION_COMPLEXITY]]
+- [[RETROFIT_COMPLEXITY]]
+- [[SERVICEABILITY_COMPLEXITY]]

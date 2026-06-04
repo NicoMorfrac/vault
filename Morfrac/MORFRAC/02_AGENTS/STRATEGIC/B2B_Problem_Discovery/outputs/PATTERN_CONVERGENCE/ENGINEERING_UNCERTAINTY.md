@@ -1,3 +1,21 @@
+---
+type: b2b_convergence_concept
+source_agent: B2B_Problem_Discovery
+created: 2026-05-24
+related_findings:
+  - MORAAAAA-86_RETROFIT_rigging_deck_hardware_load_path_uncertainty
+  - MORAAAAA-88_SERVICING_furling_system_service_access_and_retrofit_geometry_constraints
+  - MORAAAAA-90-03_RETROFIT_autopilot_drive_geometry_and_mounting_constraints
+  - MORAAAAA-91-01_INSTALLATION_mast_handling_access_and_staging_dependencies
+  - MORAAAAA-91-02_DOCUMENTATION_rig_specific_measurement_and_sequencing_uncertainty
+related_concepts: []
+related_projects: []
+related_reports:
+  - 2026-05-24_MORAAAAA-90_oem_vs_aftermarket_integration_friction_summary
+  - 2026-05-24_MORAAAAA-91_rigger_and_refit_yard_workflow_bottlenecks_summary
+  - 2026-05-24_MORAAAAA-89_Convergence_Retrofit_Serviceability_Strategic_Assessment
+---
+
 # ENGINEERING_UNCERTAINTY
 
 ## DESCRIPTION
@@ -251,3 +269,17 @@ FROM ""
 WHERE contains(related_concepts, this.file.name)
 SORT source_agent ASC, created DESC
 ```
+
+## Related Links
+
+### Findings
+- [[MORAAAAA-86_RETROFIT_rigging_deck_hardware_load_path_uncertainty]]
+- [[MORAAAAA-88_SERVICING_furling_system_service_access_and_retrofit_geometry_constraints]]
+- [[MORAAAAA-90-03_RETROFIT_autopilot_drive_geometry_and_mounting_constraints]]
+- [[MORAAAAA-91-01_INSTALLATION_mast_handling_access_and_staging_dependencies]]
+- [[MORAAAAA-91-02_DOCUMENTATION_rig_specific_measurement_and_sequencing_uncertainty]]
+
+### Reports
+- [[2026-05-24_MORAAAAA-90_oem_vs_aftermarket_integration_friction_summary]]
+- [[2026-05-24_MORAAAAA-91_rigger_and_refit_yard_workflow_bottlenecks_summary]]
+- [[2026-05-24_MORAAAAA-89_Convergence_Retrofit_Serviceability_Strategic_Assessment]]

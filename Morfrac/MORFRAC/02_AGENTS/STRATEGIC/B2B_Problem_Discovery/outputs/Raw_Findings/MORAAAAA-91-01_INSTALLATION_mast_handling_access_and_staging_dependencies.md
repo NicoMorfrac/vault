@@ -1,3 +1,18 @@
+---
+type: b2b_raw_finding
+source_agent: B2B_Problem_Discovery
+created: 2026-05-24
+related_findings: []
+related_concepts:
+  - ENGINEERING_UNCERTAINTY
+  - MECHANICAL_INTEGRATION_COMPLEXITY
+  - RETROFIT_COMPLEXITY
+  - SERVICEABILITY_COMPLEXITY
+related_projects: []
+related_reports:
+  - 2026-05-24_MORAAAAA-91_rigger_and_refit_yard_workflow_bottlenecks_summary
+---
+
 # MORAAAAA-91-01 Mast-handling access and staging dependencies in rigging/refit work
 
 ---
@@ -126,3 +141,14 @@ MEDIUM
 - Convergence signals: `RETROFIT_COMPLEXITY`, `SERVICEABILITY_COMPLEXITY`, `MECHANICAL_INTEGRATION_COMPLEXITY`.
 - The repeated value appears to come more from planning and risk reduction than from inventing new hardware.
 - Liability remains material where the work touches primary rigging, mast handling, and temporary support of load-bearing systems.
+
+## Related Links
+
+### Concepts
+- [[ENGINEERING_UNCERTAINTY]]
+- [[MECHANICAL_INTEGRATION_COMPLEXITY]]
+- [[RETROFIT_COMPLEXITY]]
+- [[SERVICEABILITY_COMPLEXITY]]
+
+### Reports
+- [[2026-05-24_MORAAAAA-91_rigger_and_refit_yard_workflow_bottlenecks_summary]]

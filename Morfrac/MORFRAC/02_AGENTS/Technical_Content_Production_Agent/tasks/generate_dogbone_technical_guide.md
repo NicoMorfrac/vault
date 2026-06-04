@@ -22,6 +22,7 @@ The article must:
 * explain load and sizing considerations
 * support engineering credibility
 * support commercial routing
+* use content-asset metadata, not report metadata
 
 ## Internal Links
 
@@ -48,3 +49,16 @@ Save under:
 Suggested filename:
 
 YYYY-MM-DD\_Dogbone\_Technical\_Guide.md
+
+Required frontmatter:
+
+```yaml
+---
+type: content_asset
+source_agent: Technical_Content_Production
+created: YYYY-MM-DD
+related_projects: []
+related_topics:
+  - dogbone
+---
+```

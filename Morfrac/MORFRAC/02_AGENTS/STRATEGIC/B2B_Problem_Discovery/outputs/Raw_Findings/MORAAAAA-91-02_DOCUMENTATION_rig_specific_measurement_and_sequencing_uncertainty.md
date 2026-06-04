@@ -1,3 +1,19 @@
+---
+type: b2b_raw_finding
+source_agent: B2B_Problem_Discovery
+created: 2026-05-24
+related_findings:
+  - MORAAAAA-86_RETROFIT_rigging_deck_hardware_load_path_uncertainty
+related_concepts:
+  - ENGINEERING_UNCERTAINTY
+  - MECHANICAL_INTEGRATION_COMPLEXITY
+  - RETROFIT_COMPLEXITY
+  - SERVICEABILITY_COMPLEXITY
+related_projects: []
+related_reports:
+  - 2026-05-24_MORAAAAA-91_rigger_and_refit_yard_workflow_bottlenecks_summary
+---
+
 # MORAAAAA-91-02 Rig-specific measurement and sequencing uncertainty in rigging refits
 
 ---
@@ -124,3 +140,17 @@ MEDIUM
 - Convergence signals: `ENGINEERING_UNCERTAINTY`, `RETROFIT_COMPLEXITY`, `MECHANICAL_INTEGRATION_COMPLEXITY`.
 - This finding is adjacent to `MORAAAAA-86`, but the dominant problem here is workflow-grade measurement and sequencing uncertainty rather than load-path uncertainty itself.
 - The recurring value appears to be diagnosis, intake normalization, and fabrication readiness, not a commodity rigging product.
+
+## Related Links
+
+### Findings
+- [[MORAAAAA-86_RETROFIT_rigging_deck_hardware_load_path_uncertainty]]
+
+### Concepts
+- [[ENGINEERING_UNCERTAINTY]]
+- [[MECHANICAL_INTEGRATION_COMPLEXITY]]
+- [[RETROFIT_COMPLEXITY]]
+- [[SERVICEABILITY_COMPLEXITY]]
+
+### Reports
+- [[2026-05-24_MORAAAAA-91_rigger_and_refit_yard_workflow_bottlenecks_summary]]

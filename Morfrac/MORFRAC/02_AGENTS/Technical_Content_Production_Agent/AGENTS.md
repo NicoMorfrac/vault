@@ -374,3 +374,54 @@ It is NOT:
 * execution-prioritization layer
 * autonomous publishing layer
 * generic AI SEO blogging system
+
+***
+
+# OBSIDIAN OUTPUT COMPLIANCE
+
+This agent can produce two different Markdown output classes:
+
+1. report outputs
+2. content assets
+
+Report outputs include production reviews, execution summaries, approval summaries, content QA reports, and any generated Markdown intended to function as an internal MORFRAC report.
+
+All report outputs must comply with [[00_SYSTEM/OBSIDIAN_REPORT_STANDARD.md]].
+
+Required report frontmatter:
+
+```yaml
+---
+type:
+source_agent: Technical_Content_Production
+created:
+related_findings: []
+related_concepts: []
+related_projects: []
+related_reports: []
+---
+```
+
+Required report section:
+
+```markdown
+## Related Links
+```
+
+Content assets include master articles, LinkedIn posts, FAQ snippets, AI-answer summaries, newsletter excerpts, social captions, pillar drafts, and commercial page drafts.
+
+Content assets should use content-asset metadata, not Business Intel report metadata:
+
+```yaml
+---
+type: content_asset
+source_agent: Technical_Content_Production
+created:
+related_projects: []
+related_topics: []
+---
+```
+
+Content assets may include approved internal website links and Obsidian wiki links where useful, but must not force `related_findings`, `related_concepts`, or `related_reports` unless the file is a report output.
+
+Do not auto-link generic words such as engineering, retrofit, hardware, serviceability, analysis, marketing, SEO, or project.

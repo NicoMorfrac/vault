@@ -380,3 +380,22 @@ It is NOT:
 * execution layer
 * autonomous publishing layer
 * generic SEO-planning system
+# Obsidian Output Compliance
+
+Before saving any generated Markdown file, classify it as either a report output or a content asset.
+
+Report outputs must comply with [[00_SYSTEM/OBSIDIAN_REPORT_STANDARD.md]] and include frontmatter fields for `type`, `source_agent`, `created`, `related_findings`, `related_concepts`, `related_projects`, `related_reports`, plus a `## Related Links` section.
+
+Content assets must use:
+
+```yaml
+---
+type: content_asset
+source_agent: Technical_Content_Strategy
+created:
+related_projects: []
+related_topics: []
+---
+```
+
+Do not force Business Intel report metadata into marketing or content assets.

@@ -1,12 +1,13 @@
 ---
-type: generated_report
+type: b2b_weekly_report
 source_agent: B2B_Problem_Discovery
 created: 2026-05-24
 related_findings:
-  - MORAAAAA-92
-  - MORAAAAA-92-01
+  - MORAAAAA-92-01_INSTALLATION_aftermarket_bowsprit_foredeck_geometry_and_service_access_constraints
 related_concepts:
-  - HIGH_PERFORMANCE_SYSTEMS
+  - MECHANICAL_INTEGRATION_COMPLEXITY
+  - RETROFIT_COMPLEXITY
+  - SERVICEABILITY_COMPLEXITY
 related_projects: []
 related_reports: []
 ---
@@ -84,8 +85,9 @@ Commercial validation remains limited. What is well supported is repeated techni
 ## Related Links
 
 ### Findings
-- [[MORAAAAA-92]]
-- [[MORAAAAA-92-01]]
+- [[MORAAAAA-92-01_INSTALLATION_aftermarket_bowsprit_foredeck_geometry_and_service_access_constraints]]
 
 ### Concepts
-- [[HIGH_PERFORMANCE_SYSTEMS]]
+- [[MECHANICAL_INTEGRATION_COMPLEXITY]]
+- [[RETROFIT_COMPLEXITY]]
+- [[SERVICEABILITY_COMPLEXITY]]

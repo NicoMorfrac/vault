@@ -1,3 +1,13 @@
+---
+type: b2b_raw_finding
+source_agent: B2B_Problem_Discovery
+created: YYYY-MM-DD
+related_findings: []
+related_concepts: []
+related_projects: []
+related_reports: []
+---
+
 # FINDING_ID
 
 MORAAAAA-XX_CATEGORY_short_description
@@ -190,3 +200,9 @@ Short summary:
 - Is this operationally meaningful?
 - Should this be monitored further?
 - Should this be escalated to Business Intelligence analysis?
+
+---
+
+## Related Links
+
+No structured related links identified.

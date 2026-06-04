@@ -364,3 +364,53 @@ Reinforce:
 * engineering positioning
 
 One authority ecosystem should support multiple discovery surfaces while remaining structurally coherent.
+
+***
+
+## Pattern 11 - Obsidian Metadata Classification
+
+### Objective
+
+Classify every generated Markdown file before saving.
+
+### Report Outputs
+
+Use report metadata for production reviews, QA reports, approval summaries, execution summaries, or internal MORFRAC report notes.
+
+Report outputs must comply with [[00_SYSTEM/OBSIDIAN_REPORT_STANDARD.md]]:
+
+```yaml
+---
+type:
+source_agent: Technical_Content_Production
+created:
+related_findings: []
+related_concepts: []
+related_projects: []
+related_reports: []
+---
+```
+
+Report outputs must include:
+
+```markdown
+## Related Links
+```
+
+### Content Assets
+
+Use content-asset metadata for master articles, LinkedIn posts, FAQ snippets, AI-answer summaries, newsletters, social captions, and page drafts:
+
+```yaml
+---
+type: content_asset
+source_agent: Technical_Content_Production
+created:
+related_projects: []
+related_topics: []
+---
+```
+
+Do not force Business Intel report metadata into content assets.
+
+Do not auto-link generic words such as engineering, retrofit, hardware, serviceability, analysis, marketing, SEO, or project.

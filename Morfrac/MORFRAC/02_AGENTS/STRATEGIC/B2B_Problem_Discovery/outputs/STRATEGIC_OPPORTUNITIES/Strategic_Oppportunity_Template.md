@@ -1,3 +1,13 @@
+---
+type: b2b_strategic_opportunity
+source_agent: B2B_Problem_Discovery
+created: YYYY-MM-DD
+related_findings: []
+related_concepts: []
+related_projects: []
+related_reports: []
+---
+
 # OPPORTUNITY_NAME
 
 ---
@@ -110,3 +120,9 @@ Explain alignment with:
 # RECOMMENDED_NEXT_ACTIONS
 
 Concrete next validation steps.
+
+---
+
+## Related Links
+
+No structured related links identified.

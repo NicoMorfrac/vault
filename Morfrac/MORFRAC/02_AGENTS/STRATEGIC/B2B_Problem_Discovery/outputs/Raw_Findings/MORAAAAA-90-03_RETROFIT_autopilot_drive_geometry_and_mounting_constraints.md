@@ -1,3 +1,18 @@
+---
+type: b2b_raw_finding
+source_agent: B2B_Problem_Discovery
+created: 2026-05-24
+related_findings:
+  - MORAAAAA-86_RETROFIT_rigging_deck_hardware_load_path_uncertainty
+related_concepts:
+  - ENGINEERING_UNCERTAINTY
+  - MECHANICAL_INTEGRATION_COMPLEXITY
+  - RETROFIT_COMPLEXITY
+related_projects: []
+related_reports:
+  - 2026-05-24_MORAAAAA-90_oem_vs_aftermarket_integration_friction_summary
+---
+
 # MORAAAAA-90-03 OEM steering geometry turns autopilot upgrades into custom mechanical retrofits
 
 ---
@@ -124,3 +139,16 @@ MEDIUM
 
 - This finding overlaps with [MORAAAAA-86] load-path uncertainty, but the dominant issue here is steering-drive packaging and integration rather than deck-structure reinforcement alone.
 - Evidence quality is stronger here than in many electronics findings because the discussions repeatedly become exact geometry and hardware-fit problems.
+
+## Related Links
+
+### Findings
+- [[MORAAAAA-86_RETROFIT_rigging_deck_hardware_load_path_uncertainty]]
+
+### Concepts
+- [[ENGINEERING_UNCERTAINTY]]
+- [[MECHANICAL_INTEGRATION_COMPLEXITY]]
+- [[RETROFIT_COMPLEXITY]]
+
+### Reports
+- [[2026-05-24_MORAAAAA-90_oem_vs_aftermarket_integration_friction_summary]]

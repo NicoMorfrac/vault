@@ -351,3 +351,53 @@ Prioritize:
 * real-world problem-solving value
 * integration expertise
 * semantic defensibility
+
+***
+
+## Pattern 11 - Obsidian Metadata Classification
+
+### Objective
+
+Classify every generated Markdown file before saving.
+
+### Report Outputs
+
+Use report metadata for authority opportunity reports, ecosystem proposal reports, strategic content opportunity reports, and validation reports.
+
+Report outputs must comply with [[00_SYSTEM/OBSIDIAN_REPORT_STANDARD.md]]:
+
+```yaml
+---
+type:
+source_agent: Technical_Content_Strategy
+created:
+related_findings: []
+related_concepts: []
+related_projects: []
+related_reports: []
+---
+```
+
+Report outputs must include:
+
+```markdown
+## Related Links
+```
+
+### Content Assets
+
+Use content-asset metadata for draft outlines, externally oriented content plans, derivative content outlines, and reusable marketing content assets:
+
+```yaml
+---
+type: content_asset
+source_agent: Technical_Content_Strategy
+created:
+related_projects: []
+related_topics: []
+---
+```
+
+Do not force Business Intel report metadata into marketing or content assets.
+
+Do not auto-link generic words such as engineering, retrofit, hardware, serviceability, analysis, marketing, SEO, or project.
