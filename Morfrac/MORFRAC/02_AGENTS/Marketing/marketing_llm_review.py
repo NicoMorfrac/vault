@@ -4,6 +4,11 @@ from pathlib import Path
 import sys
 from datetime import datetime
 
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+if hasattr(sys.stderr, "reconfigure"):
+    sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+
 # =========================================
 # CONFIG
 # =========================================
@@ -128,6 +133,7 @@ def run_ollama(prompt):
         text=True,
         capture_output=True,
         encoding="utf-8",
+        errors="replace",
     )
 
     if result.stderr.strip():

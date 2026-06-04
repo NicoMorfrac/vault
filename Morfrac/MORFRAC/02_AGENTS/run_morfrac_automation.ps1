@@ -5,6 +5,9 @@ $MarketingPath = Join-Path $BasePath "02_AGENTS\Marketing"
 $SeoScriptsPath = Join-Path $BasePath "06_MARKETING\SEO_Agent\Scripts"
 $LogPath = Join-Path $BasePath "06_MARKETING\Automation_Logs"
 
+$env:PYTHONUTF8 = "1"
+$env:PYTHONIOENCODING = "utf-8"
+
 New-Item -ItemType Directory -Force -Path $LogPath | Out-Null
 
 $RunStamp = Get-Date -Format "yyyy-MM-dd_HH-mm-ss"

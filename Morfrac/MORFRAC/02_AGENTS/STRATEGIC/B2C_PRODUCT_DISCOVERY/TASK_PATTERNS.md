@@ -52,6 +52,39 @@ Every finding should link to:
 
 ***
 
+# MASTER INDEX UPDATE RULE
+
+After every investigation, update:
+
+C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\02\_AGENTS\STRATEGIC\B2C\_PRODUCT\_DISCOVERY\outputs\MASTER\_INDEX.md
+
+Add:
+
+* all newly created findings
+* all newly created reports
+* applicable convergence files
+* preliminary opportunity classification
+
+Use Obsidian wiki-links.
+
+Do not overwrite existing entries.
+
+Preserve existing structure.
+
+Every new finding should be added under:
+
+## FINDINGS
+
+Every new report should be added under:
+
+## REPORTS
+
+If a finding reinforces a convergence theme, ensure the relevant convergence file is linked under:
+
+## ACTIVE CONVERGENCE FILES
+
+***
+
 # TASK\_PATTERN\_01\_PRODUCT\_FRICTION\_DISCOVERY
 
 ## OBJECTIVE
