@@ -28,7 +28,11 @@
   },
   "appIcons": {},
   "tabIcons": {},
-  "fileIcons": {},
+  "fileIcons": {
+    "06_MARKETING/Dashboards/Latest_Marketing_Dashboard.md": {
+      "color": "blue"
+    }
+  },
   "bookmarkIcons": {},
   "tagIcons": {},
   "propertyIcons": {},

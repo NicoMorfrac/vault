@@ -4,6 +4,13 @@ from pathlib import Path
 from datetime import datetime
 
 try:
+    import matplotlib
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+except ModuleNotFoundError:
+    plt = None
+
+try:
     import plotly.express as px
     from plotly.offline import plot
 except ModuleNotFoundError:
@@ -46,6 +53,7 @@ STRATEGIC_INTELLIGENCE = BASE_PATH / r"06_MARKETING\Strategic_Intelligence"
 TRAFFIC_QUALITY = BASE_PATH / r"06_MARKETING\Analytics\Traffic_Quality"
 
 OUTPUT_PATH = BASE_PATH / r"06_MARKETING\Dashboards"
+CHARTS_PATH = OUTPUT_PATH / "Charts"
 
 # =========================================
 # HELPERS
@@ -188,6 +196,59 @@ def metric_row(title, value, subtitle, status):
     return f"| {title} | {value} | {subtitle} | {status} |"
 
 
+def obsidian_image(path):
+    if not path:
+        return "Chart unavailable."
+
+    return f"![[Charts/{path.name}]]"
+
+
+def save_line_chart(dataframe, x_col, y_col, title, ylabel, filename):
+    if plt is None or dataframe.empty or y_col not in dataframe.columns:
+        return None
+
+    chart_file = CHARTS_PATH / filename
+    chart_df = dataframe[[x_col, y_col]].dropna()
+
+    if chart_df.empty:
+        return None
+
+    fig, ax = plt.subplots(figsize=(9, 4.5))
+    ax.plot(chart_df[x_col].astype(str), chart_df[y_col], marker="o", linewidth=2)
+    ax.set_title(title)
+    ax.set_ylabel(ylabel)
+    ax.grid(True, alpha=0.25)
+    ax.tick_params(axis="x", rotation=35)
+    fig.tight_layout()
+    fig.savefig(chart_file, dpi=150)
+    plt.close(fig)
+
+    return chart_file
+
+
+def save_bar_chart(dataframe, x_col, y_col, title, ylabel, filename):
+    if plt is None or dataframe.empty or x_col not in dataframe.columns or y_col not in dataframe.columns:
+        return None
+
+    chart_file = CHARTS_PATH / filename
+    chart_df = dataframe[[x_col, y_col]].dropna()
+
+    if chart_df.empty:
+        return None
+
+    fig, ax = plt.subplots(figsize=(9, 4.5))
+    ax.bar(chart_df[x_col].astype(str), chart_df[y_col])
+    ax.set_title(title)
+    ax.set_ylabel(ylabel)
+    ax.grid(True, axis="y", alpha=0.25)
+    ax.tick_params(axis="x", rotation=35)
+    fig.tight_layout()
+    fig.savefig(chart_file, dpi=150)
+    plt.close(fig)
+
+    return chart_file
+
+
 # =========================================
 # LOAD TREND DATA
 # =========================================
@@ -195,6 +256,7 @@ def metric_row(title, value, subtitle, status):
 
 def main():
     OUTPUT_PATH.mkdir(parents=True, exist_ok=True)
+    CHARTS_PATH.mkdir(parents=True, exist_ok=True)
 
     if not TREND_FILE.exists():
         print("Trend file missing.")
@@ -466,6 +528,57 @@ def main():
         )
     else:
         charts["territory"] = "<div class='panel'>No territory data available.</div>"
+
+    image_charts = {
+        "sessions": save_line_chart(
+            df,
+            "date",
+            "sessions_28",
+            "28-Day Sessions",
+            "Sessions",
+            "marketing_sessions_28.png"
+        ),
+        "clicks": save_line_chart(
+            df,
+            "date",
+            "organic_clicks",
+            "Organic Clicks",
+            "Clicks",
+            "marketing_organic_clicks.png"
+        ),
+        "ctr": save_line_chart(
+            df,
+            "date",
+            "organic_ctr",
+            "Organic CTR",
+            "CTR",
+            "marketing_organic_ctr.png"
+        ),
+        "position": save_line_chart(
+            df,
+            "date",
+            "avg_position",
+            "Average Position",
+            "Position",
+            "marketing_average_position.png"
+        ),
+        "confidence": save_bar_chart(
+            confidence_df,
+            "segment",
+            "sessions",
+            "Traffic Confidence Distribution",
+            "Sessions",
+            "marketing_traffic_confidence.png"
+        ),
+        "territory": save_bar_chart(
+            territory_df if not traffic_df.empty else pd.DataFrame(),
+            "territory",
+            "sessions",
+            "Territory Distribution",
+            "Sessions",
+            "marketing_territory_distribution.png"
+        ),
+    }
 
     # =========================================
     # BUILD DASHBOARD
@@ -797,6 +910,24 @@ HTML version: [[{dashboard_file.name}]]
 {metric_row("Organic CTR", f"{format_value(latest['organic_ctr'], 2)}%", f"{format_value(latest['organic_ctr_change'])}% change", ctr_status)}
 {metric_row("Average Position", format_value(latest["avg_position"], 2), f"Change: {format_value(latest['avg_position_change'], 2)}", position_status)}
 
+## Performance Charts
+
+### 28-Day Sessions
+
+{obsidian_image(image_charts["sessions"])}
+
+### Organic Clicks
+
+{obsidian_image(image_charts["clicks"])}
+
+### Organic CTR
+
+{obsidian_image(image_charts["ctr"])}
+
+### Average Position
+
+{obsidian_image(image_charts["position"])}
+
 ## Executive Commentary
 
 {executive_summary}
@@ -815,9 +946,13 @@ HTML version: [[{dashboard_file.name}]]
 
 ## Traffic Confidence
 
+{obsidian_image(image_charts["confidence"])}
+
 {traffic_confidence_md}
 
 ## Territory Distribution
+
+{obsidian_image(image_charts["territory"])}
 
 {territory_md}
 

@@ -22,6 +22,24 @@ HTML version: [[2026-06-05_Marketing_Dashboard.html]]
 | Organic CTR | 43.60% | 43.6% change | POSITIVE |
 | Average Position | -2.64 | Change: -2.64 | POSITIVE |
 
+## Performance Charts
+
+### 28-Day Sessions
+
+![[Charts/marketing_sessions_28.png]]
+
+### Organic Clicks
+
+![[Charts/marketing_organic_clicks.png]]
+
+### Organic CTR
+
+![[Charts/marketing_organic_ctr.png]]
+
+### Average Position
+
+![[Charts/marketing_average_position.png]]
+
 ## Executive Commentary
 
 MORFRAC has a short-term traffic bounce but a still-deteriorating 28-day base. The business issue is not raw volume; it is quality, relevance, and search visibility.
@@ -141,6 +159,8 @@ Low priority
 
 ## Traffic Confidence
 
+![[Charts/marketing_traffic_confidence.png]]
+
 | segment   |   sessions |
 |:----------|-----------:|
 | High      |         60 |
@@ -149,6 +169,8 @@ Low priority
 | Low       |         93 |
 
 ## Territory Distribution
+
+![[Charts/marketing_territory_distribution.png]]
 
 | territory                 |   sessions |
 |:--------------------------|-----------:|
