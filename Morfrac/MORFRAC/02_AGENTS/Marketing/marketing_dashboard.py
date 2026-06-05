@@ -172,6 +172,22 @@ def pct(part, total):
     return round((part / total) * 100, 1)
 
 
+def markdown_table_from_df(dataframe, max_rows=None):
+    if dataframe.empty:
+        return "No data available."
+
+    table_df = dataframe.copy()
+
+    if max_rows:
+        table_df = table_df.head(max_rows)
+
+    return table_df.to_markdown(index=False)
+
+
+def metric_row(title, value, subtitle, status):
+    return f"| {title} | {value} | {subtitle} | {status} |"
+
+
 # =========================================
 # LOAD TREND DATA
 # =========================================
@@ -462,6 +478,16 @@ def main():
         / f"{run_date}_Marketing_Dashboard.html"
     )
 
+    obsidian_dashboard_file = (
+        OUTPUT_PATH
+        / f"{run_date}_Marketing_Dashboard.md"
+    )
+
+    latest_obsidian_dashboard_file = (
+        OUTPUT_PATH
+        / "Latest_Marketing_Dashboard.md"
+    )
+
     html = f"""
     <html>
 
@@ -738,8 +764,87 @@ def main():
         encoding="utf-8"
     )
 
+    traffic_confidence_md = markdown_table_from_df(confidence_df)
+
+    if not traffic_df.empty:
+        territory_md = markdown_table_from_df(territory_df)
+    else:
+        territory_md = "No territory data available."
+
+    trend_md = markdown_table_from_df(df)
+
+    obsidian_md = f"""---
+report_type: marketing_dashboard
+source_agent: Marketing
+date: {run_date}
+html_dashboard: {dashboard_file.name}
+strategic_source: {strategic_file.name if strategic_file else ""}
+traffic_quality_source: {traffic_quality_csv.name if traffic_quality_csv else ""}
+---
+
+# MORFRAC Marketing Intelligence Dashboard
+
+Generated: {run_date}
+
+HTML version: [[{dashboard_file.name}]]
+
+## Executive Intelligence
+
+| Metric | Value | Context | Status |
+| --- | ---: | --- | --- |
+{metric_row("Commercial Traffic Quality", f"{high_pct:.1f}%", "High relevance traffic", traffic_quality_status)}
+{metric_row("Low-Confidence Traffic", f"{low_pct:.1f}%", "Low-tier traffic", low_conf_status)}
+{metric_row("Organic CTR", f"{format_value(latest['organic_ctr'], 2)}%", f"{format_value(latest['organic_ctr_change'])}% change", ctr_status)}
+{metric_row("Average Position", format_value(latest["avg_position"], 2), f"Change: {format_value(latest['avg_position_change'], 2)}", position_status)}
+
+## Executive Commentary
+
+{executive_summary}
+
+## Key Risks
+
+{key_risks}
+
+## Key Opportunities
+
+{key_opportunities}
+
+## Recommended Executive Actions
+
+{recommended_actions}
+
+## Traffic Confidence
+
+{traffic_confidence_md}
+
+## Territory Distribution
+
+{territory_md}
+
+## Trend Data
+
+{trend_md}
+
+## Sources
+
+- Strategic intelligence: {strategic_file if strategic_file else "No file found"}
+- Traffic quality: {traffic_quality_csv if traffic_quality_csv else "No file found"}
+"""
+
+    obsidian_dashboard_file.write_text(
+        obsidian_md,
+        encoding="utf-8"
+    )
+
+    latest_obsidian_dashboard_file.write_text(
+        obsidian_md,
+        encoding="utf-8"
+    )
+
     print("\nMARKETING DASHBOARD CREATED\n")
     print(dashboard_file)
+    print(obsidian_dashboard_file)
+    print(latest_obsidian_dashboard_file)
 
 if __name__ == "__main__":
     main()
