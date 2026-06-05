@@ -1,6 +1,6 @@
 # B2C PRODUCT DISCOVERY MASTER INDEX
 
-Last updated: 2026-06-04 17:44
+Last updated: 2026-06-04 18:29
 
 ---
 
@@ -16,45 +16,45 @@ Last updated: 2026-06-04 17:44
 
 ## FINDINGS
 
-| Finding | Date | Problem Type | User Segment | Confidence |
-|---|---|---|---|---|
-| [[2026-06-03_MORAAAAA-93_F001_single-line-reefing-friction]] | 2026-06-03 | WORKFLOW ERGONOMICS USABILITY *** | SHORTHANDED_CRUISERS *** | HIGH |
-| [[2026-06-03_MORAAAAA-93_F002_lines-led-aft-clutter-and-friction]] | 2026-06-03 | WORKFLOW SAFETY INSTALLATION DECK_ORGANIZATION *** | SHORTHANDED_CRUISERS OWNER_OPERATORS *** | HIGH |
-| [[2026-06-03_MORAAAAA-93_F003_lazy-jack-and-stack-pack-snag]] | 2026-06-03 | USABILITY WORKFLOW DECK_ORGANIZATION *** | SHORTHANDED_CRUISERS DAY_SAILORS *** | MEDIUM |
-| [[2026-06-03_MORAAAAA-93_F004_headsail-furler-tension-and-jam]] | 2026-06-03 | WORKFLOW SAFETY ERGONOMICS MAINTENANCE *** | SHORTHANDED_CRUISERS SOLO_SAILORS *** | HIGH |
-| [[2026-06-03_MORAAAAA-93_F005_in-mast-furling-serviceability-and-jam-risk]] | 2026-06-03 | MAINTENANCE SERVICEABILITY SAFETY USABILITY *** | CRUISERS SHORTHANDED_CRUISERS *** | MEDIUM |
+| Finding | Date | Problem Type | User Segment | Confidence | Opportunity Status |
+|---|---|---|---|---|---|
+| [[2026-06-03_MORAAAAA-93_F001_single-line-reefing-friction]] | 2026-06-03 | WORKFLOW / ERGONOMICS / USABILITY | SHORTHANDED_CRUISERS | HIGH | PRODUCT_IMPROVEMENT |
+| [[2026-06-03_MORAAAAA-93_F002_lines-led-aft-clutter-and-friction]] | 2026-06-03 | WORKFLOW / SAFETY / INSTALLATION / DECK_ORGANIZATION | SHORTHANDED_CRUISERS / OWNER_OPERATORS | HIGH | RETROFIT_KIT |
+| [[2026-06-03_MORAAAAA-93_F003_lazy-jack-and-stack-pack-snag]] | 2026-06-03 | USABILITY / WORKFLOW / DECK_ORGANIZATION | SHORTHANDED_CRUISERS / DAY_SAILORS | MEDIUM | PRODUCT_IMPROVEMENT |
+| [[2026-06-03_MORAAAAA-93_F004_headsail-furler-tension-and-jam]] | 2026-06-03 | WORKFLOW / SAFETY / ERGONOMICS / MAINTENANCE | SHORTHANDED_CRUISERS / SOLO_SAILORS | HIGH | PRODUCT_IMPROVEMENT |
+| [[2026-06-03_MORAAAAA-93_F005_in-mast-furling-serviceability-and-jam-risk]] | 2026-06-03 | MAINTENANCE / SERVICEABILITY / SAFETY / USABILITY | CRUISERS / SHORTHANDED_CRUISERS | MEDIUM | PRODUCT_IMPROVEMENT |
 
 ---
 
 ## REPORTS
 
-| Report | Date | Topic |
-|---|---|---|
-| [[2026-06-03_MORAAAAA-93_summary_report]] | 2026-06-03 | Sail Handling Friction For Shorthanded Cruising Sailors |
+| Report | Date | Topic | Opportunity Status |
+|---|---|---|---|
+| [[2026-06-03_MORAAAAA-93_summary_report]] | 2026-06-03 | Sail Handling Friction For Shorthanded Cruising Sailors | PRODUCT_IMPROVEMENT |
 
 ---
 
 ## HIGH PRIORITY OPPORTUNITIES
 
-None yet.
+Pending Business Intelligence Review
 
 ---
 
 ## PRODUCT IMPROVEMENT OPPORTUNITIES
 
-None yet.
+Pending Business Intelligence Review
 
 ---
 
 ## RETROFIT KIT OPPORTUNITIES
 
-None yet.
+Pending Business Intelligence Review
 
 ---
 
 ## NEW PRODUCT OPPORTUNITIES
 
-None yet.
+Pending Business Intelligence Review
 
 ---
 

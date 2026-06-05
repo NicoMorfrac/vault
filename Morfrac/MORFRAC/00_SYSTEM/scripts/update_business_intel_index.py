@@ -1,9 +1,6 @@
-from __future__ import annotations
-
-from datetime import datetime
 from pathlib import Path
 import re
-
+from datetime import datetime
 
 ROOT = Path(r"C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC")
 B2C_ROOT = ROOT / "02_AGENTS" / "STRATEGIC" / "B2C_PRODUCT_DISCOVERY"
@@ -22,8 +19,6 @@ CONVERGENCE_FILES = [
     "MAINTENANCE_AVOIDANCE",
 ]
 
-OPPORTUNITY_STATUS_DEFAULT = "UNREVIEWED"
-
 
 def wikilink(path: Path) -> str:
     return f"[[{path.stem}]]"
@@ -36,133 +31,43 @@ def read_text(path: Path) -> str:
         return path.read_text(encoding="latin-1")
 
 
-def clean_cell(value: str) -> str:
-    """Normalize values for markdown table cells."""
-    if not value:
-        return ""
-
-    value = value.replace("\r", " ").replace("\n", " ")
-    value = re.sub(r"\*+", "", value)
-    value = re.sub(r"`+", "", value)
-    value = re.sub(r"\[\[|\]\]", "", value)
-    value = re.sub(r"\s+", " ", value)
-    value = value.strip(" -|:;,.")
-    return value.strip()
-
-
 def extract_heading(text: str, fallback: str) -> str:
     match = re.search(r"^#\s+(.+)$", text, re.MULTILINE)
-    return clean_cell(match.group(1)) if match else fallback
+    return match.group(1).strip() if match else fallback
 
 
-def extract_frontmatter(text: str) -> dict[str, str]:
-    match = re.match(r"^---\s*\n(.*?)\n---", text, re.DOTALL)
-    if not match:
-        return {}
-
-    frontmatter = {}
-    for line in match.group(1).splitlines():
-        if ":" not in line:
-            continue
-
-        key, value = line.split(":", 1)
-        frontmatter[key.strip()] = value.strip()
-
-    return frontmatter
-
-
-def extract_section_block(text: str, section: str) -> str:
+def extract_section_value(text: str, section: str) -> str:
     pattern = rf"^#\s+{re.escape(section)}\s*$([\s\S]*?)(?=^#\s+|\Z)"
     match = re.search(pattern, text, re.MULTILINE | re.IGNORECASE)
-    return match.group(1).strip() if match else ""
-
-
-def extract_first_valid_tokens_from_section(text: str, section: str) -> str:
-    block = extract_section_block(text, section)
-    if not block:
+    if not match:
         return ""
-
-    lines: list[str] = []
-
-    for raw_line in block.splitlines():
-        line = clean_cell(raw_line)
-
-        if not line:
-            continue
-
-        if line.upper() in {"EXAMPLES", "EXAMPLE"}:
-            continue
-
-        if line.lower().startswith("examples"):
-            continue
-
-        if line.startswith("---"):
-            continue
-
-        lines.append(line)
-
-    if not lines:
-        return ""
-
-    # If the agent wrote values on separate lines, combine them cleanly.
-    # If it wrote one value, this simply returns that value.
-    return " / ".join(lines)
+    value = match.group(1).strip()
+    return re.sub(r"\s+", " ", value).strip()
 
 
 def extract_confidence(text: str) -> str:
-    block = extract_section_block(text, "CONFIDENCE_LEVEL").upper()
-
+    section = extract_section_value(text, "CONFIDENCE_LEVEL")
+    upper = section.upper()
     for level in ["HIGH", "MEDIUM", "LOW"]:
-        if re.search(rf"\b{level}\b", block):
+        if level in upper:
             return level
-
     return ""
 
 
 def extract_problem_type(text: str) -> str:
-    return extract_first_valid_tokens_from_section(text, "PROBLEM_TYPE")
+    value = extract_section_value(text, "PROBLEM_TYPE")
+    lines = [line.strip("- ").strip() for line in value.splitlines() if line.strip()]
+    return lines[0] if lines else ""
 
 
 def extract_user_segment(text: str) -> str:
-    return extract_first_valid_tokens_from_section(text, "USER_SEGMENT")
-
-
-def extract_opportunity_status(text: str) -> str:
-    """
-    Use explicit Business Intelligence / report wording if present.
-    Otherwise default to UNREVIEWED.
-    """
-    searchable = text.upper()
-
-    ordered_statuses = [
-        "NO_OPPORTUNITY",
-        "NO OPPORTUNITY",
-        "VALIDATION_REQUIRED",
-        "VALIDATION REQUIRED",
-        "PRODUCT_IMPROVEMENT",
-        "PRODUCT IMPROVEMENT",
-        "RETROFIT_KIT",
-        "RETROFIT KIT",
-        "B2C_PRODUCT",
-        "B2C PRODUCT",
-    ]
-
-    for status in ordered_statuses:
-        if status in searchable:
-            return status.replace(" ", "_")
-
-    return OPPORTUNITY_STATUS_DEFAULT
+    value = extract_section_value(text, "USER_SEGMENT")
+    lines = [line.strip("- ").strip() for line in value.splitlines() if line.strip()]
+    return lines[0] if lines else ""
 
 
 def extract_date_from_text_or_name(path: Path, text: str) -> str:
-    frontmatter = extract_frontmatter(text)
-    created = frontmatter.get("created", "")
-
-    match = re.search(r"([0-9]{4}-[0-9]{2}-[0-9]{2})", created)
-    if match:
-        return match.group(1)
-
-    match = re.search(r"created:\s*([0-9]{4}-[0-9]{2}-[0-9]{2})", text, re.IGNORECASE)
+    match = re.search(r"created:\s*([0-9]{4}-[0-9]{2}-[0-9]{2})", text)
     if match:
         return match.group(1)
 
@@ -176,7 +81,6 @@ def extract_date_from_text_or_name(path: Path, text: str) -> str:
 def collect_markdown_files(folder: Path) -> list[Path]:
     if not folder.exists():
         return []
-
     return sorted(folder.glob("*.md"))
 
 
@@ -184,8 +88,7 @@ def build_index() -> str:
     findings = collect_markdown_files(RAW_FINDINGS)
     reports = collect_markdown_files(REPORTS)
 
-    lines: list[str] = []
-
+    lines = []
     lines.append("# B2C PRODUCT DISCOVERY MASTER INDEX")
     lines.append("")
     lines.append(f"Last updated: {datetime.now().strftime('%Y-%m-%d %H:%M')}")
@@ -203,10 +106,8 @@ def build_index() -> str:
 
     lines.append("## FINDINGS")
     lines.append("")
-    lines.append(
-        "| Finding | Date | Problem Type | User Segment | Confidence | Opportunity Status |"
-    )
-    lines.append("|---|---|---|---|---|---|")
+    lines.append("| Finding | Date | Problem Type | User Segment | Confidence |")
+    lines.append("|---|---|---|---|---|")
 
     for path in findings:
         text = read_text(path)
@@ -214,11 +115,8 @@ def build_index() -> str:
         problem_type = extract_problem_type(text)
         user_segment = extract_user_segment(text)
         confidence = extract_confidence(text)
-        opportunity_status = extract_opportunity_status(text)
-
         lines.append(
-            f"| {wikilink(path)} | {date} | {problem_type} | "
-            f"{user_segment} | {confidence} | {opportunity_status} |"
+            f"| {wikilink(path)} | {date} | {problem_type} | {user_segment} | {confidence} |"
         )
 
     lines.append("")
@@ -227,18 +125,14 @@ def build_index() -> str:
 
     lines.append("## REPORTS")
     lines.append("")
-    lines.append("| Report | Date | Topic | Opportunity Status |")
-    lines.append("|---|---|---|---|")
+    lines.append("| Report | Date | Topic |")
+    lines.append("|---|---|---|")
 
     for path in reports:
         text = read_text(path)
         date = extract_date_from_text_or_name(path, text)
         topic = extract_heading(text, path.stem)
-        opportunity_status = extract_opportunity_status(text)
-
-        lines.append(
-            f"| {wikilink(path)} | {date} | {topic} | {opportunity_status} |"
-        )
+        lines.append(f"| {wikilink(path)} | {date} | {topic} |")
 
     lines.append("")
     lines.append("---")
@@ -246,28 +140,28 @@ def build_index() -> str:
 
     lines.append("## HIGH PRIORITY OPPORTUNITIES")
     lines.append("")
-    lines.append("Pending Business Intelligence Review")
+    lines.append("None yet.")
     lines.append("")
     lines.append("---")
     lines.append("")
 
     lines.append("## PRODUCT IMPROVEMENT OPPORTUNITIES")
     lines.append("")
-    lines.append("Pending Business Intelligence Review")
+    lines.append("None yet.")
     lines.append("")
     lines.append("---")
     lines.append("")
 
     lines.append("## RETROFIT KIT OPPORTUNITIES")
     lines.append("")
-    lines.append("Pending Business Intelligence Review")
+    lines.append("None yet.")
     lines.append("")
     lines.append("---")
     lines.append("")
 
     lines.append("## NEW PRODUCT OPPORTUNITIES")
     lines.append("")
-    lines.append("Pending Business Intelligence Review")
+    lines.append("None yet.")
     lines.append("")
     lines.append("---")
     lines.append("")

@@ -244,11 +244,11 @@ Repeated frustration does not automatically validate:
 
 The agent must distinguish:
 
-* recurring frustration
+Recurring Frustration
 
 from
 
-* validated product opportunity
+Validated Product Opportunity
 
 Do not generate exaggerated strategic conclusions from weak evidence.
 
@@ -256,18 +256,18 @@ Do not generate exaggerated strategic conclusions from weak evidence.
 
 # CONFIDENCE LEVEL RULES
 
-LOW
+## LOW
 
 * isolated complaint
 * weak evidence
 * unclear recurrence
 
-MEDIUM
+## MEDIUM
 
 * repeated evidence across multiple discussions
 * moderate operational specificity
 
-HIGH
+## HIGH
 
 * repeated cross-platform evidence
 * strong operational specificity
@@ -284,7 +284,6 @@ All outputs must:
 * include a Related Links section
 * use absolute filesystem paths
 * be compatible with Obsidian graph relationships
-* update MASTER\_INDEX.md
 * remain accessible after execution
 
 Never save findings only in temporary workspaces.
@@ -295,15 +294,15 @@ Always write directly into the MORFRAC Obsidian vault.
 
 # OUTPUT STORAGE RULES
 
-RAW FINDINGS
+## RAW FINDINGS
 
 C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\02\_AGENTS\STRATEGIC\B2C\_PRODUCT\_DISCOVERY\outputs\RAW\_FINDINGS\\
 
-WEEKLY REPORTS
+## WEEKLY REPORTS
 
 C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\02\_AGENTS\STRATEGIC\B2C\_PRODUCT\_DISCOVERY\outputs\WEEKLY\_REPORTS\\
 
-MASTER INDEX
+## MASTER INDEX
 
 C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\02\_AGENTS\STRATEGIC\B2C\_PRODUCT\_DISCOVERY\outputs\MASTER\_INDEX.md
 
@@ -311,14 +310,37 @@ Always report final absolute output paths.
 
 ***
 
+# INDEX MANAGEMENT RULE
+
+After completing an investigation:
+
+* save all findings
+* save all reports
+
+Then run:
+
+py C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\00\_SYSTEM\scripts\update\_b2c\_master\_index.py
+
+Report:
+
+* created findings
+* created reports
+* updated MASTER\_INDEX.md path
+
+Do not manually maintain MASTER\_INDEX.md.
+
+MASTER\_INDEX.md is maintained exclusively by system scripts.
+
+***
+
 # KNOWLEDGE GRAPH LINKING RULES
 
 Before finalizing any finding or report:
 
-1. Search existing findings
-2. Search convergence files
-3. Search reports
-4. Search MASTER\_INDEX.md
+* Search existing findings
+* Search convergence files
+* Search reports
+* Search MASTER\_INDEX.md
 
 Identify:
 
@@ -347,13 +369,10 @@ Use Obsidian wiki-links.
 
 Examples:
 
-\[\[USABILITY\_FRICTION]]
-
-\[\[WORKFLOW\_INEFFICIENCY]]
-
-\[\[2026-06-03\_MORAAAAAA-93\_summary\_report]]
-
-\[\[2026-06-03\_MORAAAAAA-93\_F001\_single-line-reefing]]
+* \[\[USABILITY\_FRICTION]]
+* \[\[WORKFLOW\_INEFFICIENCY]]
+* \[\[2026-06-03\_MORAAAAAA-93\_summary\_report]]
+* \[\[2026-06-03\_MORAAAAAA-93\_F001\_single-line-reefing]]
 
 ***
 

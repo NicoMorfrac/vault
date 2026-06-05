@@ -3,11 +3,11 @@
 type: strategic\_report
 source\_agent: B2C\_Product\_Discovery
 created:
-related\_findings:
-related\_concepts:
-related\_projects:
-related\_reports:
------------------
+related\_findings: \[]
+related\_concepts: \[]
+related\_projects: \[]
+related\_reports: \[]
+---------------------
 
 # REPORT\_TITLE
 
@@ -85,6 +85,21 @@ Only include implications supported by evidence.
 
 ***
 
+# BUSINESS INTELLIGENCE ESCALATION
+
+Should this investigation be escalated to Business Intelligence?
+
+Options:
+
+* Yes
+* No
+
+Justification:
+
+Explain why further strategic evaluation is or is not warranted.
+
+***
+
 # WHAT SHOULD MORFRAC DO NEXT
 
 Select one or more:
@@ -97,6 +112,22 @@ Select one or more:
 * Explore Retrofit Kit
 * Explore Modular System
 * Explore Serviceability Improvement
+
+Provide justification.
+
+***
+
+# VALIDATION RECOMMENDATION
+
+Recommend one:
+
+* Validate with Additional B2C Research
+* Validate with B2B Research
+* Validate with Competitor Research
+* Validate with Customer Interviews
+* Validate with Supplier Research
+* Validate with Market Research
+* No Further Validation Required
 
 Provide justification.
 

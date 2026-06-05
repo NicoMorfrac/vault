@@ -52,36 +52,23 @@ Every finding should link to:
 
 ***
 
-# MASTER INDEX UPDATE RULE
+# INDEX MANAGEMENT RULE
 
-After every investigation, update:
+After every investigation:
 
-C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\02\_AGENTS\STRATEGIC\B2C\_PRODUCT\_DISCOVERY\outputs\MASTER\_INDEX.md
+Run:
 
-Add:
+py C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\00\_SYSTEM\scripts\update\_b2c\_master\_index.py
 
-* all newly created findings
-* all newly created reports
-* applicable convergence files
-* preliminary opportunity classification
+Do not manually update MASTER\_INDEX.md.
 
-Use Obsidian wiki-links.
+MASTER\_INDEX.md is maintained exclusively by system scripts.
 
-Do not overwrite existing entries.
+Report:
 
-Preserve existing structure.
-
-Every new finding should be added under:
-
-## FINDINGS
-
-Every new report should be added under:
-
-## REPORTS
-
-If a finding reinforces a convergence theme, ensure the relevant convergence file is linked under:
-
-## ACTIVE CONVERGENCE FILES
+* created findings
+* created reports
+* updated MASTER\_INDEX.md path
 
 ***
 
@@ -354,6 +341,26 @@ Only identify convergence when:
 * workarounds repeat
 
 Convergence files should become the primary long-term knowledge hubs for the B2C Product Discovery Agent.
+
+***
+
+# VALIDATION ESCALATION
+
+When a finding appears strategically significant:
+
+Do not assume a product opportunity exists.
+
+Flag for Business Intelligence review.
+
+Business Intelligence determines whether the finding represents:
+
+* B2C Product Opportunity
+* Product Improvement Opportunity
+* Retrofit Kit Opportunity
+* Validation Required
+* No Opportunity
+
+Recurring frustration alone does not validate demand.
 
 ***
 

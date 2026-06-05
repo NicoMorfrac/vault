@@ -1,45 +1,105 @@
----
-type: concept_hub
-source_agent: B2C_Product_Discovery
-created: 2026-06-03
-related_findings:
-  - 2026-06-03_MORAAAAA-93_F001_single-line-reefing-friction
-  - 2026-06-03_MORAAAAA-93_F002_lines-led-aft-clutter-and-friction
-  - 2026-06-03_MORAAAAA-93_F003_lazy-jack-and-stack-pack-snag
-  - 2026-06-03_MORAAAAA-93_F004_headsail-furler-tension-and-jam
-  - 2026-06-03_MORAAAAA-93_F005_in-mast-furling-serviceability-and-jam-risk
-related_concepts: []
-related_projects: []
-related_reports:
-  - 2026-06-03_MORAAAAA-93_summary_report
----
+***
 
-# USABILITY_FRICTION
+type: concept\_hub
+source\_agent: B2C\_Product\_Discovery
+created:
+related\_findings: \[]
+related\_concepts: \[]
+related\_projects: \[]
+related\_reports: \[]
+---------------------
+
+# USABILITY\_FRICTION
 
 ## DESCRIPTION
 
-Emerging convergence theme involving recurring usability problems, excessive effort, poor ergonomics, confusing operation, and avoidable user friction.
+Recurring pattern where sailing products create unnecessary physical effort, poor ergonomics, confusing operation, excessive adjustment requirements, difficult handling, or avoidable user frustration.
 
-## LINKED FINDINGS
+The recurring problem is not equipment failure.
 
-- [[2026-06-03_MORAAAAA-93_F001_single-line-reefing-friction]]
-- [[2026-06-03_MORAAAAA-93_F002_lines-led-aft-clutter-and-friction]]
-- [[2026-06-03_MORAAAAA-93_F003_lazy-jack-and-stack-pack-snag]]
-- [[2026-06-03_MORAAAAA-93_F004_headsail-furler-tension-and-jam]]
-- [[2026-06-03_MORAAAAA-93_F005_in-mast-furling-serviceability-and-jam-risk]]
+The recurring problem is friction between the user and the product.
 
-## CURRENT CONFIDENCE_LEVEL
+***
+
+# LINKED FINDINGS
+
+Populate with related findings.
+
+***
+
+# RECURRING ROOT CAUSES
+
+* excessive adjustment steps
+* poor ergonomics
+* difficult access
+* excessive line friction
+* confusing operation
+* poor feedback to the user
+* difficult setup
+* difficult servicing
+* avoidable complexity
+
+***
+
+# RECURRING OPERATIONAL IMPACT
+
+* user frustration
+* reduced enjoyment
+* increased physical effort
+* reduced confidence
+* safety degradation
+* maintenance avoidance
+* reduced adoption of features
+* inefficient operation
+
+***
+
+# STRATEGIC IMPLICATIONS
+
+Recurring evidence suggests value may exist in:
+
+* usability simplification
+* ergonomic improvements
+* adjustment reduction
+* intuitive operation
+* reduced physical effort
+* workflow optimization
+
+***
+
+# COMMERCIAL HYPOTHESIS
+
+Potential opportunity structure:
+
+* product improvements
+* simplified hardware
+* retrofit kits
+* workflow simplification products
+* serviceability improvements
+
+Commercial validation remains limited.
+
+***
+
+# RISKS
+
+* weak evidence
+* niche applicability
+* unclear willingness to pay
+* overlap with existing products
+
+***
+
+# CURRENT CONFIDENCE\_LEVEL
 
 LOW
+
+***
 
 ## Related Links
 
 ### Related Findings
-- [[2026-06-03_MORAAAAA-93_F001_single-line-reefing-friction]]
-- [[2026-06-03_MORAAAAA-93_F002_lines-led-aft-clutter-and-friction]]
-- [[2026-06-03_MORAAAAA-93_F003_lazy-jack-and-stack-pack-snag]]
-- [[2026-06-03_MORAAAAA-93_F004_headsail-furler-tension-and-jam]]
-- [[2026-06-03_MORAAAAA-93_F005_in-mast-furling-serviceability-and-jam-risk]]
+
+### Related Concepts
 
 ### Related Reports
-- [[2026-06-03_MORAAAAA-93_summary_report]]

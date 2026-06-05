@@ -1,42 +1,97 @@
----
-type: concept_hub
-source_agent: B2C_Product_Discovery
-created: 2026-06-03
-related_findings:
-  - 2026-06-03_MORAAAAA-93_F001_single-line-reefing-friction
-  - 2026-06-03_MORAAAAA-93_F002_lines-led-aft-clutter-and-friction
-  - 2026-06-03_MORAAAAA-93_F003_lazy-jack-and-stack-pack-snag
-  - 2026-06-03_MORAAAAA-93_F004_headsail-furler-tension-and-jam
-related_concepts: []
-related_projects: []
-related_reports:
-  - 2026-06-03_MORAAAAA-93_summary_report
----
+***
 
-# WORKFLOW_INEFFICIENCY
+type: concept\_hub
+source\_agent: B2C\_Product\_Discovery
+created:
+related\_findings: \[]
+related\_concepts: \[]
+related\_projects: \[]
+related\_reports: \[]
+---------------------
+
+# WORKFLOW\_INEFFICIENCY
 
 ## DESCRIPTION
 
-Emerging convergence theme involving repeated operational inefficiencies, unnecessary steps, repeated workarounds, and workflow disruption.
+Recurring pattern where sailing workflows require unnecessary steps, repeated workarounds, excessive handling, poor sequencing, or operational inefficiency.
 
-## LINKED FINDINGS
+The recurring problem is not product failure.
 
-- [[2026-06-03_MORAAAAA-93_F001_single-line-reefing-friction]]
-- [[2026-06-03_MORAAAAA-93_F002_lines-led-aft-clutter-and-friction]]
-- [[2026-06-03_MORAAAAA-93_F003_lazy-jack-and-stack-pack-snag]]
-- [[2026-06-03_MORAAAAA-93_F004_headsail-furler-tension-and-jam]]
+The recurring problem is inefficient execution of common sailing tasks.
 
-## CURRENT CONFIDENCE_LEVEL
+***
+
+# LINKED FINDINGS
+
+Populate with related findings.
+
+***
+
+# RECURRING ROOT CAUSES
+
+* excessive handling steps
+* poor workflow design
+* poor line organization
+* repetitive manual intervention
+* difficult sequencing
+* excessive adjustment
+* product interaction conflicts
+
+***
+
+# RECURRING OPERATIONAL IMPACT
+
+* increased workload
+* slower operation
+* reduced safety
+* user frustration
+* crew dependency
+* reduced sailing efficiency
+
+***
+
+# STRATEGIC IMPLICATIONS
+
+Potential leverage exists through:
+
+* workflow simplification
+* modular systems
+* integrated hardware solutions
+* reduced handling requirements
+
+***
+
+# COMMERCIAL HYPOTHESIS
+
+Potential opportunity structure:
+
+* workflow simplification products
+* modular hardware systems
+* retrofit kits
+* integrated handling systems
+
+Commercial validation remains limited.
+
+***
+
+# RISKS
+
+* workflow variability between boats
+* user habit dependency
+* weak evidence base
+
+***
+
+# CURRENT CONFIDENCE\_LEVEL
 
 LOW
+
+***
 
 ## Related Links
 
 ### Related Findings
-- [[2026-06-03_MORAAAAA-93_F001_single-line-reefing-friction]]
-- [[2026-06-03_MORAAAAA-93_F002_lines-led-aft-clutter-and-friction]]
-- [[2026-06-03_MORAAAAA-93_F003_lazy-jack-and-stack-pack-snag]]
-- [[2026-06-03_MORAAAAA-93_F004_headsail-furler-tension-and-jam]]
+
+### Related Concepts
 
 ### Related Reports
-- [[2026-06-03_MORAAAAA-93_summary_report]]
