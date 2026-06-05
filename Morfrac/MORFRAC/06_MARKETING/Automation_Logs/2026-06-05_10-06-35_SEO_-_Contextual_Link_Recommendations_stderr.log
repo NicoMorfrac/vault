@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Scripts\seo_contextual_link_recommender.py", line 2, in <module>
+    BASE_PATH = Path(r"C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC")
+                ^^^^
+NameError: name 'Path' is not defined

@@ -1,14 +1,3 @@
-# ============================================================
-BASE_PATH = Path(r"C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC")
-
-if str(BASE_PATH) not in sys.path:
-    sys.path.insert(0, str(BASE_PATH))
-
-from obsidian_report_links import write_markdown_report
-
-REPORT_TYPE = "seo_contextual_link_report"
-SOURCE_AGENT = "SEO_Agent"
-
 # MORFRAC SEO CONTEXTUAL LINK RECOMMENDER
 # FILTERED + STRATEGIC VERSION
 # ============================================================
@@ -28,6 +17,14 @@ import re
 BASE_PATH = Path(
     r"C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC"
 )
+
+if str(BASE_PATH) not in sys.path:
+    sys.path.insert(0, str(BASE_PATH))
+
+from obsidian_report_links import write_markdown_report
+
+REPORT_TYPE = "seo_contextual_link_report"
+SOURCE_AGENT = "SEO_Agent"
 
 CRAWL_FOLDER = (
     BASE_PATH

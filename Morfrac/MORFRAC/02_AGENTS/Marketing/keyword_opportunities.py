@@ -1,11 +1,9 @@
-import pickle
 import pandas as pd
 from pathlib import Path
 import sys
 from datetime import datetime, timedelta
 
-from google_auth_oauthlib.flow import InstalledAppFlow
-from google.auth.transport.requests import Request
+from google.oauth2 import service_account
 from googleapiclient.discovery import build
 
 # =========================================
@@ -25,9 +23,7 @@ SOURCE_AGENT = "Marketing"
 
 OUTPUT_PATH = BASE_PATH / r"06_MARKETING\SEO\Content_Opportunities"
 
-CLIENT_SECRET_FILE = r"C:\Users\nicol\.credentials\oauth_client.json"
-
-TOKEN_PATH = Path(__file__).parent / "token_search_console.pkl"
+SERVICE_ACCOUNT_FILE = r"C:\Users\nicol\.credentials\paperclip-ga4.json"
 
 SCOPES = [
     "https://www.googleapis.com/auth/webmasters.readonly"
@@ -42,32 +38,10 @@ OUTPUT_PATH.mkdir(parents=True, exist_ok=True)
 # =========================================
 
 def get_credentials():
-
-    creds = None
-
-    if TOKEN_PATH.exists():
-
-        with open(TOKEN_PATH, "rb") as token:
-            creds = pickle.load(token)
-
-    if not creds or not creds.valid:
-
-        if creds and creds.expired and creds.refresh_token:
-            creds.refresh(Request())
-
-        else:
-
-            flow = InstalledAppFlow.from_client_secrets_file(
-                CLIENT_SECRET_FILE,
-                SCOPES
-            )
-
-            creds = flow.run_local_server(port=0)
-
-        with open(TOKEN_PATH, "wb") as token:
-            pickle.dump(creds, token)
-
-    return creds
+    return service_account.Credentials.from_service_account_file(
+        SERVICE_ACCOUNT_FILE,
+        scopes=SCOPES,
+    )
 
 # =========================================
 # HELPERS

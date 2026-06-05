@@ -1,0 +1,30 @@
+Traceback (most recent call last):
+  File "C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\02_AGENTS\Marketing\keyword_opportunities.py", line 382, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\02_AGENTS\Marketing\keyword_opportunities.py", line 186, in main
+    creds = get_credentials()
+  File "C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\02_AGENTS\Marketing\keyword_opportunities.py", line 56, in get_credentials
+    creds.refresh(Request())
+    ~~~~~~~~~~~~~^^^^^^^^^^^
+  File "C:\Users\nicol\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\google\auth\credentials.py", line 474, in refresh
+    self._perform_refresh_token(request)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\nicol\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\google\oauth2\credentials.py", line 435, in _perform_refresh_token
+    ) = reauth.refresh_grant(
+        ~~~~~~~~~~~~~~~~~~~~^
+        request,
+        ^^^^^^^^
+    ...<6 lines>...
+        enable_reauth_refresh=self._enable_reauth_refresh,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\nicol\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\google\oauth2\reauth.py", line 370, in refresh_grant
+    _client._handle_error_response(response_data, retryable_error)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nicol\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\google\oauth2\_client.py", line 73, in _handle_error_response
+    raise exceptions.RefreshError(
+        error_details, response_data, retryable=retryable_error
+    )
+google.auth.exceptions.RefreshError: ('invalid_grant: Token has been expired or revoked.', {'error': 'invalid_grant', 'error_description': 'Token has been expired or revoked.'})

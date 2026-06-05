@@ -22,7 +22,7 @@ C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\Competitors\Histo
 
 ### Harken
 
-- Website status changed from 429.0 to 403.0
+- Website status changed from 403.0 to 429.0
 
 
 

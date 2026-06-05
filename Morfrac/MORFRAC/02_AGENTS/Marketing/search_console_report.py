@@ -1,10 +1,8 @@
-import pickle
 from pathlib import Path
 import sys
 from datetime import datetime, timedelta
 
-from google_auth_oauthlib.flow import InstalledAppFlow
-from google.auth.transport.requests import Request
+from google.oauth2 import service_account
 from googleapiclient.discovery import build
 
 # =========================================
@@ -21,12 +19,10 @@ from obsidian_report_links import write_markdown_report
 REPORT_TYPE = "seo_query_analysis"
 SOURCE_AGENT = "Marketing"
 
-
 RAW_OUTPUT_PATH = BASE_PATH / r"06_MARKETING\Analytics\Raw_Data\SearchConsole"
 SEO_OUTPUT_PATH = BASE_PATH / r"06_MARKETING\SEO\Query_Analysis"
 
-CLIENT_SECRET_FILE = r"C:\Users\nicol\.credentials\oauth_client.json"
-TOKEN_PATH = Path(__file__).parent / "token_search_console.pkl"
+SERVICE_ACCOUNT_FILE = r"C:\Users\nicol\.credentials\paperclip-ga4.json"
 
 SCOPES = ["https://www.googleapis.com/auth/webmasters.readonly"]
 
@@ -37,26 +33,10 @@ SITE_URL = "https://www.morfrac.com/"
 # =========================================
 
 def get_credentials():
-    creds = None
-
-    if TOKEN_PATH.exists():
-        with open(TOKEN_PATH, "rb") as token:
-            creds = pickle.load(token)
-
-    if not creds or not creds.valid:
-        if creds and creds.expired and creds.refresh_token:
-            creds.refresh(Request())
-        else:
-            flow = InstalledAppFlow.from_client_secrets_file(
-                CLIENT_SECRET_FILE,
-                SCOPES
-            )
-            creds = flow.run_local_server(port=0)
-
-        with open(TOKEN_PATH, "wb") as token:
-            pickle.dump(creds, token)
-
-    return creds
+    return service_account.Credentials.from_service_account_file(
+        SERVICE_ACCOUNT_FILE,
+        scopes=SCOPES,
+    )
 
 
 # =========================================
@@ -261,7 +241,6 @@ def main():
 
     position_change = current_position - previous_position
 
-    # Opportunities
     low_ctr_high_impression = []
     position_4_10 = []
     position_11_20 = []
@@ -289,7 +268,6 @@ def main():
         if 11 <= position <= 20:
             position_11_20.append(row)
 
-    # Sort opportunities
     low_ctr_high_impression = sorted(
         low_ctr_high_impression,
         key=lambda x: x.get("impressions", 0),
@@ -313,7 +291,6 @@ def main():
     non_branded_clicks = sum_metric(non_branded_rows, "clicks")
     non_branded_impressions = sum_metric(non_branded_rows, "impressions")
 
-    # Tables
     def query_table(rows, limit=20):
         table_rows = []
         for row in rows[:limit]:
@@ -383,7 +360,6 @@ def main():
             table_rows
         )
 
-    # Alerts
     alerts = []
 
     if clicks_change is not None and clicks_change < -20:
@@ -401,7 +377,6 @@ def main():
     if not alerts:
         alerts.append("- No critical Search Console alerts detected.")
 
-    # Raw export
     raw_file = RAW_OUTPUT_PATH / f"{run_date}_SearchConsole_Raw_Data.md"
 
     raw_content = f"""# Search Console Raw Data
@@ -443,9 +418,13 @@ def main():
 {simple_dim_table(current_countries, "country", limit=50)}
 """
 
-    write_markdown_report(raw_file, raw_content, report_type="raw_data_report", source_agent=SOURCE_AGENT)
+    write_markdown_report(
+        raw_file,
+        raw_content,
+        report_type="raw_data_report",
+        source_agent=SOURCE_AGENT
+    )
 
-    # SEO report
     report_file = SEO_OUTPUT_PATH / f"{run_date}_SEO_Query_Analysis.md"
 
     report_content = f"""# SEO Query Analysis
@@ -558,7 +537,12 @@ Trigger:
 - Script used: search_console_report.py
 """
 
-    write_markdown_report(report_file, report_content, report_type=REPORT_TYPE, source_agent=SOURCE_AGENT)
+    write_markdown_report(
+        report_file,
+        report_content,
+        report_type=REPORT_TYPE,
+        source_agent=SOURCE_AGENT
+    )
 
     print("\nSEARCH CONSOLE REPORT CREATED\n")
     print(f"Raw data: {raw_file}")

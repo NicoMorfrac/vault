@@ -1,0 +1,5 @@
+query,ranking_pages,page_count,total_impressions,total_clicks,best_position,intents,page_types,severity
+dogbone,https://www.morfrac.com/dogbone | https://www.morfrac.com/es/dogbone,2,286.0,0.0,7.29,commercial,landing,LOW
+mloop,https://www.morfrac.com/es/shop/mloop-dyneema-loop-12675 | https://www.morfrac.com/shop/mloop-dyneema-loop-12675,2,233.0,0.0,6.03,commercial,product,LOW
+dogbones,https://www.morfrac.com/dogbone | https://www.morfrac.com/es/dogbone,2,123.0,0.0,13.38,commercial,landing,LOW
+dog bone,https://www.morfrac.com/dogbone | https://www.morfrac.com/es/dogbone,2,90.0,0.0,1.07,commercial,landing,LOW

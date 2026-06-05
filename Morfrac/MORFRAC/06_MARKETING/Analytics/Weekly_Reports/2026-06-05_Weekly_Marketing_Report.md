@@ -18,19 +18,19 @@ Review MORFRAC website traffic performance using GA4 data and identify actionabl
 
 ## Executive Summary
 
-- Current 7-day sessions: 132
+- Current 7-day sessions: 134
 - Previous 7-day sessions: 140
-- 7-day sessions change: -5.7%
-- Current 28-day sessions: 772
+- 7-day sessions change: -4.3%
+- Current 28-day sessions: 774
 - Previous 28-day sessions: 741
-- 28-day sessions change: 4.2%
+- 28-day sessions change: 4.5%
 
 ## Key Metrics
 
 | Metric | Current 7d | Previous 7d | Change | Current 28d | Previous 28d | Change |
 |---|---:|---:|---:|---:|---:|---:|
-| Sessions | 132 | 140 | -5.7% | 772 | 741 | 4.2% |
-| Users | 100 | 117 | -14.5% | 676 | 656 | 3.0% |
+| Sessions | 134 | 140 | -4.3% | 774 | 741 | 4.5% |
+| Users | 102 | 117 | -12.8% | 678 | 656 | 3.4% |
 
 ## Critical Issues
 
@@ -42,37 +42,38 @@ Review MORFRAC website traffic performance using GA4 data and identify actionabl
 
 | sessionSourceMedium | sessions | totalUsers | engagedSessions |
 | --- | --- | --- | --- |
-| google / organic | 72 | 42 | 39 |
+| google / organic | 75 | 45 | 44 |
 | (direct) / (none) | 40 | 28 | 14 |
-| (not set) | 18 | 14 | 1 |
-| (data not available) | 3 | 3 | 0 |
+| (not set) | 10 | 8 | 1 |
+| riggingmatters.gr / referral | 3 | 1 | 2 |
+| (data not available) | 2 | 2 | 0 |
 | bing / organic | 2 | 1 | 1 |
 | cn.bing.com / referral | 1 | 1 | 1 |
 | duckduckgo / organic | 1 | 1 | 0 |
 | facebook.com / referral | 1 | 1 | 0 |
-| riggingmatters.gr / referral | 1 | 1 | 0 |
+| m.facebook.com / referral | 1 | 1 | 1 |
 
 ### Top Landing Pages
 
 | landingPage | sessions | totalUsers | engagedSessions |
 | --- | --- | --- | --- |
-| / | 24 | 15 | 12 |
-|  | 12 | 10 | 0 |
-| (not set) | 8 | 7 | 0 |
+| / | 27 | 17 | 16 |
+| (not set) | 10 | 9 | 0 |
 | /es | 8 | 6 | 7 |
+| /shop | 8 | 8 | 4 |
+| /dogbone | 7 | 7 | 4 |
 | /morfwing | 7 | 5 | 4 |
 | /shop/morfblock-light-4-hl-12823 | 7 | 1 | 7 |
-| /dogbone | 6 | 6 | 4 |
-| /shop | 6 | 6 | 2 |
 | /morfblock | 5 | 5 | 4 |
-| /about | 4 | 3 | 0 |
+| /es/shop/mreel-three-rope-reeler-12628 | 4 | 1 | 0 |
+|  | 3 | 3 | 0 |
 
 ### Device Analysis
 
 | deviceCategory | sessions | totalUsers |
 | --- | --- | --- |
-| desktop | 93 | 55 |
-| mobile | 39 | 28 |
+| desktop | 94 | 56 |
+| mobile | 40 | 29 |
 
 ### Geography
 
@@ -85,7 +86,7 @@ Review MORFRAC website traffic performance using GA4 data and identify actionabl
 | Hungary | 7 | 5 |
 | Japan | 7 | 2 |
 | United Kingdom | 7 | 5 |
-| Germany | 5 | 5 |
+| Germany | 6 | 6 |
 | Netherlands | 5 | 5 |
 | New Zealand | 4 | 2 |
 

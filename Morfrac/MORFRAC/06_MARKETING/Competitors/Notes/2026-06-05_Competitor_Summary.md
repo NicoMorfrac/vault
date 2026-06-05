@@ -23,7 +23,7 @@ C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\Competitors\compe
 | Company | Priority | Status | Website | Title | Meta Description |
 |---|---|---:|---|---|---|
 | Karver | HIGH | 200 | https://www.karver-systems.com | Accastillage KARVER pour la course, la croisière, les super yachts | KARVER Systems vous apporte une réponse pour l’ensemble de votre accastillage sur votre voilier de course, de croisière et super yacht. |
-| Harken | HIGH | 403 | https://www.harken.com |  |  |
+| Harken | HIGH | 429 | https://www.harken.com |  |  |
 | Antal | HIGH | 200 | https://www.antal.it | Antal - prodotti per barche a vela | Sailing Machines. Since 1977. |
 | Facnor | HIGH | 200 | https://www.facnor.com | Facnor | Facnor is the worldwide leader in furling systems. We supply many shipyards as well as ocean sailor and offer a network of 170 resellers covering 35 countries. |
 | Profurl | HIGH | 200 | https://www.profurl.com | Profurl - Enrouleur, emmagasineur, stockeur et hook pour voile |  |
