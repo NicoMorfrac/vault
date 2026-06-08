@@ -1,0 +1,19 @@
+Loading crawl data...
+Crawl file: C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Crawls\2026-06-08_site_crawl.csv
+
+Loading Search Console markdown data...
+Search Console file: C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO\Query_Analysis\2026-06-08_SEO_Query_Analysis.md
+Parsed Search Console rows: 100
+Parsed debug CSV: C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Merged_Analysis\2026-06-08_parsed_search_console_rows.csv
+
+Aggregating Search Console data...
+
+Merging datasets...
+
+================================================
+SEARCH CONSOLE MERGE COMPLETE
+================================================
+Opportunity pages: 3
+CSV: C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Merged_Analysis\2026-06-08_search_console_merge.csv
+Markdown: C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Merged_Analysis\2026-06-08_search_console_merge.md
+================================================

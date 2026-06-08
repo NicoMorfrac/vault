@@ -1,0 +1,14 @@
+﻿metric,previous,latest,delta,direction,interpretation
+total_pages,500.0,500.0,0.0,NO CHANGE,neutral
+indexable_pages,472.0,471.0,-1.0,DOWN,worse
+high_priority_pages,391.0,393.0,2.0,UP,better
+ignored_pages,22.0,22.0,0.0,NO CHANGE,neutral
+pages_with_issues,0.0,0.0,0.0,NO CHANGE,neutral
+avg_word_count,601.5,484.8,-116.69999999999999,DOWN,worse
+avg_internal_links,42.9,43.0,0.10000000000000142,UP,better
+avg_commercial_seo_score,0.0,0.0,0.0,NO CHANGE,neutral
+missing_meta_pages,0.0,0.0,0.0,NO CHANGE,neutral
+short_title_pages,0.0,0.0,0.0,NO CHANGE,neutral
+multiple_h1_pages,0.0,0.0,0.0,NO CHANGE,neutral
+thin_content_pages,0.0,0.0,0.0,NO CHANGE,neutral
+weak_internal_linking_pages,0.0,0.0,0.0,NO CHANGE,neutral
