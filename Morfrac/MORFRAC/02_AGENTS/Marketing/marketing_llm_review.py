@@ -125,6 +125,181 @@ def clean_llm_output(text):
     return text.strip()
 
 
+def section_text(text, heading):
+    pattern = rf"## {re.escape(heading)}\s+(.*?)(?=\n## |\Z)"
+    match = re.search(pattern, text, re.DOTALL)
+
+    if not match:
+        return "No data available."
+
+    return match.group(1).strip()
+
+
+def dashboard_markdown(text):
+    return text.replace("\\", "\\\\").replace('"', '\\"')
+
+
+def metric_value(value, suffix="%"):
+    if value is None:
+        return "N/A"
+
+    return f"{value}{suffix}"
+
+
+def metric_trend(value, positive_when_up=True):
+    if value is None:
+        return ""
+
+    try:
+        numeric = float(value)
+    except Exception:
+        return ""
+
+    prefix = "+" if numeric > 0 else ""
+    value_text = f"{prefix}{numeric:g}%"
+
+    if numeric == 0:
+        return value_text
+
+    is_positive = numeric > 0 if positive_when_up else numeric < 0
+    return value_text if is_positive else f"{value_text} risk"
+
+
+def build_llm_dashboard(
+    run_date,
+    output_file,
+    ga4_file,
+    seo_file,
+    review_file,
+    llm_output,
+    detected_topics,
+    sessions_7_change,
+    sessions_28_change,
+    click_change,
+    impression_change,
+    ctr_change,
+    position_change,
+):
+    executive_summary = section_text(llm_output, "Executive Summary")
+    key_risks = section_text(llm_output, "Key Risks")
+    key_opportunities = section_text(llm_output, "Key Opportunities")
+    strategic_priorities = section_text(llm_output, "Strategic Priorities")
+    recommended_actions = section_text(llm_output, "Recommended Actions")
+    final_assessment = section_text(llm_output, "Final Assessment")
+
+    topics = ", ".join(detected_topics) if detected_topics else "None detected"
+    position_value = position_change if position_change is not None else "N/A"
+    position_trend = metric_trend(position_change, positive_when_up=False).replace("%", "")
+
+    return f"""# Latest LLM Marketing Review Dashboard
+
+Generated: {run_date}
+
+Source review: [[{output_file.stem}]]
+
+```dashboard
+title: LLM Review Overview
+rows:
+  - columns:
+      - width: 3
+        widget:
+          type: stat
+          label: 7-day sessions
+          value: "{metric_value(sessions_7_change)}"
+          trend: "{metric_trend(sessions_7_change)}"
+          icon: activity
+      - width: 3
+        widget:
+          type: stat
+          label: 28-day sessions
+          value: "{metric_value(sessions_28_change)}"
+          trend: "{metric_trend(sessions_28_change)}"
+          icon: line-chart
+      - width: 3
+        widget:
+          type: stat
+          label: Organic clicks
+          value: "{metric_value(click_change)}"
+          trend: "{metric_trend(click_change)}"
+          icon: mouse-pointer-click
+      - width: 3
+        widget:
+          type: stat
+          label: Organic CTR
+          value: "{metric_value(ctr_change)}"
+          trend: "{metric_trend(ctr_change)}"
+          icon: gauge
+  - columns:
+      - width: 4
+        widget:
+          type: stat
+          label: Impressions
+          value: "{metric_value(impression_change)}"
+          trend: "{metric_trend(impression_change)}"
+          icon: eye
+      - width: 4
+        widget:
+          type: stat
+          label: Position change
+          value: "{position_value}"
+          trend: "{position_trend}"
+          icon: move-vertical
+      - width: 4
+        widget:
+          type: markdown
+          content: "### Detected Topics\\n{dashboard_markdown(topics)}"
+  - columns:
+      - width: 6
+        widget:
+          type: link
+          target: "[[{output_file.stem}]]"
+          description: Full generated LLM review
+      - width: 6
+        widget:
+          type: link
+          target: "[[Latest_Marketing_Dashboard]]"
+          description: Marketing KPI dashboard
+```
+
+> [!summary] Executive Summary
+> {executive_summary.replace(chr(10), chr(10) + "> ")}
+
+> [!danger] Key Risks
+> {key_risks.replace(chr(10), chr(10) + "> ")}
+
+> [!success] Key Opportunities
+> {key_opportunities.replace(chr(10), chr(10) + "> ")}
+
+> [!todo] Strategic Priorities
+> {strategic_priorities.replace(chr(10), chr(10) + "> ")}
+
+> [!tip] Recommended Actions
+> {recommended_actions.replace(chr(10), chr(10) + "> ")}
+
+> [!quote] Final Assessment
+> {final_assessment.replace(chr(10), chr(10) + "> ")}
+
+## Review Inputs
+
+| Source | File |
+| --- | --- |
+| GA4 report | [[{ga4_file.stem}]] |
+| SEO report | [[{seo_file.stem}]] |
+| Marketing review | [[{review_file.stem}]] |
+| Full LLM review | [[{output_file.stem}]] |
+
+## LLM Review History
+
+```dataview
+TABLE created AS "Created", source_agent AS "Agent", related_reports AS "Inputs"
+FROM "06_MARKETING/LLM_Reviews"
+WHERE type = "llm_marketing_review"
+SORT created DESC
+LIMIT 10
+```
+"""
+
+
 def run_ollama(prompt):
 
     result = subprocess.run(
@@ -370,8 +545,43 @@ Prompt File:
 
     write_markdown_report(output_file, output_content, report_type=REPORT_TYPE, source_agent=SOURCE_AGENT)
 
+    dashboard_content = build_llm_dashboard(
+        run_date,
+        output_file,
+        ga4_file,
+        seo_file,
+        review_file,
+        llm_output,
+        detected_topics,
+        sessions_7_change,
+        sessions_28_change,
+        click_change,
+        impression_change,
+        ctr_change,
+        position_change,
+    )
+
+    dashboard_file = OUTPUT_PATH / f"{run_date}_LLM_Marketing_Dashboard.md"
+    latest_dashboard_file = OUTPUT_PATH / "Latest_LLM_Marketing_Dashboard.md"
+
+    write_markdown_report(
+        dashboard_file,
+        dashboard_content,
+        report_type="llm_marketing_dashboard",
+        source_agent=SOURCE_AGENT,
+    )
+
+    write_markdown_report(
+        latest_dashboard_file,
+        dashboard_content,
+        report_type="llm_marketing_dashboard",
+        source_agent=SOURCE_AGENT,
+    )
+
     print("\nLLM MARKETING REVIEW CREATED\n")
     print(output_file)
+    print(dashboard_file)
+    print(latest_dashboard_file)
 
 
 if __name__ == "__main__":

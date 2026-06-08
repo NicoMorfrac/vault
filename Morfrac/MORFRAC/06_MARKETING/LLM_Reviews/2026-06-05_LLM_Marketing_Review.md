@@ -75,116 +75,112 @@ C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\02_AGENTS\Marketing\prompts\ex
 
 ## Executive Summary
 
-MORFRAC’s recent GA4 report indicates a slight decrease in 7-day sessions, 
-while the 28-day trend is improving. The SEO analysis reveals significant i
-improvements in organic clicks but a decline in impressions. Organic CTR ha
-has seen substantial improvement, indicating potential optimization opportu
-opportunities. Key topics such as "dogbone," "mreel," and "Farr X2" are gai
-gaining SEO visibility, providing valuable insights for content creation.
+MORFRAC has experienced a mixed week in terms of traffic and SEO performanc
+performance. While 28-day sessions have shown an improvement, there was a s
+significant drop in 7-day sessions, indicating potential short-term challen
+challenges. The organic click change is notable at +36.7%, with a strong CT
+CTR increase of +43.6%. Several branded queries are performing well, but no
+non-branded traffic remains weak. Opportunities exist to capitalize on grow
+growing search topics and expand content around high-performing pages.
 
 ## Key Risks
 
-1. **Traffic Drops**: A 4.3% decrease in 7-day sessions signals a short-ter
-short-term decline that could affect long-term engagement.
-2. **CTR Deterioration**: Despite organic CTR improvement, the overall tren
-trend shows a slight drop, indicating possible issues with ad quality or co
-content relevance.
-3. **Ranking Losses**: A -2.64 position change suggests potential ranking d
-drops, which can negatively impact visibility and traffic.
-4. **Dependency on Branded Traffic**: The current reliance on branded searc
-searches may limit organic growth opportunities.
+1. **Traffic Drops**: A -4.3% change in 7-day sessions signals a potential 
+issue that could impact short-term performance.
+2. **CTR Deterioration**: Although CTR has improved, the overall trend show
+shows a drop of +43.6%, which may indicate underlying issues affecting clic
+click-through behavior.
+3. **Ranking Losses**: A -2.64 position change suggests potential ranking l
+losses for some keywords.
+4. **Weak Channels**: Non-branded traffic remains low, indicating a depende
+dependency on branded searches.
 
 ## Key Opportunities
 
-1. **Low CTR + High Impressions Queries**: There are queries with high impr
-impressions but low CTR, presenting an opportunity to enhance ad quality or
-or landing page relevance.
-2. **Ranking Opportunities**: Queries related to "dogbone," "mreel," and "F
-"Farr X2" have seen improvements in organic clicks, indicating potential fo
-for further optimization.
-3. **Growing Topics**: The rising interest in specific product-related term
-terms offers a chance to expand content and improve SEO visibility.
+1. **Low CTR + High Impressions Queries**: Several dogbone-related queries 
+have high impressions but low CTR, suggesting optimization opportunities.
+2. **Ranking Opportunities**: Keywords related to "dogbones," "mreel," and 
+"Farr X2" show potential for further improvement in rankings.
+3. **Growing Topics**: The increasing search interest in "dogbone rigging s
+systems" presents a commercial opportunity.
+4. **Strong-Performing Pages**: The existing landing pages and content arou
+around mreel and Farr X2 should be expanded to capture more organic traffic
+traffic.
 
 ## Strategic Priorities
 
 1. **High Priority**
-   - Investigate traffic drop and SEO ranking changes.
-   
+    - Investigate the reasons behind the 7-day session drop and take correc
+corrective action if necessary.
+    
 2. **Medium Priority**
-   - Enhance low CTR queries with relevant content optimization.
-   - Expand branded and non-branded SEO efforts for growing topics.
-   
+    - Optimize low CTR queries with high impressions to improve click-throu
+click-through rates.
+    - Strengthen non-branded SEO visibility by creating targeted content fo
+for growing search topics.
+    
 3. **Low Priority**
-   - Continue monitoring overall trends.
+    - Continue trend monitoring and maintain the current reporting cadence.
+cadence.
 
 ## Recommended Actions
 
-### High Priority (Immediate)
+### High Priority
+1. **Action**: Analyze website analytics for recent changes or updates that
+that might have affected traffic.
+   - Reason: Identifying the root cause can help in taking corrective actio
+actions promptly.
+   - Expected Impact: Stabilize session numbers and prevent further drops.
+   - Priority: High.
 
-1. **Action**: Analyze recent changes in GA4 data to identify specific caus
-causes of the traffic drop.
-2. **Reason**: Investigate if there are any website or campaign updates tha
-that might have impacted performance.
-3. **Expected Impact**: Identifying and addressing the root cause can preve
-prevent further decline and stabilize traffic.
-4. **Priority**: High
+2. **Action**: Review SEO strategy to ensure timely indexation of new conte
+content and ongoing optimization efforts.
+   - Reason: Ensuring that all recent updates are properly indexed can miti
+mitigate ranking losses.
+   - Expected Impact: Improve keyword rankings and overall search visibilit
+visibility.
+   - Priority: High.
 
-### Medium Priority (Short-Term)
+### Medium Priority
+1. **Action**: Develop a targeted SEO campaign focusing on dogbone rigging 
+systems to improve low CTR queries with high impressions.
+   - Reason: This content will leverage the current strong organic clicks w
+while addressing the CTR issue.
+   - Expected Impact: Increase overall traffic and engagement from these qu
+queries.
+   - Priority: Medium.
 
-1. **Action**: Optimize low CTR queries with high impressions by improving 
-ad creatives and landing page relevance.
-2. **Reason**: Enhancing ad quality and user experience is crucial for boos
-boosting click-through rates.
-3. **Expected Impact**: Improved ad performance can lead to higher traffic 
-and conversions.
-4. **Priority**: Medium
+2. **Action**: Create SEO-optimized landing pages for mreel and Farr X2 to 
+capitalize on their growing search interest.
+   - Reason: Providing detailed, relevant content can enhance user experien
+experience and improve conversion rates.
+   - Expected Impact: Drive more organic traffic to the most commercially v
+valuable pages.
+   - Priority: Medium.
 
-1. **Action**: Create SEO landing pages for “dogbone” rigging systems, focu
-focusing on product details and use cases.
-2. **Reason**: Expanding content around popular search terms can improve or
-organic visibility and user engagement.
-3. **Expected Impact**: Stronger SEO presence can drive more organic traffi
-traffic and conversions.
-4. **Priority**: Medium
-
-1. **Action**: Strengthen branded SEO efforts for “mreel” by creating detai
-detailed product pages and optimizing existing content.
-2. **Reason**: Enhancing branded SEO is essential to capture the growing in
-interest in this term.
-3. **Expected Impact**: Improved visibility can lead to increased organic t
-traffic and brand recognition.
-4. **Priority**: Medium
-
-1. **Action**: Develop performance optimization content around “Farr X2” qu
-query topics, focusing on product features and benefits.
-2. **Reason**: Addressing rising search interest in this term will help cap
-capture a broader audience.
-3. **Expected Impact**: Content focused on these topics can increase organi
-organic traffic and conversions.
-4. **Priority**: Medium
-
-### Low Priority (Ongoing)
-
-1. **Action**: Monitor overall 7-day and 28-day trends for any significant 
-shifts.
-2. **Reason**: Continuous monitoring helps in identifying early signs of is
-issues before they become critical.
-3. **Expected Impact**: Early detection ensures timely interventions to mai
-maintain performance.
-4. **Priority**: Low
+### Low Priority
+1. **Action**: Regularly monitor and update existing strong-performing cont
+content related to mreel and Farr X2.
+   - Reason: Keeping these pages fresh can maintain their performance and r
+relevance.
+   - Expected Impact: Sustain current traffic levels and prevent declines.
+   - Priority: Low.
 
 ## Final Assessment
 
-Overall, the situation is positive with improving organic click rates and r
-rising interest in specific search terms. However, immediate attention is r
-required to address the recent traffic drop and CTR deterioration to ensure
-ensure sustained growth.
+Overall, the situation is **Neutral**. The positive 28-day sessions trend s
+suggests long-term stability, but the recent drop in 7-day sessions and CTR
+CTR deterioration are cause for concern. By addressing these issues proacti
+proactively, MORFRAC can maintain its market position and capitalize on eme
+emerging opportunities.
 
-**Conclusion Justification:**
-The data shows a slight improvement in key SEO metrics but also highlights 
-areas of concern such as declining sessions and CTR drops. Addressing these
-these issues promptly will help maintain and enhance MORFRAC’s online prese
-presence.
+---
+
+### Notes
+- Ensure that all actions are tracked and reported back to senior managemen
+management.
+- Leverage trend memory for continuous improvement and optimization efforts
+efforts.
 
 ---
 
