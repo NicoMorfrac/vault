@@ -31,6 +31,9 @@
   "fileIcons": {
     "06_MARKETING/Dashboards/Latest_Marketing_Dashboard.md": {
       "color": "blue"
+    },
+    "06_MARKETING/LLM_Reviews/Latest_LLM_Marketing_Dashboard.md": {
+      "color": "blue"
     }
   },
   "bookmarkIcons": {},
