@@ -6,6 +6,7 @@ import re
 
 
 ROOT = Path(r"C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC")
+
 B2C_ROOT = ROOT / "02_AGENTS" / "STRATEGIC" / "B2C_PRODUCT_DISCOVERY"
 OUTPUTS = B2C_ROOT / "outputs"
 
@@ -22,7 +23,8 @@ CONVERGENCE_FILES = [
     "MAINTENANCE_AVOIDANCE",
 ]
 
-OPPORTUNITY_STATUS_DEFAULT = "UNREVIEWED"
+DEFAULT_STATUS = "UNREVIEWED"
+DEFAULT_OPPORTUNITY_TYPE = "UNCLASSIFIED"
 
 
 def wikilink(path: Path) -> str:
@@ -37,7 +39,6 @@ def read_text(path: Path) -> str:
 
 
 def clean_cell(value: str) -> str:
-    """Normalize values for markdown table cells."""
     if not value:
         return ""
 
@@ -45,9 +46,9 @@ def clean_cell(value: str) -> str:
     value = re.sub(r"\*+", "", value)
     value = re.sub(r"`+", "", value)
     value = re.sub(r"\[\[|\]\]", "", value)
+    value = re.sub(r"\|", "/", value)
     value = re.sub(r"\s+", " ", value)
-    value = value.strip(" -|:;,.")
-    return value.strip()
+    return value.strip(" -|:;,.")
 
 
 def extract_heading(text: str, fallback: str) -> str:
@@ -60,7 +61,8 @@ def extract_frontmatter(text: str) -> dict[str, str]:
     if not match:
         return {}
 
-    frontmatter = {}
+    frontmatter: dict[str, str] = {}
+
     for line in match.group(1).splitlines():
         if ":" not in line:
             continue
@@ -101,11 +103,6 @@ def extract_first_valid_tokens_from_section(text: str, section: str) -> str:
 
         lines.append(line)
 
-    if not lines:
-        return ""
-
-    # If the agent wrote values on separate lines, combine them cleanly.
-    # If it wrote one value, this simply returns that value.
     return " / ".join(lines)
 
 
@@ -114,6 +111,11 @@ def extract_confidence(text: str) -> str:
 
     for level in ["HIGH", "MEDIUM", "LOW"]:
         if re.search(rf"\b{level}\b", block):
+            return level
+
+    searchable = text.upper()
+    for level in ["HIGH", "MEDIUM", "LOW"]:
+        if re.search(rf"\bCONFIDENCE\b[\s\S]{{0,80}}\b{level}\b", searchable):
             return level
 
     return ""
@@ -127,31 +129,55 @@ def extract_user_segment(text: str) -> str:
     return extract_first_valid_tokens_from_section(text, "USER_SEGMENT")
 
 
-def extract_opportunity_status(text: str) -> str:
-    """
-    Use explicit Business Intelligence / report wording if present.
-    Otherwise default to UNREVIEWED.
-    """
-    searchable = text.upper()
+def extract_opportunity_type(text: str) -> str:
+    section_value = extract_first_valid_tokens_from_section(text, "OPPORTUNITY_TYPE").upper()
 
-    ordered_statuses = [
-        "NO_OPPORTUNITY",
-        "NO OPPORTUNITY",
-        "VALIDATION_REQUIRED",
-        "VALIDATION REQUIRED",
+    valid_types = [
+        "NEW_PRODUCT",
         "PRODUCT_IMPROVEMENT",
-        "PRODUCT IMPROVEMENT",
         "RETROFIT_KIT",
-        "RETROFIT KIT",
-        "B2C_PRODUCT",
-        "B2C PRODUCT",
+        "SERVICEABILITY_IMPROVEMENT",
+        "WORKFLOW_SIMPLIFICATION",
+        "MODULAR_SYSTEM",
+        "NO_ACTION",
     ]
 
-    for status in ordered_statuses:
-        if status in searchable:
-            return status.replace(" ", "_")
+    normalized_section = section_value.replace(" ", "_").replace("-", "_")
 
-    return OPPORTUNITY_STATUS_DEFAULT
+    for opportunity_type in valid_types:
+        if opportunity_type in normalized_section:
+            return opportunity_type
+
+    searchable = text.upper().replace(" ", "_").replace("-", "_")
+
+    for opportunity_type in valid_types:
+        if opportunity_type in searchable:
+            return opportunity_type
+
+    return DEFAULT_OPPORTUNITY_TYPE
+
+
+def extract_opportunity_status(text: str) -> str:
+    searchable = text.upper().replace(" ", "_").replace("-", "_")
+
+    valid_statuses = [
+        "COMMERCIAL_OPPORTUNITY",
+        "STRATEGIC_OPPORTUNITY",
+        "VALIDATION_REQUIRED",
+        "VALIDATING",
+        "DISCOVERY",
+        "DEFERRED",
+        "REJECTED",
+        "NO_OPPORTUNITY",
+        "NO_ACTION",
+        "UNREVIEWED",
+    ]
+
+    for status in valid_statuses:
+        if status in searchable:
+            return status
+
+    return DEFAULT_STATUS
 
 
 def extract_date_from_text_or_name(path: Path, text: str) -> str:
@@ -166,6 +192,10 @@ def extract_date_from_text_or_name(path: Path, text: str) -> str:
     if match:
         return match.group(1)
 
+    match = re.search(r"Date:\s*([0-9]{4}-[0-9]{2}-[0-9]{2})", text, re.IGNORECASE)
+    if match:
+        return match.group(1)
+
     match = re.search(r"([0-9]{4}-[0-9]{2}-[0-9]{2})", path.name)
     if match:
         return match.group(1)
@@ -177,7 +207,43 @@ def collect_markdown_files(folder: Path) -> list[Path]:
     if not folder.exists():
         return []
 
-    return sorted(folder.glob("*.md"))
+    return sorted(
+        path
+        for path in folder.glob("*.md")
+        if path.name.lower() != "master_index.md"
+    )
+
+
+def ensure_convergence_files() -> None:
+    CONVERGENCE.mkdir(parents=True, exist_ok=True)
+
+    for name in CONVERGENCE_FILES:
+        path = CONVERGENCE / f"{name}.md"
+
+        if path.exists():
+            continue
+
+        path.write_text(
+            "\n".join(
+                [
+                    f"# {name}",
+                    "",
+                    "## DESCRIPTION",
+                    "",
+                    "Emerging B2C product discovery convergence theme.",
+                    "",
+                    "## LINKED FINDINGS",
+                    "",
+                    "None yet.",
+                    "",
+                    "## CURRENT_CONFIDENCE_LEVEL",
+                    "",
+                    "LOW",
+                    "",
+                ]
+            ),
+            encoding="utf-8",
+        )
 
 
 def build_index() -> str:
@@ -204,9 +270,9 @@ def build_index() -> str:
     lines.append("## FINDINGS")
     lines.append("")
     lines.append(
-        "| Finding | Date | Problem Type | User Segment | Confidence | Opportunity Status |"
+        "| Finding | Date | Problem Type | User Segment | Confidence | Opportunity Type | Status |"
     )
-    lines.append("|---|---|---|---|---|---|")
+    lines.append("|---|---|---|---|---|---|---|")
 
     for path in findings:
         text = read_text(path)
@@ -214,11 +280,12 @@ def build_index() -> str:
         problem_type = extract_problem_type(text)
         user_segment = extract_user_segment(text)
         confidence = extract_confidence(text)
-        opportunity_status = extract_opportunity_status(text)
+        opportunity_type = extract_opportunity_type(text)
+        status = extract_opportunity_status(text)
 
         lines.append(
             f"| {wikilink(path)} | {date} | {problem_type} | "
-            f"{user_segment} | {confidence} | {opportunity_status} |"
+            f"{user_segment} | {confidence} | {opportunity_type} | {status} |"
         )
 
     lines.append("")
@@ -227,17 +294,18 @@ def build_index() -> str:
 
     lines.append("## REPORTS")
     lines.append("")
-    lines.append("| Report | Date | Topic | Opportunity Status |")
-    lines.append("|---|---|---|---|")
+    lines.append("| Report | Date | Topic | Opportunity Type | Status |")
+    lines.append("|---|---|---|---|---|")
 
     for path in reports:
         text = read_text(path)
         date = extract_date_from_text_or_name(path, text)
         topic = extract_heading(text, path.stem)
-        opportunity_status = extract_opportunity_status(text)
+        opportunity_type = extract_opportunity_type(text)
+        status = extract_opportunity_status(text)
 
         lines.append(
-            f"| {wikilink(path)} | {date} | {topic} | {opportunity_status} |"
+            f"| {wikilink(path)} | {date} | {topic} | {opportunity_type} | {status} |"
         )
 
     lines.append("")
@@ -293,7 +361,7 @@ def main() -> None:
     OUTPUTS.mkdir(parents=True, exist_ok=True)
     RAW_FINDINGS.mkdir(parents=True, exist_ok=True)
     REPORTS.mkdir(parents=True, exist_ok=True)
-    CONVERGENCE.mkdir(parents=True, exist_ok=True)
+    ensure_convergence_files()
 
     content = build_index()
     MASTER_INDEX.write_text(content, encoding="utf-8")

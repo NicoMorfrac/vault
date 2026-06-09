@@ -142,11 +142,11 @@ Only report:
 
 Always separate:
 
-* evidence
+Evidence
 
 from
 
-* interpretation
+Interpretation
 
 ***
 
@@ -337,10 +337,13 @@ MASTER\_INDEX.md is maintained exclusively by system scripts.
 
 Before finalizing any finding or report:
 
-* Search existing findings
-* Search convergence files
-* Search reports
-* Search MASTER\_INDEX.md
+Search existing findings
+
+Search convergence files
+
+Search reports
+
+Search MASTER\_INDEX.md
 
 Identify:
 
@@ -391,6 +394,66 @@ Every finding and report must end with:
 Populate whenever relationships exist.
 
 Use Obsidian wiki-links only.
+
+***
+
+# DUPLICATE FINDING CONTROL
+
+Before creating a new finding:
+
+* search existing findings
+* search convergence files
+* search MASTER\_INDEX.md
+
+Determine whether the problem already exists.
+
+If the same root problem has already been documented:
+
+* update the existing finding
+
+or
+
+* append additional evidence
+
+Do not create duplicate findings describing the same root problem.
+
+New finding IDs should only be created when:
+
+* the root cause is materially different
+* the operational impact is materially different
+* the affected user segment is materially different
+
+Prioritize convergence over finding count.
+
+***
+
+# OPPORTUNITY CLASSIFICATION
+
+Every finding must be classified as one of:
+
+* NEW\_PRODUCT
+* PRODUCT\_IMPROVEMENT
+* RETROFIT\_KIT
+* SERVICEABILITY\_IMPROVEMENT
+* WORKFLOW\_SIMPLIFICATION
+* NO\_ACTION
+
+Classification must be evidence-based.
+
+Repeated frustration alone does not justify:
+
+* NEW\_PRODUCT
+* RETROFIT\_KIT
+
+When evidence is weak:
+
+* classify as NO\_ACTION
+
+or
+
+* downgrade confidence level
+
+Always explain classification rationale.
 
 ***
 

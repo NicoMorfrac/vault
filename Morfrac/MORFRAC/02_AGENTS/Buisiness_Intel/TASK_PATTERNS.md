@@ -572,3 +572,151 @@ The objective of these task patterns is to help MORFRAC:
 The goal is not report generation.
 
 The goal is strategic business intelligence.
+
+
+
+***
+
+# INDEX MANAGEMENT RULE
+
+After completing a report:
+
+* save all reports
+* save all strategic assessments
+
+Then run:
+
+py C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\00\_SYSTEM\scripts\update\_business\_intel\_index.py
+
+Report:
+
+* created reports
+* updated files
+* updated MASTER\_INDEX.md path
+
+Do not manually maintain MASTER\_INDEX.md.
+
+MASTER\_INDEX.md is maintained exclusively by system scripts.
+
+***
+
+# DUPLICATE OPPORTUNITY CONTROL
+
+Before creating a new strategic opportunity:
+
+* search previous strategic assessments
+* search commercial opportunity reports
+* search convergence reports
+* search MASTER\_INDEX.md
+
+Determine whether the opportunity already exists.
+
+If the opportunity already exists:
+
+* update the existing opportunity
+
+or
+
+* append additional validation evidence
+
+Do not create duplicate strategic opportunities describing the same underlying commercial opportunity.
+
+Prioritize convergence over opportunity count.
+
+***
+
+# TASK\_PATTERN\_08\_CROSS\_AGENT\_CONVERGENCE\_ANALYSIS
+
+## OBJECTIVE
+
+Identify situations where multiple intelligence agents independently identify related problems.
+
+***
+
+## INPUTS
+
+* B2B findings
+* B2C findings
+* competitor intelligence
+* market intelligence
+* convergence files
+
+***
+
+## EVALUATE
+
+Determine whether:
+
+* different agents identify the same root problem
+* different agents identify related operational friction
+* different agents support the same opportunity
+
+***
+
+## HIGH VALUE SIGNALS
+
+* B2B + B2C convergence
+* B2B + Competitor convergence
+* B2C + Competitor convergence
+
+Examples:
+
+B2B:
+installation complexity
+
+B2C:
+installation frustration
+
+B2B:
+serviceability burden
+
+B2C:
+maintenance avoidance
+
+B2B:
+retrofit uncertainty
+
+B2C:
+upgrade hesitation
+
+***
+
+## REQUIRED OUTPUT
+
+* Convergence Theme
+* Supporting Findings
+* Supporting Agents
+* Strategic Importance
+* Opportunity Classification
+* Validation Recommendation
+* Confidence Level
+
+***
+
+# OPPORTUNITY STATUS
+
+Every opportunity must be assigned one status:
+
+* DISCOVERY
+* VALIDATION\_REQUIRED
+* VALIDATING
+* STRATEGIC\_OPPORTUNITY
+* COMMERCIAL\_OPPORTUNITY
+* DEFERRED
+* REJECTED
+
+Provide rationale.
+
+Status progression should be evidence-based.
+
+Example:
+
+Opportunity:
+Retrofit Validation Package
+
+Status:
+VALIDATION\_REQUIRED
+
+Reason:
+Strong recurring evidence.
+Commercial willingness-to-pay remains unvalidated.
