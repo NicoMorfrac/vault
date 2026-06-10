@@ -15,6 +15,7 @@ related_concepts:
 related_projects: []
 related_reports:
   - 2026-06-03_MORAAAAA-93_summary_report
+  - 2026-06-09_MORAAAAA-94_summary_report
 ---
 
 # MOR-B2C-PD-093-F001
@@ -29,6 +30,8 @@ related_reports:
 | YBW Forum | https://forums.ybw.com/threads/retrofitting-lines-to-cockpit-and-single-linereefing.487463/ | 2017-09-24 | Refit planning thread | Medium |
 | Reddit | https://www.reddit.com/r/sailing/comments/14w2kbe/thoughts_on_my_reefing_setup/ | 2023-07-10 | Owner setup discussion | Medium |
 | Reddit | https://www.reddit.com/r/sailing/comments/1d0lq7w/reefing_line_length_too_short/ | 2024-05-25 | Owner troubleshooting thread | Medium |
+| YBW Forum | https://forums.ybw.com/threads/single-line-reefing.44534/ | 2004-09-14 | Owner setup explanation thread | Medium |
+| YBW Forum | https://forums.ybw.com/threads/reefing-from-cockpit.249880/ | 2010-09-24 | Cockpit reefing retrofit discussion | Medium |
 
 ***
 
@@ -70,6 +73,9 @@ Single-line reefing repeatedly appears as a high-friction system that promises c
 - Replies in that Reddit thread identified the route itself as the issue: tack block or grommet, boom sheaves, clew grommet, and return path all stack friction, especially when the line passes through a bare metal grommet.
 - In a 2023 Reddit thread, a sailor considering rerouting reefing lines aft was told that single-line reefing is "almost never that simple" because it creates enough friction that sailors end up winching for long periods and then dealing with jams.
 - In a YBW retrofit thread, the original poster priced a cockpit/single-line retrofit including extra winches, clutches, organizers, and replacement running rigging, showing that "simplifying" reefing often adds substantial hardware complexity.
+- In a 2004 YBW thread explaining single-line reefing geometry, one owner explicitly summarized the tradeoff as "More friction? Yes" and noted that pulling a reef back out in light wind often means a trip forward to drag out yards of line.
+- In a 2010 YBW cockpit-reefing discussion, an owner with single-line reefs on reefs one and two said the system "very often sticks, or takes a lot of effort to pull down."
+- Another 2010 YBW owner who converted from single-line to two-line reefing said the main reason was lower friction, reporting they could then reef without using a winch on the reefing lines.
 
 ## Repeated Pattern
 
@@ -164,3 +170,4 @@ Evidence is drawn from forum/self-reported usage, not controlled field testing. 
 
 ### Related Reports
 - [[2026-06-03_MORAAAAA-93_summary_report]]
+- [[2026-06-09_MORAAAAA-94_summary_report]]

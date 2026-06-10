@@ -1,23 +1,28 @@
+from __future__ import annotations
+
+from datetime import datetime
 from pathlib import Path
 import re
-from datetime import datetime
+
 
 ROOT = Path(r"C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC")
-B2C_ROOT = ROOT / "02_AGENTS" / "STRATEGIC" / "B2C_PRODUCT_DISCOVERY"
-OUTPUTS = B2C_ROOT / "outputs"
 
-RAW_FINDINGS = OUTPUTS / "RAW_FINDINGS"
-REPORTS = OUTPUTS / "WEEKLY_REPORTS"
+BUSINESS_INTEL_ROOT = ROOT / "02_AGENTS" / "Buisiness_Intel"
+OUTPUTS = BUSINESS_INTEL_ROOT / "outputs"
+
+STRATEGIC_OPPORTUNITIES = OUTPUTS / "Strategic_Opportunities"
+WEEKLY_REPORTS = OUTPUTS / "Weekly_Reports"
+RAW_FINDINGS = OUTPUTS / "Raw_Findings"
 MASTER_INDEX = OUTPUTS / "MASTER_INDEX.md"
-CONVERGENCE = B2C_ROOT / "PATTERN_CONVERGENCE"
 
-CONVERGENCE_FILES = [
-    "USABILITY_FRICTION",
-    "WORKFLOW_INEFFICIENCY",
-    "PRODUCT_COMPLEXITY",
-    "INSTALLATION_COMPLEXITY",
-    "MAINTENANCE_AVOIDANCE",
+RELATED_BUSINESS_FOLDERS = [
+    ROOT / "05_BUSINESS" / "Strategic_Intelligence",
+    ROOT / "05_BUSINESS" / "Commercial_Opportunities",
+    ROOT / "05_BUSINESS" / "Competitor_Analysis",
 ]
+
+DEFAULT_STATUS = "UNREVIEWED"
+DEFAULT_CLASSIFICATION = "UNCLASSIFIED"
 
 
 def wikilink(path: Path) -> str:
@@ -31,43 +36,87 @@ def read_text(path: Path) -> str:
         return path.read_text(encoding="latin-1")
 
 
+def clean_cell(value: str) -> str:
+    if not value:
+        return ""
+
+    value = value.replace("\r", " ").replace("\n", " ")
+    value = re.sub(r"\*+", "", value)
+    value = re.sub(r"`+", "", value)
+    value = re.sub(r"\[\[|\]\]", "", value)
+    value = re.sub(r"\|", "/", value)
+    value = re.sub(r"\s+", " ", value)
+    return value.strip(" -|:;,.")
+
+
 def extract_heading(text: str, fallback: str) -> str:
     match = re.search(r"^#\s+(.+)$", text, re.MULTILINE)
-    return match.group(1).strip() if match else fallback
+    return clean_cell(match.group(1)) if match else fallback
 
 
-def extract_section_value(text: str, section: str) -> str:
+def extract_frontmatter(text: str) -> dict[str, str]:
+    match = re.match(r"^---\s*\n(.*?)\n---", text, re.DOTALL)
+    if not match:
+        return {}
+
+    frontmatter: dict[str, str] = {}
+
+    for line in match.group(1).splitlines():
+        if ":" not in line:
+            continue
+
+        key, value = line.split(":", 1)
+        frontmatter[key.strip()] = value.strip()
+
+    return frontmatter
+
+
+def extract_section_block(text: str, section: str) -> str:
     pattern = rf"^#\s+{re.escape(section)}\s*$([\s\S]*?)(?=^#\s+|\Z)"
     match = re.search(pattern, text, re.MULTILINE | re.IGNORECASE)
-    if not match:
+    return match.group(1).strip() if match else ""
+
+
+def extract_first_valid_tokens_from_section(text: str, section: str) -> str:
+    block = extract_section_block(text, section)
+    if not block:
         return ""
-    value = match.group(1).strip()
-    return re.sub(r"\s+", " ", value).strip()
 
+    lines: list[str] = []
 
-def extract_confidence(text: str) -> str:
-    section = extract_section_value(text, "CONFIDENCE_LEVEL")
-    upper = section.upper()
-    for level in ["HIGH", "MEDIUM", "LOW"]:
-        if level in upper:
-            return level
-    return ""
+    for raw_line in block.splitlines():
+        line = clean_cell(raw_line)
 
+        if not line:
+            continue
 
-def extract_problem_type(text: str) -> str:
-    value = extract_section_value(text, "PROBLEM_TYPE")
-    lines = [line.strip("- ").strip() for line in value.splitlines() if line.strip()]
-    return lines[0] if lines else ""
+        if line.upper() in {"EXAMPLES", "EXAMPLE"}:
+            continue
 
+        if line.lower().startswith("examples"):
+            continue
 
-def extract_user_segment(text: str) -> str:
-    value = extract_section_value(text, "USER_SEGMENT")
-    lines = [line.strip("- ").strip() for line in value.splitlines() if line.strip()]
-    return lines[0] if lines else ""
+        if line.startswith("---"):
+            continue
+
+        lines.append(line)
+
+    return " / ".join(lines)
 
 
 def extract_date_from_text_or_name(path: Path, text: str) -> str:
-    match = re.search(r"created:\s*([0-9]{4}-[0-9]{2}-[0-9]{2})", text)
+    frontmatter = extract_frontmatter(text)
+    created = frontmatter.get("created", "")
+
+    match = re.search(r"([0-9]{4}-[0-9]{2}-[0-9]{2})", created)
+    if match:
+        return match.group(1)
+
+    match = re.search(r"created:\s*([0-9]{4}-[0-9]{2}-[0-9]{2})", text, re.IGNORECASE)
+    if match:
+        return match.group(1)
+
+    match = re.search(r"Date:\s*([0-9]{4}-[0-9]{2}-[0-9]{2})", text, re.IGNORECASE)
     if match:
         return match.group(1)
 
@@ -78,106 +127,206 @@ def extract_date_from_text_or_name(path: Path, text: str) -> str:
     return ""
 
 
+def extract_confidence(text: str) -> str:
+    block = extract_section_block(text, "CONFIDENCE_LEVEL").upper()
+
+    for level in ["HIGH", "MEDIUM", "LOW"]:
+        if re.search(rf"\b{level}\b", block):
+            return level
+
+    searchable = text.upper()
+
+    for level in ["HIGH", "MEDIUM", "LOW"]:
+        if re.search(rf"\bCONFIDENCE\b[\s\S]{{0,100}}\b{level}\b", searchable):
+            return level
+
+    return ""
+
+
+def extract_opportunity_classification(text: str) -> str:
+    section_value = extract_first_valid_tokens_from_section(
+        text, "Opportunity Classification"
+    ).upper()
+
+    searchable = (section_value or text).upper().replace(" ", "_").replace("-", "_")
+
+    classifications = [
+        "B2B_SERVICE_OPPORTUNITY",
+        "B2B_PRODUCT_OPPORTUNITY",
+        "B2C_PRODUCT_OPPORTUNITY",
+        "PRODUCT_IMPROVEMENT_OPPORTUNITY",
+        "RETROFIT_KIT_OPPORTUNITY",
+        "STRATEGIC_PARTNERSHIP_OPPORTUNITY",
+        "VALIDATION_REQUIRED",
+        "NO_OPPORTUNITY",
+    ]
+
+    for classification in classifications:
+        if classification in searchable:
+            return classification
+
+    return DEFAULT_CLASSIFICATION
+
+
+def extract_opportunity_status(text: str) -> str:
+    section_value = extract_first_valid_tokens_from_section(
+        text, "Opportunity Status"
+    ).upper()
+
+    searchable = (section_value or text).upper().replace(" ", "_").replace("-", "_")
+
+    statuses = [
+        "COMMERCIAL_OPPORTUNITY",
+        "STRATEGIC_OPPORTUNITY",
+        "VALIDATION_REQUIRED",
+        "VALIDATING",
+        "DISCOVERY",
+        "DEFERRED",
+        "REJECTED",
+        "NO_OPPORTUNITY",
+        "UNREVIEWED",
+    ]
+
+    for status in statuses:
+        if status in searchable:
+            return status
+
+    return DEFAULT_STATUS
+
+
 def collect_markdown_files(folder: Path) -> list[Path]:
     if not folder.exists():
         return []
-    return sorted(folder.glob("*.md"))
+
+    return sorted(
+        path
+        for path in folder.glob("*.md")
+        if path.name.lower() != "master_index.md"
+    )
 
 
 def build_index() -> str:
-    findings = collect_markdown_files(RAW_FINDINGS)
-    reports = collect_markdown_files(REPORTS)
+    strategic_opportunities = collect_markdown_files(STRATEGIC_OPPORTUNITIES)
+    weekly_reports = collect_markdown_files(WEEKLY_REPORTS)
+    raw_findings = collect_markdown_files(RAW_FINDINGS)
 
-    lines = []
-    lines.append("# B2C PRODUCT DISCOVERY MASTER INDEX")
+    related_business_reports: list[Path] = []
+    for folder in RELATED_BUSINESS_FOLDERS:
+        related_business_reports.extend(collect_markdown_files(folder))
+
+    lines: list[str] = []
+
+    lines.append("# BUSINESS INTEL MASTER INDEX")
     lines.append("")
     lines.append(f"Last updated: {datetime.now().strftime('%Y-%m-%d %H:%M')}")
     lines.append("")
     lines.append("---")
     lines.append("")
 
-    lines.append("## ACTIVE CONVERGENCE FILES")
+    lines.append("## STRATEGIC OPPORTUNITIES")
     lines.append("")
-    for name in CONVERGENCE_FILES:
-        lines.append(f"- [[{name}]]")
-    lines.append("")
-    lines.append("---")
-    lines.append("")
-
-    lines.append("## FINDINGS")
-    lines.append("")
-    lines.append("| Finding | Date | Problem Type | User Segment | Confidence |")
+    lines.append("| Report | Date | Classification | Status | Confidence |")
     lines.append("|---|---|---|---|---|")
 
-    for path in findings:
+    for path in strategic_opportunities:
         text = read_text(path)
         date = extract_date_from_text_or_name(path, text)
-        problem_type = extract_problem_type(text)
-        user_segment = extract_user_segment(text)
+        classification = extract_opportunity_classification(text)
+        status = extract_opportunity_status(text)
         confidence = extract_confidence(text)
+
         lines.append(
-            f"| {wikilink(path)} | {date} | {problem_type} | {user_segment} | {confidence} |"
+            f"| {wikilink(path)} | {date} | {classification} | {status} | {confidence} |"
         )
 
     lines.append("")
     lines.append("---")
     lines.append("")
 
-    lines.append("## REPORTS")
+    lines.append("## WEEKLY REPORTS")
     lines.append("")
-    lines.append("| Report | Date | Topic |")
-    lines.append("|---|---|---|")
+    lines.append("| Report | Date | Topic | Status |")
+    lines.append("|---|---|---|---|")
 
-    for path in reports:
+    for path in weekly_reports:
         text = read_text(path)
         date = extract_date_from_text_or_name(path, text)
         topic = extract_heading(text, path.stem)
-        lines.append(f"| {wikilink(path)} | {date} | {topic} |")
+        status = extract_opportunity_status(text)
+
+        lines.append(f"| {wikilink(path)} | {date} | {topic} | {status} |")
 
     lines.append("")
     lines.append("---")
     lines.append("")
 
-    lines.append("## HIGH PRIORITY OPPORTUNITIES")
+    lines.append("## RAW FINDINGS")
     lines.append("")
-    lines.append("None yet.")
+    lines.append("| Finding | Date | Classification | Status | Confidence |")
+    lines.append("|---|---|---|---|---|")
+
+    for path in raw_findings:
+        text = read_text(path)
+        date = extract_date_from_text_or_name(path, text)
+        classification = extract_opportunity_classification(text)
+        status = extract_opportunity_status(text)
+        confidence = extract_confidence(text)
+
+        lines.append(
+            f"| {wikilink(path)} | {date} | {classification} | {status} | {confidence} |"
+        )
+
     lines.append("")
     lines.append("---")
     lines.append("")
 
-    lines.append("## PRODUCT IMPROVEMENT OPPORTUNITIES")
+    lines.append("## CANONICAL BUSINESS COPIES")
     lines.append("")
-    lines.append("None yet.")
-    lines.append("")
-    lines.append("---")
-    lines.append("")
+    lines.append("| Report | Folder | Date | Classification | Status |")
+    lines.append("|---|---|---|---|---|")
 
-    lines.append("## RETROFIT KIT OPPORTUNITIES")
-    lines.append("")
-    lines.append("None yet.")
-    lines.append("")
-    lines.append("---")
-    lines.append("")
+    for path in sorted(related_business_reports):
+        text = read_text(path)
+        date = extract_date_from_text_or_name(path, text)
+        classification = extract_opportunity_classification(text)
+        status = extract_opportunity_status(text)
 
-    lines.append("## NEW PRODUCT OPPORTUNITIES")
-    lines.append("")
-    lines.append("None yet.")
+        folder_name = clean_cell(path.parent.name)
+
+        lines.append(
+            f"| {wikilink(path)} | {folder_name} | {date} | {classification} | {status} |"
+        )
+
     lines.append("")
     lines.append("---")
     lines.append("")
 
     lines.append("## RELATED STRATEGIC AGENTS")
     lines.append("")
-    lines.append("- [[B2C Product Discovery Agent]]")
     lines.append("- [[Business Intelligence Agent]]")
+    lines.append("- [[B2B Problem Discovery Agent]]")
+    lines.append("- [[B2C Product Discovery Agent]]")
     lines.append("")
     lines.append("---")
     lines.append("")
 
-    lines.append("## RELATED CONCEPTS")
+    lines.append("## RELATED B2B CONCEPTS")
     lines.append("")
-    for name in CONVERGENCE_FILES:
-        lines.append(f"- [[{name}]]")
+    lines.append("- [[ENGINEERING_UNCERTAINTY]]")
+    lines.append("- [[RETROFIT_COMPLEXITY]]")
+    lines.append("- [[SERVICEABILITY_COMPLEXITY]]")
+    lines.append("- [[MECHANICAL_INTEGRATION_COMPLEXITY]]")
+    lines.append("")
+    lines.append("---")
+    lines.append("")
+
+    lines.append("## RELATED B2C CONCEPTS")
+    lines.append("")
+    lines.append("- [[USABILITY_FRICTION]]")
+    lines.append("- [[WORKFLOW_INEFFICIENCY]]")
+    lines.append("- [[PRODUCT_COMPLEXITY]]")
+    lines.append("- [[INSTALLATION_COMPLEXITY]]")
+    lines.append("- [[MAINTENANCE_AVOIDANCE]]")
     lines.append("")
 
     return "\n".join(lines)
@@ -185,9 +334,9 @@ def build_index() -> str:
 
 def main() -> None:
     OUTPUTS.mkdir(parents=True, exist_ok=True)
+    STRATEGIC_OPPORTUNITIES.mkdir(parents=True, exist_ok=True)
+    WEEKLY_REPORTS.mkdir(parents=True, exist_ok=True)
     RAW_FINDINGS.mkdir(parents=True, exist_ok=True)
-    REPORTS.mkdir(parents=True, exist_ok=True)
-    CONVERGENCE.mkdir(parents=True, exist_ok=True)
 
     content = build_index()
     MASTER_INDEX.write_text(content, encoding="utf-8")

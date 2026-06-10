@@ -23,17 +23,27 @@
   "maxBackups": 2,
   "dialogState": {
     "iconMode": true,
-    "emojiMode": false,
+    "emojiMode": true,
     "rulePage": "file"
   },
   "appIcons": {},
   "tabIcons": {},
   "fileIcons": {
-    "06_MARKETING/Dashboards/Latest_Marketing_Dashboard.md": {
+    "02_AGENTS/Buisiness_Intel/outputs/Strategic_Opportunities": {
+      "icon": "lucide-star",
       "color": "blue"
     },
-    "06_MARKETING/LLM_Reviews/Latest_LLM_Marketing_Dashboard.md": {
+    "02_AGENTS/STRATEGIC/B2C_PRODUCT_DISCOVERY/outputs/MASTER_INDEX.md": {
+      "icon": "lucide-star",
       "color": "blue"
+    },
+    "06_MARKETING/Dashboards/Latest_Marketing_Dashboard.md": {
+      "color": "blue",
+      "icon": "lucide-star"
+    },
+    "06_MARKETING/LLM_Reviews/Latest_LLM_Marketing_Dashboard.md": {
+      "color": "blue",
+      "icon": "lucide-star"
     }
   },
   "bookmarkIcons": {},

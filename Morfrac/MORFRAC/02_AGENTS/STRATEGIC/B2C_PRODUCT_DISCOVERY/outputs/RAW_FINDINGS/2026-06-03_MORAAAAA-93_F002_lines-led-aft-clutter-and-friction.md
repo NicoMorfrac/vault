@@ -15,6 +15,7 @@ related_concepts:
 related_projects: []
 related_reports:
   - 2026-06-03_MORAAAAA-93_summary_report
+  - 2026-06-09_MORAAAAA-94_summary_report
 ---
 
 # MOR-B2C-PD-093-F002
@@ -29,6 +30,8 @@ related_reports:
 | Reddit | https://www.reddit.com/r/sailing/comments/gcn8ql/lines_sheets_ropes_oh_my/ | 2020-05-03 | User safety discussion | Medium |
 | Reddit | https://www.reddit.com/r/sailing/comments/1dw7h4m/lines_to_the_cockpit/ | 2024-07-05 | Rigging organization discussion | Medium |
 | YBW Forum | https://forums.ybw.com/threads/retrofitting-lines-to-cockpit-and-single-linereefing.487463/ | 2017-09-24 | Refit planning thread | Medium |
+| YBW Forum | https://forums.ybw.com/threads/lines-to-cockpit.129763/ | 2007-07-11 | Singlehanded workflow tradeoff discussion | Medium |
+| YBW Forum | https://forums.ybw.com/threads/the-case-against-leading-lines-aft.360944/ | 2013-05-22 | Owner debate on aft-led line downsides | Medium |
 
 ***
 
@@ -72,6 +75,10 @@ Leading more controls aft is attractive for shorthanded safety, but repeated own
 - In a Reddit line-management thread, a sailor described cockpit lines turning to "spaghetti" and explicitly said it felt unsafe around children.
 - A reply warned that loose loaded lines around feet can break bones or remove fingers and also create a failure mode where an emergency ease cannot happen because lines are tangled.
 - In a 2024 Reddit discussion, an experienced commenter argued that every fairlead and rope turn adds friction, gave examples where delivered pull was less than half of winch pull, and said routing halyards aft can turn one-person hoists into winch-heavy, time-consuming transitions.
+- In a 2007 YBW thread, one sailor said leading everything aft when singlehanding can lead to "immense frustration" because hoists and reefs can require repeated back-and-forth between mast and cockpit when anything snags.
+- The same 2007 thread contains repeated complaints about "miles of line in the cockpit," strong friction losses, and real trip injuries from lines run aft across the deck.
+- In a 2013 YBW debate, one summary list against leading lines aft grouped the same recurring downsides together: extra cost, treacherous footing, friction that inhibits sail lowering, and cockpit line clutter that causes snags and tripping.
+- A 2021 YBW owner priced an older-boat conversion at roughly GBP 1200 just for clutches, winch, turning blocks, boom hardware, and longer lines, reinforcing the hidden retrofit burden.
 
 ## Repeated Pattern
 
@@ -165,3 +172,4 @@ The tradeoff is highly boat-size and crew-style dependent. Some owners strongly 
 
 ### Related Reports
 - [[2026-06-03_MORAAAAA-93_summary_report]]
+- [[2026-06-09_MORAAAAA-94_summary_report]]

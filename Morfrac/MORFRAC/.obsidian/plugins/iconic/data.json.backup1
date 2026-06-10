@@ -23,12 +23,16 @@
   "maxBackups": 2,
   "dialogState": {
     "iconMode": true,
-    "emojiMode": false,
+    "emojiMode": true,
     "rulePage": "file"
   },
   "appIcons": {},
   "tabIcons": {},
   "fileIcons": {
+    "02_AGENTS/STRATEGIC/B2C_PRODUCT_DISCOVERY/outputs/MASTER_INDEX.md": {
+      "icon": "lucide-star",
+      "color": "blue"
+    },
     "06_MARKETING/Dashboards/Latest_Marketing_Dashboard.md": {
       "color": "blue"
     },

@@ -14,6 +14,7 @@ related_concepts:
 related_projects: []
 related_reports:
   - 2026-06-03_MORAAAAA-93_summary_report
+  - 2026-06-09_MORAAAAA-94_summary_report
 ---
 
 # MOR-B2C-PD-093-F005
@@ -28,6 +29,7 @@ related_reports:
 | YBW Forum | https://forums.ybw.com/threads/in-mast-furling-stiff.541697/ | 2020-05-27 | Owner troubleshooting thread | Medium |
 | Reddit | https://www.reddit.com/r/sailing/comments/170v94z/hydraulic_in_mast_furling/ | 2023-10-06 | Owner opinion/troubleshooting thread | Medium |
 | YBW Forum | https://forums.ybw.com/threads/jamming-inmast-furler.614319/ | 2024-11-25 | Owner troubleshooting thread | Medium |
+| YBW Forum | https://forums.ybw.com/threads/in-mast-furling-how-stiff-is-too-stiff.467488/ | 2016-11-01 | Owner troubleshooting and repair discussion | Medium |
 
 ***
 
@@ -72,6 +74,10 @@ In-mast furling attracts shorthanded cruisers for cockpit convenience, but recur
 - Replies in that thread tied the problem to baggy sail cloth, fold formation, foil tension, and need for recut or replacement sails.
 - In a Reddit thread on in-mast furling, a commenter described a case where the sail could be furled by hand at the mast entry point but creaked badly once the line exited cockpit jammers, showing how distributed friction changes the experience.
 - The same Reddit discussion framed worst-case jam recovery as a strong-wind emergency problem, including comments about potentially having to cut the sail down.
+- In a 2016 YBW thread, owners repeatedly said mast-side operation could feel acceptable while cockpit operation felt much harder, indicating that control-line routing and winch geometry can be as important as the mandrel itself.
+- The same thread lists recurring causes of stiffness in one place: dirt or wear in the mechanism, overtight luff tension, difficulty at the mast slot, friction in the control lines, and incorrect outhaul angle at the clew.
+- Another 2016 owner described dismantling the furling drum, finding hidden wear and a foreign object inside the system, and fabricating a washer to restore bearing function, reinforcing the serviceability burden behind "simple" cockpit reefing.
+- A 2020 YBW owner with a continuous-line system said the line could slip in the mast winch unless a second hand kept tension on the lazy side, effectively turning cockpit furling into a multi-hand job.
 
 ## Repeated Pattern
 
@@ -165,3 +171,4 @@ Evidence is mixed: some owners report years of trouble-free use when systems are
 
 ### Related Reports
 - [[2026-06-03_MORAAAAA-93_summary_report]]
+- [[2026-06-09_MORAAAAA-94_summary_report]]

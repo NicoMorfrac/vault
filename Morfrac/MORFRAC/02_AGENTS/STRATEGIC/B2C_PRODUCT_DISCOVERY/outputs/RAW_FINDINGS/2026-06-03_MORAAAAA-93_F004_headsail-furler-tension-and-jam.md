@@ -15,6 +15,7 @@ related_concepts:
 related_projects: []
 related_reports:
   - 2026-06-03_MORAAAAA-93_summary_report
+  - 2026-06-09_MORAAAAA-94_summary_report
 ---
 
 # MOR-B2C-PD-093-F004
@@ -29,6 +30,8 @@ related_reports:
 | YBW Forum | https://forums.ybw.com/threads/singlehanding-maintaining-positive-tension-on-furler-line.369997/ | 2013-08-19 | Singlehanded workflow thread | Medium |
 | YBW Forum | https://forums.ybw.com/threads/what-causes-a-furling-genoa-to-jam.438772/ | 2015-08-22 | Failure analysis thread | Medium |
 | Reddit | https://www.reddit.com/r/sailing/comments/1lql4b0/jib_too_hard_to_furl_in_in_high_winds_solo/ | 2024-09-14 | Solo heavy-weather troubleshooting thread | Medium |
+| Cruisers Forum | https://www.cruisersforum.com/forums/f47/jib-very-hard-to-roll-in-no-upper-body-strength-2-threads-merged-223018-5.html | 2019-09-01 | Owner troubleshooting thread | Medium |
+| Cruisers Forum | https://www.cruisersforum.com/forums/f116/furler-line-control-278642.html | 2023-08-13 | Failure analysis and maintenance discussion | Medium |
 
 ***
 
@@ -73,6 +76,10 @@ Roller-furling headsails repeatedly show the same friction pattern: under real l
 - In a 2015 YBW jam thread, owners warned that insufficient tension on furling line or sheet makes wraps more likely; another reported a case where the furling line came off the drum, the genoa unfurled, and the mast came down.
 - In a 2024 Reddit solo thread, the original poster described "an absolute nightmare" furling in about 24 knots, while replies recommended lubrication, broad-reach furling, low-friction rings, stepwise easing, and careful winch use.
 - Multiple Reddit replies stated that many furlers are simply not easy to operate under load and that even large boats may require winch assistance if loads or friction points are high.
+- In a 2019 Cruisers Forum thread, multiple owners tied very hard furling to incorrect drum-exit angle, too much line on the drum, headstay sag, and mispositioned jib-sheet fairleads rather than to brute-force alone.
+- The same 2019 thread explicitly warned that a correctly functioning furler should not require winch-handle force and that using a winch can hide overloads until expensive components fail.
+- In a 2023 Cruisers Forum thread, an owner said the sail was loose around the furling tube but the furling line quickly became too hard to turn; replies pointed to missing or ineffective swivels, halyard wrap, and neglected upper/lower swivel lubrication.
+- Another 2023 reply warned that halyard wrap can cut through the forestay and should be checked immediately before sailing again.
 
 ## Repeated Pattern
 
@@ -167,3 +174,4 @@ Some failure cases come from older or poorly maintained systems, and user techni
 
 ### Related Reports
 - [[2026-06-03_MORAAAAA-93_summary_report]]
+- [[2026-06-09_MORAAAAA-94_summary_report]]

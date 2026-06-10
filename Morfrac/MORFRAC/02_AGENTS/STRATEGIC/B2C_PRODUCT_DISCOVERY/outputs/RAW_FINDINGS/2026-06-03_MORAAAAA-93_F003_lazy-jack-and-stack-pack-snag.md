@@ -14,6 +14,7 @@ related_concepts:
 related_projects: []
 related_reports:
   - 2026-06-03_MORAAAAA-93_summary_report
+  - 2026-06-09_MORAAAAA-94_summary_report
 ---
 
 # MOR-B2C-PD-093-F003
@@ -28,6 +29,8 @@ related_reports:
 | Reddit | https://www.reddit.com/r/sailing/comments/1b036pb/finally_installed_some_lazy_jacks/ | 2024-02-26 | Owner follow-up discussion | Medium |
 | Reddit | https://www.reddit.com/r/sailing/comments/10n5r97/lazy_jacks_recommendation/ | 2023-01-28 | Product/setup discussion | Medium |
 | Reddit | https://www.reddit.com/r/sailing/comments/1d0lq7w/reefing_line_length_too_short/ | 2024-05-25 | Interference troubleshooting thread | Medium |
+| YBW Forum | https://forums.ybw.com/threads/lazy-jacks.73766/ | 2005-11-14 | Owner setup and workaround discussion | Medium |
+| YBW Forum | https://forums.ybw.com/threads/lazyjacks-and-blocks.169747/ | 2008-08-01 | Owner modification discussion | Medium |
 
 ***
 
@@ -70,6 +73,10 @@ Lazy jacks and stack-pack style sail-catching systems solve sail drop management
 - Another user said it was easier to fully get lazy jacks out of the way than to deal with them in a seaway, but that doing so adds a step before dousing.
 - In a separate Reddit thread, an owner said they removed their lazy jacks because if they were not snagging battens on the way up, they were "coming loose and tying things up."
 - In the reefing-line thread, commenters also identified incorrect proximity between Dutchman/lazyjack-style control lines and reefing lines, reinforcing that integrated textile systems can interfere with each other rather than remaining functionally separated.
+- In a 2005 YBW thread, one owner said lazy jacks are great when dropping the main but "a real pain when hoisting" unless the lines are hooked down out of the way first.
+- Another 2005 YBW reply said snagging was annoying enough that "sometimes two persons were needed to hoist the sail" until the owner added cleats near the gooseneck to pull the lazyjack lines parallel to the boom before hoisting.
+- In a 2008 YBW modification thread, one owner said the top batten and sometimes the second batten routinely caught soon after starting the hoist, calling it a "PITA" when trying to use a short gap in traffic to get head to wind.
+- That same 2008 thread describes owners unclipping the lower lazyjack legs or widening the upper geometry toward the shrouds just to get a clean hoist.
 
 ## Repeated Pattern
 
@@ -162,3 +169,4 @@ Most evidence is from Reddit and reflects varied installation quality. Some user
 
 ### Related Reports
 - [[2026-06-03_MORAAAAA-93_summary_report]]
+- [[2026-06-09_MORAAAAA-94_summary_report]]

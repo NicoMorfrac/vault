@@ -85,6 +85,20 @@ These are not isolated complaints about "difficult sailing." They converge on a 
 
 ***
 
+# OPPORTUNITY_TYPE
+
+PRODUCT_IMPROVEMENT
+RETROFIT_KIT
+SERVICEABILITY_IMPROVEMENT
+
+***
+
+# OPPORTUNITY_STATUS
+
+DISCOVERY
+
+***
+
 # PRODUCT IMPLICATIONS
 
 - New products: controlled-drag furling line modules, batten-safe lazy-jack geometry kits.
