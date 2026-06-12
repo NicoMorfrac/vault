@@ -6,6 +6,7 @@ related_findings: []
 related_concepts: []
 related_projects: []
 related_reports: []
+tags:
 ---
 
 # Search Console
