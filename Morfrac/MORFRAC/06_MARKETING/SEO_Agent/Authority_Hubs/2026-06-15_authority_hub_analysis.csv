@@ -1,0 +1,8 @@
+authority_cluster,supporting_urls,total_impressions,total_clicks,avg_opportunity_score,page_types,intents,example_queries,example_pages,hub_strength
+dogbone,2,824.0,1.0,96.76470588235294,landing,commercial,dog bone | dog bone rigging | dog bone sailing | dog bone shackle | dog bone soft shackle | dog bones | dogbone | dogbone carriers | dogbone joint | dogbone rigging,https://www.morfrac.com/dogbone | https://www.morfrac.com/es/dogbone,STRONG
+custom_engineering,1,36.0,0.0,20.0,other,unknown,custom efl frames,https://www.morfrac.com/custom,WEAK
+mloop,1,25.0,0.0,75.0,product,commercial | unknown,m loop | m-loop,https://www.morfrac.com/shop/mloop-dyneema-loop-12675,MEDIUM
+padeye,1,8.0,0.0,105.0,landing,commercial,deck pad eye,https://www.morfrac.com/padeye,MEDIUM
+morfwing,1,7.0,0.0,65.0,other,unknown,"""orza"" sailing command",https://www.morfrac.com/es/morfwing,WEAK
+shackle,1,5.0,0.0,80.0,product,commercial,d shackle,https://www.morfrac.com/es/shop/shackle-17-4ph-12827,MEDIUM
+powerfurl,1,5.0,0.0,52.0,category,unknown,almacenadores,https://www.morfrac.com/es/shop/category/powerfurl-almacenadores-tambor-30,WEAK

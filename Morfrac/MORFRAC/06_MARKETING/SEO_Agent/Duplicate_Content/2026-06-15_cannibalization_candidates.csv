@@ -1,0 +1,6 @@
+query,ranking_pages,page_count,total_impressions,total_clicks,best_position,intents,page_types,severity
+dogbone,https://www.morfrac.com/dogbone | https://www.morfrac.com/es/dogbone,2,386.0,0.0,6.95,commercial,landing,LOW
+dog bone,https://www.morfrac.com/dogbone | https://www.morfrac.com/es/dogbone,2,149.0,0.0,1.04,commercial,landing,LOW
+dogbones,https://www.morfrac.com/dogbone | https://www.morfrac.com/es/dogbone,2,123.0,0.0,3.03,commercial,landing,LOW
+fixafrac,https://www.morfrac.com/ | https://www.morfrac.com/solutions,2,18.0,0.0,24.31,unknown,home | other,LOW
+camfrac,https://www.morfrac.com/ | https://www.morfrac.com/about,2,12.0,0.0,34.0,unknown,home | other,LOW
