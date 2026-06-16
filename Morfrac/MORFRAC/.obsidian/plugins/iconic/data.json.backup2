@@ -29,12 +29,18 @@
   "appIcons": {},
   "tabIcons": {},
   "fileIcons": {
+    "02_AGENTS/Buisiness_Intel/outputs": {
+      "color": "blue"
+    },
     "02_AGENTS/Buisiness_Intel/outputs/Strategic_Opportunities": {
       "icon": "lucide-star",
       "color": "blue"
     },
     "02_AGENTS/STRATEGIC/B2C_PRODUCT_DISCOVERY/outputs/MASTER_INDEX.md": {
       "icon": "lucide-star",
+      "color": "blue"
+    },
+    "02_AGENTS/STRATEGIC/PRODUCT_INCUBATION/outputs": {
       "color": "blue"
     },
     "06_MARKETING/Dashboards/Latest_Marketing_Dashboard.md": {
