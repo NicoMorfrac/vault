@@ -145,12 +145,12 @@ The kit must reduce effort and confusion in the highest-frequency sail-handling 
 
 # CONCEPT OPTIONS CONSIDERED
 
-| Option | Summary | Reason Accepted / Rejected |
-|---|---|---|
-| Broad sail-handling master kit | One package covering reefing, lines aft, lazy jacks, headsail furling, and in-mast furling | Rejected because support burden, geometry variance, and vessel-specific engineering become too high |
-| Low-friction reefing retrofit only | Focused sail-side and boom/cockpit friction reduction for reefing paths | Credible and technically bounded, but too narrow to address the cockpit clutter convergence in the evidence |
+| Option                                           | Summary                                                                                         | Reason Accepted / Rejected                                                                                         |
+| ------------------------------------------------ | ----------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| Broad sail-handling master kit                   | One package covering reefing, lines aft, lazy jacks, headsail furling, and in-mast furling      | Rejected because support burden, geometry variance, and vessel-specific engineering become too high                |
+| Low-friction reefing retrofit only               | Focused sail-side and boom/cockpit friction reduction for reefing paths                         | Credible and technically bounded, but too narrow to address the cockpit clutter convergence in the evidence        |
 | Hybrid sail-handling simplification retrofit kit | Modular package for reefing friction reduction, line separation, and stowage/clearance features | Accepted because it addresses the strongest repeated pain while keeping scope narrower than a full-system platform |
-| Headsail/in-mast furling optimization kit | Focus on anti-override, tension control, and serviceability | Deferred because evidence is real but geometry, liability, and diagnostic complexity are materially higher |
+| Headsail/in-mast furling optimization kit        | Focus on anti-override, tension control, and serviceability                                     | Deferred because evidence is real but geometry, liability, and diagnostic complexity are materially higher         |
 
 ---
 
