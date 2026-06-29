@@ -1,0 +1,6 @@
+authority_cluster,supporting_urls,total_impressions,total_clicks,avg_opportunity_score,page_types,intents,example_queries,example_pages,hub_strength
+dogbone,2,715.0,3.0,94.72222222222223,landing,commercial,dog bone | dog bone rigging | dog bone sailing | dog bone shackle | dog bone soft shackle | dog bone steel | dog bones | dogbone | dogbone carriers | dogbone joint,https://www.morfrac.com/dogbone | https://www.morfrac.com/es/dogbone,STRONG
+custom_engineering,1,37.0,0.0,20.0,other,unknown,custom efl frames,https://www.morfrac.com/custom,WEAK
+mloop,1,29.0,0.0,65.0,product,commercial | unknown,m loop | m-loop,https://www.morfrac.com/shop/mloop-dyneema-loop-12675,WEAK
+shackle,2,25.0,1.0,71.66666666666667,landing | product,commercial,d shackle | d-shackle | titanium shackles,https://www.morfrac.com/es/shop/shackle-17-4ph-12827 | https://www.morfrac.com/shackle,MEDIUM
+padeye,1,6.0,0.0,105.0,landing,commercial,deck pad eye,https://www.morfrac.com/padeye,MEDIUM

@@ -1,20 +1,20 @@
 ---
 type: seo_pipeline_health_report
 source_agent: SEO_Agent
-created: 2026-06-22
+created: 2026-06-29
 related_findings: []
 related_concepts: []
 related_projects:
   - Search Console
 related_reports:
-  - 2026-06-22_pipeline_health_report
+  - 2026-06-29_pipeline_health_report
 ---
 
 # MORFRAC SEO Pipeline Health Check
 
 ## Generated
 
-2026-06-22
+2026-06-29
 
 ---
 
@@ -47,7 +47,7 @@ No data available.
 | check_name | status | severity | fresh_today | row_count | min_expected_rows | missing_columns | notes |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Crawl CSV | PASS | OK | True | 500 | 50 |  | Output looks usable. |
-| Search Console Merge | PASS | OK | True | 3 | 1 |  | Output looks usable. |
+| Search Console Merge | PASS | OK | True | 2 | 1 |  | Output looks usable. |
 | Internal Link Graph Pages | PASS | OK | True | 500 | 50 |  | Output looks usable. |
 | Contextual Link Recommendations | PASS | OK | True | 916 | 10 |  | Output looks usable. |
 | Semantic Cluster Summary | PASS | OK | True | 12 | 3 |  | Output looks usable. |
@@ -55,7 +55,7 @@ No data available.
 | Content Gap Analysis | PASS | OK | True | 9 | 1 |  | Output looks usable. |
 | Topic Authority Map | PASS | OK | True | 12 | 3 |  | Output looks usable. |
 | Executive Review | PASS | OK | True | 236 | 0 |  | Output looks usable. |
-| Historical Comparison | PASS | OK | True | 211 | 0 |  | Output looks usable. |
+| Historical Comparison | PASS | OK | True | 106 | 0 |  | Output looks usable. |
 
 ---
 
@@ -73,9 +73,9 @@ If this report fails, fix the failing upstream script before relying on executiv
 
 # Output Files
 
-- Health CSV: `C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Pipeline_Health\2026-06-22_pipeline_health_check.csv`
+- Health CSV: `C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Pipeline_Health\2026-06-29_pipeline_health_check.csv`
 - Stable health CSV: `C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Pipeline_Health\pipeline_health_check.csv`
-- Health report: `C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Pipeline_Health\2026-06-22_pipeline_health_report.md`
+- Health report: `C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Pipeline_Health\2026-06-29_pipeline_health_report.md`
 - Stable health report: `C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Pipeline_Health\pipeline_health_report.md`
 
 ## Related Links
@@ -84,4 +84,4 @@ If this report fails, fix the failing upstream script before relying on executiv
 - [[Search Console]]
 
 ### Reports
-- [[2026-06-22_pipeline_health_report]]
+- [[2026-06-29_pipeline_health_report]]

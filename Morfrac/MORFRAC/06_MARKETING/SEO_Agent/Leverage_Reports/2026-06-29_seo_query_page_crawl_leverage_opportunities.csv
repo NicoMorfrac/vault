@@ -1,0 +1,33 @@
+﻿query,page,clicks,impressions,ctr_percent,expected_ctr,ctr_gap,position,query_type,intent,page_type,issue_count,title_length,meta_description_length,issues,opportunity_score,opportunity_level
+dogbone,https://www.morfrac.com/dogbone,0.0,247.0,0.0,3.0,3.0,7.28,Non-branded,commercial,landing,0,19.0,134.0,,135,VERY HIGH
+dogbone,https://www.morfrac.com/es/dogbone,0.0,127.0,0.0,3.5,3.5,6.57,Non-branded,commercial,landing,0,19.0,134.0,,135,VERY HIGH
+dogbones,https://www.morfrac.com/dogbone,0.0,63.0,0.0,4.0,4.0,5.08,Non-branded,commercial,landing,0,19.0,134.0,,115,VERY HIGH
+dog bone sailing,https://www.morfrac.com/dogbone,0.0,10.0,0.0,3.0,3.0,7.4,Non-branded,commercial,landing,0,19.0,134.0,,105,VERY HIGH
+dog bone steel,https://www.morfrac.com/dogbone,0.0,6.0,0.0,3.5,3.5,6.33,Non-branded,commercial,landing,0,19.0,134.0,,105,VERY HIGH
+dog bone rigging,https://www.morfrac.com/dogbone,0.0,11.0,0.0,4.0,4.0,5.55,Non-branded,commercial,landing,0,19.0,134.0,,105,VERY HIGH
+deck pad eye,https://www.morfrac.com/padeye,0.0,6.0,0.0,3.0,3.0,8.0,Non-branded,commercial,landing,0,18.0,133.0,,105,VERY HIGH
+kevlar dog bone,https://www.morfrac.com/dogbone,0.0,17.0,0.0,3.0,3.0,7.71,Non-branded,commercial,landing,0,19.0,134.0,,105,VERY HIGH
+dogbone sailing,https://www.morfrac.com/dogbone,0.0,5.0,0.0,3.5,3.5,6.8,Non-branded,commercial,landing,0,19.0,134.0,,105,VERY HIGH
+farr x2 for sale,https://www.morfrac.com/blog/news-1/farr-x2-5,0.0,29.0,0.0,2.5,2.5,8.28,Non-branded,commercial,blog,0,0.0,0.0,,100,VERY HIGH
+dog bone,https://www.morfrac.com/es/dogbone,0.0,17.0,0.0,2.5,2.5,8.29,Non-branded,commercial,landing,0,19.0,134.0,,95,HIGH
+dog bone,https://www.morfrac.com/dogbone,0.0,57.0,0.0,28.0,28.0,1.0,Non-branded,commercial,landing,0,19.0,134.0,,90,HIGH
+dogbone carriers,https://www.morfrac.com/dogbone,0.0,16.0,0.0,1.0,1.0,14.56,Non-branded,commercial,landing,0,19.0,134.0,,85,HIGH
+farr x2,https://www.morfrac.com/blog/news-1/farr-x2-5,2.0,59.0,3.39,3.0,-0.3900000000000001,7.8,Non-branded,commercial,blog,0,0.0,0.0,,80,HIGH
+d-shackle,https://www.morfrac.com/es/shop/shackle-17-4ph-12827,0.0,9.0,0.0,1.0,1.0,13.67,Non-branded,commercial,product,0,45.0,170.0,,80,HIGH
+m loop,https://www.morfrac.com/shop/mloop-dyneema-loop-12675,0.0,23.0,0.0,1.0,1.0,10.26,Non-branded,commercial,product,0,44.0,158.0,,80,HIGH
+dog bones,https://www.morfrac.com/es/dogbone,0.0,5.0,0.0,7.0,7.0,3.6,Non-branded,commercial,landing,0,19.0,134.0,,80,HIGH
+dogbone rigging,https://www.morfrac.com/dogbone,0.0,15.0,0.0,7.0,7.0,3.87,Non-branded,commercial,landing,0,19.0,134.0,,80,HIGH
+dogbones,https://www.morfrac.com/es/dogbone,0.0,23.0,0.0,10.0,10.0,2.52,Non-branded,commercial,landing,0,19.0,134.0,,80,HIGH
+dog bone shackle,https://www.morfrac.com/dogbone,1.0,22.0,4.55,1.0,-3.55,11.23,Non-branded,commercial,landing,0,19.0,134.0,,75,HIGH
+dog bone soft shackle,https://www.morfrac.com/dogbone,1.0,6.0,16.67,2.0,-14.670000000000002,9.33,Non-branded,commercial,landing,0,19.0,134.0,,75,HIGH
+titanium shackles,https://www.morfrac.com/shackle,1.0,10.0,10.0,2.0,-8.0,9.2,Non-branded,commercial,landing,0,22.0,127.0,,75,HIGH
+dogbone shackle,https://www.morfrac.com/dogbone,1.0,6.0,16.67,5.0,-11.670000000000002,4.5,Non-branded,commercial,landing,0,19.0,134.0,,75,HIGH
+d shackle,https://www.morfrac.com/es/shop/shackle-17-4ph-12827,0.0,6.0,0.0,0.8,0.8,16.5,Non-branded,commercial,product,0,45.0,170.0,,60,MEDIUM
+dogbone joint,https://www.morfrac.com/dogbone,0.0,62.0,0.0,0.2,0.2,46.03,Non-branded,commercial,landing,0,19.0,134.0,,60,MEDIUM
+conurban marine,https://www.morfrac.com/partner,0.0,7.0,0.0,3.0,3.0,8.0,Non-branded,unknown,other,0,32.0,94.0,,55,MEDIUM
+m-loop,https://www.morfrac.com/shop/mloop-dyneema-loop-12675,0.0,6.0,0.0,1.0,1.0,10.33,Non-branded,unknown,product,0,44.0,158.0,,50,MEDIUM
+custom efl frames,https://www.morfrac.com/custom,0.0,37.0,0.0,0.2,0.2,48.86,Non-branded,unknown,other,0,17.0,123.0,,20,LOW
+fixafrac,https://www.morfrac.com/solutions,0.0,23.0,0.0,0.6,0.6,22.74,Non-branded,unknown,other,0,39.0,156.0,,15,LOW
+camfrac,https://www.morfrac.com/about,0.0,9.0,0.0,0.2,0.2,44.44,Non-branded,unknown,other,0,15.0,129.0,,10,LOW
+camfrac,https://www.morfrac.com/,0.0,12.0,0.0,0.4,0.4,34.58,Non-branded,unknown,home,0,43.0,160.0,,5,LOW
+mapfrac,https://www.morfrac.com/solutions,0.0,22.0,0.0,0.2,0.2,44.5,Non-branded,unknown,other,0,39.0,156.0,,0,LOW
