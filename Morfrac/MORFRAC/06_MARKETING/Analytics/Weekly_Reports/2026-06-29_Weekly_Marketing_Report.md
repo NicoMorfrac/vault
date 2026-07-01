@@ -27,10 +27,10 @@ Review MORFRAC website traffic performance using GA4 data and identify actionabl
 
 ## Key Metrics
 
-| Metric | Current 7d | Previous 7d | Change | Current 28d | Previous 28d | Change |
-|---|---:|---:|---:|---:|---:|---:|
-| Sessions | 537 | 178 | 201.7% | 1002 | 812 | 23.4% |
-| Users | 509 | 147 | 246.3% | 890 | 723 | 23.1% |
+| Metric   | Current 7d | Previous 7d | Change | Current 28d | Previous 28d | Change |
+| -------- | ---------: | ----------: | -----: | ----------: | -----------: | -----: |
+| Sessions |        537 |         178 | 201.7% |        1002 |          812 |  23.4% |
+| Users    |        509 |         147 | 246.3% |         890 |          723 |  23.1% |
 
 ## Critical Issues
 
@@ -40,31 +40,31 @@ Review MORFRAC website traffic performance using GA4 data and identify actionabl
 
 ### Source / Medium
 
-| sessionSourceMedium | sessions | totalUsers | engagedSessions |
-| --- | --- | --- | --- |
-| (direct) / (none) | 456 | 452 | 24 |
-| (not set) | 42 | 29 | 14 |
-| google / organic | 31 | 21 | 20 |
-| (data not available) | 3 | 3 | 0 |
-| bing / organic | 3 | 1 | 1 |
-| chatgpt.com / ai-assistant | 3 | 2 | 3 |
-| woduc.com / referral | 2 | 2 | 2 |
-| m.facebook.com / referral | 1 | 1 | 1 |
+| sessionSourceMedium        | sessions | totalUsers | engagedSessions |
+| -------------------------- | -------- | ---------- | --------------- |
+| (direct) / (none)          | 456      | 452        | 24              |
+| (not set)                  | 42       | 29         | 14              |
+| google / organic           | 31       | 21         | 20              |
+| (data not available)       | 3        | 3          | 0               |
+| bing / organic             | 3        | 1          | 1               |
+| chatgpt.com / ai-assistant | 3        | 2          | 3               |
+| woduc.com / referral       | 2        | 2          | 2               |
+| m.facebook.com / referral  | 1        | 1          | 1               |
 
 ### Top Landing Pages
 
-| landingPage | sessions | totalUsers | engagedSessions |
-| --- | --- | --- | --- |
-| / | 28 | 20 | 17 |
-| (not set) | 15 | 14 | 0 |
-| /blog/news-1/tag/news-2 | 15 | 15 | 0 |
-| /blog/tag/news-2 | 15 | 15 | 0 |
-| /shop | 15 | 15 | 2 |
-| /blog/tag/shows-exhibitions-3 | 13 | 13 | 0 |
-| /blog/stories-4/aluminium-titanium-stainless-steel-39 | 12 | 12 | 5 |
-| /blog/tag/powerfurl-4 | 11 | 11 | 0 |
-| /morfblock | 11 | 9 | 5 |
-| /blog/news-1/tag/partners-11 | 9 | 9 | 0 |
+| landingPage                                           | sessions | totalUsers | engagedSessions |
+| ----------------------------------------------------- | -------- | ---------- | --------------- |
+| /                                                     | 28       | 20         | 17              |
+| (not set)                                             | 15       | 14         | 0               |
+| /blog/news-1/tag/news-2                               | 15       | 15         | 0               |
+| /blog/tag/news-2                                      | 15       | 15         | 0               |
+| /shop                                                 | 15       | 15         | 2               |
+| /blog/tag/shows-exhibitions-3                         | 13       | 13         | 0               |
+| /blog/stories-4/aluminium-titanium-stainless-steel-39 | 12       | 12         | 5               |
+| /blog/tag/powerfurl-4                                 | 11       | 11         | 0               |
+| /morfblock                                            | 11       | 9          | 5               |
+| /blog/news-1/tag/partners-11                          | 9        | 9          | 0               |
 
 ### Device Analysis
 
@@ -76,18 +76,18 @@ Review MORFRAC website traffic performance using GA4 data and identify actionabl
 
 ### Geography
 
-| country | sessions | totalUsers |
-| --- | --- | --- |
-| United States | 435 | 427 |
-| Spain | 22 | 8 |
-| Singapore | 14 | 14 |
-| China | 9 | 8 |
-| France | 8 | 4 |
-| Germany | 7 | 6 |
-| Australia | 5 | 3 |
-| United Kingdom | 5 | 4 |
-| Brazil | 4 | 3 |
-| Argentina | 3 | 1 |
+| country        | sessions | totalUsers |
+| -------------- | -------- | ---------- |
+| United States  | 435      | 427        |
+| Spain          | 22       | 8          |
+| Singapore      | 14       | 14         |
+| China          | 9        | 8          |
+| France         | 8        | 4          |
+| Germany        | 7        | 6          |
+| Australia      | 5        | 3          |
+| United Kingdom | 5        | 4          |
+| Brazil         | 4        | 3          |
+| Argentina      | 3        | 1          |
 
 ## Opportunities
 

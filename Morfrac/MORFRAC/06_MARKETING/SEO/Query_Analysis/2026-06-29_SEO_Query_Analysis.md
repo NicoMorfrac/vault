@@ -255,33 +255,33 @@ Trigger:
 
 ## Ranking Opportunities: Position 11 to 20
 
-| Query | Clicks | Impressions | CTR | Position | Type |
-| --- | --- | --- | --- | --- | --- |
-| padeye | 0 | 121 | 0.00% | 14.05 | Non-branded |
-| padeyes | 0 | 89 | 0.00% | 16.71 | Non-branded |
-| sailing dogbone | 0 | 51 | 0.00% | 17.86 | Non-branded |
-| soft pad eyes | 0 | 31 | 0.00% | 19.32 | Non-branded |
-| soft padeyes | 0 | 30 | 0.00% | 18.13 | Non-branded |
-| dog bone shackle | 1 | 22 | 4.55% | 11.23 | Non-branded |
-| dogbone carriers | 0 | 16 | 0.00% | 14.56 | Non-branded |
-| titanium shackles | 1 | 12 | 8.33% | 11 | Non-branded |
-| d-shackle | 0 | 9 | 0.00% | 13.67 | Non-branded |
-| titanium shackle | 0 | 8 | 0.00% | 16.5 | Non-branded |
-| what is a padeye | 0 | 7 | 0.00% | 15 | Non-branded |
-| d shackle | 0 | 6 | 0.00% | 16.5 | Non-branded |
-| soft padeye | 0 | 6 | 0.00% | 17.17 | Non-branded |
-| padeye ship | 0 | 5 | 0.00% | 12.8 | Non-branded |
-| torlon balls | 0 | 3 | 0.00% | 11.67 | Non-branded |
-| 02 xl | 0 | 2 | 0.00% | 17 | Non-branded |
-| fomarl | 0 | 2 | 0.00% | 16 | Non-branded |
-| patikil shackle shackles leather replacement | 0 | 2 | 0.00% | 18 | Non-branded |
-| soft pad eye | 0 | 2 | 0.00% | 14.5 | Non-branded |
-| stainless steel vs aluminum vs titanium | 0 | 2 | 0.00% | 11 | Non-branded |
-| 15t shackle | 0 | 1 | 0.00% | 12 | Non-branded |
-| d shacle | 0 | 1 | 0.00% | 11 | Non-branded |
-| dog bone hardware | 0 | 1 | 0.00% | 11 | Non-branded |
-| dogbone relief | 0 | 1 | 0.00% | 12 | Non-branded |
-| dogbone risers | 0 | 1 | 0.00% | 15 | Non-branded |
+| Query                                        | Clicks | Impressions | CTR   | Position | Type        |
+| -------------------------------------------- | ------ | ----------- | ----- | -------- | ----------- |
+| padeye                                       | 0      | 121         | 0.00% | 14.05    | Non-branded |
+| padeyes                                      | 0      | 89          | 0.00% | 16.71    | Non-branded |
+| sailing dogbone                              | 0      | 51          | 0.00% | 17.86    | Non-branded |
+| soft pad eyes                                | 0      | 31          | 0.00% | 19.32    | Non-branded |
+| soft padeyes                                 | 0      | 30          | 0.00% | 18.13    | Non-branded |
+| dog bone shackle                             | 1      | 22          | 4.55% | 11.23    | Non-branded |
+| dogbone carriers                             | 0      | 16          | 0.00% | 14.56    | Non-branded |
+| titanium shackles                            | 1      | 12          | 8.33% | 11       | Non-branded |
+| d-shackle                                    | 0      | 9           | 0.00% | 13.67    | Non-branded |
+| titanium shackle                             | 0      | 8           | 0.00% | 16.5     | Non-branded |
+| what is a padeye                             | 0      | 7           | 0.00% | 15       | Non-branded |
+| d shackle                                    | 0      | 6           | 0.00% | 16.5     | Non-branded |
+| soft padeye                                  | 0      | 6           | 0.00% | 17.17    | Non-branded |
+| padeye ship                                  | 0      | 5           | 0.00% | 12.8     | Non-branded |
+| torlon balls                                 | 0      | 3           | 0.00% | 11.67    | Non-branded |
+| 02 xl                                        | 0      | 2           | 0.00% | 17       | Non-branded |
+| fomarl                                       | 0      | 2           | 0.00% | 16       | Non-branded |
+| patikil shackle shackles leather replacement | 0      | 2           | 0.00% | 18       | Non-branded |
+| soft pad eye                                 | 0      | 2           | 0.00% | 14.5     | Non-branded |
+| stainless steel vs aluminum vs titanium      | 0      | 2           | 0.00% | 11       | Non-branded |
+| 15t shackle                                  | 0      | 1           | 0.00% | 12       | Non-branded |
+| d shacle                                     | 0      | 1           | 0.00% | 11       | Non-branded |
+| dog bone hardware                            | 0      | 1           | 0.00% | 11       | Non-branded |
+| dogbone relief                               | 0      | 1           | 0.00% | 12       | Non-branded |
+| dogbone risers                               | 0      | 1           | 0.00% | 15       | Non-branded |
 
 ## Device Analysis
 
