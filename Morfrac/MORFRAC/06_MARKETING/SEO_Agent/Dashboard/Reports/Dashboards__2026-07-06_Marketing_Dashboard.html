@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026-07-06 Marketing Dashboard</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #090d12;
+      --surface: #101722;
+      --surface-2: #151f2d;
+      --line: #243244;
+      --text: #e6edf5;
+      --muted: #96a3b5;
+      --accent: #5eead4;
+      --accent-2: #93c5fd;
+      --code: #dbeafe;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Segoe UI, Arial, sans-serif;
+      line-height: 1.58;
+    }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      padding: 18px 28px;
+      background: rgba(9, 13, 18, 0.94);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(8px);
+    }
+    main {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 28px;
+    }
+    h1 { margin: 0; font-size: 24px; letter-spacing: 0; }
+    h2 { margin: 32px 0 12px; font-size: 20px; letter-spacing: 0; color: #f8fbff; }
+    h3 { margin: 24px 0 10px; font-size: 17px; letter-spacing: 0; }
+    h4 { margin: 18px 0 8px; font-size: 15px; letter-spacing: 0; color: var(--accent); }
+    p { margin: 10px 0; color: #d7e1ee; }
+    a { color: var(--accent-2); text-decoration: none; font-weight: 650; }
+    a:hover { text-decoration: underline; }
+    .meta { margin-top: 6px; color: var(--muted); font-size: 13px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 7px 11px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--surface-2);
+      color: var(--text);
+    }
+    hr { border: 0; border-top: 1px solid var(--line); margin: 26px 0; }
+    ul, ol { margin: 10px 0 14px 24px; padding: 0; }
+    li { margin: 6px 0; }
+    code {
+      color: var(--code);
+      background: #172033;
+      border: 1px solid #26364d;
+      border-radius: 4px;
+      padding: 1px 5px;
+      font-size: 0.92em;
+    }
+    pre {
+      overflow-x: auto;
+      background: #0d1420;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 14px;
+    }
+    pre code { border: 0; background: transparent; padding: 0; }
+    .report-table-wrap {
+      overflow-x: auto;
+      margin: 14px 0 22px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--surface);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    th, td {
+      padding: 9px 10px;
+      text-align: left;
+      vertical-align: top;
+      border-bottom: 1px solid var(--line);
+    }
+    th {
+      position: sticky;
+      top: 72px;
+      background: #182334;
+      color: #dbeafe;
+      text-transform: uppercase;
+      font-size: 11px;
+      letter-spacing: 0;
+    }
+    tr:nth-child(even) td { background: rgba(255, 255, 255, 0.018); }
+    tr:last-child td { border-bottom: 0; }
+    @media (max-width: 800px) {
+      header, main { padding-left: 16px; padding-right: 16px; }
+      th { position: static; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>2026-07-06 Marketing Dashboard</h1>
+    <div class="meta">Formatted view generated 2026-07-06 12:37 from file:///C:/Users/nicol/Documents/Obsidian/Morfrac/MORFRAC/06_MARKETING/Dashboards/2026-07-06_Marketing_Dashboard.md</div>
+    <div class="actions">
+      <a class="button" href="../../seo_dashboard.html">Dashboard</a>
+      <a class="button" href="../../file:///C:/Users/nicol/Documents/Obsidian/Morfrac/MORFRAC/06_MARKETING/Dashboards/2026-07-06_Marketing_Dashboard.md">Source Markdown</a>
+      <a class="button" href="../../file:///C:/Users/nicol/Documents/Obsidian/Morfrac/MORFRAC/06_MARKETING/Dashboards/">Report Folder</a>
+    </div>
+  </header>
+  <main>
+    <hr>
+<p>report_type: marketing_dashboard</p>
+<p>source_agent: Marketing</p>
+<p>date: 2026-07-06</p>
+<p>html_dashboard: 2026-07-06_Marketing_Dashboard.html</p>
+<p>strategic_source: 2026-05-10_OpenAI_Executive_Intelligence.md</p>
+<p>traffic_quality_source: 2026-05-10_Traffic_Quality_Data.csv</p>
+<hr>
+<h1>MORFRAC Marketing Intelligence Dashboard</h1>
+<p>Generated: 2026-07-06</p>
+<p>HTML version: [[2026-07-06_Marketing_Dashboard.html]]</p>
+<h2>Executive Intelligence</h2>
+
+    <div class="report-table-wrap">
+      <table>
+        <thead><tr><th>Metric</th><th>Value</th><th>Context</th><th>Status</th></tr></thead>
+        <tbody><tr><td>Commercial Traffic Quality</td><td>32.1%</td><td>High relevance traffic</td><td>WEAK</td></tr><tr><td>Low-Confidence Traffic</td><td>49.7%</td><td>Low-tier traffic</td><td>WEAK</td></tr><tr><td>Organic CTR</td><td>-30.90%</td><td>-30.9% change</td><td>CRITICAL</td></tr><tr><td>Average Position</td><td>0.24</td><td>Change: 0.24</td><td>STABLE</td></tr></tbody>
+      </table>
+    </div>
+    
+<h2>Performance Charts</h2>
+<h3>28-Day Sessions</h3>
+<p>![[Charts/marketing_sessions_28.png]]</p>
+<h3>Organic Clicks</h3>
+<p>![[Charts/marketing_organic_clicks.png]]</p>
+<h3>Organic CTR</h3>
+<p>![[Charts/marketing_organic_ctr.png]]</p>
+<h3>Average Position</h3>
+<p>![[Charts/marketing_average_position.png]]</p>
+<h2>Executive Commentary</h2>
+<p>MORFRAC has a short-term traffic bounce but a still-deteriorating 28-day base. The business issue is not raw volume; it is quality, relevance, and search visibility.</p>
+<ul>
+<li>GA4 7-day sessions rose to 224 (+20.4%), but 28-day sessions remain down sharply at 774 (-33.9%).</li>
+<li>Organic performance weakened materially: clicks -37.5%, CTR -34.8%, and average position worsened from 11.46 to 15.41.</li>
+<li>Traffic quality is mixed-to-weak. Nearly half of analyzed traffic sits in low-tier / low-confidence geographies, while direct traffic dominates but is not commercially informative on its own.</li>
+<li>The strongest commercial signal is Spain, followed by the US, Germany, and Italy, but much of the traffic mix is not yet high-confidence demand.</li>
+<li>The best leverage is not “more traffic”; it is fixing SEO CTR/rank erosion and building technically credible content around dogbones, padeyes, soft pad eyes, and related load-path hardware.</li>
+<li>Competitor signals show no detected changes, so the current issue is more likely internal visibility/positioning loss than an obvious competitor move.</li>
+</ul>
+<h2>Key Risks</h2>
+<ol>
+<li>Organic visibility erosion</li>
+</ol>
+<ul>
+<li>Clicks, CTR, and rank all worsened.</li>
+<li>This is the clearest performance risk.</li>
+<li>If left unresolved, it will continue compressing qualified discovery.</li>
+</ul>
+<ol>
+<li>Traffic quality dilution</li>
+</ol>
+<ul>
+<li>Nearly half of analyzed traffic is low-tier / low-confidence.</li>
+<li>This makes dashboards look busier than the business really is.</li>
+</ul>
+<ol>
+<li>Weak non-branded demand capture</li>
+</ol>
+<ul>
+<li>Branded clicks dominate.</li>
+<li>Non-branded clicks are only 5 despite 1,623 impressions.</li>
+<li>That limits category expansion.</li>
+</ul>
+<ol>
+<li>Suspicious / low-engagement landing behavior</li>
+</ol>
+<ul>
+<li>(not set), blank pages, and /web/login are not commercially healthy signals.</li>
+<li>This could distort interpretation and mask real performance.</li>
+</ul>
+<ol>
+<li>US traffic ambiguity</li>
+</ol>
+<ul>
+<li>The US is important, but engagement validation is needed.</li>
+<li>If polluted, it can distort strategic confidence.</li>
+</ul>
+<ol>
+<li>Persistent negative trend memory</li>
+</ol>
+<ul>
+<li>The trend file shows 28-day traffic decline for the last 3 recorded reviews.</li>
+<li>Organic clicks and CTR have also declined for the last 3 reviews.</li>
+</ul>
+<h2>Key Opportunities</h2>
+<ol>
+<li>Recover CTR on existing impressions</li>
+</ol>
+<ul>
+<li>Highest leverage.</li>
+<li>Impressions are only slightly down, so better snippets can recover clicks without needing new ranking gains.</li>
+</ul>
+<ol>
+<li>Push queries in positions 4 to 10</li>
+</ol>
+<ul>
+<li>This is the most efficient SEO improvement zone.</li>
+<li>Examples include mloop, dogbone, farr x2, mreel, rigging dogbone, soft pad eye.</li>
+</ul>
+<ol>
+<li>Build authority around core hardware concepts</li>
+</ol>
+<ul>
+<li>Dogbone, padeye, soft pad eye, shackle, powerfurl, mloop are all technically aligned with MORFRAC’s engineering positioning.</li>
+<li>These are not generic SEO topics; they support category authority.</li>
+</ul>
+<ol>
+<li>Strengthen Spain / Southern Europe as a high-confidence market</li>
+</ol>
+<ul>
+<li>Spain is already the best country signal.</li>
+<li>It deserves priority in content and localization logic.</li>
+</ul>
+<ol>
+<li>Separate noise from signal in reporting</li>
+</ol>
+<ul>
+<li>Cleaning interpretation will improve decision quality.</li>
+<li>This is an operational leverage point, not just an analytics task.</li>
+</ul>
+<h2>Recommended Executive Actions</h2>
+<p>High priority</p>
+<p>1) Rework titles and meta descriptions for high-impression, low-CTR queries</p>
+<ul>
+<li>Action: Rewrite snippet assets for pages and queries such as dogbone, padeye, dogbones, padeyes, powerfurl, and mloop.</li>
+<li>Reason: The impression base exists; clicks are being lost at the SERP level.</li>
+<li>Expected impact: Higher CTR and more organic traffic without needing major ranking gains.</li>
+<li>Evidence/source signal: Search Console low CTR/high impression opportunities; CTR fell from 2.39% to 1.56%.</li>
+</ul>
+<p>2) Prioritize pages ranking in positions 4–10</p>
+<ul>
+<li>Action: Focus optimization on queries/pages sitting near page-one boundary.</li>
+<li>Reason: These are the fastest incremental gains.</li>
+<li>Expected impact: More clicks from existing visibility.</li>
+<li>Evidence/source signal: Search Console ranking opportunity tables; examples include mloop, dogbone, farr x2, mreel, soft pad eye.</li>
+</ul>
+<p>3) Investigate low-engagement landing pages and suspicious entries</p>
+<ul>
+<li>Action: Audit blank landing entries, (not set), and /web/login traffic.</li>
+<li>Reason: These signals may be noise, misattribution, or non-commercial traffic.</li>
+<li>Expected impact: Cleaner reporting and better prioritization.</li>
+<li>Evidence/source signal: GA4 landing page table; traffic quality analysis suspicious signals.</li>
+</ul>
+<p>Medium priority</p>
+<p>4) Build technical content around dogbone, padeye, and soft pad eye</p>
+<ul>
+<li>Action: Develop supporting editorial and landing-page architecture around these hardware categories.</li>
+<li>Reason: These topics have search visibility and strong fit with MORFRAC’s engineering identity.</li>
+<li>Expected impact: Stronger non-branded relevance and better category authority.</li>
+<li>Evidence/source signal: Search Console query data; content opportunity scoring; LinkedIn topic proposals.</li>
+</ul>
+<p>5) Treat Spain as the clearest high-confidence market</p>
+<ul>
+<li>Action: Give Spain priority in content language, examples, and market focus.</li>
+<li>Reason: It is the strongest high-confidence geography in the traffic-quality layer and strong in Search Console clicks.</li>
+<li>Expected impact: Better alignment between traffic and commercial relevance.</li>
+<li>Evidence/source signal: Spain = 42 GA4 sessions; esp = 16 clicks in Search Console; high-commercial relevance classification.</li>
+</ul>
+<p>6) Separate branded and non-branded SEO reporting</p>
+<ul>
+<li>Action: Track them as distinct executive KPIs.</li>
+<li>Reason: Branded traffic shows awareness; non-branded shows category expansion.</li>
+<li>Expected impact: Better strategic clarity.</li>
+<li>Evidence/source signal: Branded clicks 25 vs non-branded 5; impression split heavily favors non-branded.</li>
+</ul>
+<p>Low priority</p>
+<p>7) Monitor competitor snapshot only</p>
+<ul>
+<li>Action: Continue competitor surveillance, but do not act aggressively based on this report alone.</li>
+<li>Reason: No competitor change was detected.</li>
+<li>Expected impact: Avoid false urgency.</li>
+<li>Evidence/source signal: Competitor change detection = no changes.</li>
+</ul>
+<p>8) Keep general trend monitoring cadence</p>
+<ul>
+<li>Action: Maintain weekly reporting and trend memory.</li>
+<li>Reason: The negative trend is persistent but not yet fully diagnosed.</li>
+<li>Expected impact: Early detection of sustained recovery or further deterioration.</li>
+<li>Evidence/source signal: Trend memory shows three consecutive declines in 28-day traffic, clicks, and CTR.</li>
+</ul>
+<h2>Traffic Confidence</h2>
+<p>![[Charts/marketing_traffic_confidence.png]]</p>
+
+    <div class="report-table-wrap">
+      <table>
+        <thead><tr><th>segment</th><th>sessions</th></tr></thead>
+        <tbody><tr><td>High</td><td>60</td></tr><tr><td>Medium</td><td>10</td></tr><tr><td>USA</td><td>24</td></tr><tr><td>Low</td><td>93</td></tr></tbody>
+      </table>
+    </div>
+    
+<h2>Territory Distribution</h2>
+<p>![[Charts/marketing_territory_distribution.png]]</p>
+
+    <div class="report-table-wrap">
+      <table>
+        <thead><tr><th>territory</th><th>sessions</th></tr></thead>
+        <tbody><tr><td>Low Tier / Low Confidence</td><td>93</td></tr><tr><td>Southern Europe</td><td>50</td></tr><tr><td>United States</td><td>24</td></tr><tr><td>South America</td><td>10</td></tr><tr><td>Northern Europe</td><td>10</td></tr></tbody>
+      </table>
+    </div>
+    
+<h2>Trend Data</h2>
+
+    <div class="report-table-wrap">
+      <table>
+        <thead><tr><th>date</th><th>sessions_7_change</th><th>sessions_28_change</th><th>click_change</th><th>impression_change</th><th>ctr_change</th><th>position_change</th><th>alerts</th><th>opportunities</th><th>campaigns</th><th>organic_click_change</th><th>organic_ctr_change</th><th>avg_position_change</th><th>organic_clicks</th><th>organic_ctr</th><th>avg_position</th><th>sessions_28</th></tr></thead>
+        <tbody><tr><td>2026-05-26</td><td>-41.3</td><td>14.7</td><td>33.3</td><td>0.3</td><td>32.9</td><td>0.67</td><td>1</td><td>5</td><td>3</td><td>33.3</td><td>32.9</td><td>0.67</td><td>33.3</td><td>32.9</td><td>0.67</td><td>14.7</td></tr><tr><td>2026-05-27</td><td>3.3</td><td>15.4</td><td>25.8</td><td>-0.4</td><td>26.4</td><td>0.33</td><td>0</td><td>5</td><td>3</td><td>25.8</td><td>26.4</td><td>0.33</td><td>25.8</td><td>26.4</td><td>0.33</td><td>15.4</td></tr><tr><td>2026-06-01</td><td>21.9</td><td>10.4</td><td>28.1</td><td>2.7</td><td>24.8</td><td>-1.63</td><td>0</td><td>6</td><td>3</td><td>28.1</td><td>24.8</td><td>-1.63</td><td>28.1</td><td>24.8</td><td>-1.63</td><td>10.4</td></tr><tr><td>2026-06-05</td><td>-4.3</td><td>4.5</td><td>36.7</td><td>-4.8</td><td>43.6</td><td>-2.64</td><td>0</td><td>5</td><td>3</td><td>36.7</td><td>43.6</td><td>-2.64</td><td>36.7</td><td>43.6</td><td>-2.64</td><td>4.5</td></tr><tr><td>2026-06-08</td><td>-20.9</td><td>-14</td><td>60</td><td>7.2</td><td>49.2</td><td>-3.7</td><td>1</td><td>5</td><td>3</td><td>60</td><td>49.2</td><td>-3.7</td><td>60</td><td>49.2</td><td>-3.7</td><td>-14</td></tr><tr><td>2026-06-15</td><td>46.3</td><td>-38.5</td><td>41.2</td><td>19.2</td><td>18.4</td><td>-4.03</td><td>1</td><td>6</td><td>3</td><td>41.2</td><td>18.4</td><td>-4.03</td><td>41.2</td><td>18.4</td><td>-4.03</td><td>-38.5</td></tr><tr><td>2026-06-22</td><td>9.6</td><td>-28.5</td><td>-2.4</td><td>5.2</td><td>-7.2</td><td>-1.39</td><td>1</td><td>4</td><td>4</td><td>-2.4</td><td>-7.2</td><td>-1.39</td><td>-2.4</td><td>-7.2</td><td>-1.39</td><td>-28.5</td></tr><tr><td>2026-06-29</td><td>201.7</td><td>23.4</td><td>0</td><td>12.5</td><td>-11.1</td><td>-0.37</td><td>0</td><td>6</td><td>4</td><td>0</td><td>-11.1</td><td>-0.37</td><td>0</td><td>-11.1</td><td>-0.37</td><td>23.4</td></tr><tr><td>2026-07-06</td><td>-73.3</td><td>48.5</td><td>-28</td><td>4.1</td><td>-30.9</td><td>0.24</td><td>3</td><td>5</td><td>4</td><td>-28</td><td>-30.9</td><td>0.24</td><td>-28</td><td>-30.9</td><td>0.24</td><td>48.5</td></tr></tbody>
+      </table>
+    </div>
+    
+<h2>Sources</h2>
+<ul>
+<li>Strategic intelligence: C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\Strategic_Intelligence\2026-05-10_OpenAI_Executive_Intelligence.md</li>
+<li>Traffic quality: C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\Analytics\Traffic_Quality\2026-05-10_Traffic_Quality_Data.csv</li>
+</ul>
+  </main>
+</body>
+</html>
