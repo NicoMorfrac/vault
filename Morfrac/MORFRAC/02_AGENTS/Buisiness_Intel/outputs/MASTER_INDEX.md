@@ -1,6 +1,6 @@
 # BUSINESS INTEL MASTER INDEX
 
-Last updated: 2026-06-09 18:16
+Last updated: 2026-07-07 18:27
 
 ---
 
@@ -10,6 +10,7 @@ Last updated: 2026-06-09 18:16
 |---|---|---|---|---|
 | [[2026-05-24_MORAAAAA-89_Convergence_Retrofit_Serviceability_Strategic_Assessment]] | 2026-05-24 | UNCLASSIFIED | DISCOVERY | HIGH |
 | [[2026-06-09_MORAAAAA-95_Shorthanded_Sail_Handling_Simplification_Strategic_Assessment]] | 2026-06-09 | PRODUCT_IMPROVEMENT_OPPORTUNITY | VALIDATION_REQUIRED | HIGH |
+| [[2026-07-07_MORAAAAA-101_Made_Furling_Booms_Non_Equity_Strategic_Opportunity]] | 2026-07-07 | STRATEGIC_PARTNERSHIP_OPPORTUNITY | VALIDATION_REQUIRED | MEDIUM |
 | [[Strategic_Opportunity_Template]] |  | UNCLASSIFIED | STRATEGIC_OPPORTUNITY | HIGH |
 
 ---
@@ -37,6 +38,7 @@ Last updated: 2026-06-09 18:16
 |---|---|---|---|---|
 | [[2026-05-24_MORAAAAA-89_Convergence_Retrofit_Serviceability_Strategic_Assessment]] | Strategic_Intelligence | 2026-05-24 | UNCLASSIFIED | UNREVIEWED |
 | [[2026-06-09_MORAAAAA-95_Shorthanded_Sail_Handling_Simplification_Strategic_Assessment]] | Strategic_Intelligence | 2026-06-09 | PRODUCT_IMPROVEMENT_OPPORTUNITY | VALIDATION_REQUIRED |
+| [[2026-07-07_MORAAAAA-101_Made_Furling_Booms_Non_Equity_Strategic_Opportunity]] | Strategic_Intelligence | 2026-07-07 | STRATEGIC_PARTNERSHIP_OPPORTUNITY | VALIDATION_REQUIRED |
 | [[VALIDATION_QUESTIONS]] | Strategic_Intelligence |  | UNCLASSIFIED | REJECTED |
 
 ---
