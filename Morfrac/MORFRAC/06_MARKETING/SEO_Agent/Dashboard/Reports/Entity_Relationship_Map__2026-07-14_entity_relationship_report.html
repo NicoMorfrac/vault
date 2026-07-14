@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026-07-14 entity relationship report</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #090d12;
+      --surface: #101722;
+      --surface-2: #151f2d;
+      --line: #243244;
+      --text: #e6edf5;
+      --muted: #96a3b5;
+      --accent: #5eead4;
+      --accent-2: #93c5fd;
+      --code: #dbeafe;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Segoe UI, Arial, sans-serif;
+      line-height: 1.58;
+    }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      padding: 18px 28px;
+      background: rgba(9, 13, 18, 0.94);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(8px);
+    }
+    main {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 28px;
+    }
+    h1 { margin: 0; font-size: 24px; letter-spacing: 0; }
+    h2 { margin: 32px 0 12px; font-size: 20px; letter-spacing: 0; color: #f8fbff; }
+    h3 { margin: 24px 0 10px; font-size: 17px; letter-spacing: 0; }
+    h4 { margin: 18px 0 8px; font-size: 15px; letter-spacing: 0; color: var(--accent); }
+    p { margin: 10px 0; color: #d7e1ee; }
+    a { color: var(--accent-2); text-decoration: none; font-weight: 650; }
+    a:hover { text-decoration: underline; }
+    .meta { margin-top: 6px; color: var(--muted); font-size: 13px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 7px 11px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--surface-2);
+      color: var(--text);
+    }
+    hr { border: 0; border-top: 1px solid var(--line); margin: 26px 0; }
+    ul, ol { margin: 10px 0 14px 24px; padding: 0; }
+    li { margin: 6px 0; }
+    code {
+      color: var(--code);
+      background: #172033;
+      border: 1px solid #26364d;
+      border-radius: 4px;
+      padding: 1px 5px;
+      font-size: 0.92em;
+    }
+    pre {
+      overflow-x: auto;
+      background: #0d1420;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 14px;
+    }
+    pre code { border: 0; background: transparent; padding: 0; }
+    .report-table-wrap {
+      overflow-x: auto;
+      margin: 14px 0 22px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--surface);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    th, td {
+      padding: 9px 10px;
+      text-align: left;
+      vertical-align: top;
+      border-bottom: 1px solid var(--line);
+    }
+    th {
+      position: sticky;
+      top: 72px;
+      background: #182334;
+      color: #dbeafe;
+      text-transform: uppercase;
+      font-size: 11px;
+      letter-spacing: 0;
+    }
+    tr:nth-child(even) td { background: rgba(255, 255, 255, 0.018); }
+    tr:last-child td { border-bottom: 0; }
+    @media (max-width: 800px) {
+      header, main { padding-left: 16px; padding-right: 16px; }
+      th { position: static; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>2026-07-14 entity relationship report</h1>
+    <div class="meta">Formatted view generated 2026-07-14 10:47 from Entity_Relationship_Map/2026-07-14_entity_relationship_report.md</div>
+    <div class="actions">
+      <a class="button" href="../../seo_dashboard.html">Dashboard</a>
+      <a class="button" href="../../Entity_Relationship_Map/2026-07-14_entity_relationship_report.md">Source Markdown</a>
+      <a class="button" href="../../Entity_Relationship_Map/">Report Folder</a>
+    </div>
+  </header>
+  <main>
+    <hr>
+<p>type: seo_entity_relationship_report</p>
+<p>source_agent: SEO_Agent</p>
+<p>created: 2026-07-14</p>
+<p>related_findings: []</p>
+<p>related_concepts:</p>
+<ul>
+<li>COMMERCIAL_ENTITY_NEEDS_AUTHORITY_CONTENT</li>
+<li>VERY_WEAK</li>
+<li>HIGH_COMMERCIAL_LOW_AUTHORITY</li>
+<li>ENTITY_HAS_CONTENT_GAP</li>
+<li>COMMERCIAL_ENTITY_NEEDS_PILLAR_PAGE</li>
+<li>SEARCH_VISIBLE_COMMERCIAL_ENTITY</li>
+<li>ENTITY_RULES</li>
+</ul>
+<p>related_projects: []</p>
+<p>related_reports: []</p>
+<hr>
+<h1>MORFRAC SEO Entity Relationship Map</h1>
+<h2>Generated</h2>
+<p>2026-07-14</p>
+<hr>
+<h1>Purpose</h1>
+<p>This report creates a deterministic entity relationship layer for MORFRAC SEO intelligence.</p>
+<p>It maps:</p>
+<ul>
+<li>product families</li>
+<li>applications</li>
+<li>materials</li>
+<li>engineering concepts</li>
+<li>search/content intent</li>
+<li>page-to-page relationships</li>
+<li>entity-to-entity relationships</li>
+<li>entity-level content and authority opportunities</li>
+</ul>
+<p>This is the foundation for future SEO knowledge graph, content brief generation, competitor comparison, and AI-assisted planning.</p>
+<hr>
+<h1>Source Files</h1>
+<ul>
+<li>Crawl file: <code>C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Crawls\2026-07-14_site_crawl.csv</code></li>
+<li>Semantic pages: <code>C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Semantic_Clusters\2026-07-14_semantic_cluster_pages.csv</code></li>
+<li>Content gaps: <code>C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Content_Gap_Analysis\2026-07-14_content_gap_analysis.csv</code></li>
+<li>Topic authority map: <code>C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Topic_Authority_Map\2026-07-14_topic_authority_map.csv</code></li>
+<li>Contextual link recommendations loaded for future expansion: <code>C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Contextual_Links\2026-07-14_contextual_link_recommendations_filtered.csv</code></li>
+</ul>
+<hr>
+<h1>Summary</h1>
+<ul>
+<li>Useful pages analyzed: 412</li>
+<li>Page-entity mappings: 3250</li>
+<li>Unique entities: 36</li>
+<li>Page relationship edges: 11966</li>
+<li>Entity relationship edges: 3475</li>
+<li>Entity opportunities: 36</li>
+</ul>
+<hr>
+<h1>Highest Entity Opportunities</h1>
+
+    <div class="report-table-wrap">
+      <table>
+        <thead><tr><th>entity_type</th><th>entity_name</th><th>entity_opportunity_score</th><th>entity_opportunity_type</th><th>page_count</th><th>product_pages</th><th>landing_pages</th><th>authority_content_pages</th><th>total_impressions</th><th>authority_tier</th><th>strategic_status</th><th>has_content_gap</th></tr></thead>
+        <tbody><tr><td>product_family</td><td>dogbone</td><td>98.56</td><td>COMMERCIAL_ENTITY_NEEDS_AUTHORITY_CONTENT</td><td>58</td><td>46</td><td>2</td><td>0</td><td>464</td><td>VERY_WEAK</td><td>HIGH_COMMERCIAL_LOW_AUTHORITY</td><td>True</td></tr><tr><td>engineering_concept</td><td>marine_hardware</td><td>84.72</td><td>COMMERCIAL_ENTITY_NEEDS_AUTHORITY_CONTENT</td><td>12</td><td>7</td><td>0</td><td>0</td><td>118</td><td></td><td></td><td>False</td></tr><tr><td>application</td><td>soft_connection</td><td>80.0</td><td>COMMERCIAL_ENTITY_NEEDS_AUTHORITY_CONTENT</td><td>14</td><td>12</td><td>0</td><td>0</td><td>0</td><td></td><td></td><td>False</td></tr><tr><td>engineering_concept</td><td>cnc_machining</td><td>80.0</td><td>COMMERCIAL_ENTITY_NEEDS_AUTHORITY_CONTENT</td><td>19</td><td>19</td><td>0</td><td>0</td><td>0</td><td></td><td></td><td>False</td></tr><tr><td>product_family</td><td>shackle</td><td>80.0</td><td>COMMERCIAL_ENTITY_NEEDS_AUTHORITY_CONTENT</td><td>27</td><td>21</td><td>2</td><td>0</td><td>0</td><td>VERY_WEAK</td><td>HIGH_COMMERCIAL_LOW_AUTHORITY</td><td>True</td></tr><tr><td>product_family</td><td>morfring</td><td>80.0</td><td>COMMERCIAL_ENTITY_NEEDS_AUTHORITY_CONTENT</td><td>37</td><td>31</td><td>2</td><td>0</td><td>0</td><td>VERY_WEAK</td><td>HIGH_COMMERCIAL_LOW_AUTHORITY</td><td>True</td></tr><tr><td>material</td><td>dyneema</td><td>80.0</td><td>COMMERCIAL_ENTITY_NEEDS_AUTHORITY_CONTENT</td><td>7</td><td>7</td><td>0</td><td>0</td><td>0</td><td></td><td></td><td>False</td></tr><tr><td>product_family</td><td>padeye</td><td>80.0</td><td>COMMERCIAL_ENTITY_NEEDS_AUTHORITY_CONTENT</td><td>24</td><td>16</td><td>2</td><td>0</td><td>0</td><td>VERY_WEAK</td><td>HIGH_COMMERCIAL_LOW_AUTHORITY</td><td>True</td></tr><tr><td>material</td><td>ptfe</td><td>80.0</td><td>COMMERCIAL_ENTITY_NEEDS_AUTHORITY_CONTENT</td><td>24</td><td>24</td><td>0</td><td>0</td><td>0</td><td></td><td></td><td>False</td></tr><tr><td>product_family</td><td>mloop</td><td>75.0</td><td>COMMERCIAL_ENTITY_NEEDS_AUTHORITY_CONTENT</td><td>8</td><td>6</td><td>0</td><td>0</td><td>0</td><td></td><td></td><td>False</td></tr><tr><td>engineering_concept</td><td>low_friction</td><td>60.0</td><td>COMMERCIAL_ENTITY_NEEDS_AUTHORITY_CONTENT</td><td>52</td><td>44</td><td>2</td><td>0</td><td>0</td><td></td><td></td><td>False</td></tr><tr><td>engineering_concept</td><td>high_load</td><td>60.0</td><td>COMMERCIAL_ENTITY_NEEDS_AUTHORITY_CONTENT</td><td>120</td><td>119</td><td>1</td><td>0</td><td>0</td><td></td><td></td><td>False</td></tr><tr><td>product_family</td><td>powerfurl</td><td>59.72</td><td>ENTITY_HAS_CONTENT_GAP</td><td>115</td><td>85</td><td>2</td><td>6</td><td>118</td><td>VERY_WEAK</td><td>HIGH_COMMERCIAL_LOW_AUTHORITY</td><td>True</td></tr><tr><td>product_family</td><td>morfblock</td><td>59.72</td><td>ENTITY_HAS_CONTENT_GAP</td><td>106</td><td>81</td><td>2</td><td>6</td><td>118</td><td>VERY_WEAK</td><td>HIGH_COMMERCIAL_LOW_AUTHORITY</td><td>True</td></tr><tr><td>application</td><td>rope_management</td><td>59.72</td><td>COMMERCIAL_ENTITY_NEEDS_PILLAR_PAGE</td><td>111</td><td>97</td><td>0</td><td>2</td><td>118</td><td></td><td></td><td>False</td></tr><tr><td>application</td><td>custom_engineering</td><td>58.28</td><td>SEARCH_VISIBLE_COMMERCIAL_ENTITY</td><td>66</td><td>33</td><td>6</td><td>9</td><td>582</td><td></td><td></td><td>False</td></tr><tr><td>intent</td><td>brand</td><td>58.28</td><td>SEARCH_VISIBLE_COMMERCIAL_ENTITY</td><td>400</td><td>262</td><td>14</td><td>31</td><td>582</td><td></td><td></td><td>False</td></tr><tr><td>engineering_concept</td><td>customizable</td><td>58.28</td><td>SEARCH_VISIBLE_COMMERCIAL_ENTITY</td><td>39</td><td>17</td><td>6</td><td>8</td><td>582</td><td></td><td></td><td>False</td></tr><tr><td>intent</td><td>technical</td><td>55.0</td><td>COMMERCIAL_ENTITY_NEEDS_PILLAR_PAGE</td><td>96</td><td>55</td><td>0</td><td>31</td><td>0</td><td></td><td></td><td>False</td></tr><tr><td>material</td><td>aluminium</td><td>53.56</td><td>SEARCH_VISIBLE_COMMERCIAL_ENTITY</td><td>72</td><td>62</td><td>6</td><td>4</td><td>464</td><td></td><td></td><td>False</td></tr><tr><td>intent</td><td>commercial</td><td>53.56</td><td>SEARCH_VISIBLE_COMMERCIAL_ENTITY</td><td>355</td><td>270</td><td>10</td><td>2</td><td>464</td><td></td><td></td><td>False</td></tr><tr><td>material</td><td>titanium</td><td>53.56</td><td>SEARCH_VISIBLE_COMMERCIAL_ENTITY</td><td>269</td><td>216</td><td>11</td><td>17</td><td>464</td><td></td><td></td><td>False</td></tr><tr><td>product_family</td><td>mreel</td><td>49.72</td><td>COMMERCIAL_ENTITY_NEEDS_AUTHORITY_CONTENT</td><td>7</td><td>4</td><td>0</td><td>0</td><td>118</td><td></td><td></td><td>False</td></tr><tr><td>application</td><td>sail_handling</td><td>39.72</td><td>SEARCH_VISIBLE_COMMERCIAL_ENTITY</td><td>205</td><td>177</td><td>5</td><td>10</td><td>118</td><td></td><td></td><td>False</td></tr><tr><td>engineering_concept</td><td>breaking_load</td><td>39.72</td><td>SEARCH_VISIBLE_COMMERCIAL_ENTITY</td><td>255</td><td>195</td><td>6</td><td>31</td><td>118</td><td></td><td></td><td>False</td></tr></tbody>
+      </table>
+    </div>
+    
+<hr>
+<h1>Entity Summary</h1>
+
+    <div class="report-table-wrap">
+      <table>
+        <thead><tr><th>entity_type</th><th>entity_name</th><th>page_count</th><th>product_pages</th><th>category_pages</th><th>landing_pages</th><th>authority_content_pages</th><th>total_impressions</th><th>total_clicks</th></tr></thead>
+        <tbody><tr><td>application</td><td>sail_handling</td><td>205</td><td>177</td><td>6</td><td>5</td><td>10</td><td>118.0</td><td>13.0</td></tr><tr><td>application</td><td>low_friction_rigging</td><td>147</td><td>126</td><td>6</td><td>2</td><td>1</td><td>0.0</td><td>0.0</td></tr><tr><td>application</td><td>rope_management</td><td>111</td><td>97</td><td>3</td><td>0</td><td>2</td><td>118.0</td><td>13.0</td></tr><tr><td>application</td><td>sheet_handling</td><td>111</td><td>84</td><td>14</td><td>2</td><td>6</td><td>118.0</td><td>13.0</td></tr><tr><td>application</td><td>furling_systems</td><td>84</td><td>74</td><td>1</td><td>2</td><td>2</td><td>118.0</td><td>13.0</td></tr><tr><td>application</td><td>deck_attachment</td><td>74</td><td>60</td><td>4</td><td>2</td><td>3</td><td>118.0</td><td>13.0</td></tr><tr><td>application</td><td>custom_engineering</td><td>66</td><td>33</td><td>2</td><td>6</td><td>9</td><td>582.0</td><td>15.0</td></tr><tr><td>application</td><td>soft_connection</td><td>14</td><td>12</td><td>2</td><td>0</td><td>0</td><td>0.0</td><td>0.0</td></tr><tr><td>engineering_concept</td><td>breaking_load</td><td>255</td><td>195</td><td>14</td><td>6</td><td>31</td><td>118.0</td><td>13.0</td></tr><tr><td>engineering_concept</td><td>swl</td><td>162</td><td>159</td><td>0</td><td>1</td><td>2</td><td>0.0</td><td>0.0</td></tr><tr><td>engineering_concept</td><td>lightweight</td><td>157</td><td>150</td><td>4</td><td>2</td><td>1</td><td>0.0</td><td>0.0</td></tr><tr><td>engineering_concept</td><td>high_load</td><td>120</td><td>119</td><td>0</td><td>1</td><td>0</td><td>0.0</td><td>0.0</td></tr><tr><td>engineering_concept</td><td>low_friction</td><td>52</td><td>44</td><td>4</td><td>2</td><td>0</td><td>0.0</td><td>0.0</td></tr><tr><td>engineering_concept</td><td>customizable</td><td>39</td><td>17</td><td>2</td><td>6</td><td>8</td><td>582.0</td><td>15.0</td></tr><tr><td>engineering_concept</td><td>cnc_machining</td><td>19</td><td>19</td><td>0</td><td>0</td><td>0</td><td>0.0</td><td>0.0</td></tr><tr><td>engineering_concept</td><td>marine_hardware</td><td>12</td><td>7</td><td>0</td><td>0</td><td>0</td><td>118.0</td><td>13.0</td></tr><tr><td>intent</td><td>brand</td><td>400</td><td>262</td><td>65</td><td>14</td><td>31</td><td>582.0</td><td>15.0</td></tr><tr><td>intent</td><td>commercial</td><td>355</td><td>270</td><td>65</td><td>10</td><td>2</td><td>464.0</td><td>2.0</td></tr><tr><td>intent</td><td>technical</td><td>96</td><td>55</td><td>0</td><td>0</td><td>31</td><td>0.0</td><td>0.0</td></tr><tr><td>intent</td><td>support</td><td>2</td><td>0</td><td>2</td><td>0</td><td>0</td><td>0.0</td><td>0.0</td></tr><tr><td>material</td><td>titanium</td><td>269</td><td>216</td><td>11</td><td>11</td><td>17</td><td>464.0</td><td>2.0</td></tr><tr><td>material</td><td>aluminium</td><td>72</td><td>62</td><td>0</td><td>6</td><td>4</td><td>464.0</td><td>2.0</td></tr><tr><td>material</td><td>ptfe</td><td>24</td><td>24</td><td>0</td><td>0</td><td>0</td><td>0.0</td><td>0.0</td></tr><tr><td>material</td><td>dyneema</td><td>7</td><td>7</td><td>0</td><td>0</td><td>0</td><td>0.0</td><td>0.0</td></tr><tr><td>material</td><td>stainless_steel</td><td>6</td><td>0</td><td>0</td><td>2</td><td>4</td><td>0.0</td><td>0.0</td></tr><tr><td>material</td><td>carbon</td><td>2</td><td>0</td><td>0</td><td>0</td><td>2</td><td>0.0</td><td>0.0</td></tr><tr><td>product_family</td><td>powerfurl</td><td>115</td><td>85</td><td>17</td><td>2</td><td>6</td><td>118.0</td><td>13.0</td></tr><tr><td>product_family</td><td>morfblock</td><td>106</td><td>81</td><td>14</td><td>2</td><td>6</td><td>118.0</td><td>13.0</td></tr><tr><td>product_family</td><td>dogbone</td><td>58</td><td>46</td><td>6</td><td>2</td><td>0</td><td>464.0</td><td>2.0</td></tr><tr><td>product_family</td><td>morfring</td><td>37</td><td>31</td><td>2</td><td>2</td><td>0</td><td>0.0</td><td>0.0</td></tr><tr><td>product_family</td><td>shackle</td><td>27</td><td>21</td><td>4</td><td>2</td><td>0</td><td>0.0</td><td>0.0</td></tr><tr><td>product_family</td><td>padeye</td><td>24</td><td>16</td><td>2</td><td>2</td><td>0</td><td>0.0</td><td>0.0</td></tr><tr><td>product_family</td><td>mloop</td><td>8</td><td>6</td><td>2</td><td>0</td><td>0</td><td>0.0</td><td>0.0</td></tr><tr><td>product_family</td><td>mreel</td><td>7</td><td>4</td><td>2</td><td>0</td><td>0</td><td>118.0</td><td>13.0</td></tr><tr><td>product_family</td><td>morfwing</td><td>6</td><td>0</td><td>0</td><td>2</td><td>4</td><td>0.0</td><td>0.0</td></tr><tr><td>product_family</td><td>hoistlock</td><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0.0</td><td>0.0</td></tr></tbody>
+      </table>
+    </div>
+    
+<hr>
+<h1>Strongest Entity Relationships</h1>
+
+    <div class="report-table-wrap">
+      <table>
+        <thead><tr><th>source_entity_type</th><th>source_entity_name</th><th>target_entity_type</th><th>target_entity_name</th><th>relationship_type</th><th>relationship_count</th><th>total_relationship_weight</th></tr></thead>
+        <tbody><tr><td>intent</td><td>commercial</td><td>intent</td><td>brand</td><td>product_links_to_parent</td><td>3605</td><td>7210</td></tr><tr><td>intent</td><td>commercial</td><td>intent</td><td>brand</td><td>general_internal_link</td><td>6708</td><td>6708</td></tr><tr><td>intent</td><td>brand</td><td>intent</td><td>commercial</td><td>product_links_to_parent</td><td>2969</td><td>5938</td></tr><tr><td>material</td><td>titanium</td><td>intent</td><td>brand</td><td>product_links_to_parent</td><td>2886</td><td>5772</td></tr><tr><td>engineering_concept</td><td>breaking_load</td><td>intent</td><td>brand</td><td>product_links_to_parent</td><td>2609</td><td>5218</td></tr><tr><td>material</td><td>titanium</td><td>intent</td><td>commercial</td><td>product_links_to_parent</td><td>2454</td><td>4908</td></tr><tr><td>application</td><td>sail_handling</td><td>intent</td><td>brand</td><td>product_links_to_parent</td><td>2371</td><td>4742</td></tr><tr><td>engineering_concept</td><td>breaking_load</td><td>intent</td><td>commercial</td><td>product_links_to_parent</td><td>2219</td><td>4438</td></tr><tr><td>engineering_concept</td><td>swl</td><td>intent</td><td>brand</td><td>product_links_to_parent</td><td>2125</td><td>4250</td></tr><tr><td>application</td><td>sail_handling</td><td>intent</td><td>commercial</td><td>product_links_to_parent</td><td>2017</td><td>4034</td></tr><tr><td>engineering_concept</td><td>lightweight</td><td>intent</td><td>brand</td><td>product_links_to_parent</td><td>1997</td><td>3994</td></tr><tr><td>material</td><td>titanium</td><td>intent</td><td>brand</td><td>general_internal_link</td><td>3681</td><td>3681</td></tr><tr><td>engineering_concept</td><td>breaking_load</td><td>intent</td><td>brand</td><td>general_internal_link</td><td>3674</td><td>3674</td></tr><tr><td>engineering_concept</td><td>swl</td><td>intent</td><td>commercial</td><td>product_links_to_parent</td><td>1807</td><td>3614</td></tr><tr><td>intent</td><td>brand</td><td>application</td><td>custom_engineering</td><td>general_internal_link</td><td>3514</td><td>3514</td></tr><tr><td>intent</td><td>brand</td><td>intent</td><td>commercial</td><td>general_internal_link</td><td>3507</td><td>3507</td></tr><tr><td>intent</td><td>commercial</td><td>material</td><td>titanium</td><td>product_links_to_parent</td><td>1736</td><td>3472</td></tr><tr><td>intent</td><td>brand</td><td>material</td><td>titanium</td><td>general_internal_link</td><td>3406</td><td>3406</td></tr><tr><td>engineering_concept</td><td>lightweight</td><td>intent</td><td>commercial</td><td>product_links_to_parent</td><td>1697</td><td>3394</td></tr><tr><td>intent</td><td>brand</td><td>material</td><td>titanium</td><td>product_links_to_parent</td><td>1686</td><td>3372</td></tr><tr><td>application</td><td>low_friction_rigging</td><td>intent</td><td>brand</td><td>product_links_to_parent</td><td>1680</td><td>3360</td></tr><tr><td>engineering_concept</td><td>high_load</td><td>intent</td><td>brand</td><td>product_links_to_parent</td><td>1594</td><td>3188</td></tr><tr><td>intent</td><td>commercial</td><td>application</td><td>custom_engineering</td><td>general_internal_link</td><td>3089</td><td>3089</td></tr><tr><td>intent</td><td>commercial</td><td>material</td><td>titanium</td><td>general_internal_link</td><td>3001</td><td>3001</td></tr><tr><td>application</td><td>low_friction_rigging</td><td>intent</td><td>commercial</td><td>product_links_to_parent</td><td>1428</td><td>2856</td></tr><tr><td>application</td><td>sail_handling</td><td>intent</td><td>brand</td><td>general_internal_link</td><td>2732</td><td>2732</td></tr><tr><td>engineering_concept</td><td>high_load</td><td>intent</td><td>commercial</td><td>product_links_to_parent</td><td>1356</td><td>2712</td></tr><tr><td>intent</td><td>brand</td><td>engineering_concept</td><td>breaking_load</td><td>general_internal_link</td><td>2638</td><td>2638</td></tr><tr><td>intent</td><td>brand</td><td>application</td><td>low_friction_rigging</td><td>general_internal_link</td><td>2629</td><td>2629</td></tr><tr><td>application</td><td>rope_management</td><td>intent</td><td>brand</td><td>product_links_to_parent</td><td>1288</td><td>2576</td></tr><tr><td>engineering_concept</td><td>breaking_load</td><td>material</td><td>titanium</td><td>product_links_to_parent</td><td>1250</td><td>2500</td></tr><tr><td>intent</td><td>commercial</td><td>application</td><td>low_friction_rigging</td><td>general_internal_link</td><td>2360</td><td>2360</td></tr><tr><td>intent</td><td>commercial</td><td>engineering_concept</td><td>breaking_load</td><td>general_internal_link</td><td>2280</td><td>2280</td></tr><tr><td>application</td><td>sheet_handling</td><td>intent</td><td>brand</td><td>product_links_to_parent</td><td>1137</td><td>2274</td></tr><tr><td>application</td><td>sail_handling</td><td>material</td><td>titanium</td><td>product_links_to_parent</td><td>1130</td><td>2260</td></tr><tr><td>product_family</td><td>powerfurl</td><td>intent</td><td>brand</td><td>product_links_to_parent</td><td>1128</td><td>2256</td></tr><tr><td>intent</td><td>commercial</td><td>engineering_concept</td><td>breaking_load</td><td>product_links_to_parent</td><td>1120</td><td>2240</td></tr><tr><td>material</td><td>titanium</td><td>application</td><td>custom_engineering</td><td>general_internal_link</td><td>2210</td><td>2210</td></tr><tr><td>product_family</td><td>morfblock</td><td>intent</td><td>brand</td><td>product_links_to_parent</td><td>1095</td><td>2190</td></tr><tr><td>application</td><td>rope_management</td><td>intent</td><td>commercial</td><td>product_links_to_parent</td><td>1094</td><td>2188</td></tr></tbody>
+      </table>
+    </div>
+    
+<hr>
+<h1>Interpretation Notes</h1>
+<p>Entity opportunity types:</p>
+<ul>
+<li><code>COMMERCIAL_ENTITY_NEEDS_AUTHORITY_CONTENT</code>: commercial footprint exists but no supporting authority content.</li>
+<li><code>COMMERCIAL_ENTITY_NEEDS_PILLAR_PAGE</code>: many commercial/product pages exist but no clear landing/pillar page.</li>
+<li><code>ENTITY_HAS_CONTENT_GAP</code>: entity appears in the content gap layer.</li>
+<li><code>SEARCH_VISIBLE_COMMERCIAL_ENTITY</code>: entity has visibility and commercial footprint.</li>
+<li><code>MONITOR</code>: no immediate structural issue detected.</li>
+</ul>
+<p>Recommended actions:</p>
+<ol>
+<li>Prioritize product entities with high opportunity scores and no authority content.</li>
+<li>Build technical guides around applications and engineering concepts, not only product families.</li>
+<li>Use entity relationships to design internal links and content hubs.</li>
+<li>Use this layer before generating content briefs or competitor gap reports.</li>
+<li>Extend <code>ENTITY_RULES</code> over time as MORFRAC adds products, applications, materials, and engineering concepts.</li>
+</ol>
+<hr>
+<h1>Output Files</h1>
+<ul>
+<li>Page entity map: <code>C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Entity_Relationship_Map\2026-07-14_page_entity_map.csv</code></li>
+<li>Entity summary: <code>C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Entity_Relationship_Map\2026-07-14_entity_summary.csv</code></li>
+<li>Page relationship edges: <code>C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Entity_Relationship_Map\2026-07-14_page_relationship_edges.csv</code></li>
+<li>Stable page relationship edges: <code>C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Entity_Relationship_Map\page_relationship_edges.csv</code></li>
+<li>Entity relationship edges: <code>C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Entity_Relationship_Map\2026-07-14_entity_relationship_edges.csv</code></li>
+<li>Entity opportunities: <code>C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Entity_Relationship_Map\2026-07-14_entity_opportunities.csv</code></li>
+</ul>
+<h2>Related Links</h2>
+<h3>Concepts</h3>
+<ul>
+<li>[[COMMERCIAL_ENTITY_NEEDS_AUTHORITY_CONTENT]]</li>
+<li>[[VERY_WEAK]]</li>
+<li>[[HIGH_COMMERCIAL_LOW_AUTHORITY]]</li>
+<li>[[ENTITY_HAS_CONTENT_GAP]]</li>
+<li>[[COMMERCIAL_ENTITY_NEEDS_PILLAR_PAGE]]</li>
+<li>[[SEARCH_VISIBLE_COMMERCIAL_ENTITY]]</li>
+<li>[[ENTITY_RULES]]</li>
+</ul>
+  </main>
+</body>
+</html>

@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026-07-14 content gap report</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #090d12;
+      --surface: #101722;
+      --surface-2: #151f2d;
+      --line: #243244;
+      --text: #e6edf5;
+      --muted: #96a3b5;
+      --accent: #5eead4;
+      --accent-2: #93c5fd;
+      --code: #dbeafe;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Segoe UI, Arial, sans-serif;
+      line-height: 1.58;
+    }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      padding: 18px 28px;
+      background: rgba(9, 13, 18, 0.94);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(8px);
+    }
+    main {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 28px;
+    }
+    h1 { margin: 0; font-size: 24px; letter-spacing: 0; }
+    h2 { margin: 32px 0 12px; font-size: 20px; letter-spacing: 0; color: #f8fbff; }
+    h3 { margin: 24px 0 10px; font-size: 17px; letter-spacing: 0; }
+    h4 { margin: 18px 0 8px; font-size: 15px; letter-spacing: 0; color: var(--accent); }
+    p { margin: 10px 0; color: #d7e1ee; }
+    a { color: var(--accent-2); text-decoration: none; font-weight: 650; }
+    a:hover { text-decoration: underline; }
+    .meta { margin-top: 6px; color: var(--muted); font-size: 13px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 7px 11px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--surface-2);
+      color: var(--text);
+    }
+    hr { border: 0; border-top: 1px solid var(--line); margin: 26px 0; }
+    ul, ol { margin: 10px 0 14px 24px; padding: 0; }
+    li { margin: 6px 0; }
+    code {
+      color: var(--code);
+      background: #172033;
+      border: 1px solid #26364d;
+      border-radius: 4px;
+      padding: 1px 5px;
+      font-size: 0.92em;
+    }
+    pre {
+      overflow-x: auto;
+      background: #0d1420;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 14px;
+    }
+    pre code { border: 0; background: transparent; padding: 0; }
+    .report-table-wrap {
+      overflow-x: auto;
+      margin: 14px 0 22px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--surface);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    th, td {
+      padding: 9px 10px;
+      text-align: left;
+      vertical-align: top;
+      border-bottom: 1px solid var(--line);
+    }
+    th {
+      position: sticky;
+      top: 72px;
+      background: #182334;
+      color: #dbeafe;
+      text-transform: uppercase;
+      font-size: 11px;
+      letter-spacing: 0;
+    }
+    tr:nth-child(even) td { background: rgba(255, 255, 255, 0.018); }
+    tr:last-child td { border-bottom: 0; }
+    @media (max-width: 800px) {
+      header, main { padding-left: 16px; padding-right: 16px; }
+      th { position: static; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>2026-07-14 content gap report</h1>
+    <div class="meta">Formatted view generated 2026-07-14 10:47 from Content_Gap_Analysis/2026-07-14_content_gap_report.md</div>
+    <div class="actions">
+      <a class="button" href="../../seo_dashboard.html">Dashboard</a>
+      <a class="button" href="../../Content_Gap_Analysis/2026-07-14_content_gap_report.md">Source Markdown</a>
+      <a class="button" href="../../Content_Gap_Analysis/">Report Folder</a>
+    </div>
+  </header>
+  <main>
+    <hr>
+<p>type: seo_content_gap_report</p>
+<p>source_agent: SEO_Agent</p>
+<p>created: 2026-07-14</p>
+<p>related_findings: []</p>
+<p>related_concepts:</p>
+<ul>
+<li>PRODUCT_HEAVY_NO_PILLAR</li>
+<li>FRAGMENTED_TOPIC</li>
+</ul>
+<p>related_projects:</p>
+<ul>
+<li>Search Console</li>
+</ul>
+<p>related_reports: []</p>
+<hr>
+<h1>MORFRAC SEO Content Gap Analysis</h1>
+<h2>Generated</h2>
+<p>2026-07-14</p>
+<hr>
+<h1>Purpose</h1>
+<p>This report identifies missing content and authority gaps across MORFRAC semantic SEO clusters.</p>
+<p>It uses deterministic data from:</p>
+<ul>
+<li>semantic cluster analysis</li>
+<li>crawl data</li>
+<li>Search Console merge data</li>
+<li>contextual linking outputs</li>
+</ul>
+<p>It detects:</p>
+<ul>
+<li>product-heavy clusters without technical authority content</li>
+<li>product-heavy clusters without pillar/landing pages</li>
+<li>authority content without commercial targets</li>
+<li>orphan commercial topics</li>
+<li>search-demand topics without supporting authority content</li>
+</ul>
+<hr>
+<h1>Source Files</h1>
+<ul>
+<li>Semantic clusters: <code>C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Semantic_Clusters\2026-07-14_semantic_clusters.csv</code></li>
+<li>Semantic pages: <code>C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Semantic_Clusters\2026-07-14_semantic_cluster_pages.csv</code></li>
+<li>Search Console merge: <code>C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Merged_Analysis\2026-07-14_search_console_merge.csv</code></li>
+<li>Contextual links: <code>C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Contextual_Links\2026-07-14_contextual_link_recommendations_filtered.csv</code></li>
+</ul>
+<hr>
+<h1>Summary</h1>
+<ul>
+<li>Semantic clusters reviewed: 12</li>
+<li>Content gaps detected: 10</li>
+<li>Authority gaps detected: 10</li>
+<li>Missing pillar-page gaps: 8</li>
+<li>Orphan commercial topics: 0</li>
+</ul>
+<hr>
+<h1>Highest Priority Content Gaps</h1>
+
+    <div class="report-table-wrap">
+      <table>
+        <thead><tr><th>semantic_cluster_id</th><th>dominant_label</th><th>page_count</th><th>product_pages</th><th>category_pages</th><th>landing_pages</th><th>authority_content_pages</th><th>total_impressions</th><th>total_clicks</th><th>avg_seo_priority_score</th><th>cluster_health</th><th>top_terms</th><th>role_counts</th><th>label_counts</th><th>gap_type</th><th>gap_score</th><th>recommended_action</th></tr></thead>
+        <tbody><tr><td>5</td><td>dogbone</td><td>20</td><td>20</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>PRODUCT_HEAVY_NO_PILLAR</td><td>dogbone, length, morfrac dogbone, aluminium, 60mm, total length, total, length morfrac, morfrac, dogbone aluminium</td><td>{&#x27;product&#x27;: 20}</td><td>{&#x27;dogbone&#x27;: 20}</td><td>Missing technical authority content</td><td>155</td><td>Create technical guide content supporting the dogbone product family.</td></tr><tr><td>0</td><td>morfring</td><td>12</td><td>12</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>PRODUCT_HEAVY_NO_PILLAR</td><td>friction, ptfe, ring, friction ring, morfring, aluminium friction, aluminium, groove, groove max, morfrac morfring</td><td>{&#x27;product&#x27;: 12}</td><td>{&#x27;morfring&#x27;: 12}</td><td>Missing technical authority content</td><td>151</td><td>Create technical guide content supporting the morfring product family.</td></tr><tr><td>2</td><td>morfblock</td><td>30</td><td>30</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>FRAGMENTED_TOPIC</td><td>morfblock light, light, lightweight sailing, sailing block, block, sailing, morfblock, swl, lightweight, high</td><td>{&#x27;product&#x27;: 30}</td><td>{&#x27;morfblock&#x27;: 30}</td><td>Missing technical authority content</td><td>145</td><td>Create technical guide content supporting the morfblock product family.</td></tr><tr><td>1</td><td>powerfurl</td><td>44</td><td>44</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>FRAGMENTED_TOPIC</td><td>powerfurl, furling, swl, 5t swl, 5t, kit, 10t, 10t swl, morfrac powerfurl, reliable</td><td>{&#x27;product&#x27;: 44}</td><td>{&#x27;powerfurl&#x27;: 41, &#x27;shackle&#x27;: 3}</td><td>Missing technical authority content</td><td>145</td><td>Create technical guide content supporting the powerfurl product family.</td></tr><tr><td>6</td><td>morfblock</td><td>22</td><td>22</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>FRAGMENTED_TOPIC</td><td>xl, sailing block, morfblock xl, block, xl sailing, morfblock, wood, sailing, swl, high load</td><td>{&#x27;product&#x27;: 22}</td><td>{&#x27;morfblock&#x27;: 22}</td><td>Missing technical authority content</td><td>145</td><td>Create technical guide content supporting the morfblock product family.</td></tr><tr><td>3</td><td>other</td><td>49</td><td>11</td><td>0</td><td>5</td><td>21</td><td>582</td><td>15</td><td>3.6</td><td>FRAGMENTED_TOPIC</td><td>custom, morfrac, morfblock, snatch, morfwing, high performance, hardware, 2024, performance, sail</td><td>{&#x27;authority_content&#x27;: 21, &#x27;general&#x27;: 12, &#x27;product&#x27;: 11, &#x27;landing&#x27;: 5}</td><td>{&#x27;other&#x27;: 12, &#x27;powerfurl&#x27;: 8, &#x27;morfblock&#x27;: 8, &#x27;custom_engineering&#x27;: 6, &#x27;morfwing&#x27;: 5, &#x27;mloop&#x27;: 4, &#x27;dogbone&#x27;: 3, &#x27;morfring&#x27;: 2, &#x27;hoistlock&#x27;: 1}</td><td>Missing category support</td><td>121.6</td><td>Create or improve category structure for other pages.</td></tr><tr><td>10</td><td>dogbone</td><td>8</td><td>8</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>PRODUCT_HEAVY_NO_PILLAR</td><td>rope reeler, reeler, mreel, dogbone, mreel rope, rope, length, morfrac dogbone, reeler morfrac, morfrac mreel</td><td>{&#x27;product&#x27;: 8}</td><td>{&#x27;dogbone&#x27;: 4, &#x27;mreel&#x27;: 4}</td><td>Missing category support</td><td>74</td><td>Create or improve category structure for dogbone pages.</td></tr><tr><td>7</td><td>dogbone</td><td>6</td><td>6</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>PRODUCT_HEAVY_NO_PILLAR</td><td>faced, flat, flat faced, faced titanium, dogbone flat, dogbone, morfrac dogbone, titanium, titanium morfrac, titanium dogbone</td><td>{&#x27;product&#x27;: 6}</td><td>{&#x27;dogbone&#x27;: 6}</td><td>Missing category support</td><td>68</td><td>Create or improve category structure for dogbone pages.</td></tr><tr><td>11</td><td>shackle</td><td>10</td><td>9</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>OK</td><td>shackle, ti shackle, ti, titanium shackle, titanium, ø6mm, machined, cnc, cnc machined, ultra</td><td>{&#x27;product&#x27;: 9, &#x27;landing&#x27;: 1}</td><td>{&#x27;shackle&#x27;: 10}</td><td>Missing category support</td><td>47</td><td>Create or improve category structure for shackle pages.</td></tr><tr><td>8</td><td>padeye</td><td>9</td><td>8</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>OK</td><td>padeye, stick, deck, morfrac padeye, stick padeye, 20, ring, deck padeye, ring 20, padeye ring</td><td>{&#x27;product&#x27;: 8, &#x27;landing&#x27;: 1}</td><td>{&#x27;padeye&#x27;: 9}</td><td>Missing category support</td><td>44</td><td>Create or improve category structure for padeye pages.</td></tr></tbody>
+      </table>
+    </div>
+    
+<hr>
+<h1>Authority Content Gaps</h1>
+
+    <div class="report-table-wrap">
+      <table>
+        <thead><tr><th>semantic_cluster_id</th><th>dominant_label</th><th>page_count</th><th>product_pages</th><th>category_pages</th><th>landing_pages</th><th>authority_content_pages</th><th>total_impressions</th><th>total_clicks</th><th>avg_seo_priority_score</th><th>cluster_health</th><th>top_terms</th><th>role_counts</th><th>label_counts</th><th>gap_type</th><th>gap_score</th><th>recommended_action</th></tr></thead>
+        <tbody><tr><td>5</td><td>dogbone</td><td>20</td><td>20</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>PRODUCT_HEAVY_NO_PILLAR</td><td>dogbone, length, morfrac dogbone, aluminium, 60mm, total length, total, length morfrac, morfrac, dogbone aluminium</td><td>{&#x27;product&#x27;: 20}</td><td>{&#x27;dogbone&#x27;: 20}</td><td>Missing technical authority content</td><td>155</td><td>Create technical guide content supporting the dogbone product family.</td></tr><tr><td>0</td><td>morfring</td><td>12</td><td>12</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>PRODUCT_HEAVY_NO_PILLAR</td><td>friction, ptfe, ring, friction ring, morfring, aluminium friction, aluminium, groove, groove max, morfrac morfring</td><td>{&#x27;product&#x27;: 12}</td><td>{&#x27;morfring&#x27;: 12}</td><td>Missing technical authority content</td><td>151</td><td>Create technical guide content supporting the morfring product family.</td></tr><tr><td>2</td><td>morfblock</td><td>30</td><td>30</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>FRAGMENTED_TOPIC</td><td>morfblock light, light, lightweight sailing, sailing block, block, sailing, morfblock, swl, lightweight, high</td><td>{&#x27;product&#x27;: 30}</td><td>{&#x27;morfblock&#x27;: 30}</td><td>Missing technical authority content</td><td>145</td><td>Create technical guide content supporting the morfblock product family.</td></tr><tr><td>1</td><td>powerfurl</td><td>44</td><td>44</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>FRAGMENTED_TOPIC</td><td>powerfurl, furling, swl, 5t swl, 5t, kit, 10t, 10t swl, morfrac powerfurl, reliable</td><td>{&#x27;product&#x27;: 44}</td><td>{&#x27;powerfurl&#x27;: 41, &#x27;shackle&#x27;: 3}</td><td>Missing technical authority content</td><td>145</td><td>Create technical guide content supporting the powerfurl product family.</td></tr><tr><td>6</td><td>morfblock</td><td>22</td><td>22</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>FRAGMENTED_TOPIC</td><td>xl, sailing block, morfblock xl, block, xl sailing, morfblock, wood, sailing, swl, high load</td><td>{&#x27;product&#x27;: 22}</td><td>{&#x27;morfblock&#x27;: 22}</td><td>Missing technical authority content</td><td>145</td><td>Create technical guide content supporting the morfblock product family.</td></tr><tr><td>10</td><td>dogbone</td><td>8</td><td>8</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>PRODUCT_HEAVY_NO_PILLAR</td><td>rope reeler, reeler, mreel, dogbone, mreel rope, rope, length, morfrac dogbone, reeler morfrac, morfrac mreel</td><td>{&#x27;product&#x27;: 8}</td><td>{&#x27;dogbone&#x27;: 4, &#x27;mreel&#x27;: 4}</td><td>Missing category support</td><td>74</td><td>Create or improve category structure for dogbone pages.</td></tr><tr><td>7</td><td>dogbone</td><td>6</td><td>6</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>PRODUCT_HEAVY_NO_PILLAR</td><td>faced, flat, flat faced, faced titanium, dogbone flat, dogbone, morfrac dogbone, titanium, titanium morfrac, titanium dogbone</td><td>{&#x27;product&#x27;: 6}</td><td>{&#x27;dogbone&#x27;: 6}</td><td>Missing category support</td><td>68</td><td>Create or improve category structure for dogbone pages.</td></tr><tr><td>11</td><td>shackle</td><td>10</td><td>9</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>OK</td><td>shackle, ti shackle, ti, titanium shackle, titanium, ø6mm, machined, cnc, cnc machined, ultra</td><td>{&#x27;product&#x27;: 9, &#x27;landing&#x27;: 1}</td><td>{&#x27;shackle&#x27;: 10}</td><td>Missing category support</td><td>47</td><td>Create or improve category structure for shackle pages.</td></tr><tr><td>8</td><td>padeye</td><td>9</td><td>8</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>OK</td><td>padeye, stick, deck, morfrac padeye, stick padeye, 20, ring, deck padeye, ring 20, padeye ring</td><td>{&#x27;product&#x27;: 8, &#x27;landing&#x27;: 1}</td><td>{&#x27;padeye&#x27;: 9}</td><td>Missing category support</td><td>44</td><td>Create or improve category structure for padeye pages.</td></tr><tr><td>9</td><td>morfblock</td><td>8</td><td>6</td><td>2</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>OK</td><td>morfblock max, max, morfblock, sailing, efficiency, sailing block, maximum reliability, block, efficiency sailing, max lightweight</td><td>{&#x27;product&#x27;: 6, &#x27;category&#x27;: 2}</td><td>{&#x27;morfblock&#x27;: 8}</td><td>No major gap</td><td>18</td><td>Monitor; no immediate content gap detected.</td></tr></tbody>
+      </table>
+    </div>
+    
+<hr>
+<h1>Missing Pillar / Landing Page Gaps</h1>
+
+    <div class="report-table-wrap">
+      <table>
+        <thead><tr><th>semantic_cluster_id</th><th>dominant_label</th><th>page_count</th><th>product_pages</th><th>category_pages</th><th>landing_pages</th><th>authority_content_pages</th><th>total_impressions</th><th>total_clicks</th><th>avg_seo_priority_score</th><th>cluster_health</th><th>top_terms</th><th>role_counts</th><th>label_counts</th><th>gap_type</th><th>gap_score</th><th>recommended_action</th></tr></thead>
+        <tbody><tr><td>5</td><td>dogbone</td><td>20</td><td>20</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>PRODUCT_HEAVY_NO_PILLAR</td><td>dogbone, length, morfrac dogbone, aluminium, 60mm, total length, total, length morfrac, morfrac, dogbone aluminium</td><td>{&#x27;product&#x27;: 20}</td><td>{&#x27;dogbone&#x27;: 20}</td><td>Missing technical authority content</td><td>155</td><td>Create technical guide content supporting the dogbone product family.</td></tr><tr><td>0</td><td>morfring</td><td>12</td><td>12</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>PRODUCT_HEAVY_NO_PILLAR</td><td>friction, ptfe, ring, friction ring, morfring, aluminium friction, aluminium, groove, groove max, morfrac morfring</td><td>{&#x27;product&#x27;: 12}</td><td>{&#x27;morfring&#x27;: 12}</td><td>Missing technical authority content</td><td>151</td><td>Create technical guide content supporting the morfring product family.</td></tr><tr><td>1</td><td>powerfurl</td><td>44</td><td>44</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>FRAGMENTED_TOPIC</td><td>powerfurl, furling, swl, 5t swl, 5t, kit, 10t, 10t swl, morfrac powerfurl, reliable</td><td>{&#x27;product&#x27;: 44}</td><td>{&#x27;powerfurl&#x27;: 41, &#x27;shackle&#x27;: 3}</td><td>Missing technical authority content</td><td>145</td><td>Create technical guide content supporting the powerfurl product family.</td></tr><tr><td>2</td><td>morfblock</td><td>30</td><td>30</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>FRAGMENTED_TOPIC</td><td>morfblock light, light, lightweight sailing, sailing block, block, sailing, morfblock, swl, lightweight, high</td><td>{&#x27;product&#x27;: 30}</td><td>{&#x27;morfblock&#x27;: 30}</td><td>Missing technical authority content</td><td>145</td><td>Create technical guide content supporting the morfblock product family.</td></tr><tr><td>6</td><td>morfblock</td><td>22</td><td>22</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>FRAGMENTED_TOPIC</td><td>xl, sailing block, morfblock xl, block, xl sailing, morfblock, wood, sailing, swl, high load</td><td>{&#x27;product&#x27;: 22}</td><td>{&#x27;morfblock&#x27;: 22}</td><td>Missing technical authority content</td><td>145</td><td>Create technical guide content supporting the morfblock product family.</td></tr><tr><td>10</td><td>dogbone</td><td>8</td><td>8</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>PRODUCT_HEAVY_NO_PILLAR</td><td>rope reeler, reeler, mreel, dogbone, mreel rope, rope, length, morfrac dogbone, reeler morfrac, morfrac mreel</td><td>{&#x27;product&#x27;: 8}</td><td>{&#x27;dogbone&#x27;: 4, &#x27;mreel&#x27;: 4}</td><td>Missing category support</td><td>74</td><td>Create or improve category structure for dogbone pages.</td></tr><tr><td>7</td><td>dogbone</td><td>6</td><td>6</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>PRODUCT_HEAVY_NO_PILLAR</td><td>faced, flat, flat faced, faced titanium, dogbone flat, dogbone, morfrac dogbone, titanium, titanium morfrac, titanium dogbone</td><td>{&#x27;product&#x27;: 6}</td><td>{&#x27;dogbone&#x27;: 6}</td><td>Missing category support</td><td>68</td><td>Create or improve category structure for dogbone pages.</td></tr><tr><td>9</td><td>morfblock</td><td>8</td><td>6</td><td>2</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>OK</td><td>morfblock max, max, morfblock, sailing, efficiency, sailing block, maximum reliability, block, efficiency sailing, max lightweight</td><td>{&#x27;product&#x27;: 6, &#x27;category&#x27;: 2}</td><td>{&#x27;morfblock&#x27;: 8}</td><td>No major gap</td><td>18</td><td>Monitor; no immediate content gap detected.</td></tr></tbody>
+      </table>
+    </div>
+    
+<hr>
+<h1>Orphan Commercial Topics</h1>
+<p>No commercial orphan topics detected.</p>
+<hr>
+<h1>Interpretation Notes</h1>
+<p>Gap type meanings:</p>
+<ul>
+<li><code>Missing technical authority content</code>: product cluster exists, but there are no supporting technical/educational pages.</li>
+<li><code>Missing commercial pillar page</code>: many pages exist, but no central commercial landing page supports the cluster.</li>
+<li><code>Missing category support</code>: product pages exist without enough category-level support.</li>
+<li><code>Authority content lacks commercial target</code>: educational/blog content exists but does not clearly connect to products/categories.</li>
+<li><code>Search demand without authority support</code>: impressions exist, but the topic lacks supporting authority content.</li>
+<li><code>Orphan topic</code>: topic has only one semantic cluster/page path and may need support if commercially useful.</li>
+</ul>
+<p>Recommended actions:</p>
+<ol>
+<li>Build technical guides for product-heavy clusters.</li>
+<li>Build commercial landing pages where product families lack a central pillar.</li>
+<li>Link authority content toward product/category pages.</li>
+<li>Avoid creating new content in fragmented topics before consolidation.</li>
+<li>Prioritize gaps with impressions, product pages, and high gap scores.</li>
+</ol>
+<hr>
+<h1>Output Files</h1>
+<ul>
+<li>Content gap analysis: <code>C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Content_Gap_Analysis\2026-07-14_content_gap_analysis.csv</code></li>
+<li>Authority gap analysis: <code>C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Content_Gap_Analysis\2026-07-14_authority_gap_analysis.csv</code></li>
+<li>Missing pillar pages: <code>C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Content_Gap_Analysis\2026-07-14_missing_pillar_pages.csv</code></li>
+<li>Orphan commercial topics: <code>C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Content_Gap_Analysis\2026-07-14_orphan_commercial_topics.csv</code></li>
+<li>Page support summary: <code>C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Content_Gap_Analysis\2026-07-14_page_support_summary.csv</code></li>
+</ul>
+<h2>Related Links</h2>
+<h3>Concepts</h3>
+<ul>
+<li>[[PRODUCT_HEAVY_NO_PILLAR]]</li>
+<li>[[FRAGMENTED_TOPIC]]</li>
+</ul>
+<h3>Projects</h3>
+<ul>
+<li>[[Search Console]]</li>
+</ul>
+  </main>
+</body>
+</html>
