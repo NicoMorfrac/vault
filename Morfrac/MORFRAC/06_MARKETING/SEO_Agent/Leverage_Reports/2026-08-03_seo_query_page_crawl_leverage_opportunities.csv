@@ -1,0 +1,32 @@
+﻿query,page,clicks,impressions,ctr_percent,expected_ctr,ctr_gap,position,query_type,intent,page_type,issue_count,title_length,meta_description_length,issues,opportunity_score,opportunity_level
+dogbone,https://www.morfrac.com/dogbone,2.0,184.0,1.09,2.5,1.41,8.62,Non-branded,commercial,landing,0,19.0,134.0,,115,VERY HIGH
+dogbones,https://www.morfrac.com/dogbone,0.0,65.0,0.0,2.5,2.5,8.4,Non-branded,commercial,landing,0,19.0,134.0,,105,VERY HIGH
+dog bone,https://www.morfrac.com/es/dogbone,0.0,6.0,0.0,3.5,3.5,6.5,Non-branded,commercial,landing,0,19.0,134.0,,105,VERY HIGH
+dog bone shackle,https://www.morfrac.com/dogbone,0.0,18.0,0.0,2.5,2.5,8.83,Non-branded,commercial,landing,0,19.0,134.0,,95,HIGH
+dogbone shackle,https://www.morfrac.com/dogbone,0.0,12.0,0.0,2.5,2.5,8.5,Non-branded,commercial,landing,0,19.0,134.0,,95,HIGH
+padeyes,https://www.morfrac.com/padeye,1.0,150.0,0.67,0.8,0.13,18.27,Non-branded,commercial,landing,0,18.0,133.0,,95,HIGH
+1.5t shackle,https://www.morfrac.com/shop/ti-shackle-grade5-titanium-shackle-12526,0.0,5.0,0.0,2.0,2.0,9.8,Non-branded,commercial,product,0,55.0,152.0,,90,HIGH
+m loop,https://www.morfrac.com/shop/mloop-dyneema-loop-12675,0.0,34.0,0.0,1.0,1.0,14.0,Non-branded,commercial,product,0,44.0,158.0,,90,HIGH
+farr x2 for sale,https://www.morfrac.com/blog/news-1/farr-x2-5,0.0,24.0,0.0,2.0,2.0,9.54,Non-branded,commercial,blog,0,0.0,0.0,,90,HIGH
+dog bone soft shackle,https://www.morfrac.com/dogbone,0.0,8.0,0.0,1.0,1.0,10.75,Non-branded,commercial,landing,0,19.0,134.0,,85,HIGH
+deck pad eye,https://www.morfrac.com/padeye,0.0,10.0,0.0,1.0,1.0,10.6,Non-branded,commercial,landing,0,18.0,133.0,,85,HIGH
+custom shackles,https://www.morfrac.com/shackle,0.0,8.0,0.0,1.0,1.0,10.25,Non-branded,commercial,landing,0,22.0,127.0,,85,HIGH
+dogbone,https://www.morfrac.com/es/dogbone,2.0,85.0,2.35,3.0,0.6499999999999999,7.53,Non-branded,commercial,landing,0,19.0,134.0,,85,HIGH
+dogbone carriers,https://www.morfrac.com/dogbone,0.0,15.0,0.0,1.0,1.0,12.6,Non-branded,commercial,landing,0,19.0,134.0,,85,HIGH
+farr x2,https://www.morfrac.com/blog/news-1/farr-x2-5,0.0,21.0,0.0,1.0,1.0,11.29,Non-branded,commercial,blog,0,0.0,0.0,,80,HIGH
+dog bone,https://www.morfrac.com/dogbone,0.0,19.0,0.0,10.0,10.0,2.21,Non-branded,commercial,landing,0,19.0,134.0,,80,HIGH
+titanium shackle,https://www.morfrac.com/shackle,2.0,17.0,11.76,2.0,-9.76,9.59,Non-branded,commercial,landing,0,22.0,127.0,,75,HIGH
+dog bone rigging,https://www.morfrac.com/dogbone,1.0,14.0,7.14,4.0,-3.1399999999999997,5.57,Non-branded,commercial,landing,0,19.0,134.0,,75,HIGH
+dogbones,https://www.morfrac.com/es/dogbone,0.0,61.0,0.0,0.8,0.8,19.25,Non-branded,commercial,landing,0,19.0,134.0,,75,HIGH
+sailing dog bone,https://www.morfrac.com/dogbone,1.0,6.0,16.67,2.5,-14.170000000000002,8.5,Non-branded,commercial,landing,0,19.0,134.0,,75,HIGH
+soft padeye,https://www.morfrac.com/padeye,1.0,11.0,9.09,1.0,-8.09,12.18,Non-branded,commercial,landing,0,18.0,133.0,,75,HIGH
+dogbone joint,https://www.morfrac.com/dogbone,0.0,46.0,0.0,0.4,0.4,38.59,Non-branded,commercial,landing,0,19.0,134.0,,65,MEDIUM
+d shackle,https://www.morfrac.com/es/shop/shackle-17-4ph-12827,0.0,22.0,0.0,0.8,0.8,16.41,Non-branded,commercial,product,0,45.0,170.0,,60,MEDIUM
+d-shackle,https://www.morfrac.com/es/shop/shackle-17-4ph-12827,0.0,14.0,0.0,0.8,0.8,17.14,Non-branded,commercial,product,0,45.0,170.0,,60,MEDIUM
+conurban marine,https://www.morfrac.com/partner,0.0,10.0,0.0,3.0,3.0,7.8,Non-branded,unknown,other,0,32.0,94.0,,55,MEDIUM
+aluminum vs titanium vs stainless steel,https://www.morfrac.com/blog/stories-4/aluminium-titanium-stainless-steel-39,0.0,17.0,0.0,5.0,5.0,4.29,Non-branded,unknown,blog,0,82.0,230.0,,50,MEDIUM
+aluminum vs stainless steel vs titanium,https://www.morfrac.com/blog/stories-4/aluminium-titanium-stainless-steel-39,1.0,38.0,2.63,4.0,1.37,5.18,Non-branded,unknown,blog,0,82.0,230.0,,40,LOW
+aluminium vs stainless steel vs titanium,https://www.morfrac.com/blog/stories-4/aluminium-titanium-stainless-steel-39,0.0,6.0,0.0,7.0,7.0,3.67,Non-branded,unknown,blog,0,82.0,230.0,,25,LOW
+fixafrac,https://www.morfrac.com/solutions,0.0,13.0,0.0,0.8,0.8,20.0,Non-branded,unknown,other,0,39.0,156.0,,15,LOW
+aluminum vs steel vs titanium,https://www.morfrac.com/blog/stories-4/aluminium-titanium-stainless-steel-39,0.0,5.0,0.0,0.8,0.8,17.2,Non-branded,unknown,blog,0,82.0,230.0,,10,LOW
+camfrac,https://www.morfrac.com/,0.0,12.0,0.0,0.2,0.2,41.5,Non-branded,unknown,home,0,43.0,160.0,,0,LOW
