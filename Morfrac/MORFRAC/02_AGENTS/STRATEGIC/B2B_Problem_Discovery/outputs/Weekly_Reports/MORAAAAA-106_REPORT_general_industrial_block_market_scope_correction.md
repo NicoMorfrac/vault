@@ -3,8 +3,8 @@ type: b2b_weekly_report
 source_agent: B2B_Problem_Discovery
 created: 2026-08-07
 related_findings:
-  - MORAAAAA-106-04_SERVICING_underdetected_sheave_bearing_and_pin_degradation_in_lifting_blocks
-  - MORAAAAA-106-05_QUALITY_CONTROL_sheave_design_change_and_retrofit_validation_gaps
+  - MORAAAAA-106-07_SERVICING_underdetected_sheave_bearing_and_pin_degradation_in_lifting_blocks
+  - MORAAAAA-106-08_QUALITY_CONTROL_sheave_design_change_and_retrofit_validation_gaps
 related_concepts:
   - ENGINEERING_UNCERTAINTY
   - MECHANICAL_INTEGRATION_COMPLEXITY
@@ -39,8 +39,8 @@ The recurring value signal is not a generic block product. It is bounded enginee
 
 # HIGH_VALUE_FINDINGS
 
-- `[[MORAAAAA-106-04_SERVICING_underdetected_sheave_bearing_and_pin_degradation_in_lifting_blocks]]`
-- `[[MORAAAAA-106-05_QUALITY_CONTROL_sheave_design_change_and_retrofit_validation_gaps]]`
+- `[[MORAAAAA-106-07_SERVICING_underdetected_sheave_bearing_and_pin_degradation_in_lifting_blocks]]`
+- `[[MORAAAAA-106-08_QUALITY_CONTROL_sheave_design_change_and_retrofit_validation_gaps]]`
 
 ---
 
@@ -108,8 +108,8 @@ The evidence quality is high at the incident-analysis level and lower on direct 
 
 ## Related Links
 
-- [[MORAAAAA-106-04_SERVICING_underdetected_sheave_bearing_and_pin_degradation_in_lifting_blocks]]
-- [[MORAAAAA-106-05_QUALITY_CONTROL_sheave_design_change_and_retrofit_validation_gaps]]
+- [[MORAAAAA-106-07_SERVICING_underdetected_sheave_bearing_and_pin_degradation_in_lifting_blocks]]
+- [[MORAAAAA-106-08_QUALITY_CONTROL_sheave_design_change_and_retrofit_validation_gaps]]
 - [[ENGINEERING_UNCERTAINTY]]
 - [[MECHANICAL_INTEGRATION_COMPLEXITY]]
 - [[RETROFIT_COMPLEXITY]]

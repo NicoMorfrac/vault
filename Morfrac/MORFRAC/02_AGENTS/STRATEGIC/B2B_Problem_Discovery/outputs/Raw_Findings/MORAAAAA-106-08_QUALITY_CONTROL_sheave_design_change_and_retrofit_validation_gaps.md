@@ -3,7 +3,7 @@ type: b2b_raw_finding
 source_agent: B2B_Problem_Discovery
 created: 2026-08-07
 related_findings:
-  - MORAAAAA-106-04_SERVICING_underdetected_sheave_bearing_and_pin_degradation_in_lifting_blocks
+  - MORAAAAA-106-07_SERVICING_underdetected_sheave_bearing_and_pin_degradation_in_lifting_blocks
 related_concepts:
   - ENGINEERING_UNCERTAINTY
   - MECHANICAL_INTEGRATION_COMPLEXITY
@@ -13,7 +13,7 @@ related_reports:
   - MORAAAAA-106_REPORT_general_industrial_block_market_scope_correction
 ---
 
-# MORAAAAA-106-05 Sheave design-change and retrofit validation gaps
+# MORAAAAA-106-08 Sheave design-change and retrofit validation gaps
 
 ---
 
@@ -144,7 +144,7 @@ MEDIUM
 
 ## Related Links
 
-- [[MORAAAAA-106-04_SERVICING_underdetected_sheave_bearing_and_pin_degradation_in_lifting_blocks]]
+- [[MORAAAAA-106-07_SERVICING_underdetected_sheave_bearing_and_pin_degradation_in_lifting_blocks]]
 - [[ENGINEERING_UNCERTAINTY]]
 - [[MECHANICAL_INTEGRATION_COMPLEXITY]]
 - [[RETROFIT_COMPLEXITY]]

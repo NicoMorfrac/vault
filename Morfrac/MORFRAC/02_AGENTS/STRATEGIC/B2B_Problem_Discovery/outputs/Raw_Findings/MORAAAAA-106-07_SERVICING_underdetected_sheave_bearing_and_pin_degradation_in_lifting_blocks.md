@@ -11,7 +11,7 @@ related_reports:
   - MORAAAAA-106_REPORT_general_industrial_block_market_scope_correction
 ---
 
-# MORAAAAA-106-04 Underdetected sheave-bearing and pin degradation in lifting blocks
+# MORAAAAA-106-07 Underdetected sheave-bearing and pin degradation in lifting blocks
 
 ---
 
