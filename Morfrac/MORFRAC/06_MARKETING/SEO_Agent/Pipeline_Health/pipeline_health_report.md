@@ -1,20 +1,20 @@
 ---
 type: seo_pipeline_health_report
 source_agent: SEO_Agent
-created: 2026-08-03
+created: 2026-08-10
 related_findings: []
 related_concepts: []
 related_projects:
   - Search Console
 related_reports:
-  - 2026-08-03_pipeline_health_report
+  - 2026-08-10_pipeline_health_report
 ---
 
 # MORFRAC SEO Pipeline Health Check
 
 ## Generated
 
-2026-08-03
+2026-08-10
 
 ---
 
@@ -73,9 +73,9 @@ If this report fails, fix the failing upstream script before relying on executiv
 
 # Output Files
 
-- Health CSV: `C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Pipeline_Health\2026-08-03_pipeline_health_check.csv`
+- Health CSV: `C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Pipeline_Health\2026-08-10_pipeline_health_check.csv`
 - Stable health CSV: `C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Pipeline_Health\pipeline_health_check.csv`
-- Health report: `C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Pipeline_Health\2026-08-03_pipeline_health_report.md`
+- Health report: `C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Pipeline_Health\2026-08-10_pipeline_health_report.md`
 - Stable health report: `C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Pipeline_Health\pipeline_health_report.md`
 
 ## Related Links
@@ -84,4 +84,4 @@ If this report fails, fix the failing upstream script before relying on executiv
 - [[Search Console]]
 
 ### Reports
-- [[2026-08-03_pipeline_health_report]]
+- [[2026-08-10_pipeline_health_report]]
