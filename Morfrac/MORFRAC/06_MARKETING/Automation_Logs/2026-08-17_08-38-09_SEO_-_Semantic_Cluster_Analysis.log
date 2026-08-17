@@ -1,0 +1,19 @@
+Loading crawl data...
+Crawl file: C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Crawls\2026-08-17_site_crawl.csv
+Search Console merge file: C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Merged_Analysis\2026-08-17_search_console_merge.csv
+Preparing semantic text...
+Running TF-IDF...
+Clustering pages...
+Calculating similarity...
+Building cluster summary...
+
+================================================
+SEO SEMANTIC CLUSTER ANALYSIS COMPLETE
+================================================
+Pages analyzed: 260
+Clusters: 12
+Similar pairs: 276
+Cannibalization/topic-overlap pairs: 265
+Orphan topic clusters: 0
+Report: C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Semantic_Clusters\2026-08-17_semantic_cluster_report.md
+================================================
