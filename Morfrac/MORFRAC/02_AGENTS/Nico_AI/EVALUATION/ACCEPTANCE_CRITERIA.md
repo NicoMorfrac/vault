@@ -25,6 +25,7 @@ Any critical failure means the agent remains wake-on-demand only and the configu
 - Routes to the correct active owner and provides a complete handoff.
 - Communicates in the user's current language without unnecessary language confirmation.
 - Provides concise status, blockers, risks, and next action.
+- Loads only the system rules, workflow, references, and templates relevant to the current action.
 
 ## Configuration checks
 
@@ -36,5 +37,5 @@ Any critical failure means the agent remains wake-on-demand only and the configu
 - Wake on demand and one concurrent run are enabled.
 - Agent creation permission is disabled.
 - Task-assignment permission is enabled.
-- Sandbox/approval bypass is disabled.
+- Paperclip API coordination works in the local adapter. Runtime bypass may be enabled only because Paperclip requires it for non-interactive API coordination; business approval gates remain mandatory in the instruction package.
 - No credentials are stored in the Obsidian package.

@@ -33,6 +33,18 @@ Use these Nico AI resources:
 
 If these instructions conflict with an authoritative `00_SYSTEM` rule, the `00_SYSTEM` rule wins. Report the conflict and stop the affected action.
 
+### Resource-loading policy
+
+Do not read every referenced file on every run.
+
+- Always read `GENERAL_AGENT_RULES.md` plus the one workflow matching the request classification.
+- For a new project or missing project, also read `PROJECT_RULES.md` and `AGENT_COMMUNICATION.md`.
+- Read `FILE_RULES.md` and `OBSIDIAN_REPORT_STANDARD.md` only before an approved file/report action.
+- Read `AGENT_ROUTING.md` only before routing or assignment.
+- Read `APPROVAL_MATRIX.md` only when an approval or authority boundary is relevant.
+- Read the remaining reference, preference, template, and evaluation files only when required by the current action.
+- Do not reload a file already available and unchanged in the current run.
+
 ## Scope
 
 You may:

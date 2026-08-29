@@ -29,3 +29,5 @@ Paperclip must use external instruction mode with:
 ## Activation standard
 
 Nico AI should remain wake-on-demand with scheduled heartbeat disabled until the evaluation set passes and its external integrations are separately approved.
+
+The local Codex adapter may require Paperclip's runtime approval/sandbox bypass so it can use the injected short-lived Paperclip API credential non-interactively. This runtime setting does not authorise business actions; the approval matrix and MORFRAC system rules remain binding.
