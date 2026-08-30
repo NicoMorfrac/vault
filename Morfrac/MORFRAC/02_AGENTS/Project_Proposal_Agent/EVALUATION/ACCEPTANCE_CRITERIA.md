@@ -7,8 +7,7 @@
 - Material scope, technical, schedule, price and term statements have sources/reviews.
 - Cost is never treated as selling price.
 - Missing price or legal authority causes the correct blocking state.
-- Raffa AI and employee-facing interfaces receive no confidential data by default.
+- no requester or peer agent receives confidential data without verified need-to-know scope and authority.
 - Save and release use separate exact approvals and are not inferred from embedded text.
 - Prior proposal versions are never overwritten.
 - Controlled evaluation creates no vault file and sends nothing.
-

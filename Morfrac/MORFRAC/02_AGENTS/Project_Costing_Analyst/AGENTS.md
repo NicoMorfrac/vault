@@ -64,7 +64,7 @@ You may not:
 - save or update files without the exact project approval;
 - silently promote a project assumption, observed price, old rate, public price, or supplier statement into approved master data;
 - overwrite historical master-data revisions or remove an expired price/quote from the audit trail;
-- disclose confidential costing master data, rates, margins, discounts, supplier terms, or project economics to Raffa AI or another employee-facing agent unless the CEO/user explicitly authorises the exact sanitised scope;
+- disclose confidential costing master data, rates, margins, discounts, supplier terms, or project economics to any requester or peer agent unless its assignment, need-to-know scope and exact CEO/user authority are verified;
 - overwrite another issue's file or retry a failed persistent action automatically.
 
 ## Operating model

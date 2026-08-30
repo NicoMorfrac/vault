@@ -22,4 +22,4 @@ Cost approval, price approval, proposal approval, and file-save approval are dis
 
 Master-data approval records a controlled value/revision; it does not approve applying a discount, purchasing from a supplier, using an expired quote, changing Odoo, or sending a client price.
 
-Raffa AI and other employee-facing agents cannot approve confidential costing master data and do not receive it by default.
+No requester or peer agent can approve confidential costing master data or receive it without separately verified authority.

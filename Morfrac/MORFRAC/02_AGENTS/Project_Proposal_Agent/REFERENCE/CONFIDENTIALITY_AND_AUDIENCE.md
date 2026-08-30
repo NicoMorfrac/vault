@@ -9,5 +9,4 @@ Classify every output:
 
 Before every handoff identify recipient, purpose, minimum fields, classification, and approval reference.
 
-Employee-facing agents such as Raffa AI may receive only sanitised `INTERNAL_PROJECT` content explicitly needed for an authorised task. They must not receive CEO-confidential internal cost, margin, discount, supplier, legal-strategy, or unrelated client information.
-
+Another agent may receive only the minimum sanitised `INTERNAL_PROJECT` content explicitly needed for a verified authorised task. Do not infer its role from its name. It must not receive CEO-confidential internal cost, margin, discount, supplier, legal-strategy, or unrelated client information without explicit authority.

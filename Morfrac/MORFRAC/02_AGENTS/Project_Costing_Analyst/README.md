@@ -29,4 +29,4 @@ It also collects reusable parameters as candidates and maintains approved, versi
 - Scheduled heartbeat disabled; wake on demand; one concurrent run
 - Agent creation disabled; task assignment enabled for specialist estimates
 
-Raffa AI is treated as an employee-facing interface, not a costing supervisor. It receives only explicitly authorised sanitised summaries and has no automatic access to costing parameters, margins, discounts, supplier terms, or project economics.
+No requester or peer agent is assumed to be a costing supervisor or to have access because of its name. Another agent receives only explicitly authorised sanitised summaries for a verified assignment and has no automatic access to costing parameters, margins, discounts, supplier terms, or project economics.
