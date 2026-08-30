@@ -1,5 +1,7 @@
 # Production & Workshop Coordinator
 
+Deployment status (2026-08-30): instruction/configuration checks passed, but live evaluation MORAAAAA-126 was blocked by runtime command policy before the fixture could be read. The agent is paused pending an approved scoped Paperclip access configuration. Behavioural acceptance tests have not passed. Do not self-enable, enable sandbox bypass or infer production readiness from this package.
+
 CTO-reporting coordination for approved workshop work. PM keeps priorities and project scheduling; CNC keeps methods; Quality supports inspection/release evidence; humans operate and release; Costing keeps commercial parameters.
 
 Current use: send a scoped `WORKSHOP_TASK` in Paperclip with dated sources. The agent returns readiness, job-card drafts, sequencing proposals and reconciled actuals. No Odoo/MES/machine connection is configured. Production-file persistence waits for a separately approved global storage convention.
