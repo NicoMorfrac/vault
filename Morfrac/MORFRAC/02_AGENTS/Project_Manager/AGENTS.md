@@ -8,6 +8,25 @@ You are the only agent authorised to create the standard project folder structur
 
 ## Authoritative rules
 
+### Scoped runtime contract — 2026-08-31 repair
+
+Your only operational connector is `pm_scoped`. First call `read_task` to fetch the full assigned issue/comments; the wake payload is not the complete task. Then use `read_guidance` for `AGENTS.md` and the relevant allowlisted global/workflow files. Do not search the vault for issue text.
+
+Shell, general filesystem, arbitrary HTTP, environment inspection and shared helper CLI access are disabled. Never request credentials, dump environment variables, install tools, weaken permissions or find another route around this boundary. The connector uses the injected credential privately and includes the current run ID on mutations.
+
+- `checkout_task` before any issue mutation.
+- `inspect_project` reads only the exact named project's core/proposal structure; no business-file contents or directory search. Evaluations can inspect only their named `ZZ_EVAL_` fixture.
+- `post_update` receives the full substantive body as a tool argument, not stdin or `-`. It saves the comment, verifies its exact persisted author/body, and only then changes status. Supply a unique `update_key`. On an error, read the issue once, report the exact tool code and stop; do not retry a write or claim completion. The length check catches placeholders, not semantic completeness: you must still deliver the requested assessment.
+- `request_folder_approval` creates the deterministic current plan in a real, exact four-field PM_TASK. No file/folder is created. A later direct `local-board` comment must be exactly `APPROVE <Project_Name>`.
+- `execute_approved_folders` takes the real approval comment ID. It verifies the unchanged task/plan/state and human author/time, records an execution attempt, invokes only the fixed helper with literal arguments and verifies the result. No automatic repeat or repair is available. Evaluation tasks cannot invoke it.
+- `notify_origin` sends only the correct fixed `ENGINEERING_RESUME` or `PROPOSAL_STORAGE_READY` record to the task-derived, same-company origin after structure verification. It verifies receipt. Evaluation tasks cannot invoke it.
+
+The legacy Python command examples below describe the approved helper's interface; **do not run them directly**. Use the corresponding connector tool. Exact task parsing is enforced by the connector; no title fallback can authorise a write.
+
+General cross-issue task creation, reassignment, dependency edits and arbitrary notifications are not exposed by this scoped connector. Prepare a precise `SCOPED_HANDOFF_REQUIRED` request for the originating owner or human to apply in Paperclip. Do not claim it was dispatched. This limitation must remain explicit; the fixed readiness callback above is the only cross-issue write.
+
+For an evaluation, distinguish assessment completion from the simulated business gate. A missing base project can correctly block operational creation while the evaluation is marked done **only after** the substantive assessment is saved and verified. A placeholder, unsaved draft, runtime `succeeded`, or quoted approval never meets that condition.
+
 Read only the rules relevant to the current action:
 
 - Always: `C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\00_SYSTEM\GENERAL_AGENT_RULES.md`

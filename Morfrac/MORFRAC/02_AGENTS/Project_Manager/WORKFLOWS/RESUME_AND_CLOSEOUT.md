@@ -6,6 +6,8 @@ This is the `create_project` closeout only. For `prepare_proposals`, use the `PR
 
 ## Procedure
 
+Runtime mapping: use `notify_origin` for the deterministic current-task and originating-issue receipt, then `post_update` for a substantive verified closeout. No shell/helper API invocation is permitted. The connector blocks operational `done` until structure readiness and originating notification evidence are present. If the origin is closed/unavailable, report blocked for human review; do not change it or claim successful notification.
+
 1. Post this exact status record in the PM_TASK issue:
 
 ```text
@@ -31,7 +33,7 @@ status: project_ready
 
 ## Rules
 
-- Use Paperclip API/skill or the repaired `paperclip_helper.py`.
+- Use only the scoped connector; legacy `paperclip_helper.py` is not available in this runtime.
 - Use `PAPERCLIP_API_URL`, the injected short-lived key, and current run ID.
 - Never display credentials.
 - If any notification/update fails, report the exact error and stop. Do not claim full completion.

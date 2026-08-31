@@ -173,6 +173,8 @@ If project creation or a write fails, report the exact error and stop. Do not re
 
 Use `REFERENCE/AGENT_ROUTING.md`. Route through Paperclip only.
 
+The 2026-08-31 routing repair recognises the configured specialist owners, including Costing and Proposal. Verify only intended recipients' identity/status; do not reload full company configuration to discover owners. Fetch the assigned issue description before working from a compact wake payload. Never dump environment variables or credentials. After posting a result, read back the actual saved comment before declaring it delivered or completing the evaluation. A successful HTTP call alone is not content verification.
+
 Every specialist handoff must contain:
 
 - originating issue UUID and project name;

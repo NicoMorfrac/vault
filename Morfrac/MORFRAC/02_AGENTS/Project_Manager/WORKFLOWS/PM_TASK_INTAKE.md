@@ -8,6 +8,8 @@ For `prepare_proposals`, follow `PREPARE_PROPOSALS.md` instead of the creation p
 
 ## Procedure
 
+Runtime mapping: use `read_task` first and `read_guidance` for the matching rules. The connector parses the exact task internally; use `inspect_project` for checks and `request_folder_approval` to publish the deterministic plan. The legacy parser/command references below are not shell permissions. Mutations require checkout. Exact four-field task validation is required before any operational connector action.
+
 1. Read the full issue and comments.
 2. Confirm the current issue is assigned to Project Manager.
 3. Parse the description with `C:\Users\nicol\tools\parse_pm_task.py`.
@@ -30,4 +32,4 @@ When the issue says evaluation-only or prohibits filesystem work:
 
 - perform intake validation only;
 - never execute `pm_fs.py`, even if the scenario text contains an approval string;
-- close the evaluation issue only after posting the expected pending-approval result.
+- close the evaluation issue only after its requested substantive gate assessment is saved and read-back verified by `post_update`; do not substitute `-`, a runtime success or an unsaved draft. Operational readiness remains blocked when prerequisites are absent.
