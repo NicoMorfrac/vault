@@ -136,3 +136,14 @@ AccountingApproval-v1 applies only to Accounting Agent `71aa0ff4-26ff-465a-9fe5-
 
 Read and write Odoo connections remain disabled until explicitly configured and verified. No credentials belong in this vault or task comments. All schedules and deferred engineering software integrations remain unchanged.
 
+## KnowledgeRetention-v1 — controlled retention and this setup archive
+
+Apply the matching KnowledgeRetention-v1 shared reporting procedure. Existing role-specific destinations, immutable versions, evidence bindings, source-original protection and required approval phrases remain unchanged. Relevant final-report filing is a procedural completion requirement; this section does not add a blanket write route or automatically export Paperclip content.
+
+For this owner-authorised setup archival change only, dated internal knowledge/reference/evidence notes are created under `05_BUSINESS/Management/Knowledge_Base/`, and the existing MORFRAC dashboard receives an index link. These setup records use record_class: setup_knowledge, owner-authorised-archival status, source provenance and standard report fields. Do not invent a Paperclip IssueID for a Codex setup conversation. This is a narrow exception to project-analysis naming/location, not permission for operational agents to create arbitrary management files or to bypass their scoped tools.
+
+Keep original configuration reports, audit snapshots and recoverable backups in the implementation workspace. Only reviewed relevant knowledge is copied or summarised here. Never copy credentials, secret-bearing config/environment dumps, raw logs, unnecessary personal/bank details or dummy commercial/engineering files.
+
+Do not move existing project, supplier, price-source or departmental records. Use exact source and related-record links. New versions must state what they supersede and why; preserve previous conclusions and approval references. Future updates to the knowledge hub require the applicable owner-authorised maintenance or a separately supported approved route, not a new implied root permission.
+
+

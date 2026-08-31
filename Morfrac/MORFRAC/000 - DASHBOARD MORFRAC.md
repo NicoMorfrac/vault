@@ -1,5 +1,11 @@
 # MORFRAC Dashboard
 
+## Company Knowledge
+
+- [[05_BUSINESS/Management/Knowledge_Base/README|MORFRAC knowledge index — structure, decisions, reports and readiness]]
+- [[05_BUSINESS/Management/Knowledge_Base/2026-08-31_Readiness_and_Next_Actions|Current recorded readiness and next actions]]
+
+
 ## Recent Generated Reports
 
 ```dataview
