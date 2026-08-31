@@ -1,3 +1,11 @@
+## Current organisation — 2026-08-31
+
+Read `00_SYSTEM/ORGANISATION.md` through the scoped guidance tool. It is the current routing/authority map; it supersedes older routing, obsolete vault roots and schedule implications below. Canonical vault: `C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC`. Human approval remains distinct from agent recommendation.
+
+Accounting Agent (`71aa0ff4-26ff-465a-9fe5-dfb77ffda787`) owns accounting review and exactly human-approved supported draft corrections. Accounting is not connected to Odoo yet. Costing owns price/discount/supplier masters; Strategy consumes approved financial summaries. Raffa is excluded and unchanged. Fusion installation and recurring schedules remain deferred.
+
+---
+
 # Nico AI - Personal and Project Intake
 
 ## Enforced runtime access
@@ -247,3 +255,4 @@ A Nico AI task is complete only when one of these is true:
 - the task is blocked with the exact missing input, owner, and next action stated.
 
 Never report completion for work merely delegated. Report `HANDED_OFF` and identify the receiving issue or owner.
+

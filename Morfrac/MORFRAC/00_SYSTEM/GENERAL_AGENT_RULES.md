@@ -27,6 +27,7 @@ PM_TASK:
 type: <task_type>
 project_name: <Project_Name>
 reason: <reason>
+originating_issue: <source-issue-UUID>
 
 ---
 
@@ -140,3 +141,17 @@ This scoped exception requires matching `ProposalWorkflow-v1` sections in `FILE_
 - Only after verified immutable saved files and all technical, schedule, price, commercial, and legal reviews, show an exact release plan with file hashes, approved references and intended human sender. Require a subsequent direct authorised human/board comment exactly `APPROVE PROPOSAL RELEASE <Proposal_ID> <Version>`.
 - Release approval permits only an issue-based release manifest/checklist and `HUMAN_RELEASE_READY` handoff to that human. It permits no new vault file, saved-file edit, removal of DRAFT status, upload, email, submission, signature, negotiation, acceptance, Odoo change, purchase, or commitment. Changed evidence/files invalidate release readiness and require renewed review.
 - Keep client-safe and internal material separate; share only with verified authorised audiences. Folder separation is organisational, not a technical access-control guarantee. No schedules, integrations, runtime permissions, or other agent configuration are changed by this policy.
+
+
+## Organisation cleanup — SpecialistRecords-v1 and AccountingApproval-v1
+
+Approved 2026-08-31 by the human owner. Read `00_SYSTEM/ORGANISATION.md` and `00_SYSTEM/SCOPED_RUNTIME.md` for current ownership and runtime controls. These narrow additions do not replace CostingMaster-v1, ProposalWorkflow-v1 or standard PM folders. Raffa remains excluded and unchanged.
+
+SpecialistRecords-v1 permits only new internal Markdown review files in exact role-specific departmental review roots listed in the reviewed org_scoped policy/runtime guide. Before any directory/file creation, the agent must publish the complete current plan: exact paths/bytes, proposed directories, source evidence hashes, version, purpose and limitations. Require the later direct human/local-board comment `APPROVE RECORD SAVE <Issue-ID> <Version>` in the same issue. The connector verifies unchanged task/plan/evidence/policies/destinations, records an attempt and verifies exact saved bytes. No overwrite of earlier versions, sources, master registers, project indices, binary files or released documents. No implicit creation of standard project folders. Do not treat this storage approval as technical/legal/commercial release or data-sharing approval. Unsupported legacy save/finalisation flows remain blocked, not silently redirected as completed.
+
+Leadership workplans may create only the exact new child work packages presented to the human and approved through `APPROVE WORKPLAN <Issue-ID> <Revision>`. No arbitrary reassignment, dependency edits, automatic hiring or permissions changes. Own-task progress/result comments and status bookkeeping are allowed within the assigned task; they do not approve business actions.
+
+AccountingApproval-v1 applies only to Accounting Agent `71aa0ff4-26ff-465a-9fe5-dfb77ffda787`. Odoo is read-only by default. A separately reviewed limited-write connection may apply only a frozen correction to `ref`, `invoice_date` or `invoice_date_due` on one existing draft customer invoice or supplier bill, after the later exact direct human `APPROVE ACCOUNTING CHANGE <Issue-ID> <Version>`. File-save/project/brief approval cannot substitute. The tool rechecks task/plan/record/configuration, persists one durable attempt and verifies readback; uncertainty stops further writes for human investigation. Connection, account rights, company scope, Odoo side effects and concurrency procedure must be reviewed before enabling production writes. The read-then-write check is not an atomic lock. Posting, payments, reconciliation, deletion, tax/amount/bank/access changes and unsupported operations remain human-executed. Generic "ok", quoted/stale/agent-authored approvals or changed plans never authorise execution.
+
+Read and write Odoo connections remain disabled until explicitly configured and verified. No credentials belong in this vault or task comments. All schedules and deferred engineering software integrations remain unchanged.
+

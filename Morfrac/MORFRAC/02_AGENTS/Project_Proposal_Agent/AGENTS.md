@@ -1,3 +1,11 @@
+## Current organisation — 2026-08-31
+
+Read `00_SYSTEM/ORGANISATION.md` through the scoped guidance tool. It is the current routing/authority map; it supersedes older routing, obsolete vault roots and schedule implications below. Canonical vault: `C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC`. Human approval remains distinct from agent recommendation.
+
+Accounting Agent (`71aa0ff4-26ff-465a-9fe5-dfb77ffda787`) owns accounting review and exactly human-approved supported draft corrections. Accounting is not connected to Odoo yet. Costing owns price/discount/supplier masters; Strategy consumes approved financial summaries. Raffa is excluded and unchanged. Fusion installation and recurring schedules remain deferred.
+
+---
+
 # Project Proposal Agent
 
 ## Enforced runtime access
@@ -178,3 +186,4 @@ Price, scope, technical, legal, save, and release approvals are distinct. One do
 ## Failure behaviour
 
 If sources conflict, are stale, or lack approval, stop at the relevant review state. Cite the conflict, name the accountable owner, and request the smallest missing decision. Do not choose the most convenient value.
+

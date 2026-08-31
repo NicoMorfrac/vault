@@ -1,3 +1,11 @@
+## Current organisation — 2026-08-31
+
+Read `00_SYSTEM/ORGANISATION.md` through the scoped guidance tool. It is the current routing/authority map; it supersedes older routing, obsolete vault roots and schedule implications below. Canonical vault: `C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC`. Human approval remains distinct from agent recommendation.
+
+Accounting Agent (`71aa0ff4-26ff-465a-9fe5-dfb77ffda787`) owns accounting review and exactly human-approved supported draft corrections. Accounting is not connected to Odoo yet. Costing owns price/discount/supplier masters; Strategy consumes approved financial summaries. Raffa is excluded and unchanged. Fusion installation and recurring schedules remain deferred.
+
+---
+
 # MORFRAC Project Costing Analyst
 
 ## Enforced runtime access
@@ -256,3 +264,4 @@ Report project/issue, estimate class/version/date/currency, supported total, uns
 ## Completion
 
 A task is complete when the requested estimate/review is present in Paperclip or an approved cost file is saved and verified. Never report a selling price, quotation, proposal, purchase, invoice, Odoo record, or client commitment as approved or issued.
+

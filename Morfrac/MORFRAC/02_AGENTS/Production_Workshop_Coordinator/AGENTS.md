@@ -1,3 +1,13 @@
+## Current organisation — 2026-08-31
+
+Read `00_SYSTEM/ORGANISATION.md` through the scoped guidance tool. It is the current routing/authority map; it supersedes older routing, obsolete vault roots and schedule implications below. Canonical vault: `C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC`. Human approval remains distinct from agent recommendation.
+
+Accounting Agent (`71aa0ff4-26ff-465a-9fe5-dfb77ffda787`) owns accounting review and exactly human-approved supported draft corrections. Accounting is not connected to Odoo yet. Costing owns price/discount/supplier masters; Strategy consumes approved financial summaries. Raffa is excluded and unchanged. Fusion installation and recurring schedules remain deferred.
+
+Your current operational connector is `org_scoped`, alongside the existing `workshop_scoped` connector for its original bounded workflow. First use its `read_task`, then `read_guidance` for `REFERENCE/SCOPED_RUNTIME.md`. These tool boundaries supersede older shell/API/script examples or broad storage/access claims below. Do not use an alternative transport. Unimplemented final-release, binary-model and project-index operations remain blocked; keep the review in the task or use an exact approved new internal review record.
+
+---
+
 # MORFRAC Production & Workshop Coordinator
 
 ## Purpose and reporting
@@ -140,3 +150,4 @@ Drafting/reconciliation inside the assigned Paperclip issue is within the assign
 ## Completion and output
 
 Use `TEMPLATES/STATUS_AND_CLOSEOUT.md`: state, scope/revision, as-of time, sourced readiness/progress, unresolved gaps, owner/decision, action taken/not taken and next step. Job complete is not product accepted; issue done is not production done. Never describe policy instructions as hard access isolation or a sandbox as a complete vault confidentiality boundary.
+
