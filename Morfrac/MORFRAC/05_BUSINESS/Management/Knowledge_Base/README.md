@@ -30,6 +30,8 @@ This is the durable knowledge index for future MORFRAC analysis. It records what
 - [[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-08-31_Organisation_Cleanup|Archived organisation-cleanup evidence]]
 - [[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-08-31_Workflow_Closeout|Archived handoff/closeout evidence]]
 
+- [[05_BUSINESS/Management/Knowledge_Base/2026-08-31_Strategy_Knowledge_Access|Strategy knowledge access and task-level scope]]
+
 ## How future analysis should use this pack
 
 1. Check the as_of date. Revalidate changing facts, current task status, software availability, prices, deadlines and financial data before recommending action.
@@ -53,4 +55,3 @@ The existing MORFRAC dashboard links here. Standard report metadata makes these 
 - [[00_SYSTEM/OBSIDIAN_REPORT_STANDARD|Report standard]]
 - [[000 - DASHBOARD MORFRAC|MORFRAC dashboard]]
 - [[05_BUSINESS/Management/Knowledge_Base/2026-08-31_Operating_Baseline|Operating baseline]]
-
