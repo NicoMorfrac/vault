@@ -1,5 +1,40 @@
 # Scoped runtime operations
 
+## HandoffCompletion-v2 — current completion contract
+
+Every delegated child must have exactly one unindented line `originating_issue: <UUID>`, matching its actual parent. Project-name/revision text or a UUID embedded in prose is not enough. The connector rejects missing, duplicate, malformed, self or mismatched origins. Legacy tasks with missing metadata need human repair; do not invent or silently reassign an origin.
+
+Before completing a delegated task:
+
+1. Finish or explicitly resolve all child handoffs. A parent cannot be marked done while any child is still open, even if no dependency edge was added. A cancelled child is terminal, not a successful deliverable; describe that outcome honestly.
+2. Save the final substantive answer using `post_update` without status.
+3. Call `notify_origin` and require its verified receipt. It sends a fixed pointer, not private results or approval. Nico is an allowed return destination.
+4. Call `post_update` again with the **identical answer**, a new update_key and status done. The connector rechecks the result, task, saved pointer and child status before closing. A different answer needs a new status-free result and notification.
+
+Do not close first and try to notify afterward. If the origin is closed, its pointer is edited/missing, or delivery is uncertain, stop and report the blocker without claiming completion. An unresolved notification attempt cannot be retried automatically, including after restart or a new result. General root tasks with no origin still require a verified substantive result and finished children. Human approval, save, review and release gates remain separate.
+
+A `SHARE_WITH` handoff automatically adds the actual origin outside the exact human-approved payload; do not put an `originating_issue` metadata line in the payload. Source rights do not propagate with parent links or callbacks. Supply separate direct human SOURCE_FILE / SOURCE_SCOPE / SOURCE_ISSUE declarations where needed; no private content is automatically transferred.
+
+### PM and Workshop connector selection
+
+Use **pm_scoped** for exact `PM_TASK create_project` / `PM_TASK prepare_proposals` mutations and its verified readiness notification before closing. org_scoped cannot mutate those folder tasks. For general PM coordination and Workshop operational closeout use **org_scoped**; legacy PM/Workshop post_update cannot bypass the handoff gates. Standalone read-and-report evaluations retain their existing restrictions.
+
+### Approved PM coordination package
+
+Nico can separately propose PM coordination through plan_brief/dispatch_brief. This is not a folder-creation task or approval of the specialists' work. Use title `COORDINATE_PROJECT <Project> <Revision>` and this exact header, followed by a blank line and a substantive scoped objective (at least 80 characters):
+
+```text
+PROJECT_COORDINATION:
+project_name: <Project>
+revision: <Revision>
+originating_issue: <CurrentIssueUUID>
+
+<Exact human-reviewed scope, inputs, desired output and limitations>
+```
+
+PM can then freeze specialist work packages for `APPROVE WORKPLAN <Issue-ID> <Revision>`. Each specialist child must carry its own actual parent's UUID. Keep the existing exact PM_TASK schema for folder requests. Parent closeout must wait for the required child results; do not use a plan/dispatch success as proof that delegated work is finished.
+
+
 This guide defines available operations, not new business authority. Global rules and the role's approval/confidentiality rules remain mandatory. Tools enforce identity, assigned issue, run, permitted paths and exact approval records; they do not certify engineering, legal, commercial or semantic correctness.
 
 ## Start and finish
@@ -7,7 +42,7 @@ This guide defines available operations, not new business authority. Global rule
 1. Call `read_task` first. Read `00_SYSTEM/GENERAL_AGENT_RULES.md` and only the relevant own-role guides with `read_guidance(file)`. Omit file to list available guidance names. `PAPERCLIP_SKILL.md` is available read-only; its raw HTTP examples must be performed only through these scoped tools.
 2. Call `checkout_task` before comments, plans or mutations. Do not operate on other assignments, closed work or approval/review execution stages.
 3. Use `post_update(body, update_key, status?)` for the full substantive result. Use a short unique lowercase update key. It persists the complete body, reads back exact author/body, then changes and verifies status. `done` means this assigned deliverable is complete, not that a business draft is approved. Use `blocked` or `in_review` when appropriate; omit status to save an intermediate result.
-4. If the task requires an origin notification, first save the result without status, call `notify_origin`, then post the final completion. It sends only a fixed result pointer, never confidential content. The issue must contain one exact `originating_issue: <UUID>` line and the origin must be open and permitted.
+4. If the task requires an origin notification, first save the final result without status, call `notify_origin`, then repeat the identical answer with a new update_key and status done. It sends only a fixed result pointer, never confidential content. The issue must contain one exact `originating_issue: <UUID>` line and the origin must be open and permitted.
 
 Do not include @ mentions in output or shared payloads. They can wake agents. Workflow records contain a readable preview and a machine-verifiable record: never fabricate, edit or copy a guard marker into a tool argument. Never claim SAVED_FOR_REVIEW, SAVED_DRAFT_NOT_RELEASED, MASTER_DATA_UPDATED or HUMAN_RELEASE_READY without the current verified receipt. Saved state is rechecked against the current files, sources and approval.
 
@@ -29,7 +64,7 @@ Use `read_source(path,page?)` for a declared file; `list_sources(path)` is only 
 
 ## Recipients and controlled handoffs
 
-Use `lookup_recipient(agent_id)` for one intended recipient from the routing guide. Only identity, role/title, status and reporting line return; configuration, credentials and employee-agent discovery are unavailable. Raffa AI is excluded and remains unconfigured. Do not enumerate recipients without a routing need.
+Use `lookup_recipient(agent_id)` for one intended recipient from the routing guide. Only identity, role/title, status and reporting line return; configuration, credentials and employee-agent discovery are unavailable. Raffa AI is excluded and unchanged; its legacy configuration is outside this workflow. Do not enumerate recipients without a routing need.
 
 `request_review(project_name,topic)` supports fixed minimal requests for engineering_inputs, schedule_inputs, client_safe_price, legal_review and commercial_decision; Proposal also has proposal_storage. These contain no private source data, create a child issue once and verify it. A fixed request is not approval and does not grant the recipient private parent access. Richer input requires an approved Nico brief or a direct human disclosure declaration in a comment:
 
@@ -65,4 +100,5 @@ Use source_agent: Project_Costing_Analyst. Keep actual cost, proposed selling pr
 - Each new master record uses a unique record_ids entry such as RATE001:R1 and exactly one `<!-- master:RATE001:R1 -->` marker. Include the assigned issue identifier and `{{APPROVAL_COMMENT_ID}}` in the new record. The plan explicitly discloses that this one slot will become the later approval UUID; all other bytes remain frozen. Approval remains `APPROVE COSTING MASTER <Issue-ID>`.
 
 Read scoped project, Costing, Pricing and supplier evidence only when authorised. An approved save is not approval of a new company rate or selling price unless the reviewed business decision explicitly says so. Use the established master schema and status/validity/source fields. Do not invent values to make a register look complete.
+
 
