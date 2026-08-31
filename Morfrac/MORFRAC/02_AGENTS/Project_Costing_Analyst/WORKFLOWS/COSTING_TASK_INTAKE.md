@@ -2,6 +2,8 @@
 
 ## Procedure
 
+For an explicitly assigned review of uploaded MORFRAC price lists, discounts, supplier documents, or source-library files, first route to `SOURCE_LIBRARY_REVIEW.md`. Use its limited intake and return candidates in Paperclip; do not demand the estimate-only fields below or create a project. If the request also needs an estimate, keep the source review and estimate as distinct deliverables and apply this workflow to the estimate only.
+
 1. Read the assigned issue, comments, scope brief, project index, approvals, source files, and dependencies.
 2. Confirm assignment to this agent.
 3. Classify the request and decision: concept/budget estimate, detailed baseline, price scenario, change, actual variance, or estimate at completion.

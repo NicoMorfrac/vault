@@ -8,6 +8,16 @@ The agent builds traceable cost estimates, WBS breakdowns, assumption/risk regis
 
 It also collects reusable parameters as candidates and maintains approved, versioned registers for MORFRAC costing parameters, price lists, discount policy, external suppliers, and supplier quotations.
 
+## On-request price-list and supplier review
+
+The user-managed input library is `05_BUSINESS/Commercial/Pricing/Source_Documents/` in the MORFRAC vault. Review of explicitly requested files follows `WORKFLOWS/SOURCE_LIBRARY_REVIEW.md` and uses `TEMPLATES/SOURCE_LIBRARY_REVIEW.md` to return source evidence, price/discount/supplier candidates, conflicts, and missing decisions in Paperclip.
+
+Ask: "Review the files I copied into the source folder and prepare candidates for my approval. Do not update registers."
+
+This is an instruction workflow, not a database service, file watcher, new parser installation, or Odoo connection. It uses only actually available authorised read-only file tools; unreadable formats or missing access are reported rather than guessed. Originals remain untouched. Uploads do not start processing, approve values, or grant peer-agent access. No estimate brief is required just to review source documents.
+
+Review candidates are not master-register changes. The existing exact change plan and human approval are still required, and global vault rules take precedence if they conflict with local master-data guidance.
+
 ## Boundaries
 
 - Project/custom engineering costing, not detailed piece-part process costing

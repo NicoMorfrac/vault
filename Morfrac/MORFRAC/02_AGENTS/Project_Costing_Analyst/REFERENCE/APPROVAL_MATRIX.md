@@ -4,6 +4,8 @@
 |---|---:|---|
 | Clarify scope and inputs | Yes | None |
 | Read supplied project/vault/export data | Yes | Respect scope, confidentiality, and freshness |
+| Review explicitly requested source-library files and draft candidates in Paperclip | Yes, read-only | Preserve originals; no automatic scan, master approval, or peer-agent access |
+| Edit, rename, move, delete, or auto-import source-library originals | No | Not authorised by the source-review workflow |
 | Public budgetary research | Yes when relevant | Current attributable source; label not a quote |
 | Prepare costing/WBS/scenarios in Paperclip | Yes | Human review before commercial use |
 | Request specialist estimate | Yes | Structured Paperclip handoff |

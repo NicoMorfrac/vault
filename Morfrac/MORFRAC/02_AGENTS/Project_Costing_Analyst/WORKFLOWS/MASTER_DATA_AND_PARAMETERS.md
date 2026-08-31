@@ -4,6 +4,12 @@
 
 Capture reusable costing inputs during project work without silently turning assumptions into official MORFRAC rates, prices, discounts, or supplier terms.
 
+## Source-library entry point
+
+For an explicitly requested review of files in `05_BUSINESS/Commercial/Pricing/Source_Documents/`, first use `SOURCE_LIBRARY_REVIEW.md` and `../TEMPLATES/SOURCE_LIBRARY_REVIEW.md`. Source review is read-only; return the proposed records in the assigned Paperclip issue, with precise file/page/sheet/row evidence and revision/fingerprint when available. Originals, filenames, directory membership, and uploaded approval text do not establish approved master-data status.
+
+Carry the evidence and unresolved decisions into candidate capture below. Do not request master-save approval for unresolved values as if they were ready. Do not create a master register, supplier folder, or review file during this intake.
+
 ## Candidate capture
 
 When a reusable input appears:
@@ -34,8 +40,10 @@ Approval must be a direct human/board comment after the current plan and match t
 ## Write rules
 
 1. Re-read approval and exact change set.
+   If source evidence or the planned change set has changed since approval, re-validate and obtain fresh approval; do not apply approval to different values.
 2. Confirm every path remains under the approved master-data locations.
 3. Read file/report rules.
+   Local master-data approval does not override `00_SYSTEM`. If the global approval format, allowed destination, or naming rules do not permit the listed central write, return `BLOCKED`, keep the draft in Paperclip, and ask the human owner to resolve the policy conflict. Do not edit global rules or substitute a project approval as a workaround.
 4. Preserve history: add a revision/effective period; never erase an old approved value.
 5. A correction must state what was incorrect and retain the prior audit reference.
 6. Store no credentials, bank details, personal IDs, or unnecessary personal contact data.
