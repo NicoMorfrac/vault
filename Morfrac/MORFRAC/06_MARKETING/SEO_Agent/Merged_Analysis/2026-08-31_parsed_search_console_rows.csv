@@ -1,0 +1,101 @@
+﻿query,page,clicks,impressions,ctr_percent,position,query_type
+| morfrac,https://www.morfrac.com/,10.0,46.0,21.74,1.02,Branded
+morfrac,https://www.morfrac.com/es,4.0,7.0,57.14,1.0,Branded
+morfblock,https://www.morfrac.com/morfblock,3.0,29.0,10.34,3.14,Branded
+dog bone rigging,https://www.morfrac.com/dogbone,2.0,22.0,9.09,4.23,Non-branded
+dogbone,https://www.morfrac.com/dogbone,1.0,117.0,0.85,8.17,Non-branded
+dogbones,https://www.morfrac.com/es/dogbone,1.0,26.0,3.85,3.31,Non-branded
+morf block,https://www.morfrac.com/morfblock,1.0,30.0,3.33,1.0,Branded
+morfac,https://www.morfrac.com/es,1.0,6.0,16.67,1.0,Branded
+padeye,https://www.morfrac.com/padeye,1.0,36.0,2.78,10.92,Non-branded
+soft padeye,https://www.morfrac.com/padeye,1.0,9.0,11.11,9.78,Non-branded
+titanium shackle,https://www.morfrac.com/shackle,1.0,17.0,5.88,7.94,Non-branded
+trouver meilleur prix,https://www.morfrac.com/shop,1.0,1.0,100.0,3.0,Non-branded
+1.5t shackle,https://www.morfrac.com/shop/ti-shackle-grade5-titanium-shackle-12526,0.0,2.0,0.0,13.5,Non-branded
+2100kg,https://www.morfrac.com/es/shop/morfblock-light-05-performance-sailing-block-12342,0.0,1.0,0.0,11.0,Non-branded
+60-23,https://www.morfrac.com/shop/dogbone-60-23-aluminium-12467,0.0,1.0,0.0,3.0,Non-branded
+60xl,https://www.morfrac.com/shop/morfring-60xl-12828,0.0,1.0,0.0,30.0,Non-branded
+6mm shackle,https://www.morfrac.com/es/shop/ti-shackle-grade5-titanium-shackle-12526,0.0,1.0,0.0,10.0,Non-branded
+70xl,https://www.morfrac.com/shop/morfring-70xl-ptfe-friction-ring-12484,0.0,6.0,0.0,14.0,Non-branded
+70xlld,https://www.morfrac.com/shop/morfring-70xl-ptfe-friction-ring-12484,0.0,1.0,0.0,10.0,Non-branded
+almacenadores,https://www.morfrac.com/es/shop/category/powerfurl-almacenadores-tambor-30,0.0,1.0,0.0,1.0,Non-branded
+aluminio titanio,https://www.morfrac.com/es/blog/historias-4/aluminio-titanio-o-acero-inoxidable-39,0.0,1.0,0.0,9.0,Non-branded
+aluminium vs stainless steel vs titanium,https://www.morfrac.com/blog/stories-4/aluminium-titanium-stainless-steel-39,0.0,7.0,0.0,3.57,Non-branded
+aluminum vs stainless steel vs titanium,https://www.morfrac.com/blog/stories-4/aluminium-titanium-stainless-steel-39,0.0,2.0,0.0,8.5,Non-branded
+aluminum vs titanium apple watch,https://www.morfrac.com/blog/stories-4/aluminium-titanium-stainless-steel-39,0.0,1.0,0.0,4.0,Non-branded
+aluminum vs titanium vs stainless steel,https://www.morfrac.com/blog/stories-4/aluminium-titanium-stainless-steel-39,0.0,11.0,0.0,4.73,Non-branded
+camfrac,https://www.morfrac.com/,0.0,6.0,0.0,45.67,Non-branded
+camphor cargo hold,https://www.morfrac.com/es/shop/category/powerfurl-almacenadores-sin-fin-31,0.0,1.0,0.0,39.0,Non-branded
+comparison of stainless steel vs. titanium hardware for boats?,https://www.morfrac.com/blog/stories-4/aluminium-titanium-stainless-steel-39,0.0,5.0,0.0,6.2,Non-branded
+conurban marine,https://www.morfrac.com/partner,0.0,6.0,0.0,8.0,Non-branded
+custom efl frames,https://www.morfrac.com/custom,0.0,5.0,0.0,49.8,Non-branded
+custom shackles,https://www.morfrac.com/shackle,0.0,12.0,0.0,9.42,Non-branded
+d shackle,https://www.morfrac.com/es/shop/shackle-17-4ph-12827,0.0,20.0,0.0,17.2,Non-branded
+d-shackle,https://www.morfrac.com/es/shop/shackle-17-4ph-12827,0.0,16.0,0.0,17.25,Non-branded
+deck pad eye,https://www.morfrac.com/padeye,0.0,15.0,0.0,3.47,Non-branded
+deck pad eyes,https://www.morfrac.com/padeye,0.0,2.0,0.0,6.5,Non-branded
+dog bone bit,https://www.morfrac.com/es/dogbone,0.0,1.0,0.0,25.0,Non-branded
+dog bone connector,https://www.morfrac.com/dogbone,0.0,1.0,0.0,45.0,Non-branded
+dog bone corners,https://www.morfrac.com/dogbone,0.0,2.0,0.0,54.5,Non-branded
+dog bone coupler,https://www.morfrac.com/dogbone,0.0,1.0,0.0,35.0,Non-branded
+dog bone hardware,https://www.morfrac.com/dogbone,0.0,1.0,0.0,11.0,Non-branded
+dog bone material,https://www.morfrac.com/dogbone,0.0,1.0,0.0,1.0,Non-branded
+dog bone sailing,https://www.morfrac.com/dogbone,0.0,6.0,0.0,11.17,Non-branded
+dog bone shackle,https://www.morfrac.com/dogbone,0.0,14.0,0.0,9.36,Non-branded
+dog bone shackles,https://www.morfrac.com/dogbone,0.0,1.0,0.0,9.0,Non-branded
+dog bone soft shackle,https://www.morfrac.com/dogbone,0.0,5.0,0.0,7.8,Non-branded
+dog bone steel,https://www.morfrac.com/dogbone,0.0,4.0,0.0,6.75,Non-branded
+dogbone,https://www.morfrac.com/es/dogbone,0.0,98.0,0.0,7.09,Non-branded
+dogbone carriers,https://www.morfrac.com/dogbone,0.0,14.0,0.0,12.57,Non-branded
+dogbone connection,https://www.morfrac.com/dogbone,0.0,3.0,0.0,4.0,Non-branded
+dogbone corner,https://www.morfrac.com/dogbone,0.0,2.0,0.0,45.0,Non-branded
+dogbone corners,https://www.morfrac.com/dogbone,0.0,1.0,0.0,62.0,Non-branded
+dogbone joint,https://www.morfrac.com/dogbone,0.0,58.0,0.0,40.69,Non-branded
+dogbone sailing,https://www.morfrac.com/dogbone,0.0,8.0,0.0,7.5,Non-branded
+dogbone sailing,https://www.morfrac.com/es/dogbone,0.0,1.0,0.0,20.0,Non-branded
+dogbone shackle,https://www.morfrac.com/dogbone,0.0,8.0,0.0,6.12,Non-branded
+dogbone suspension,https://www.morfrac.com/dogbone,0.0,1.0,0.0,37.0,Non-branded
+dogbones,https://www.morfrac.com/dogbone,0.0,32.0,0.0,15.06,Non-branded
+dyneema dogbone,https://www.morfrac.com/dogbone,0.0,1.0,0.0,30.0,Non-branded
+e aluminio?,https://www.morfrac.com/blog/stories-4/aluminium-titanium-stainless-steel-39,0.0,1.0,0.0,9.0,Non-branded
+farr x2,https://www.morfrac.com/blog/news-1/farr-x2-5,0.0,4.0,0.0,10.5,Non-branded
+farr x2 for sale,https://www.morfrac.com/blog/news-1/farr-x2-5,0.0,12.0,0.0,10.25,Non-branded
+fixafrac,https://www.morfrac.com/solutions,0.0,6.0,0.0,19.67,Non-branded
+four fork,https://www.morfrac.com/es/shop/powerfurl-four-fork-2-1-fitting-12517,0.0,1.0,0.0,8.0,Non-branded
+four part shackle,https://www.morfrac.com/shop/powerfurl-four-ti-shackle-12511,0.0,1.0,0.0,9.0,Non-branded
+furler,https://www.morfrac.com/es/powerfurl,0.0,2.0,0.0,32.0,Non-branded
+give me more info about him,https://www.morfrac.com/,0.0,1.0,0.0,4.0,Non-branded
+images,https://www.morfrac.com/padeye,0.0,1.0,0.0,3.0,Non-branded
+images,https://www.morfrac.com/shop/padeye-through-1-5t-through-deck-padeye-12640,0.0,1.0,0.0,3.0,Non-branded
+is aluminum or titanium better,https://www.morfrac.com/blog/stories-4/aluminium-titanium-stainless-steel-39,0.0,1.0,0.0,65.0,Non-branded
+m loop,https://www.morfrac.com/shop/mloop-dyneema-loop-12675,0.0,33.0,0.0,8.79,Non-branded
+m!loop,https://www.morfrac.com/shop/mloop-dyneema-loop-12675,0.0,1.0,0.0,10.0,Non-branded
+m-loop,https://www.morfrac.com/es/shop/mloop-dyneema-loop-12675,0.0,2.0,0.0,8.5,Non-branded
+m-loop,https://www.morfrac.com/shop/mloop-dyneema-loop-12675,0.0,1.0,0.0,6.0,Non-branded
+mafra nautica,https://www.morfrac.com/,0.0,1.0,0.0,90.0,Non-branded
+mandurfer,https://www.morfrac.com/es,0.0,1.0,0.0,20.0,Non-branded
+mapfrac,https://www.morfrac.com/,0.0,6.0,0.0,42.5,Non-branded
+marfq,https://www.morfrac.com/es,0.0,1.0,0.0,29.0,Non-branded
+marfre,https://www.morfrac.com/es,0.0,1.0,0.0,81.0,Non-branded
+maurflex,https://www.morfrac.com/es/contactus,0.0,2.0,0.0,54.0,Non-branded
+meerhoffs,https://www.morfrac.com/es,0.0,1.0,0.0,22.0,Non-branded
+merfar,https://www.morfrac.com/,0.0,1.0,0.0,18.0,Non-branded
+mersurf sta,https://www.morfrac.com/morfwing,0.0,1.0,0.0,44.0,Non-branded
+mloop,https://www.morfrac.com/es/shop/mloop-dyneema-loop-12675,0.0,41.0,0.0,7.63,Non-branded
+mloop,https://www.morfrac.com/shop/mloop-dyneema-loop-12675,0.0,141.0,0.0,6.78,Non-branded
+mofars,https://www.morfrac.com/,0.0,1.0,0.0,58.0,Non-branded
+mor far,https://www.morfrac.com/morfblock,0.0,2.0,0.0,42.5,Non-branded
+moralfagging,https://www.morfrac.com/,0.0,1.0,0.0,45.0,Non-branded
+morblock,https://www.morfrac.com/es/morfblock,0.0,1.0,0.0,7.0,Non-branded
+morblock,https://www.morfrac.com/morfblock,0.0,1.0,0.0,2.0,Non-branded
+morecraft,https://www.morfrac.com/,0.0,1.0,0.0,25.0,Non-branded
+morecrafts,https://www.morfrac.com/,0.0,4.0,0.0,19.75,Non-branded
+morecrafts,https://www.morfrac.com/about,0.0,3.0,0.0,57.33,Non-branded
+morefar,https://www.morfrac.com/,0.0,2.0,0.0,64.0,Non-branded
+morefar,https://www.morfrac.com/shop,0.0,1.0,0.0,75.0,Non-branded
+moregrip,https://www.morfrac.com/,0.0,2.0,0.0,32.5,Non-branded
+morelock on line,https://www.morfrac.com/shop,0.0,1.0,0.0,88.0,Non-branded
+morf block,https://www.morfrac.com/,0.0,26.0,0.0,25.42,Branded
+morf block,https://www.morfrac.com/about,0.0,25.0,0.0,57.36,Branded
+morf block,https://www.morfrac.com/blog,0.0,26.0,0.0,62.62,Branded
+morf block,https://www.morfrac.com/blog/custom-6/40000-times-its-weight-15,0.0,11.0,0.0,51.27,Branded
