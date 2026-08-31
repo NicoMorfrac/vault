@@ -8,6 +8,8 @@ This is the canonical Obsidian instruction package for MORFRAC's Project Operati
 - Paperclip stores runtime configuration, assignments, status, dependencies, comments, and approvals.
 - `pm_fs.py` is the only authorised project-structure creation tool.
 
+The optional `ProposalWorkflow-v1` branch uses `WORKFLOWS/PREPARE_PROPOSALS.md` and `TEMPLATES/PROPOSAL_FOLDER_APPROVAL.md`. It adds only `06_Proposals`, `Client_Drafts`, and `Internal_Review` to an existing complete project after its own exact folder plan and human approval. Ordinary project creation remains the original five folders plus index; no existing projects are migrated. Folder separation is not an access-control guarantee.
+
 ## Paperclip entry
 
 - Root: `C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\02_AGENTS\Project_Manager`

@@ -11,6 +11,7 @@
 
 - Paperclip issue status, comments, approved coordination tasks, and dependencies.
 - Standard project structure only through `C:\Users\nicol\tools\pm_fs.py` after exact approval.
+- The three optional proposal directories only through that helper's `--prepare-proposals` operation after the separate approved folder plan; no files or core/index modifications. Its `--check-proposals` operation is read-only.
 - Project Manager logs only after the required persistent-write approval.
 
 ## Prohibited

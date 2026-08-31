@@ -125,3 +125,18 @@ If an error occurs:
 - Do not reinterpret
 - Do not fix silently
 - STOP
+
+---
+
+## Controlled Proposal Workflow (ProposalWorkflow-v1)
+
+This scoped exception requires matching `ProposalWorkflow-v1` sections in `FILE_RULES.md`, `PROJECT_RULES.md`, and `AGENT_COMMUNICATION.md`. If any is missing or conflicts, stop the affected proposal write. CostingMaster-v1 and ordinary project/analysis rules remain unchanged.
+
+- Within company `23af76fa-7f36-4781-80d5-2969caf46b15`, only Project Manager `780f4096-9a8f-46d8-8249-ef018c34dda3` may prepare the optional proposal directories; only Project Proposal Agent `89219e35-ff07-4681-ac9b-f06f462e1c43` may save the approved proposal files or mark a package ready for human release. Verify actual assignment and identity, not a displayed name. Other agents gain no authority or confidential access through this exception.
+- PM may inspect the requested existing project's structure read-only and use the helper's `--check-proposals` operation before approval. Creating the three planned proposal directories requires a direct authorised human/board `APPROVE <Project_Name>` in the same PM issue after the current exact folder plan. It authorises no proposal content, base-project repair, or other directories.
+- Proposal drafting/review stays in the assigned Paperclip issue until a save is specifically approved. Before saving, show the exact project, one proposal ID/version, filenames and paths, complete frozen content previews/fingerprints, source revisions, confidentiality, and required prior reviews. Require a subsequent direct authorised human/board comment exactly `APPROVE PROPOSAL SAVE <Project_Name> <Version>` in that issue.
+- Save approval covers only those new versioned Markdown files. It does not approve scope, price, terms, folder creation, release, sending, or signing. Reject casual agreement, quoted/embedded/stale/agent-authored approvals, mismatched projects/versions, or approvals from another issue.
+- If content, source evidence, filename, path, proposal ID, version, or relevant destination state changes, stop and request approval of a new plan. Never increment a version or choose an alternative path after approval.
+- Only after verified immutable saved files and all technical, schedule, price, commercial, and legal reviews, show an exact release plan with file hashes, approved references and intended human sender. Require a subsequent direct authorised human/board comment exactly `APPROVE PROPOSAL RELEASE <Proposal_ID> <Version>`.
+- Release approval permits only an issue-based release manifest/checklist and `HUMAN_RELEASE_READY` handoff to that human. It permits no new vault file, saved-file edit, removal of DRAFT status, upload, email, submission, signature, negotiation, acceptance, Odoo change, purchase, or commitment. Changed evidence/files invalidate release readiness and require renewed review.
+- Keep client-safe and internal material separate; share only with verified authorised audiences. Folder separation is organisational, not a technical access-control guarantee. No schedules, integrations, runtime permissions, or other agent configuration are changed by this policy.

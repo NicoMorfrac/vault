@@ -105,3 +105,20 @@ These central registers are controlled master data, not project analysis reports
 
 All remaining file rules still apply, including vault-only storage, Markdown format, explicit approval, traceability, and stop-on-error. Project reports keep their existing filename, index, deduplication, destination, and `APPROVE <Project_Name>` requirements unchanged.
 
+---
+
+## Controlled Proposal Files (ProposalWorkflow-v1)
+
+Use only with the matching `ProposalWorkflow-v1` global sections and the exact assigned actors/approvals in `GENERAL_AGENT_RULES.md`. This is a proposal-only exception to project-analysis naming, IssueID-only deduplication, and discipline-folder destinations, not a change to engineering reports or CostingMaster-v1.
+
+- The only proposal write destinations are these existing subfolders under `08_PROJECTS/Active/<Project_Name>/06_Proposals/`:
+  - `Client_Drafts/<Proposal_ID>_<Version>_DRAFT.md`: client-safe draft only.
+  - `Internal_Review/<Proposal_ID>_<Version>_INTERNAL.md`: confidential review pack only.
+- PM alone may create the three optional directories through the separately approved folder workflow. Proposal may not create them, repair projects, or use an ad hoc alternative destination. No project/source migration or renaming is authorised.
+- Use a stable proposal ID and monotonic version, declared in the exact save plan. Each proposal ID/version/deliverable type is immutable and has a unique path. Keep the originating issue and existing source/review approvals in the internal pack. Record this save's later approval comment and release evidence in the issue-based audit manifest, not by editing frozen content after approval. Multiple approved versions may originate from one issue without overwriting prior versions.
+- If any planned file already exists, do not overwrite or silently bump the version. A previously verified identical save from the same issue/plan may be reported as already saved; otherwise stop, propose a new version, and obtain fresh approval. A partial/uncertain save is not completion and must not trigger automatic retry, cleanup, or repair.
+- Resolve real paths and reject traversal, links/junctions or destinations outside the exact existing approved folders. Use exclusive new-file creation, never overwrite mode. Re-check all target states before the first write and stop on any unexpected change.
+- Save only the frozen approved bytes/content, with source revisions and complete content previews/fingerprints fixed before approval. Any change, including generated metadata, needs a new plan/approval. Verify every file's content, hash, path, version and audience after saving.
+- Both documents must meet `OBSIDIAN_REPORT_STANDARD.md`. Client drafts must not contain internal costs, margins, supplier terms, private approval trails, internal-review links, or other confidential notes. Internal evidence belongs only in the internal pack.
+- Proposal files are not engineering analyses: do not add them to `Linked Analyses` or alter the project index. An issue-based release manifest may link the verified saved files but must never be copied into a client draft.
+- Preserve all earlier proposals, existing project contents and original source documents. Markdown-only/vault-only rules, stop-on-error, and other scope restrictions remain in force. Sending/signing or producing PDF/Word exports requires a separate authorised workflow; this exception does not permit them.

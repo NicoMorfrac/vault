@@ -75,3 +75,4 @@ Human completion/signature only after release approval.
 
 ## Related Links
 
+Include only explicitly approved client-safe references. Do not link to the internal review pack, private costing records, supplier terms, or private approval trails.

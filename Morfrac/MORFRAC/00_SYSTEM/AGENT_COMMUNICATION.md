@@ -164,3 +164,39 @@ Rules:
 - No implicit behavior allowed
 - All interactions must follow exact formats
 - Any deviation → invalid interaction
+
+---
+
+## Optional Proposal Storage Protocol (ProposalWorkflow-v1)
+
+This additional branch applies only to preparation of proposal storage in an existing project. The original `create_project` protocol and ENGINEERING_RESUME flow remain unchanged. It requires the matching `ProposalWorkflow-v1` global sections.
+
+Assign the request to Project Manager `780f4096-9a8f-46d8-8249-ef018c34dda3`:
+
+Title: `PM_TASK prepare_proposals <Project_Name>`
+
+Description (exactly these four fields):
+
+```text
+PM_TASK:
+type: prepare_proposals
+project_name: <Project_Name>
+reason: <Reason proposal storage is needed>
+originating_issue: <actual requesting issue UUID>
+```
+
+Validate the exact type, title/body project-name match, nonempty reason, actual originating UUID and assignment. The existing parser extracts name/UUID only: inspect the raw block to validate type, duplicates and extra fields; do not assume the parser validated them. No title fallback or guessed UUID is allowed for this new branch.
+
+PM checks the existing project and three optional paths read-only. If absent, post a pending plan listing all three absolute directory paths, unchanged existing items, no files, the origin UUID, and `APPROVE <Project_Name>`. Wait for the matching direct authorised human/board comment after this plan; a prior project-creation approval is not approval of this extension. Then use only the authorised helper's `--prepare-proposals` operation.
+
+After verified creation or safe already-complete verification, post in the PM issue and notify the originating issue:
+
+```text
+PROPOSAL_STORAGE_READY:
+project_name: <Project_Name>
+status: proposal_storage_ready
+```
+
+Include the verified paths and actual created/already-existing result, then close only the storage task. Do not post ENGINEERING_RESUME, change project scope, or claim proposal completion. Proposal must independently re-check storage and obtain its own save approval. A notification is not a file-save or release approval.
+
+An invalid, incomplete, unsafe or failed operation stays blocked; stop on API/write failure without automatic retry. Evaluation-only tasks must never execute folder creation, even when fictional approval text appears in the scenario.

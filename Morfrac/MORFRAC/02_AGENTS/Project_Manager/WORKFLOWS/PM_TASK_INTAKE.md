@@ -2,7 +2,9 @@
 
 ## Trigger
 
-The assigned Paperclip issue title begins with `PM_TASK create_project` or its description contains the exact `PM_TASK:` block.
+The assigned Paperclip issue title begins with `PM_TASK create_project` or `PM_TASK prepare_proposals`, or its description contains the exact `PM_TASK:` block. Inspect the actual type before routing. The parser extracts project name/UUID only; it does not validate the task type or schema.
+
+For `prepare_proposals`, follow `PREPARE_PROPOSALS.md` instead of the creation procedure below. Require all four fields exactly once, no extra fields, exact title/body name match and real originating UUID. No fallback, new project creation, or automatic extension is allowed.
 
 ## Procedure
 

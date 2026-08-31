@@ -20,9 +20,13 @@
 
 ## Legal and release
 
+- [ ] Canonical client/internal paths exist safely; any PM folder approval is separate from the save approval.
+- [ ] Complete content and metadata match the frozen approved previews; no path, filename or version was changed after approval.
+- [ ] Existing/prior files will not be overwritten; collisions or changed inputs require a new plan and approval.
+- [ ] Later save/release evidence stays in Paperclip; release creates no file and removes no DRAFT markings.
+
 - [ ] Approved standard terms/revision or legal review evidenced.
 - [ ] Deviations resolved or explicitly blocking.
 - [ ] No unresolved client-visible placeholders.
 - [ ] Save and release approvals are separate and valid.
 - [ ] Human sender and channel identified; agent has not sent or signed.
-

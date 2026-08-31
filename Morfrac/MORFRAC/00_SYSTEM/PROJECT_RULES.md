@@ -87,3 +87,28 @@ Sections:
 - Entry must match filename exactly
 - If entry exists, update it
 - If entry does not exist, append
+
+---
+
+## Optional Proposal Area (ProposalWorkflow-v1)
+
+The five core folders and `00_Project_Index.md` above remain the standard project structure. A project without a proposal area is not incomplete on that basis. Do not add optional folders during ordinary project creation or migrate existing projects automatically.
+
+After an explicit proposal-storage request and project-specific folder approval, Project Manager may prepare exactly:
+
+- `06_Proposals/`
+- `06_Proposals/Client_Drafts/`
+- `06_Proposals/Internal_Review/`
+
+This operation requires an existing complete core project, the matching `ProposalWorkflow-v1` global sections, and the separate `PM_TASK prepare_proposals` protocol. It creates no files and does not alter the project index or core folders.
+
+Use only `C:\Users\nicol\tools\pm_fs.py`:
+
+- Read-only check: `--check-proposals "<Project_Name>"`.
+- After the exact current folder plan and direct `APPROVE <Project_Name>`: `--prepare-proposals "<Project_Name>"`.
+
+Run with an available authorised Python interpreter and pass the name as one literal argument, not an interpolated shell command. No alternate vault/root option, tool installation, or permission change is authorised. Verify actual paths and output.
+
+If all three folders exist safely, verify and report already prepared without modifying anything. If only some exist, a file occupies a folder path, the core project is incomplete/missing, or a link/path/error is unsafe, stop and report the exact blocker. Do not repair, retry automatically, or create a missing base project through this operation. Missing base projects use the original create_project workflow with their own approval.
+
+Proposal save and human-release approvals are separate from this folder approval. Folder readiness does not approve project scope, engineering work, price, terms, or delivery.

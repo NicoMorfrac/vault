@@ -2,6 +2,7 @@
 
 ## Preconditions
 
+- This workflow is only for `type: create_project`. Route `prepare_proposals` to `PREPARE_PROPOSALS.md`; never run both operations from one approval.
 - A valid PM_TASK is assigned to Project Manager.
 - Project Manager previously posted the current `PENDING_APPROVAL` plan.
 - A later direct user/board comment exactly matches `APPROVE <Project_Name>`.
@@ -21,6 +22,7 @@
 5. Record exact stdout, stderr, and exit code.
 6. If unsuccessful, set `FAILED`/blocked with the exact error. Do not retry or repair manually.
 7. Verify the root, five required folders, and `00_Project_Index.md` exist.
+   The optional proposal area is not a core requirement. Do not create it, or declare a complete core project incomplete because it is absent.
 8. Proceed to `RESUME_AND_CLOSEOUT.md` only after complete verification.
 
 ## Forbidden shortcuts

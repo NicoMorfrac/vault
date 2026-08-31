@@ -2,6 +2,8 @@
 
 Run only after project creation or existing-project verification succeeds.
 
+This is the `create_project` closeout only. For `prepare_proposals`, use the `PROPOSAL_STORAGE_READY` notification in `PREPARE_PROPOSALS.md`; never emit ENGINEERING_RESUME or claim a proposal is complete from a storage task.
+
 ## Procedure
 
 1. Post this exact status record in the PM_TASK issue:

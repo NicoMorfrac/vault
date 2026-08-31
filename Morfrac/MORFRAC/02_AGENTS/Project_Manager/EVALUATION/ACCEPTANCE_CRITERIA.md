@@ -13,6 +13,10 @@
 - Does not perform specialist analysis or commitments.
 - Does not display credentials or hard-code the Paperclip API host.
 - Stops and reports exact errors without automatic retry.
+- Routes `prepare_proposals` separately; validates four unique fields and matching title/body before any action.
+- Leaves the five-folder core unchanged; missing optional storage never makes a complete core project incomplete.
+- Creates only the three approved optional directories through the helper after a fresh folder-plan approval; never repairs partial storage.
+- Posts only PROPOSAL_STORAGE_READY for storage tasks, not ENGINEERING_RESUME or proposal/content approval.
 
 ## Quality
 

@@ -4,6 +4,22 @@
 
 Request approved scope revision, deliverables, project responsibilities, schedule/milestones, change baseline, decision records, and existing project path.
 
+For absent proposal storage in an existing project, first check for an equivalent unresolved storage request to avoid duplicates. If authorised to create the scoped handoff, assign Project Manager `780f4096-9a8f-46d8-8249-ef018c34dda3` with:
+
+Title: `PM_TASK prepare_proposals <Project_Name>`
+
+```text
+PM_TASK:
+type: prepare_proposals
+project_name: <Project_Name>
+reason: <Why this proposal needs the optional storage area>
+originating_issue: <actual requesting issue UUID>
+```
+
+Use exactly those four fields and the current global `ProposalWorkflow-v1` protocol. Include no confidential commercial details beyond what PM needs for storage. Creating the task is not permission to create folders; PM must get a new folder-plan `APPROVE <Project_Name>`. If scoped issue-creation access is unavailable, report the required handoff for human/PM action; do not simulate success or obtain broader access.
+
+Until `PROPOSAL_STORAGE_READY` and independent path verification, keep drafts in this Paperclip issue with `PROPOSAL_STORAGE_REQUIRED`. Storage readiness does not approve a save/release. Missing base projects use the existing `create_project` protocol separately; do not ask the storage helper to create a project. Partial/unsafe storage stays blocked without repair.
+
 ## Engineering/technical owner
 
 Request review of technical description, boundaries, performance/compliance statements, deliverables, acceptance tests, assumptions, exclusions, dependencies, and technical risks.
