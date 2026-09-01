@@ -12,8 +12,7 @@ related_findings:
   - 274 explicit workflow notes associated with live vault-managed agents
   - Fusion installed and Drafting/CAD agent configured for controlled 2D/3D work
   - Drafting/CAD scoped runtime routing awaiting separate owner approval
-  - Nico AI authentication repaired and validated; CEO authentication remains in error
-  - Engineering configuration blocked
+  - Company-wide non-Raffa authentication repaired and validated; no agents in error
   - Research manually paused
 related_concepts:
   - Paperclip agent governance
@@ -27,6 +26,7 @@ related_reports:
   - "[[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-09-01_Model_Migration_GPT-5.6]]"
   - "[[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-09-01_Fusion_360_and_Drafting_CAD_Agent]]"
   - "[[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-09-01_Nico_AI_Authentication_Repair]]"
+  - "[[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-09-01_Company_Wide_Agent_Authentication_Repair]]"
   - "[[05_BUSINESS/Management/Knowledge_Base/2026-09-01_Yacht_Analysis_MVP]]"
 ---
 
@@ -38,7 +38,7 @@ This is the Obsidian navigation and governance view for the MORFRAC Paperclip or
 
 | Item | Verified state as of 2026-09-01 |
 | --- | --- |
-| Paperclip agents | 44 total: 41 idle, 2 error, 1 manually paused |
+| Paperclip agents | 44 total: 43 idle, 0 error, 1 manually paused |
 | Vault-managed canonical agents | 43; every canonical `AGENTS.md` exists |
 | Explicit workflow notes | 274 files under the live agents' `WORKFLOWS` folders |
 | Models | 18 GPT-5.6 Sol, 23 GPT-5.6 Terra, 2 GPT-5.6 Luna, Raffa AI alone on GPT-5.5 |
@@ -47,9 +47,7 @@ This is the Obsidian navigation and governance view for the MORFRAC Paperclip or
 
 ## Attention required
 
-- **CEO — error:** its isolated Codex runtime is not authenticated. Nico AI's approval did not authorise changing CEO.
-- **Engineering — error:** required OpenAI and Anthropic secret bindings are incomplete. The model migration did not cause or repair this.
-- **Nico AI — repaired:** isolated ChatGPT authentication and `gpt-5.6-sol` execution were validated; Paperclip status is idle and heartbeat remains disabled.
+- **Authentication — repaired:** all 43 non-Raffa agents have usable Codex authentication; nine validation runs passed across Sol, Terra and Luna. No agent is currently in error.
 - **Research — paused:** manually paused; do not route live work to it until the owner resumes it.
 - **Raffa AI — excluded:** its live Paperclip instructions remain outside this vault-managed rollout. Do not treat `02_AGENTS/Raffa_AI` as its live instruction folder or include that legacy folder in company-wide routing.
 - **Legacy duplicate:** `02_AGENTS/Technical_Content_Production_Agent` is not a live instruction root. The live Technical Content Production Agent uses [[02_AGENTS/Blog_Website_Content_Creator/AGENTS|Blog_Website_Content_Creator]].
@@ -88,13 +86,14 @@ The diagram shows routing, not delegated approval authority. Use [[00_SYSTEM/ORG
 - [[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-09-01_Model_Migration_GPT-5.6|GPT-5.6 migration — approved and achieved]]
 - [[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-09-01_Fusion_360_and_Drafting_CAD_Agent|Fusion 360 and Drafting/CAD agent — configured, execution validation pending]]
 - [[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-09-01_Nico_AI_Authentication_Repair|Nico AI authentication — repaired and validated]]
+- [[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-09-01_Company_Wide_Agent_Authentication_Repair|Company-wide authentication — repaired and validated]]
 - [[05_BUSINESS/Management/Knowledge_Base/2026-09-01_Yacht_Analysis_MVP|Yacht analysis team and workflow baseline]]
 
 ## Executive intake and project delivery
 
 | Agent | Reports to | State | Canonical instructions | Workflow notes |
 | --- | --- | --- | --- | ---: |
-| CEO | Human owner | **Error** | [[02_AGENTS/CEO/AGENTS|CEO]] | 0 |
+| CEO | Human owner | Idle | [[02_AGENTS/CEO/AGENTS|CEO]] | 0 |
 | Nico AI | CEO | Idle — authentication repaired | [[02_AGENTS/Nico_AI/AGENTS|Nico AI]] | 5 |
 | Project Manager | CEO | Idle | [[02_AGENTS/Project_Manager/AGENTS|Project Manager]] | 6 |
 | Assistant | CEO | Idle | [[02_AGENTS/Assistant/AGENTS|Assistant]] | 0 |
@@ -105,7 +104,7 @@ The diagram shows routing, not delegated approval authority. Use [[00_SYSTEM/ORG
 | Agent | Reports to | State | Canonical instructions | Workflow notes |
 | --- | --- | --- | --- | ---: |
 | CTO | CEO | Idle | [[02_AGENTS/CTO/AGENTS|CTO]] | 0 |
-| Engineering | CTO | **Error** | [[02_AGENTS/Engineering/AGENTS|Engineering]] | 0 |
+| Engineering | CTO | Idle | [[02_AGENTS/Engineering/AGENTS|Engineering]] | 0 |
 | Drafting & Fusion 360 CAD Agent | CTO | Idle / **routing hold** | [[02_AGENTS/Drafting_CAD_Agent/AGENTS|2D/3D Drafting and Fusion CAD]] | 7 |
 | FEA Expert Agent | CTO | Idle | [[02_AGENTS/FEA_Expert_Agent/AGENTS|FEA Expert]] | 21 |
 | Failure Analysis Agent | CTO | Idle | [[02_AGENTS/Failure_Analysis_Agent/AGENTS|Failure Analysis]] | 21 |
@@ -212,4 +211,5 @@ SORT file.folder ASC, file.name ASC
 - [[05_BUSINESS/Management/Knowledge_Base/README|Company knowledge index]]
 - [[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-09-01_Model_Migration_GPT-5.6|Model migration evidence]]
 - [[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-09-01_Nico_AI_Authentication_Repair|Nico AI authentication repair evidence]]
+- [[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-09-01_Company_Wide_Agent_Authentication_Repair|Company-wide authentication repair evidence]]
 - [[05_BUSINESS/Management/Knowledge_Base/2026-09-01_Yacht_Analysis_MVP|Yacht workflow baseline]]

@@ -18,6 +18,7 @@ related_reports:
   - "[[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-09-01_Model_Migration_GPT-5.6]]"
   - "[[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-09-01_Fusion_360_and_Drafting_CAD_Agent]]"
   - "[[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-09-01_Nico_AI_Authentication_Repair]]"
+  - "[[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-09-01_Company_Wide_Agent_Authentication_Repair]]"
 ---
 
 # MORFRAC Company Knowledge — Start Here
@@ -39,6 +40,7 @@ This is the durable knowledge index for future MORFRAC analysis. It records what
 - [[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-09-01_Model_Migration_GPT-5.6|Approved and achieved GPT-5.6 agent-model migration]]
 - [[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-09-01_Fusion_360_and_Drafting_CAD_Agent|Fusion installed and controlled 2D/3D Drafting/CAD agent configured]]
 - [[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-09-01_Nico_AI_Authentication_Repair|Nico AI authentication repair and GPT-5.6 validation]]
+- [[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-09-01_Company_Wide_Agent_Authentication_Repair|Company-wide authentication repair and model validation]]
 
 - [[05_BUSINESS/Management/Knowledge_Base/2026-08-31_Strategy_Knowledge_Access|Strategy knowledge access and task-level scope]]
 - [[05_BUSINESS/Management/Knowledge_Base/2026-09-01_Yacht_Analysis_MVP|Yacht sail/deck upgrade analysis MVP and authority boundary]]
@@ -71,3 +73,4 @@ The MORFRAC dashboards link here. Standard report metadata makes these notes eli
 - [[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-09-01_Model_Migration_GPT-5.6|GPT-5.6 migration evidence]]
 - [[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-09-01_Fusion_360_and_Drafting_CAD_Agent|Fusion and Drafting/CAD configuration evidence]]
 - [[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-09-01_Nico_AI_Authentication_Repair|Nico AI authentication repair evidence]]
+- [[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-09-01_Company_Wide_Agent_Authentication_Repair|Company-wide authentication repair evidence]]

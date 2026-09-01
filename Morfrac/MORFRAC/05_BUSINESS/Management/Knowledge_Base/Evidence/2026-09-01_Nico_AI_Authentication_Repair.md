@@ -5,7 +5,7 @@ created: 2026-09-01
 as_of: 2026-09-01
 audience: internal
 record_class: setup_knowledge
-status: repaired_and_validated
+status: superseded_by_company_wide_repair
 approval_status: approved
 approval_reference: owner reply "APPROVE NICO AUTH REPAIR"
 related_findings:
@@ -23,9 +23,13 @@ related_projects: []
 related_reports:
   - "[[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-09-01_Model_Migration_GPT-5.6]]"
   - "[[001 - DASHBOARD AGENTS AND WORKFLOWS]]"
+  - "[[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-09-01_Company_Wide_Agent_Authentication_Repair]]"
 ---
 
 # Nico AI authentication repair
+
+> [!note] Superseded current-state snapshot
+> CEO, CTO and Engineering were repaired later on 2026-09-01. Use [[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-09-01_Company_Wide_Agent_Authentication_Repair|Company-wide agent authentication repair]] for the current status. The note below preserves the earlier Nico-only repair evidence and approval scope.
 
 ## Outcome
 
@@ -57,7 +61,7 @@ Under the owner's exact approval `APPROVE NICO AUTH REPAIR`:
 - `MORAAAAA-141` remained blocked and assigned to CEO after Paperclip's earlier recovery action; the repair did not reassign or execute that CAD request.
 - Authentication files contain access tokens and remain sensitive local runtime data. They must never be copied into Obsidian, source control, reports or issue comments.
 
-## Current exceptions
+## Exceptions at the time of this Nico-only repair
 
 - CEO remains in `error` with `Authentication required` and requires separate owner approval before repair.
 - Engineering remains in `error` because its OpenAI and Anthropic secret bindings are incomplete.
@@ -72,4 +76,4 @@ Under the owner's exact approval `APPROVE NICO AUTH REPAIR`:
 - [[02_AGENTS/Nico_AI/AGENTS|Nico AI instructions]]
 - [[001 - DASHBOARD AGENTS AND WORKFLOWS|Agents and workflows dashboard]]
 - [[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-09-01_Model_Migration_GPT-5.6|GPT-5.6 migration evidence]]
-
+- [[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-09-01_Company_Wide_Agent_Authentication_Repair|Current company-wide authentication repair evidence]]
