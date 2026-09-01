@@ -31,6 +31,7 @@ This is the durable knowledge index for future MORFRAC analysis. It records what
 - [[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-08-31_Workflow_Closeout|Archived handoff/closeout evidence]]
 
 - [[05_BUSINESS/Management/Knowledge_Base/2026-08-31_Strategy_Knowledge_Access|Strategy knowledge access and task-level scope]]
+- [[05_BUSINESS/Management/Knowledge_Base/2026-09-01_Yacht_Analysis_MVP|Yacht sail/deck upgrade analysis MVP and authority boundary]]
 
 ## How future analysis should use this pack
 

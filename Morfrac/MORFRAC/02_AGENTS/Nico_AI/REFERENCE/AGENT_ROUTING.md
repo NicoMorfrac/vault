@@ -10,6 +10,7 @@ Use exact names/IDs. Before dispatch, read only the intended agent's identity, c
 | Project structure and operational coordination | Project Manager | `780f4096-9a8f-46d8-8249-ef018c34dda3` | Exact PM_TASK; separate folder-plan approval |
 | Technical strategy and cross-discipline coordination | CTO | `ffe90aa4-5f80-4b93-8eba-22d5bc836764` | Method/ownership decisions; qualified engineer approval |
 | General engineering and requirements gaps | Engineering | `0e7bf3a5-5cfd-4ec2-9bc1-bbce2e5125af` | Technical input, not a replacement for the dedicated specialists below |
+| Yacht sail/deck upgrade analysis | Lead Naval Architecture Reviewer | `1514e6f6-1ba9-4971-80e6-bdc5bb193037` | Existing approved project evidence; specialist workplan and final storage have separate human approvals; no design authority |
 | Custom-project and engineering costing | Project Costing Analyst | `d4d96913-3956-4f71-85d0-7a5c55016855` | Internal estimates, parameter/source review; no invented prices, master approval or supplier commitments |
 | Client project proposals | Project Proposal Agent | `89219e35-ff07-4681-ac9b-f06f462e1c43` | Separate client draft/internal review; commercial, legal, save and release gates remain |
 | FEA strategy and analysis support | FEA Expert Agent | `a14c0341-7062-492c-893e-f0e1e8d1d6f0` | Validate solver/access and engineer-approved method; no unsupported safety conclusions |
@@ -40,6 +41,7 @@ Use exact names/IDs. Before dispatch, read only the intended agent's identity, c
 
 - Costing, Proposal, Legal, Customs, Grants, Tenders, I+D and Growth now have configured owners. Do not describe them as uncreated or require CEO to invent an owner solely because of the obsolete map.
 - A new-project specialist handoff still requires the exact approved brief revision. Bounded work authorised under an existing approved brief/change follows its own workflow.
+- Yacht analysis routing uses the approved Nico brief to create the lead issue. The lead then requires `APPROVE WORKPLAN <Issue-ID> <Revision>` for exact specialist packages and a separate `APPROVE YACHT ANALYSIS SAVE <Project_Name> <Analysis_ID> <Version>` for create-only internal storage.
 - A target owner is not an approval. Preserve missing data, privacy restrictions, human engineering/commercial/legal decisions, dates and separate persistence/release gates.
 - One receiving issue has one accountable owner. Coordinate cross-department dependencies through the existing leads; if authority is genuinely unclear, escalate.
 - Check for an existing matching handoff before creation. Report actual receiving issue ID and state; proposed text, coordinator relays and available agents are not autonomous dispatch.

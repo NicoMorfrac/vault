@@ -12,6 +12,7 @@ Intake: human → Nico AI → exact approved brief → Project Manager and accou
 | --- | --- | --- |
 | Project delivery | Project Manager | Approved scope, folders, work packages, status and escalation; not specialist approval |
 | Engineering | CTO | Engineering, FEA, Failure Analysis, CNC, Workshop, Quality, I+D, Product Documentation |
+| Yacht analysis | CTO → Lead Naval Architecture Reviewer | Intake, Geometry & Sail, Deck Systems, Mission, Rating, Loads, Retrofit and Yacht Cost/Benefit; human design authority required |
 | Marketing | Marketing | Google Ads Planner, SEO Intelligence, SEO Execution; the existing Content Strategy and Technical Content Production agents remain under SEO Execution |
 | Commercial | CEO | Project Costing Analyst and Project Proposal Agent; independent legal/technical/price/release review |
 | Finance | CEO | Accounting Agent: authorised Odoo review and exactly human-approved supported draft corrections; Strategy consumes only approved summaries |
@@ -55,6 +56,20 @@ Intake: human → Nico AI → exact approved brief → Project Manager and accou
 | Ayudas y Subvenciones Agent | `8201334b-1302-4a73-9a46-dd2d62a4a124` | Public Funding & Grants |
 | Accounting Agent | `71aa0ff4-26ff-465a-9fe5-dfb77ffda787` | Accounting evidence and human-approved limited draft-record corrections |
 
+### Yacht analysis team
+
+| Exact Paperclip agent | ID | Role boundary |
+| --- | --- | --- |
+| Lead Naval Architecture Reviewer | `1514e6f6-1ba9-4971-80e6-bdc5bb193037` | Lead Yacht Upgrade Analysis & Human-Review Coordination |
+| Boat Intake & Document Analyst | `3ae17bc0-aa26-49fe-a2d7-d396cfc5a850` | Yacht Document Intake & Canonical Boat Model |
+| Geometry & Sail Plan Analyst | `30798c3f-6fe9-40e3-8e5d-f5cd98efaaf1` | Yacht Rig Geometry & Sail Plan Analysis |
+| Deck Layout & Systems Analyst | `c8312061-8888-4353-b531-eda7be38d285` | Yacht Deck Layout, Controls & Load Paths |
+| Mission Profile Analyst | `56efea35-ed34-4f7c-a113-4d1aef84c6c3` | Yacht Mission, Crew & Constraint Definition |
+| Rating & Performance Analyst | `af683374-82b2-490c-adb4-e12666f17025` | Yacht Rating Exposure & Performance Envelope |
+| Engineering Loads Analyst | `ce0b85c5-775b-477d-b1c5-24cc2662e4b4` | Yacht Preliminary Loads & Engineering Gates |
+| Upgrade & Retrofit Strategist | `a2069f2d-a9ad-4361-a632-6d44dca24e22` | Yacht Upgrade Package & Retrofit Strategy |
+| Yacht Cost/Benefit Analyst | `ab92c9f3-a99c-403f-9b49-5dcba28add57` | Yacht Upgrade Cost-Band & Benefit Analysis |
+
 Marketing controls SEO priorities and content planning. CTO retains technical-claim review and engineering validation, not the marketing reporting line. Technical Content Production Agent is the existing blog/website content role; do not create a duplicate. Business Intel provides evidence, not a replacement Marketing lead. Costing maintains controlled MORFRAC price/discount/supplier registers, not Accounting or an employee interface.
 
 ## Canonical instructions and records
@@ -72,6 +87,7 @@ SpecialistRecords-v1 allows new internal review records in role-specific departm
 | Nico brief and exact specialist dispatch | `APPROVE BRIEF <Project_Name> <Revision>` |
 | Standard PM project folders | `APPROVE <Project_Name>` after the exact PM folder plan |
 | Leadership work-package dispatch | `APPROVE WORKPLAN <Issue-ID> <Revision>` after exact payloads |
+| Yacht analysis storage | `APPROVE YACHT ANALYSIS SAVE <Project_Name> <Analysis_ID> <Version>` after exact outputs, source hashes and paths; internal draft only |
 | New internal specialist review Markdown | `APPROVE RECORD SAVE <Issue-ID> <Version>` after exact paths, bytes and evidence |
 | Costing master registers | Existing `APPROVE COSTING MASTER <Issue-ID>` |
 | Proposal save/release | Existing separate ProposalWorkflow-v1 approvals |
@@ -86,6 +102,7 @@ Paperclip own-task checkout, substantive progress/result comments and status upd
 - Odoo read and limited-write connections remain disabled pending exact instance/database/version, company/user scope, private credentials and access/concurrency review. Accounting cannot change a business record without a current exact human approval and an enabled reviewed executor.
 - Initial prepared write scope: one existing draft invoice/bill, only reference or invoice/due dates. Posting, payments, reconciliation, deletion, bank/access/tax/amount changes remain unsupported.
 - Fusion/CAD installation remains on hold. FEA and CAM integrations, solver runs, NC output and physical production are not made operational by instructions alone.
+- Yacht MVP is on-demand only. It has no Odoo, schedule, external rating/VPP, CAD/FEA, purchasing, manufacturing or external-release integration. Yacht cost bands do not grant price/discount/supplier access.
 - Grants/tenders and all recurring heartbeat schedules remain off. "Weekly" or "monthly" in an old workflow describes a possible reporting cadence, not a configured schedule.
 - Research remains paused. Do not route live work to it until the human explicitly changes that status.
 - Marketing analytics use the existing fixed MORFRAC property/site through a scoped read helper; live authentication/schema must be verified on an authorised task. No account permission changes, publishing or ad spending are enabled.
