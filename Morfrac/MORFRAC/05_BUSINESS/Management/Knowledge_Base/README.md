@@ -2,7 +2,7 @@
 type: knowledge_index
 source_agent: Codex_Assisted_Setup
 created: 2026-08-31
-as_of: 2026-08-31
+as_of: 2026-09-01
 audience: internal
 record_class: setup_knowledge
 status: current_reference
@@ -13,6 +13,8 @@ related_concepts: []
 related_projects: []
 related_reports:
   - "[[05_BUSINESS/Management/Knowledge_Base/README]]"
+  - "[[05_BUSINESS/Management/Knowledge_Base/2026-09-01_Yacht_Analysis_MVP]]"
+  - "[[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-09-01_Model_Migration_GPT-5.6]]"
 ---
 
 # MORFRAC Company Knowledge — Start Here
@@ -21,6 +23,7 @@ This is the durable knowledge index for future MORFRAC analysis. It records what
 
 ## Current reference pack
 
+- [[001 - DASHBOARD AGENTS AND WORKFLOWS|Live agents, reporting lines, status exceptions and workflow navigation]]
 - [[05_BUSINESS/Management/Knowledge_Base/2026-08-31_Operating_Baseline|Company structure and operating baseline]]
 - [[05_BUSINESS/Management/Knowledge_Base/2026-08-31_Decisions_and_Constraints|Owner decisions and standing constraints]]
 - [[05_BUSINESS/Management/Knowledge_Base/2026-08-31_Readiness_and_Next_Actions|Readiness, limitations and next actions]]
@@ -29,6 +32,7 @@ This is the durable knowledge index for future MORFRAC analysis. It records what
 - [[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-08-31_Source_Manifest|Source manifest and provenance]]
 - [[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-08-31_Organisation_Cleanup|Archived organisation-cleanup evidence]]
 - [[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-08-31_Workflow_Closeout|Archived handoff/closeout evidence]]
+- [[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-09-01_Model_Migration_GPT-5.6|Approved and achieved GPT-5.6 agent-model migration]]
 
 - [[05_BUSINESS/Management/Knowledge_Base/2026-08-31_Strategy_Knowledge_Access|Strategy knowledge access and task-level scope]]
 - [[05_BUSINESS/Management/Knowledge_Base/2026-09-01_Yacht_Analysis_MVP|Yacht sail/deck upgrade analysis MVP and authority boundary]]
@@ -47,7 +51,7 @@ Only the relevant reviewed setup evidence has been consolidated here. Existing c
 
 Obsidian stores durable knowledge and approved reports. Paperclip retains assignments, discussions, approvals and execution receipts. Odoo will remain the authoritative accounting system when connected; this vault is not a replacement ledger. Original price/supplier uploads remain in the existing source library.
 
-The existing MORFRAC dashboard links here. Standard report metadata makes these notes eligible for its existing report queries; rendering depends on the vault's existing Dataview setup.
+The MORFRAC dashboards link here. Standard report metadata makes these notes eligible for the existing report queries; rendering depends on the vault's existing Dataview setup.
 
 ## Related Links
 
@@ -55,4 +59,6 @@ The existing MORFRAC dashboard links here. Standard report metadata makes these 
 - [[00_SYSTEM/SCOPED_RUNTIME|Current runtime and retention procedure]]
 - [[00_SYSTEM/OBSIDIAN_REPORT_STANDARD|Report standard]]
 - [[000 - DASHBOARD MORFRAC|MORFRAC dashboard]]
+- [[001 - DASHBOARD AGENTS AND WORKFLOWS|Agents and workflows dashboard]]
 - [[05_BUSINESS/Management/Knowledge_Base/2026-08-31_Operating_Baseline|Operating baseline]]
+- [[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-09-01_Model_Migration_GPT-5.6|GPT-5.6 migration evidence]]

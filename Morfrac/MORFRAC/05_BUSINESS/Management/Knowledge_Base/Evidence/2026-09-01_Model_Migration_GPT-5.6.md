@@ -18,8 +18,9 @@ related_concepts:
   - Human approval boundaries
 related_projects: []
 related_reports:
-  - 2026-08-31_Operating_Baseline
-  - 2026-08-31_Readiness_and_Next_Actions
+  - "[[05_BUSINESS/Management/Knowledge_Base/2026-08-31_Operating_Baseline]]"
+  - "[[05_BUSINESS/Management/Knowledge_Base/2026-08-31_Readiness_and_Next_Actions]]"
+  - "[[001 - DASHBOARD AGENTS AND WORKFLOWS]]"
 ---
 
 # MORFRAC Paperclip GPT-5.6 Model Migration
@@ -74,3 +75,4 @@ The guarded implementation and repeatable verifier are retained at `paperclip-co
 - [[05_BUSINESS/Management/Knowledge_Base/2026-08-31_Operating_Baseline]]
 - [[05_BUSINESS/Management/Knowledge_Base/2026-08-31_Readiness_and_Next_Actions]]
 - [[05_BUSINESS/Management/Knowledge_Base/README]]
+- [[001 - DASHBOARD AGENTS AND WORKFLOWS|Agents and workflows dashboard]]
