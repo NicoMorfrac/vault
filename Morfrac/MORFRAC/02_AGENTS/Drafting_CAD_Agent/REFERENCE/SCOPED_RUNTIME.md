@@ -2,7 +2,7 @@
 
 Read `00_SYSTEM/SCOPED_RUNTIME.md` and `00_SYSTEM/ORGANISATION.md` through `org_scoped` after `read_task`.
 
-- Exact agent ID: `__DRAFTING_AGENT_ID__`.
+- Exact agent ID: `27f2ab00-c0b5-458b-bf77-e4755128d0b6`.
 - Own guidance folder / report `source_agent`: `Drafting_CAD_Agent`.
 - Candidate source roots, each requiring direct human scope: `04_ENGINEERING/`, `08_PROJECTS/`, `10_REFERENCE/`, `04_ENGINEERING/CAD/Reviews/`.
 - Approved-plan internal review root: `04_ENGINEERING/CAD/Reviews`.
