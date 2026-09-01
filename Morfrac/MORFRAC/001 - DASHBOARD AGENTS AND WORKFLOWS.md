@@ -19,6 +19,7 @@ related_concepts:
   - Human approval boundaries
 related_projects: []
 related_reports:
+  - "[[005 - DASHBOARD LATEST REPORTS AND INFORMATION]]"
   - "[[05_BUSINESS/Management/Knowledge_Base/README]]"
   - "[[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-09-01_Model_Migration_GPT-5.6]]"
   - "[[05_BUSINESS/Management/Knowledge_Base/2026-09-01_Yacht_Analysis_MVP]]"
@@ -192,6 +193,7 @@ SORT file.folder ASC, file.name ASC
 
 ## Related Links
 
+- [[005 - DASHBOARD LATEST REPORTS AND INFORMATION|Latest reports, review queues and information graphics]]
 - [[000 - DASHBOARD MORFRAC|Main MORFRAC dashboard]]
 - [[00_SYSTEM/ORGANISATION|Current organisation and authority]]
 - [[05_BUSINESS/Management/Knowledge_Base/README|Company knowledge index]]

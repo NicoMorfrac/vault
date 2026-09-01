@@ -12,6 +12,7 @@ related_findings: []
 related_concepts: []
 related_projects: []
 related_reports:
+  - "[[005 - DASHBOARD LATEST REPORTS AND INFORMATION]]"
   - "[[05_BUSINESS/Management/Knowledge_Base/README]]"
   - "[[05_BUSINESS/Management/Knowledge_Base/2026-09-01_Yacht_Analysis_MVP]]"
   - "[[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-09-01_Model_Migration_GPT-5.6]]"
@@ -23,6 +24,7 @@ This is the durable knowledge index for future MORFRAC analysis. It records what
 
 ## Current reference pack
 
+- [[005 - DASHBOARD LATEST REPORTS AND INFORMATION|Latest reports, approval/achievement views and information graphics]]
 - [[001 - DASHBOARD AGENTS AND WORKFLOWS|Live agents, reporting lines, status exceptions and workflow navigation]]
 - [[05_BUSINESS/Management/Knowledge_Base/2026-08-31_Operating_Baseline|Company structure and operating baseline]]
 - [[05_BUSINESS/Management/Knowledge_Base/2026-08-31_Decisions_and_Constraints|Owner decisions and standing constraints]]
@@ -55,6 +57,7 @@ The MORFRAC dashboards link here. Standard report metadata makes these notes eli
 
 ## Related Links
 
+- [[005 - DASHBOARD LATEST REPORTS AND INFORMATION|Latest reports and information dashboard]]
 - [[00_SYSTEM/ORGANISATION|Current organisation and authority]]
 - [[00_SYSTEM/SCOPED_RUNTIME|Current runtime and retention procedure]]
 - [[00_SYSTEM/OBSIDIAN_REPORT_STANDARD|Report standard]]

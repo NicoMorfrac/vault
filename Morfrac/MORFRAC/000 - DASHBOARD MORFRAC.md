@@ -2,6 +2,7 @@
 
 ## Operations and Governance
 
+- [[005 - DASHBOARD LATEST REPORTS AND INFORMATION|Latest reports and information — live charts, review queues and accepted records]]
 - [[001 - DASHBOARD AGENTS AND WORKFLOWS|Agents and workflows dashboard — live roster, routing and workflow index]]
 - [[00_SYSTEM/ORGANISATION|Current organisation, reporting lines and approval boundaries]]
 - [[00_SYSTEM/SCOPED_RUNTIME|Scoped runtime, save and handoff controls]]
@@ -15,6 +16,7 @@
 
 ## Current Attention
 
+- Use [[005 - DASHBOARD LATEST REPORTS AND INFORMATION#Needs human review or validation|Latest reports — review and validation queue]] before relying on draft analysis.
 - Use [[001 - DASHBOARD AGENTS AND WORKFLOWS#Attention required|Agents and workflows — attention required]] for the current agent snapshot.
 - Engineering is blocked by incomplete secret bindings; Research is manually paused.
 - Raffa AI remains excluded from the vault-managed company-agent rollout. The legacy `02_AGENTS/Raffa_AI` folder is not a live Paperclip instruction root.
@@ -23,11 +25,11 @@
 ## Recent Generated Reports
 
 ```dataview
-TABLE source_agent, type, created
+TABLE source_agent, type, status, approval_status, dateformat(file.mtime, "yyyy-MM-dd HH:mm") AS updated
 FROM ""
 WHERE source_agent
 AND type != "dashboard"
-SORT created DESC
+SORT file.mtime DESC
 LIMIT 25
 ```
 
