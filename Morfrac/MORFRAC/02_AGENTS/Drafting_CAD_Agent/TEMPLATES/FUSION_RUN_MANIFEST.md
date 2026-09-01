@@ -1,0 +1,23 @@
+# Fusion run manifest
+
+- CAD ID / run version:
+- Mode: `3D_BUILD` or `2D_BUILD`
+- Fusion/application/API version:
+- Licence/workspace capability:
+- Active document/project identity:
+- Source hashes:
+- Approved baseline reference:
+- Script/add-in identity and hash:
+- Allowlisted operations:
+- Expected geometry/drawing changes:
+- Unit/parameter assertions:
+- Exact save behavior: none unless separately approved
+- Exact export behavior: none unless separately approved
+- Overwrite behavior: prohibited
+- Rollback/disposable-document plan:
+- Verification checks:
+- Human operator/reviewer roles:
+- Approval reference:
+- Receipt/output hashes:
+- Warnings/errors:
+- Result state:
