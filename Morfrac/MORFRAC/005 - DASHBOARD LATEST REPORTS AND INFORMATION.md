@@ -12,6 +12,7 @@ related_findings:
   - Explicit human-review and validation states require a separate queue
   - Approved and achieved records should remain distinguishable
   - Historical report metadata is incomplete and needs progressive repair
+  - Direct CAD requests with attached drawings now route from Nico to Drafting without project intake
 related_concepts:
   - Report navigation
   - Information governance
@@ -24,6 +25,7 @@ related_reports:
   - "[[05_BUSINESS/Management/Knowledge_Base/README]]"
   - "[[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-09-01_Model_Migration_GPT-5.6]]"
   - "[[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-09-02_Paperclip_Connector_Runtime_and_Attachment_Repair]]"
+  - "[[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-09-02_Nico_Direct_CAD_Routing_and_Drafting_Runtime]]"
 ---
 
 # MORFRAC Latest Reports and Information
@@ -140,7 +142,7 @@ flowchart LR
 
 ## Latest reports
 
-Current runtime evidence: [[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-09-02_Paperclip_Connector_Runtime_and_Attachment_Repair|42-agent scoped connector and attachment repair — validated]]. `MORAAAAA-141` is intentionally blocked for owner inputs and Drafting/Fusion routing approval; its execution is not running.
+Current runtime evidence: [[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-09-02_Nico_Direct_CAD_Routing_and_Drafting_Runtime|Nico direct CAD routing and Drafting runtime — achieved]]. `MORAAAAA-143` retained its PDF, was analysed by Drafting and is intentionally blocked for one geometry decision. All 44 Paperclip agents read back idle with heartbeats disabled. Fusion native-file execution remains a separate unvalidated capability.
 
 Most recently modified agent-generated records, excluding dashboards.
 
@@ -307,3 +309,4 @@ LIMIT 30
 - [[001 - DASHBOARD AGENTS AND WORKFLOWS|Agents and workflows dashboard]]
 - [[05_BUSINESS/Management/Knowledge_Base/README|Company knowledge index]]
 - [[00_SYSTEM/OBSIDIAN_REPORT_STANDARD|Obsidian report standard]]
+- [[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-09-02_Nico_Direct_CAD_Routing_and_Drafting_Runtime|Direct CAD routing and Drafting runtime evidence]]

@@ -9,13 +9,12 @@ approval_status: owner_requested_update
 related_findings:
   - 44 Paperclip agents configured
   - 43 agents use canonical Obsidian instructions
-  - 274 explicit workflow notes associated with live vault-managed agents
+  - 275 explicit workflow notes associated with live vault-managed agents
   - Fusion installed and Drafting/CAD agent configured for controlled 2D/3D work
-  - Drafting/CAD scoped runtime routing awaiting separate owner approval
-  - Company-wide non-Raffa authentication repaired and validated; no agents in error
+  - Direct Nico-to-Drafting routing is active for simple attached PDF/image CAD requests
+  - Company-wide non-Raffa authentication and managed plugin caches repaired; no agents in error
   - 42 approved agents use the repaired CLI connector runtime and scoped attachment reader
-  - MORAAAAA-141 is blocked cleanly with a board-owned unblock action
-  - Research manually paused
+  - MORAAAAA-143 is blocked cleanly with one board-owned geometry decision
 related_concepts:
   - Paperclip agent governance
   - Agent routing
@@ -30,6 +29,7 @@ related_reports:
   - "[[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-09-01_Nico_AI_Authentication_Repair]]"
   - "[[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-09-01_Company_Wide_Agent_Authentication_Repair]]"
   - "[[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-09-02_Paperclip_Connector_Runtime_and_Attachment_Repair]]"
+  - "[[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-09-02_Nico_Direct_CAD_Routing_and_Drafting_Runtime]]"
   - "[[05_BUSINESS/Management/Knowledge_Base/2026-09-01_Yacht_Analysis_MVP]]"
 ---
 
@@ -41,24 +41,22 @@ This is the Obsidian navigation and governance view for the MORFRAC Paperclip or
 
 | Item | Verified state as of 2026-09-02 |
 | --- | --- |
-| Paperclip agents | 44 total: 43 idle, 0 error, 1 manually paused |
+| Paperclip agents | 44 total: 44 idle, 0 error, 0 paused |
 | Vault-managed canonical agents | 43; every canonical `AGENTS.md` exists |
-| Explicit workflow notes | 274 files under the live agents' `WORKFLOWS` folders |
+| Explicit workflow notes | 275 files under the live agents' `WORKFLOWS` folders |
 | Models | 18 GPT-5.6 Sol, 23 GPT-5.6 Terra, 2 GPT-5.6 Luna, Raffa AI alone on GPT-5.5 |
 | Heartbeats | Disabled for all agents |
-| Scoped runtime | 42 approved agents pinned to CLI; assigned-task `read_attachment` enabled; 115 JS and 3 PDF tests pass |
+| Scoped runtime | 42 approved agents pinned to CLI; assigned-task `read_attachment` and direct CAD routing enabled; 119 JS and 3 PDF tests pass |
 | Human authority | The owner remains final authority; agent output is advice, drafting or controlled internal execution only |
 
 ## Attention required
 
-- **Runtime and authentication — repaired:** 42 approved agents use the CLI path that loads scoped connectors; stale API-key overrides are removed and assigned-task attachments are readable through the controlled tool. See [[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-09-02_Paperclip_Connector_Runtime_and_Attachment_Repair|the final repair evidence]].
-- **MORAAAAA-141 — waiting for owner input:** the task is first-class `blocked`, with no active run. Supply missing geometry or approve a non-production approximation, confirm `.f3d`/STEP requirements, then separately approve Drafting/Fusion routing.
-- **Provider capacity:** the last automatic recovery encountered the Codex account usage limit. This does not invalidate the connector tests, but live agent work requires available usage capacity.
-- **Research — paused:** manually paused; do not route live work to it until the owner resumes it.
+- **Runtime and authentication — repaired:** 42 approved agents use the CLI path that loads scoped connectors; stale API-key overrides are removed, assigned-task attachments are readable, missing managed plugin caches are restored and all 44 agents read back idle. See [[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-09-02_Paperclip_Connector_Runtime_and_Attachment_Repair|the connector evidence]] and [[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-09-02_Nico_Direct_CAD_Routing_and_Drafting_Runtime|the direct CAD routing evidence]].
+- **MORAAAAA-143 — waiting for one owner decision:** the PDF is with Drafting and the task is first-class `blocked`. Choose an unverified millimetre-based visual approximation or provide the missing controlling geometry.
 - **Raffa AI — excluded:** its live Paperclip instructions remain outside this vault-managed rollout. Do not treat `02_AGENTS/Raffa_AI` as its live instruction folder or include that legacy folder in company-wide routing.
 - **Legacy duplicate:** `02_AGENTS/Technical_Content_Production_Agent` is not a live instruction root. The live Technical Content Production Agent uses [[02_AGENTS/Blog_Website_Content_Creator/AGENTS|Blog_Website_Content_Creator]].
 - **Permissions:** the post-upgrade `canCreateSkills` state requires separate review and approval; this dashboard does not approve a change.
-- **Fusion/CAD:** Fusion is installed and the 2D/3D Drafting/CAD identity and instructions are configured. Shared scoped routing is not enabled and requires separate owner approval. The read-only API probe is installed but must be manually run; model/drawing execution, binary save/export and production release remain held.
+- **Fusion/CAD:** Fusion is installed and direct Nico-to-Drafting scoped routing is active for simple attached PDF/image requests. The read-only API probe remains available; model/drawing execution, binary save/export and production release remain held until a write-capable connector is validated.
 - **Deferred integrations:** Odoo, Fusion execution, FEA/CAM solver/toolpath/post, external release and scheduled grant/tender monitoring remain held as recorded in [[00_SYSTEM/ORGANISATION#Explicit readiness holds|Explicit readiness holds]].
 
 ## Operating flow
@@ -66,14 +64,15 @@ This is the Obsidian navigation and governance view for the MORFRAC Paperclip or
 ```mermaid
 flowchart TD
     H[Human owner] --> N[Nico AI intake]
-    N -->|APPROVE BRIEF| PM[Project Manager]
+    N -->|Simple CAD request + attachment| CAD[2D/3D Drafting and Fusion CAD]
+    N -->|New project: APPROVE BRIEF| PM[Project Manager]
     PM --> C[Approved coordination and work packages]
     C --> CEO[CEO: commercial, finance, growth, compliance]
     C --> CTO[CTO: engineering and yacht analysis]
     C --> MKT[Marketing: ads, SEO and content]
     C --> BI[Business Intel: market evidence and discovery]
     CTO --> ENG[Engineering specialists]
-    CTO --> CAD[2D/3D Drafting and Fusion CAD]
+    CTO --> CAD
     CTO --> YL[Lead Naval Architecture Reviewer]
     MKT --> SEO[Google Ads, SEO and technical content]
     BI --> DISC[B2B and B2C discovery]
@@ -101,10 +100,10 @@ The diagram shows routing, not delegated approval authority. Use [[00_SYSTEM/ORG
 | Agent | Reports to | State | Canonical instructions | Workflow notes |
 | --- | --- | --- | --- | ---: |
 | CEO | Human owner | Idle | [[02_AGENTS/CEO/AGENTS|CEO]] | 0 |
-| Nico AI | CEO | Idle — authentication repaired | [[02_AGENTS/Nico_AI/AGENTS|Nico AI]] | 5 |
+| Nico AI | CEO | Idle — authentication and direct CAD routing validated | [[02_AGENTS/Nico_AI/AGENTS|Nico AI]] | 6 |
 | Project Manager | CEO | Idle | [[02_AGENTS/Project_Manager/AGENTS|Project Manager]] | 6 |
 | Assistant | CEO | Idle | [[02_AGENTS/Assistant/AGENTS|Assistant]] | 0 |
-| Research | CEO | **Paused** | [[02_AGENTS/Research/AGENTS|Research]] | 0 |
+| Research | CEO | Idle | [[02_AGENTS/Research/AGENTS|Research]] | 0 |
 
 ## Engineering and production
 
@@ -112,7 +111,7 @@ The diagram shows routing, not delegated approval authority. Use [[00_SYSTEM/ORG
 | --- | --- | --- | --- | ---: |
 | CTO | CEO | Idle | [[02_AGENTS/CTO/AGENTS|CTO]] | 0 |
 | Engineering | CTO | Idle | [[02_AGENTS/Engineering/AGENTS|Engineering]] | 0 |
-| Drafting & Fusion 360 CAD Agent | CTO | Idle / **routing hold** | [[02_AGENTS/Drafting_CAD_Agent/AGENTS|2D/3D Drafting and Fusion CAD]] | 7 |
+| Drafting & Fusion 360 CAD Agent | CTO | Idle / direct attached-CAD routing active | [[02_AGENTS/Drafting_CAD_Agent/AGENTS|2D/3D Drafting and Fusion CAD]] | 7 |
 | FEA Expert Agent | CTO | Idle | [[02_AGENTS/FEA_Expert_Agent/AGENTS|FEA Expert]] | 21 |
 | Failure Analysis Agent | CTO | Idle | [[02_AGENTS/Failure_Analysis_Agent/AGENTS|Failure Analysis]] | 21 |
 | CNC Manufacturing Expert | CTO | Idle | [[02_AGENTS/CNC_Manufacturing_Expert/AGENTS|CNC Manufacturing]] | 20 |
@@ -176,12 +175,13 @@ These roles use the on-demand, human-reviewed workflow in [[05_BUSINESS/Manageme
 ### Intake and project control
 
 1. [[02_AGENTS/Nico_AI/WORKFLOWS/PROJECT_INTAKE|Nico project intake]]
-2. [[02_AGENTS/Nico_AI/WORKFLOWS/PROJECT_HANDOFF|Approved project handoff]]
-3. [[02_AGENTS/Project_Manager/WORKFLOWS/PM_TASK_INTAKE|PM task intake]]
-4. [[02_AGENTS/Project_Manager/WORKFLOWS/PROJECT_CREATION|Approved project creation]]
-5. [[02_AGENTS/Project_Manager/WORKFLOWS/PROJECT_COORDINATION|Project coordination]]
-6. [[02_AGENTS/Project_Manager/WORKFLOWS/CHANGE_CONTROL|Change control]]
-7. [[02_AGENTS/Project_Manager/WORKFLOWS/RESUME_AND_CLOSEOUT|Resume and closeout]]
+2. [[02_AGENTS/Nico_AI/WORKFLOWS/DIRECT_CAD_REQUEST|Direct attached-PDF/image CAD routing]]
+3. [[02_AGENTS/Nico_AI/WORKFLOWS/PROJECT_HANDOFF|Approved project handoff]]
+4. [[02_AGENTS/Project_Manager/WORKFLOWS/PM_TASK_INTAKE|PM task intake]]
+5. [[02_AGENTS/Project_Manager/WORKFLOWS/PROJECT_CREATION|Approved project creation]]
+6. [[02_AGENTS/Project_Manager/WORKFLOWS/PROJECT_COORDINATION|Project coordination]]
+7. [[02_AGENTS/Project_Manager/WORKFLOWS/CHANGE_CONTROL|Change control]]
+8. [[02_AGENTS/Project_Manager/WORKFLOWS/RESUME_AND_CLOSEOUT|Resume and closeout]]
 
 ### Proposal path
 
@@ -220,4 +220,5 @@ SORT file.folder ASC, file.name ASC
 - [[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-09-01_Nico_AI_Authentication_Repair|Nico AI authentication repair evidence]]
 - [[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-09-01_Company_Wide_Agent_Authentication_Repair|Company-wide authentication repair evidence]]
 - [[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-09-02_Paperclip_Connector_Runtime_and_Attachment_Repair|Final connector runtime and attachment repair evidence]]
+- [[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-09-02_Nico_Direct_CAD_Routing_and_Drafting_Runtime|Direct CAD routing and Drafting runtime evidence]]
 - [[05_BUSINESS/Management/Knowledge_Base/2026-09-01_Yacht_Analysis_MVP|Yacht workflow baseline]]

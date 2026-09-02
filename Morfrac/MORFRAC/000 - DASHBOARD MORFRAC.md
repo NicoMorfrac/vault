@@ -8,6 +8,7 @@
 - [[00_SYSTEM/SCOPED_RUNTIME|Scoped runtime, save and handoff controls]]
 - [[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-09-01_Model_Migration_GPT-5.6|Approved and achieved GPT-5.6 model migration]]
 - [[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-09-02_Paperclip_Connector_Runtime_and_Attachment_Repair|Paperclip connector runtime and attachment repair — validated]]
+- [[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-09-02_Nico_Direct_CAD_Routing_and_Drafting_Runtime|Nico direct CAD routing and Drafting runtime — achieved]]
 
 ## Company Knowledge
 
@@ -23,10 +24,9 @@
 
 - Use [[005 - DASHBOARD LATEST REPORTS AND INFORMATION#Needs human review or validation|Latest reports — review and validation queue]] before relying on draft analysis.
 - Use [[001 - DASHBOARD AGENTS AND WORKFLOWS#Attention required|Agents and workflows — attention required]] for the current agent snapshot.
-- The company-agent connector repair is validated: 42 approved agents use the CLI runtime and scoped task-attachment reader; 115 connector/workflow and 3 PDF tests pass.
-- `MORAAAAA-141` is cleanly blocked with no active execution. It awaits complete geometry or approval for a non-production approximation, output-format confirmation and separate Drafting/Fusion runtime-routing approval.
-- The last automatic validation run met the account usage limit. This is a temporary provider-capacity condition, not a connector failure. Research remains manually paused.
-- Fusion is installed and the Drafting/CAD identity and instructions are configured. Scoped runtime routing still requires separate owner approval; the read-only API probe and supervised 3D/2D execution tests are also pending.
+- The company-agent connector is validated: 42 approved agents use the CLI runtime and scoped task-attachment reader; 119 connector/workflow and 3 PDF tests pass. All 44 Paperclip agents currently read back as idle with heartbeats disabled.
+- `MORAAAAA-143` was routed directly from Nico to Drafting on the same issue with its PDF retained. It asks only whether to create an unverified millimetre-based approximation or wait for the missing controlling geometry.
+- Fusion is installed and direct Drafting/CAD routing is active for simple attached PDF/image requests. The write-capable Fusion connector and supervised native `.f3d`/STEP execution test are still pending.
 - Raffa AI remains excluded from the vault-managed company-agent rollout. The legacy `02_AGENTS/Raffa_AI` folder is not a live Paperclip instruction root.
 - Heartbeats, Odoo, Fusion execution, FEA/CAM solver/toolpath/post and machine integrations remain subject to the holds in [[00_SYSTEM/ORGANISATION#Explicit readiness holds|Explicit readiness holds]].
 
