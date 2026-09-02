@@ -24,10 +24,14 @@ related_projects: []
 related_reports:
   - "[[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-09-01_Model_Migration_GPT-5.6]]"
   - "[[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-09-01_Nico_AI_Authentication_Repair]]"
+  - "[[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-09-02_Paperclip_Connector_Runtime_and_Attachment_Repair]]"
   - "[[001 - DASHBOARD AGENTS AND WORKFLOWS]]"
 ---
 
 # Company-wide agent authentication repair
+
+> [!important] Current runtime addendum
+> Authentication remained valid, but the Paperclip 2026.824.1 runtime also needed a CLI connector, stale environment override, scoped attachment and blocked-state compatibility repair. Use [[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-09-02_Paperclip_Connector_Runtime_and_Attachment_Repair|the 2026-09-02 repair record]] as the current operational evidence.
 
 ## Outcome
 

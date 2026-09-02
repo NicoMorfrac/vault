@@ -2,7 +2,7 @@
 type: dashboard
 source_agent: Codex
 created: 2026-09-01
-as_of: 2026-09-01
+as_of: 2026-09-02
 audience: internal
 status: current_reference
 approval_status: owner_requested_update
@@ -13,6 +13,8 @@ related_findings:
   - Fusion installed and Drafting/CAD agent configured for controlled 2D/3D work
   - Drafting/CAD scoped runtime routing awaiting separate owner approval
   - Company-wide non-Raffa authentication repaired and validated; no agents in error
+  - 42 approved agents use the repaired CLI connector runtime and scoped attachment reader
+  - MORAAAAA-141 is blocked cleanly with a board-owned unblock action
   - Research manually paused
 related_concepts:
   - Paperclip agent governance
@@ -27,6 +29,7 @@ related_reports:
   - "[[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-09-01_Fusion_360_and_Drafting_CAD_Agent]]"
   - "[[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-09-01_Nico_AI_Authentication_Repair]]"
   - "[[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-09-01_Company_Wide_Agent_Authentication_Repair]]"
+  - "[[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-09-02_Paperclip_Connector_Runtime_and_Attachment_Repair]]"
   - "[[05_BUSINESS/Management/Knowledge_Base/2026-09-01_Yacht_Analysis_MVP]]"
 ---
 
@@ -36,18 +39,21 @@ This is the Obsidian navigation and governance view for the MORFRAC Paperclip or
 
 ## Current state
 
-| Item | Verified state as of 2026-09-01 |
+| Item | Verified state as of 2026-09-02 |
 | --- | --- |
 | Paperclip agents | 44 total: 43 idle, 0 error, 1 manually paused |
 | Vault-managed canonical agents | 43; every canonical `AGENTS.md` exists |
 | Explicit workflow notes | 274 files under the live agents' `WORKFLOWS` folders |
 | Models | 18 GPT-5.6 Sol, 23 GPT-5.6 Terra, 2 GPT-5.6 Luna, Raffa AI alone on GPT-5.5 |
 | Heartbeats | Disabled for all agents |
+| Scoped runtime | 42 approved agents pinned to CLI; assigned-task `read_attachment` enabled; 115 JS and 3 PDF tests pass |
 | Human authority | The owner remains final authority; agent output is advice, drafting or controlled internal execution only |
 
 ## Attention required
 
-- **Authentication — repaired:** all 43 non-Raffa agents have usable Codex authentication; nine validation runs passed across Sol, Terra and Luna. No agent is currently in error.
+- **Runtime and authentication — repaired:** 42 approved agents use the CLI path that loads scoped connectors; stale API-key overrides are removed and assigned-task attachments are readable through the controlled tool. See [[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-09-02_Paperclip_Connector_Runtime_and_Attachment_Repair|the final repair evidence]].
+- **MORAAAAA-141 — waiting for owner input:** the task is first-class `blocked`, with no active run. Supply missing geometry or approve a non-production approximation, confirm `.f3d`/STEP requirements, then separately approve Drafting/Fusion routing.
+- **Provider capacity:** the last automatic recovery encountered the Codex account usage limit. This does not invalidate the connector tests, but live agent work requires available usage capacity.
 - **Research — paused:** manually paused; do not route live work to it until the owner resumes it.
 - **Raffa AI — excluded:** its live Paperclip instructions remain outside this vault-managed rollout. Do not treat `02_AGENTS/Raffa_AI` as its live instruction folder or include that legacy folder in company-wide routing.
 - **Legacy duplicate:** `02_AGENTS/Technical_Content_Production_Agent` is not a live instruction root. The live Technical Content Production Agent uses [[02_AGENTS/Blog_Website_Content_Creator/AGENTS|Blog_Website_Content_Creator]].
@@ -87,6 +93,7 @@ The diagram shows routing, not delegated approval authority. Use [[00_SYSTEM/ORG
 - [[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-09-01_Fusion_360_and_Drafting_CAD_Agent|Fusion 360 and Drafting/CAD agent — configured, execution validation pending]]
 - [[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-09-01_Nico_AI_Authentication_Repair|Nico AI authentication — repaired and validated]]
 - [[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-09-01_Company_Wide_Agent_Authentication_Repair|Company-wide authentication — repaired and validated]]
+- [[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-09-02_Paperclip_Connector_Runtime_and_Attachment_Repair|Connector runtime, scoped attachment and blocked-state repair — validated]]
 - [[05_BUSINESS/Management/Knowledge_Base/2026-09-01_Yacht_Analysis_MVP|Yacht analysis team and workflow baseline]]
 
 ## Executive intake and project delivery
@@ -212,4 +219,5 @@ SORT file.folder ASC, file.name ASC
 - [[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-09-01_Model_Migration_GPT-5.6|Model migration evidence]]
 - [[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-09-01_Nico_AI_Authentication_Repair|Nico AI authentication repair evidence]]
 - [[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-09-01_Company_Wide_Agent_Authentication_Repair|Company-wide authentication repair evidence]]
+- [[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-09-02_Paperclip_Connector_Runtime_and_Attachment_Repair|Final connector runtime and attachment repair evidence]]
 - [[05_BUSINESS/Management/Knowledge_Base/2026-09-01_Yacht_Analysis_MVP|Yacht workflow baseline]]

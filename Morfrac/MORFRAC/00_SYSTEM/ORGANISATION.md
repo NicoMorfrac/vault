@@ -6,7 +6,7 @@ Approved organisational cleanup: 2026-08-31. This is the current routing and aut
 
 The human owner is the final authority. The CEO agent coordinates and recommends; it is not the human CEO and cannot approve its own proposals, hire agents, change access or commit MORFRAC externally.
 
-Intake: human → Nico AI → exact approved brief → Project Manager and accountable specialists. Project Manager owns the standard project folders and coordination. CTO owns technical coordination and review; Marketing owns marketing/SEO priorities. Accounting reviews actual financial evidence; Costing owns estimates/rates/pricing; Strategy owns growth scenarios. These are distinct responsibilities.
+Intake: human → Nico AI → either a bounded direct specialist route or an exact approved project brief → Project Manager and accountable specialists. A direct attached CAD request may transfer on the same issue to the Drafting & Fusion 360 CAD Agent without creating a project. Project Manager owns standard project folders and coordination. CTO owns technical coordination and review; Marketing owns marketing/SEO priorities. Accounting reviews actual financial evidence; Costing owns estimates/rates/pricing; Strategy owns growth scenarios. These are distinct responsibilities.
 
 | Group | Accountable lead | Specialist ownership |
 | --- | --- | --- |
@@ -35,6 +35,7 @@ Intake: human → Nico AI → exact approved brief → Project Manager and accou
 | Marketing | `02e3c568-a7d9-4ae6-a2a1-5ff17ecac41f` | Marketing & Digital Analyst |
 | Engineering | `0e7bf3a5-5cfd-4ec2-9bc1-bbce2e5125af` | Lead Engineer |
 | CNC Manufacturing Expert | `4c14c541-8d41-40e0-a7ac-471c4137ed8a` | CNC Manufacturing & CAM Process Planning |
+| Drafting & Fusion 360 CAD Agent | `27f2ab00-c0b5-458b-bf77-e4755128d0b6` | Controlled 2D/3D drafting and Fusion 360 CAD |
 | Technical Content Production Agent | `c2d8893d-0abc-45b4-bbd0-2f2810c26dab` | Blog & Website Content Creator |
 | Google Ads Planner | `34701683-f682-4b2e-98bd-c7bb1ad875f6` | Google Ads Campaign Planner & Analyst |
 | Technical Content Strategy Agent | `465e3a25-d1dd-47f4-95c1-840d7e5c2e0f` | Technical Content Strategy Agent |
@@ -85,6 +86,7 @@ SpecialistRecords-v1 allows new internal review records in role-specific departm
 | Operation | Required human decision |
 | --- | --- |
 | Nico brief and exact specialist dispatch | `APPROVE BRIEF <Project_Name> <Revision>` |
+| Direct attached CAD request | The direct local-board task authorises same-issue assignment to Drafting after attachment/intention checks; it does not approve geometry assumptions, Fusion execution, save/export, external release or manufacture |
 | Standard PM project folders | `APPROVE <Project_Name>` after the exact PM folder plan |
 | Leadership work-package dispatch | `APPROVE WORKPLAN <Issue-ID> <Revision>` after exact payloads |
 | Yacht analysis storage | `APPROVE YACHT ANALYSIS SAVE <Project_Name> <Analysis_ID> <Version>` after exact outputs, source hashes and paths; internal draft only |
@@ -101,7 +103,7 @@ Paperclip own-task checkout, substantive progress/result comments and status upd
 
 - Odoo read and limited-write connections remain disabled pending exact instance/database/version, company/user scope, private credentials and access/concurrency review. Accounting cannot change a business record without a current exact human approval and an enabled reviewed executor.
 - Initial prepared write scope: one existing draft invoice/bill, only reference or invoice/due dates. Posting, payments, reconciliation, deletion, bank/access/tax/amount changes remain unsupported.
-- Fusion/CAD installation remains on hold. FEA and CAM integrations, solver runs, NC output and physical production are not made operational by instructions alone.
+- Fusion is installed and direct Drafting/CAD task routing with scoped PDF/image reading is enabled. Paperclip-to-Fusion write execution, binary save/export, released drawings, FEA/CAM solver runs, NC output and physical production remain held pending their separate validation and approvals.
 - Yacht MVP is on-demand only. It has no Odoo, schedule, external rating/VPP, CAD/FEA, purchasing, manufacturing or external-release integration. Yacht cost bands do not grant price/discount/supplier access.
 - Grants/tenders and all recurring heartbeat schedules remain off. "Weekly" or "monthly" in an old workflow describes a possible reporting cadence, not a configured schedule.
 - Research remains paused. Do not route live work to it until the human explicitly changes that status.
@@ -115,4 +117,3 @@ A role assignment or a link is not permission to read a whole department. Direct
 Use only declared scoped tools. No shell, arbitrary URL/RPC/SQL, raw environment/configuration, broad file server, automatic hiring or permission changes. Public web research is available only to research-capable roles; never send confidential company data, financial records or credentials in search queries.
 
 Every deliverable must separate evidence, assumptions, open questions and required human decisions. Persist a substantive answer and verify it before marking the task done. Report blocked/unsupported operations explicitly; a runtime success is not a business completion.
-

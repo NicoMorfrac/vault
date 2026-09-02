@@ -16,6 +16,7 @@ Use exact names/IDs. Before dispatch, read only the intended agent's identity, c
 | FEA strategy and analysis support | FEA Expert Agent | `a14c0341-7062-492c-893e-f0e1e8d1d6f0` | Validate solver/access and engineer-approved method; no unsupported safety conclusions |
 | Failure investigations | Failure Analysis Agent | `20b3663f-b102-42c4-b557-d5b8f0977359` | Evidence-led hypotheses, not an unapproved root-cause release |
 | Machining/CAM planning | CNC Manufacturing Expert | `4c14c541-8d41-40e0-a7ac-471c4137ed8a` | Verified machine/material/tooling inputs and machinist approval; no automatic production code |
+| 2D/3D drafting and Fusion 360 CAD | Drafting & Fusion 360 CAD Agent | `27f2ab00-c0b5-458b-bf77-e4755128d0b6` | Direct attached PDF/image requests route on the same issue; no project brief required for standalone geometry conversion; execution/save/release remain separately controlled |
 | Workshop coordination | Production & Workshop Coordinator | `2b31d6d9-5d51-4d7a-b922-4783660fcba4` | Readiness, sequencing and holds; scoped access and release limits |
 | Inspection and quality planning | Quality, Inspection & Metrology Agent | `93c60645-dd0b-4fa5-bf51-1f49340a1c0d` | Inspection evidence and controlled acceptance; human quality authority |
 | Contracts, NDA and legal support | Legal Agent | `b24416b6-6835-4381-85fb-48a5ed92fd84` | Draft/review support; authorised director/qualified legal reviewer approves |
@@ -32,7 +33,7 @@ Use exact names/IDs. Before dispatch, read only the intended agent's identity, c
 
 ## Explicit holds and exclusions
 
-- Fusion-dependent CAD/drafting remains on hold pending the user's installation/readiness confirmation. CTO/Engineering may gather requirements or name a human designer; do not claim a Fusion agent/tool is ready.
+- Fusion is installed and direct attached CAD task routing is enabled. The Drafting agent may receive and inspect the task/attachment. Paperclip-to-Fusion write execution, binary save/export and production release remain held until their separate validation and approvals.
 - Research (`c0f9ffc6-ed94-4c64-ba7a-159b60c88851`) was paused at this verification. Check live status before any future assignment; this map does not reactivate it.
 - Employee-facing agents are outside this routing update. Do not assign them responsibilities or edit their configuration.
 - Grants/tenders recurring schedules remain deferred. Routing an approved one-off task does not enable a heartbeat.

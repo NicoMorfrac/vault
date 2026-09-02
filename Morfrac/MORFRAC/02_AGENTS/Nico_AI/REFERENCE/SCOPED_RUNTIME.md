@@ -66,6 +66,8 @@ Use `read_source(path,page?)` for a declared file; `list_sources(path)` is only 
 
 Use `lookup_recipient(agent_id)` for one intended recipient from the routing guide. Only identity, role/title, status and reporting line return; configuration, credentials and employee-agent discovery are unavailable. Raffa AI is excluded and unchanged; its legacy configuration is outside this workflow. Do not enumerate recipients without a routing need.
 
+For a direct local-board CAD/Fusion/2D/3D request with a PDF or supported image attached to the assigned issue, use `route_cad_task` after `read_task` and `checkout_task`. The connector verifies human origin, explicit CAD intent, attachment metadata and the exact idle Drafting recipient, then transfers the same issue so the attachment is retained. This route does not create a project or approve CAD execution, save, export or release.
+
 `request_review(project_name,topic)` supports fixed minimal requests for engineering_inputs, schedule_inputs, client_safe_price, legal_review and commercial_decision; Proposal also has proposal_storage. These contain no private source data, create a child issue once and verify it. A fixed request is not approval and does not grant the recipient private parent access. Richer input requires an approved Nico brief or a direct human disclosure declaration in a comment:
 
 ```text
@@ -87,7 +89,7 @@ The Markdown report standard requires type, source_agent, created, related_findi
 
 ## Boundaries
 
-No unrestricted shell, arbitrary API/URL, filesystem server, general web search, Odoo writes, sending, signing, exporting, scheduled work or project-folder creation is available here. For missing capabilities request a precise authorised input/export or report the limitation; do not improvise a fallback. Fusion remains on hold pending installation confirmation. Scheduled grant/tender searches remain deferred. Other agents and company permissions are not changed by this runtime.
+No unrestricted shell, arbitrary API/URL, filesystem server, general web search, Odoo writes, sending, signing, exporting, scheduled work or project-folder creation is available here. For missing capabilities request a precise authorised input/export or report the limitation; do not improvise a fallback. Fusion is installed and Drafting routing is enabled, but write execution/save/export/release remain separately controlled. Scheduled grant/tender searches remain deferred. Other agents and company permissions are not changed by this runtime.
 
 The connector runs as trusted local code and is not an OS-level isolation boundary against an administrator or other same-user process. Business accuracy, confidentiality of prose and suitability of human review still need accountable review.
 
@@ -108,5 +110,4 @@ originating_issue: <assigned issue UUID>
 Dispatch does not create project folders or approve downstream work. Check the project and receiving agent first. Nico's specialist review requests require a current approved brief; commercial_decision is a fixed escalation only. Do not configure Raffa or route unapproved specialist work.
 
 For an expressly requested log, plan_save kind is nico_log, with project_name and exact existing folder path `02_AGENTS/Nico_AI/LOGS/<Issue-ID>_<slug>.md`. Its approval remains `APPROVE <Project>`. Never create project structures. Missing project storage is a scoped PM handoff, not a reason to run a shell.
-
 

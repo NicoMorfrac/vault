@@ -8,7 +8,7 @@ Read `00_SYSTEM/SCOPED_RUNTIME.md` and `00_SYSTEM/ORGANISATION.md` through `org_
 - Approved-plan internal review root: `04_ENGINEERING/CAD/Reviews`.
 - Public web: official public Fusion/standards/manufacturer research only; never disclose company geometry or confidential data.
 - Odoo, CAM/NC, FEA solver, machine connection and external sending: unavailable.
-- Fusion 360: application detected; Paperclip execution connector not validated.
+- Fusion 360: application detected; direct task routing and scoped PDF/image reading are enabled; Paperclip write execution connector is not validated.
 - Existing connector: none.
 
-The current connector can read approved sources, coordinate through Paperclip and save exact approved new Markdown review records. It cannot create or modify Fusion documents, drawings, binary CAD files, exports, project indices or released files. Failed or ambiguous actions stop without retry. Heartbeat remains disabled.
+The current connector can read the assigned task and its exact attachments, read separately approved sources, coordinate through Paperclip and save exact approved new Markdown review records. A direct standalone CAD task does not require project creation. It cannot yet create or modify Fusion documents, drawings, binary CAD files, exports, project indices or released files. Failed or ambiguous actions stop without retry. Heartbeat remains disabled.

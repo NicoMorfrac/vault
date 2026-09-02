@@ -2,7 +2,7 @@
 type: dashboard
 source_agent: Codex
 created: 2026-09-01
-as_of: 2026-09-01
+as_of: 2026-09-02
 audience: internal
 record_class: information_dashboard
 status: current_reference
@@ -23,6 +23,7 @@ related_reports:
   - "[[001 - DASHBOARD AGENTS AND WORKFLOWS]]"
   - "[[05_BUSINESS/Management/Knowledge_Base/README]]"
   - "[[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-09-01_Model_Migration_GPT-5.6]]"
+  - "[[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-09-02_Paperclip_Connector_Runtime_and_Attachment_Repair]]"
 ---
 
 # MORFRAC Latest Reports and Information
@@ -138,6 +139,8 @@ flowchart LR
 ```
 
 ## Latest reports
+
+Current runtime evidence: [[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-09-02_Paperclip_Connector_Runtime_and_Attachment_Repair|42-agent scoped connector and attachment repair — validated]]. `MORAAAAA-141` is intentionally blocked for owner inputs and Drafting/Fusion routing approval; its execution is not running.
 
 Most recently modified agent-generated records, excluding dashboards.
 
