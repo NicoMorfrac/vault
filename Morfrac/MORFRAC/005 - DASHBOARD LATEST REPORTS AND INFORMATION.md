@@ -142,7 +142,7 @@ flowchart LR
 
 ## Latest reports
 
-Current runtime evidence: [[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-09-02_Nico_Direct_CAD_Routing_and_Drafting_Runtime|Nico direct CAD routing and Drafting runtime — achieved]]. `MORAAAAA-143` retained its PDF, was analysed by Drafting and is intentionally blocked for one geometry decision. All 44 Paperclip agents read back idle with heartbeats disabled. Fusion native-file execution remains a separate unvalidated capability.
+Current runtime evidence: [[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-09-02_Nico_Direct_CAD_Routing_and_Drafting_Runtime|Nico direct CAD routing and controlled Fusion execution — achieved]]. `MORAAAAA-143` retained its PDF, routed directly to Drafting and produced hash-verified F3D, STEP, top/front DXFs and a preview. Paperclip now shows the issue `in_review`, assigned to `local-board` for human engineering review; Drafting and CTO are idle, no recovery is active, and there are no live runs. The model is reference-only and not for manufacture because the source sheet omits controlling geometry. All Paperclip agent heartbeats remain disabled; the local Fusion queue heartbeat is a technical readiness signal, not an agent schedule.
 
 Most recently modified agent-generated records, excluding dashboards.
 
