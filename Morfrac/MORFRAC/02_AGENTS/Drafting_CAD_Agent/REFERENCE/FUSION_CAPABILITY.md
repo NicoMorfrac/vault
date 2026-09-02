@@ -1,14 +1,15 @@
 # Fusion 360 capability and limitations
 
-## Verified locally on 2026-09-01
+## Verified locally on 2026-09-02
 
-- `Fusion360.exe` detected under the current user's Autodesk webdeploy production directory.
-- Fusion 360 process observed running.
-- No MORFRAC Paperclip-to-Fusion execution connector was detected or validated.
+- Fusion 2704.1.53 launched from the current user's Autodesk webdeploy production directory.
+- MORFRAC Fusion Bridge 0.2.2 installed as a startup add-in.
+- Custom-event main-thread execution, fixed queue, heartbeat, validation, no-overwrite behavior, failure receipts, native F3D/STEP/DXF export and preview capture exercised.
+- Paperclip exposes only four Drafting tools: status, frozen reference plan, approval-bound one-shot queue and verified receipt.
 
 ## Supported integration route
 
-Autodesk supports Python add-ins/scripts through Fusion's API. On Windows, Fusion automatically searches `%APPDATA%\Autodesk\Autodesk Fusion\API\AddIns` and `...\Scripts`. A MORFRAC read-only probe can confirm the in-process API and active context without editing a design.
+The installed add-in watches only the fixed MORFRAC queue. Its worker thread never calls Fusion APIs; it fires a custom event so modelling executes on Fusion's main thread. Jobs cannot provide code or paths and are limited to the allowlisted operation. Existing outputs are never overwritten.
 
 Official references:
 
@@ -22,14 +23,8 @@ Autodesk's `DrawingManager.createDrawing` API was introduced in July 2026 as pre
 
 Reference: https://help.autodesk.com/cloudhelp/ENU/Fusion-360-API/files/DrawingManager_createDrawing.htm
 
-## Readiness sequence
+## Current boundary
 
-1. Install and manually run the read-only API probe.
-2. Record Fusion/application/API/document context receipt.
-3. Run a disposable 3D smoke test in a non-project document after exact approval.
-4. Verify parameter units, feature health, save isolation and rollback.
-5. Run a disposable supervised 2D drawing test after exact approval.
-6. Verify model reference, views, units, dimensions, template and export.
-7. Review the allowlisted job schema and connector security before any operational use.
+`create_reference_bracket_v1` is the only operational geometry schema. It produces an internal reference F3D, STEP, top/front DXF profiles and preview. It is not a generic drawing-to-3D engine. Any different part family requires a new narrowly defined operation, validation tests and smoke-test evidence before it can be queued.
 
-Until all applicable steps pass, report planning capability only and never claim Fusion execution.
+Always require a fresh bridge heartbeat and exact output-hash receipt. Automated production drawings, cloud save, master modification, CAM, FEA, manufacturing release and external handoff are unavailable through this connector.

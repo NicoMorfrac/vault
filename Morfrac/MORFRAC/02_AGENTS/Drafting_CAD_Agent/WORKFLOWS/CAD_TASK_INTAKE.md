@@ -1,11 +1,12 @@
 # CAD task intake
 
-1. Confirm the assigned issue, requester and attached source. For a standalone task, use the issue identifier as provisional CAD ID; no project or approved project brief is required.
-2. Read the attached PDF/image before asking the user to repeat dimensions or geometry.
-3. Classify outputs: 3D model, assembly, 2D sketch, manufacturing drawing, export or review. For an unqualified 3D request, propose native Fusion `.f3d` plus STEP when execution/save is available.
-4. Confirm only geometry-controlling items missing from the source: units, ambiguous/missing dimensions, views/interfaces and the requested 2D/3D result.
-5. Treat client, NDA, budget, schedule, material, finish, process and release authority as nonblocking for a geometry-only reference model unless they affect representation, verification or manufacturing use.
-6. Check Fusion capability state without changing a document. If geometry is incomplete, ask one grouped concise question; otherwise prepare the model/build plan directly.
-7. Create no file, model, drawing, export or child issue by implication. Execution, save/export and release retain their separate gates.
+1. Confirm assigned issue and CAD ID. Use the issue identifier for a standalone direct task; do not demand a project.
+2. Classify outputs: 3D model, assembly, 2D sketch, manufacturing drawing, export or review.
+3. Identify authorised source scope and confidentiality.
+4. Identify design/release authorities only when manufacturing, analysis, controlled project use or external release is requested.
+5. Check project and Fusion capability state without changing either.
+6. For an internal reference request, read dimensions already visible in the attachment and group bounded visual assumptions in one plan. Do not ask for commercial or project-administration details that do not change the geometry.
+7. For manufacturing or release, list all missing controlling inputs together and block. Never silently promote an assumption to approved geometry.
+8. Create no child project/issue for a standalone drawing-to-model task. Use the controlled Fusion plan/approval/receipt flow when the allowlisted operation applies.
 
 Use [[02_AGENTS/Drafting_CAD_Agent/TEMPLATES/CAD_TASK_INTAKE|the intake template]].
