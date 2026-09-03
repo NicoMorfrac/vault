@@ -65,10 +65,11 @@ This configuration is achieved for intake, routing, attachment reading, controll
 - Drafting used `org_scoped`, read the issue, read the attachment and recorded a bounded CAD intake.
 - Extracted visible parameters: overall length 36.66, width 12, height 22, main bore Ø12, mounting-centre spacing 25 and an M5 callout; units remain unconfirmed but are proposed as millimetres.
 - Owner authorisation to continue with a reference-only reconstruction was recorded through this repair task.
-- Final controlled job: `0c3ea19f-50be-491e-a845-8fa8fbf58441`, output basename `MORAAAAA-143_ORF12_reference_v06`.
-- Fusion 360 2704.1.53 produced one solid body with five features and ten named user parameters.
-- The reference controls the visible 36.66 × 12 × 22 mm envelope, Ø12 bore, 25 mm mounting-hole spacing and two nominal Ø5 mm through-all cuts.
-- Output readback verified the F3D, STEP, top-reference DXF, front-reference DXF and PNG preview. The F3D SHA-256 is `42a65d2e14e662b738a21eeda078a425e0ae977c6d31803bd758960e1b6d0aee`; the STEP SHA-256 is `2c69f90f67f7868985bdf5ab5a360851bdc8edc73241f6f3d9311ff6f2b8ed78`.
+- Owner visual review rejected v06 as insufficiently similar to the source; its outputs are retained only as rejected evidence.
+- Current review candidate: job `db133260-2952-42a4-a1f6-dcdc9d30f509`, output basename `MORAAAAA-143_ORF12_reference_v10`.
+- Fusion 360 2704.1.53 produced one solid body with seven features and ten named user parameters.
+- The v10 candidate controls the visible 36.66 × 12 × 22 mm envelope, Ø12 bore, 25 mm mounting-hole spacing and two nominal Ø5 mm through-all cuts. It replaces the generic v06 wedge with tangent lug sides, a compact boss, rounded boss rim and rounded base plan corners.
+- Output readback verified the F3D, STEP, top-reference DXF, front-reference DXF and PNG preview. The v10 F3D SHA-256 is `7f5f5095b6184b7739a1fce0f482ba35a61352301bd5105e4d834350c8335a3d`; the STEP SHA-256 is `e01e317d9215f5fa29412d29c1fc5adade4710daba5379a6e5aca7c668d763b8`.
 - Paperclip state after lifecycle reconciliation: `in_review`, assigned to `local-board` for human engineering review, with no agent execution lock or active recovery action. Drafting and CTO are idle and there are no live runs.
 - Superseded `MORAAAAA-141` and its automatic review `MORAAAAA-142` were cancelled. Automatic review `MORAAAAA-144` for the current issue was also cancelled after the direct route was recovered.
 
@@ -79,20 +80,20 @@ This configuration is achieved for intake, routing, attachment reading, controll
 - 3 PDF extraction tests passed.
 - Drafting, CTO and CEO each completed a direct `org_scoped` MCP initialization check.
 - Paperclip readback after cleanup: 44 agents idle, 0 agents in error, and 0 enabled heartbeats.
-- The v06 execution receipt reports `SUCCEEDED`, `SINGLE_BODY_REFERENCE`, five hash-verified outputs and `scratch_document_closed_after_export: true`.
-- Visual QA compared the final preview to the supplied ORF12 sheet and accepted it as a reference reconstruction.
-- Bridge 0.2.4 is the verified execution runtime. Bridge 0.2.5, which adds a short Fusion-startup event-loop grace period for pre-existing queued jobs, passed the same five validation tests and is installed for the next Fusion start.
+- The v10 execution receipt reports `SUCCEEDED`, `SINGLE_BODY_REFERENCE`, five hash-verified outputs and `scratch_document_closed_after_export: true`.
+- Visual QA rejected v06, v08 and v09. v07 failed safely before export and its scratch document was discarded. v10 is pending owner review and is not yet an accepted reconstruction.
+- Bridge 0.3.3 is the installed and verified execution runtime. Its Fusion validation suite passes five tests.
 - The supervised v06 repair was executed administratively after owner authorisation, not through an agent-authored Paperclip `fusion_job_plan`. A later automatic Drafting review therefore could not bind that historical receipt to an agent plan. The issue was reconciled to human review without rebuilding or changing any output. Future jobs must use Drafting's native plan → exact human approval → execute → receipt sequence.
 
 ## Remaining control
 
-The v06 model is `REFERENCE_ONLY_UNVERIFIED_NOT_FOR_MANUFACTURE`. The source sheet does not control base thickness, boss outside diameter and centre, web profile, radii/fillets, M5 thread form or counterbore/countersink details. The bridge uses documented visual assumptions for those values. A qualified MORFRAC engineer must replace or approve the missing geometry before manufacturing, structural analysis or external release. Current automation is intentionally limited to the reference-bracket operation; new geometry families require their own implemented and tested allowlisted operation.
+The v10 review candidate is `REFERENCE_ONLY_UNVERIFIED_NOT_FOR_MANUFACTURE`. The source sheet does not control base thickness, boss outside diameter and centre, web profile, radii/fillets, M5 thread form or counterbore/countersink details. v10 deliberately models the M5 callouts as clean nominal through-holes instead of inventing the undefined concentric detail. A qualified MORFRAC engineer must replace or approve the missing geometry before manufacturing, structural analysis or external release. Current automation is intentionally limited to the reference-bracket operation; new geometry families require their own implemented and tested allowlisted operation.
 
 ## Generated evidence and outputs
 
-- Receipt: `C:\Users\nicol\Documents\paperclip 2\paperclip-config\drafting-cad-agent-20260901\fusion-bridge\receipts\0c3ea19f-50be-491e-a845-8fa8fbf58441.receipt.json`
-- Fusion model: `C:\Users\nicol\Documents\paperclip 2\paperclip-config\drafting-cad-agent-20260901\fusion-bridge\output\MORAAAAA-143\MORAAAAA-143_ORF12_reference_v06.f3d`
-- STEP: `C:\Users\nicol\Documents\paperclip 2\paperclip-config\drafting-cad-agent-20260901\fusion-bridge\output\MORAAAAA-143\MORAAAAA-143_ORF12_reference_v06.step`
+- Receipt: `C:\Users\nicol\Documents\paperclip 2\paperclip-config\drafting-cad-agent-20260901\fusion-bridge\receipts\db133260-2952-42a4-a1f6-dcdc9d30f509.receipt.json`
+- Fusion model: `C:\Users\nicol\Documents\paperclip 2\paperclip-config\drafting-cad-agent-20260901\fusion-bridge\output\MORAAAAA-143\MORAAAAA-143_ORF12_reference_v10.f3d`
+- STEP: `C:\Users\nicol\Documents\paperclip 2\paperclip-config\drafting-cad-agent-20260901\fusion-bridge\output\MORAAAAA-143\MORAAAAA-143_ORF12_reference_v10.step`
 - Top and front DXFs plus the preview are stored beside the model.
 
 ## Files and controls

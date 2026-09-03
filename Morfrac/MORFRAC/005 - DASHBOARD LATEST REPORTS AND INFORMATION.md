@@ -142,7 +142,7 @@ flowchart LR
 
 ## Latest reports
 
-Current runtime evidence: [[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-09-02_Nico_Direct_CAD_Routing_and_Drafting_Runtime|Nico direct CAD routing and controlled Fusion execution — achieved]]. `MORAAAAA-143` retained its PDF, routed directly to Drafting and produced hash-verified F3D, STEP, top/front DXFs and a preview. Paperclip now shows the issue `in_review`, assigned to `local-board` for human engineering review; Drafting and CTO are idle, no recovery is active, and there are no live runs. The model is reference-only and not for manufacture because the source sheet omits controlling geometry. All Paperclip agent heartbeats remain disabled; the local Fusion queue heartbeat is a technical readiness signal, not an agent schedule.
+Current runtime evidence: [[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-09-02_Nico_Direct_CAD_Routing_and_Drafting_Runtime|Nico direct CAD routing and controlled Fusion execution — achieved]]. Owner review rejected ORF12 v06 for visual mismatch. The new hash-verified v10 F3D/STEP/DXF/preview set is `in_review` by `local-board`; it uses tangent lug sides, a compact rounded boss and rounded base corners, while leaving undefined M5 recess detail unmodelled. It remains reference-only and not for manufacture. All Paperclip agent heartbeats remain disabled; the local Fusion queue heartbeat is a technical readiness signal, not an agent schedule.
 
 Most recently modified agent-generated records, excluding dashboards.
 

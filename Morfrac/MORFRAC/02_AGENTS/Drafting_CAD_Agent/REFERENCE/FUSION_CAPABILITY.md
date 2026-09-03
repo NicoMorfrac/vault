@@ -3,7 +3,7 @@
 ## Verified locally on 2026-09-02
 
 - Fusion 2704.1.53 launched from the current user's Autodesk webdeploy production directory.
-- MORFRAC Fusion Bridge 0.2.5 installed as a startup add-in; supervised model execution was verified on 0.2.4 and 0.2.5 adds a tested startup grace period.
+- MORFRAC Fusion Bridge 0.3.3 installed as a startup add-in; supervised execution and hash-verified F3D/STEP/DXF/preview export were verified with the ORF12 v10 review candidate.
 - Custom-event main-thread execution, fixed queue, heartbeat, validation, no-overwrite behavior, failure receipts, native F3D/STEP/DXF export and preview capture exercised.
 - Paperclip exposes only four Drafting tools: status, frozen reference plan, approval-bound one-shot queue and verified receipt.
 
