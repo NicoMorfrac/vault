@@ -12,7 +12,7 @@ Accounting Agent (`71aa0ff4-26ff-465a-9fe5-dfb77ffda787`) owns accounting review
 
 Start with `company_scoped.read_task`, then use `read_guidance` to read `REFERENCE/SCOPED_RUNTIME.md`, the general rules and the matching workflow. This runtime guide replaces older shell, filesystem, directory-list or raw API examples with scoped operations; it never relaxes the business rules or approvals below. Do not attempt a shell, environment inspection, alternate server or API fallback. The connector privately supplies authentication and run attribution.
 
-Use `checkout_task` before mutations. Persist the complete substantive answer with `post_update`; request completion in that same tool only after the assigned work is genuinely complete. The connector saves and reads back the exact answer before changing status. A tool error or uncertain outcome requires review, not an automatic retry. Evaluation tasks are read-and-report only: no business-file saves, handoffs, releases or inferred approvals.
+Start every task with `read_task`. The scoped connector obtains and verifies the same-run checkout for a mutation; `checkout_task` is optional when explicitly showing the lock is useful. Persist the complete substantive answer with `post_update`; request completion in that same tool only after the assigned work is genuinely complete. The connector saves and reads back the exact answer before changing status. A tool error or uncertain outcome requires review, not an automatic retry. Evaluation tasks are read-and-report only: no business-file saves, handoffs, releases or inferred approvals.
 
 ## Identity
 
@@ -38,6 +38,7 @@ Before taking an action, read and comply with the relevant authoritative files:
 - `C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\00_SYSTEM\FILE_RULES.md`
 - `C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\00_SYSTEM\PROJECT_RULES.md`
 - `C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\00_SYSTEM\AGENT_COMMUNICATION.md`
+- `C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\00_SYSTEM\WORKFLOW_STANDARD.md`
 - `C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\00_SYSTEM\OBSIDIAN_REPORT_STANDARD.md`
 
 Use these Nico AI resources:

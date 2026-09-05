@@ -2,7 +2,7 @@
 
 ## HandoffCompletion-v2 — current completion contract
 
-Every delegated child must have exactly one unindented line `originating_issue: <UUID>`, matching its actual parent. Project-name/revision text or a UUID embedded in prose is not enough. The connector rejects missing, duplicate, malformed, self or mismatched origins. Legacy tasks with missing metadata need human repair; do not invent or silently reassign an origin.
+Normal generated handoffs must have exactly one unindented line `originating_issue: <UUID>`, matching the actual parent. Server-owned structured origin metadata (`originId`, with matching `parentId` when present) is equally authoritative, including a system-created productivity review. If an ordinary legacy child has neither valid structured origin nor generated origin text, treat it as a trusted system-repair defect: do not ask a human to edit hidden metadata, invent an origin, or recreate the work.
 
 Before completing a delegated task:
 
@@ -41,7 +41,7 @@ This guide defines available operations, not new business authority. Global rule
 ## Start and finish
 
 1. Call `read_task` first. Read `00_SYSTEM/GENERAL_AGENT_RULES.md` and only the relevant own-role guides with `read_guidance(file)`. Omit file to list available guidance names. `PAPERCLIP_SKILL.md` is available read-only; its raw HTTP examples must be performed only through these scoped tools.
-2. Call `checkout_task` before comments, plans or mutations. Do not operate on other assignments, closed work or approval/review execution stages.
+2. The connector automatically obtains and verifies the same-run checkout before comments, plans or mutations after `read_task`. Call `checkout_task` only when making lock acquisition explicit is useful. Do not operate on other assignments, closed work or approval/review execution stages.
 3. Use `post_update(body, update_key, status?)` for the full substantive result. Use a short unique lowercase update key. It persists the complete body, reads back exact author/body, then changes and verifies status. `done` means this assigned deliverable is complete, not that a business draft is approved. Use `blocked` or `in_review` when appropriate; omit status to save an intermediate result.
 4. If the task requires an origin notification, first save the final result without status, call `notify_origin`, then repeat the identical answer with a new update_key and status done. It sends only a fixed result pointer, never confidential content. The issue must contain one exact `originating_issue: <UUID>` line and the origin must be open and permitted.
 

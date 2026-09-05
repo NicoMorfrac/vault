@@ -2,7 +2,7 @@
 
 ## HandoffCompletion-v2 — current completion contract
 
-Every delegated child must have exactly one unindented line `originating_issue: <UUID>`, matching its actual parent. Project-name/revision text or a UUID embedded in prose is not enough. The connector rejects missing, duplicate, malformed, self or mismatched origins. Legacy tasks with missing metadata need human repair; do not invent or silently reassign an origin.
+Normal generated handoffs must have exactly one unindented line `originating_issue: <UUID>`, matching the actual parent. Server-owned structured origin metadata (`originId`, with matching `parentId` when present) is equally authoritative, including a system-created productivity review. If an ordinary legacy child has neither valid structured origin nor generated origin text, route the metadata defect to trusted system repair; do not ask a human to edit hidden metadata, invent an origin, or recreate the work.
 
 Before completing a delegated task:
 
@@ -48,5 +48,4 @@ Read `00_SYSTEM/SCOPED_RUNTIME.md` and `00_SYSTEM/ORGANISATION.md` through org_s
 - Existing connector retained: `pm_scoped` for its original bounded workflow; use org_scoped for the new review/workplan features.
 
 Do not create/modify standard project folders here, edit masters/source files, publish/send, or perform unsupported external/physical actions. A review-record save is not a professional or commercial release. On failed/ambiguous writes, stop without retry. Scheduled heartbeat remains disabled.
-
 

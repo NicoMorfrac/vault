@@ -19,7 +19,7 @@ For future analysis, the human-readable company index is [[05_BUSINESS/Managemen
 
 ## HandoffCompletion-v2 — current completion contract
 
-Every delegated child must have exactly one unindented line `originating_issue: <UUID>`, matching its actual parent. Project-name/revision text or a UUID embedded in prose is not enough. The connector rejects missing, duplicate, malformed, self or mismatched origins. Legacy tasks with missing metadata need human repair; do not invent or silently reassign an origin.
+Normal generated handoffs must have exactly one unindented line `originating_issue: <UUID>`, matching their actual parent. Server-owned structured origin metadata (`originId`, matching `parentId` when present) is authoritative too, including system-created productivity reviews. A legacy ordinary child lacking both forms is a trusted system-repair defect: do not ask a human to repair hidden metadata, invent an origin, or recreate work.
 
 Before completing a delegated task:
 
@@ -88,6 +88,5 @@ Evaluations are read-and-report only: no business-source reads, analytics/Odoo r
 ## Limits of the boundary
 
 Tools constrain this model's routes; they do not isolate other administrators/processes running as the same Windows user, or certify the semantic quality of a review. Unchanged Raffa legacy access is explicitly outside this rollout. No recurring schedule, engineering software integration, statutory filing, external communication or production release is enabled.
-
 
 
