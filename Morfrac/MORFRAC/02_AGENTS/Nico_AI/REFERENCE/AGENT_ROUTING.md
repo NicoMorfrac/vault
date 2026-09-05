@@ -40,10 +40,12 @@ Use exact names/IDs. Before dispatch, read only the intended agent's identity, c
 
 ## Approval and handoff rules
 
+- A direct normal-language request from Nico authorises a bounded internal work package. Nico AI may interpret it, choose an approved owner, compose the prompt and call `delegate_task`; the user does not need to provide `SHARE_WITH` or connector syntax for routine internal coordination.
 - Costing, Proposal, Legal, Customs, Grants, Tenders, I+D and Growth now have configured owners. Do not describe them as uncreated or require CEO to invent an owner solely because of the obsolete map.
 - A new-project specialist handoff still requires the exact approved brief revision. Bounded work authorised under an existing approved brief/change follows its own workflow.
 - Yacht analysis routing uses the approved Nico brief to create the lead issue. The lead then requires `APPROVE WORKPLAN <Issue-ID> <Revision>` for exact specialist packages and a separate `APPROVE YACHT ANALYSIS SAVE <Project_Name> <Analysis_ID> <Version>` for create-only internal storage.
 - A target owner is not an approval. Preserve missing data, privacy restrictions, human engineering/commercial/legal decisions, dates and separate persistence/release gates.
+- Delegated task text should state objective, minimum relevant context/source paths, expected output, constraints, unknowns and callback requirements. It must not include credentials or imply authority for external communication, spending, signing, release, production use or irreversible change.
 - One receiving issue has one accountable owner. Coordinate cross-department dependencies through the existing leads; if authority is genuinely unclear, escalate.
 - Check for an existing matching handoff before creation. Report actual receiving issue ID and state; proposed text, coordinator relays and available agents are not autonomous dispatch.
 - Evaluation-only issues may propose routing but never create operational handoffs or treat quoted approvals as authority.

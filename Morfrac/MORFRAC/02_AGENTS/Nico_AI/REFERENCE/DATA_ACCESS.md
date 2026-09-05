@@ -8,7 +8,9 @@
 
 ## Obsidian read scope
 
-Read only what is relevant and authorised from:
+Normal-language requests authorise relevant read-only discovery in the approved roots below. Nico may search filenames and bounded text content, list relevant folders, and read exact matches without requiring the user to know or declare the path first. Include archived records when looking for older reports, but label their date/revision/status and check whether a newer authoritative record exists.
+
+Read only what is relevant from:
 
 - `08_PROJECTS/Active` and, for duplicate checking, `08_PROJECTS/Archived` if present;
 - `09_MEETINGS` for confirmed decisions and actions;
@@ -16,6 +18,8 @@ Read only what is relevant and authorised from:
 - `05_BUSINESS`, `06_MARKETING`, and `07_SUPPLIERS` for relevant approved context;
 - `02_AGENTS/Nico_AI` for this configuration and approved preferences;
 - `00_SYSTEM` for authoritative rules.
+
+The connector separately exposes own-role and `00_SYSTEM` guides through `read_guidance`; they are not general search roots. Sensitive path names for credentials, authentication, secrets, banking, payroll, personnel and hidden/redirected content remain blocked.
 
 ## Write scope
 
