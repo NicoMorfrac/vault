@@ -58,7 +58,7 @@ The Paperclip task-creation workflow is operational. Submitting the New Task for
 
 ## Maintenance note
 
-The Codex desktop application uses a versioned executable directory. After a future Codex application update, verify that every scoped Paperclip agent's `adapterConfig.command` points to the new path returned by `Get-Command codex.exe`. A future Paperclip source update may also overwrite the local New Issue dialog patch; rerun its regression test after upgrades.
+Paperclip now uses its managed stable Codex executable at `C:\Users\nicol\.paperclip\runtimes\codex-stable\codex.exe`, avoiding breakage when the Codex desktop application's versioned directory changes. A future Paperclip source update may overwrite the local New Issue dialog patch; rerun its regression test after upgrades.
 
 ## Related Links
 
@@ -66,4 +66,3 @@ The Codex desktop application uses a versioned executable directory. After a fut
 - [[001 - DASHBOARD AGENTS AND WORKFLOWS|Agents and workflows dashboard]]
 - [[005 - DASHBOARD LATEST REPORTS AND INFORMATION|Latest reports and information]]
 - [[05_BUSINESS/Management/Knowledge_Base/Evidence/2026-09-02_Paperclip_Connector_Runtime_and_Attachment_Repair|Earlier connector and attachment repair]]
-
