@@ -1,0 +1,19 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "permission": {
+    "*": "deny",
+    "company_scoped_*": "allow",
+    "external_directory": "allow"
+  },
+  "mcp": {
+    "company_scoped": {
+      "type": "local",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "C:\\Users\\nicol\\Documents\\paperclip 2\\tools\\company-scoped\\bridge.mjs"
+      ],
+      "enabled": true,
+      "timeout": 20000
+    }
+  }
+}

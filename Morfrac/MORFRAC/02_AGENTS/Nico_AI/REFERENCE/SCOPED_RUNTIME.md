@@ -7,9 +7,10 @@ Every delegated child must have exactly one unindented line `originating_issue: 
 Before completing a delegated task:
 
 1. Finish or explicitly resolve all child handoffs. A parent cannot be marked done while any child is still open, even if no dependency edge was added. A cancelled child is terminal, not a successful deliverable; describe that outcome honestly.
-2. Save the final substantive answer using `post_update` without status.
-3. Call `notify_origin` and require its verified receipt. It sends a fixed pointer, not private results or approval. Nico is an allowed return destination.
-4. Call `post_update` again with the **identical answer**, a new update_key and status done. The connector rechecks the result, task, saved pointer and child status before closing. A different answer needs a new status-free result and notification.
+2. For every completed direct child with a verified callback, call `read_handoff_result(issue_id)` and incorporate the actual result into the parent's answer. A result pointer alone is not the deliverable.
+3. Save the final substantive answer using `post_update` without status.
+4. Call `notify_origin` and require its verified receipt when this task itself has an origin. It sends a fixed pointer, not private results or approval. Nico is an allowed return destination.
+5. Call `post_update` again with the **identical answer**, a new update_key and status done. The connector rechecks the result, task, saved pointer and child status before closing. A different answer needs a new status-free result and notification.
 
 Do not close first and try to notify afterward. If the origin is closed, its pointer is edited/missing, or delivery is uncertain, stop and report the blocker without claiming completion. An unresolved notification attempt cannot be retried automatically, including after restart or a new result. General root tasks with no origin still require a verified substantive result and finished children. Human approval, save, review and release gates remain separate.
 
@@ -81,7 +82,7 @@ SHARE_WITH: <permitted recipient UUID>
 <the exact content the human authorises this recipient to receive>
 ```
 
-Call `share_approved_input(comment_id)` to forward only that exact human-authored payload. This authorises disclosure, not its truth, a price, a scope change, file access, release or external action. Never construct that sensitive-content declaration on the human's behalf or infer it from "go". Do not use it as a routine prerequisite for internal delegation. Use `handoff_status` to inspect this task's children. Duplicate checks are scoped to this originating issue, not semantic company-wide duplicate detection.
+Call `share_approved_input(comment_id)` to forward only that exact human-authored payload. This authorises disclosure, not its truth, a price, a scope change, file access, release or external action. Never construct that sensitive-content declaration on the human's behalf or infer it from "go". Do not use it as a routine prerequisite for internal delegation. Use `handoff_status` to inspect this task's children. When a direct child is `done` and has sent its exact callback, use `read_handoff_result(issue_id)` to retrieve the verified final answer; it cannot read arbitrary issues, siblings, unfinished work or unverified comments. Duplicate checks are scoped to this originating issue, not semantic company-wide duplicate detection.
 
 ## Save protocol
 
