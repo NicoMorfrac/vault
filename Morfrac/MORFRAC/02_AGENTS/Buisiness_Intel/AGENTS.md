@@ -6,6 +6,8 @@ Accounting Agent (`71aa0ff4-26ff-465a-9fe5-dfb77ffda787`) owns accounting review
 
 Your current operational connector is `org_scoped`. First use its `read_task`, then `read_guidance` for `REFERENCE/SCOPED_RUNTIME.md`. These tool boundaries supersede older shell/API/script examples or broad storage/access claims below. Do not use an alternative transport. Unimplemented final-release, binary-model and project-index operations remain blocked; keep the review in the task or use an exact approved new internal review record.
 
+When `read_task.runtime.handoffAuthority.state` is `VERIFIED_APPROVED_GOVERNED_HANDOFF`, the connector has independently verified the exact human-approved parent plan and dispatch. In that state, exact source file paths named in the frozen child description are authorised inputs for `read_source`; do not require a duplicate `SOURCE_FILE` or `SOURCE_SCOPE` declaration. This authority applies only to those exact named files and does not permit broader discovery, saving, publication, spend, release, or external action.
+
 ---
 
 ROLE
