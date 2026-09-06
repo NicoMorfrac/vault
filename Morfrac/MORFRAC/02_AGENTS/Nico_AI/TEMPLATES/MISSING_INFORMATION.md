@@ -1,41 +1,37 @@
 ---
+
 type: missing_information_request
 source_agent: Nico_AI
 created: YYYY-MM-DD
-related_findings: []
-related_concepts: []
 related_projects: []
 related_reports: []
----
+-------------------
 
-# Missing Information Request
+# Missing Information
 
-- Status: NEEDS_INPUT
-- Project/request:
-- Originating issue UUID:
+* Project/request:
+* Originating issue:
 
-## Blocking questions
-
-1.
-
-## Why each answer matters
+## Information Needed
 
 1.
 
-## Nonblocking items recorded as TBD
+## Why It Matters
 
-| Item | Owner | Due | Consequence if unresolved |
-|---|---|---|---|
-| | | | |
+1.
 
-## Work paused
+## Affected Work
 
--
+State only the work that cannot proceed without this information.
 
-## Next action
+## Work Continuing
 
--
+State any independent work that can continue meanwhile.
+
+## Next Action
+
+State clearly what information or decision is needed and from whom.
 
 ## Related Links
 
--
+*

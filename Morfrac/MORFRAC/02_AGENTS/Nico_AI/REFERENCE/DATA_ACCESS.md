@@ -2,46 +2,139 @@
 
 ## Systems of record
 
-- Paperclip: issues, assignments, status, comments, approvals, and handoffs.
-- Obsidian: controlled MORFRAC knowledge and approved documents.
-- Odoo: commercial and operational business data when a separately approved read-only connection exists.
+### Paperclip
 
-## Obsidian read scope
+Use Paperclip for:
 
-Normal-language requests authorise relevant read-only discovery in the approved roots below. Nico may search filenames and bounded text content, list relevant folders, and read exact matches without requiring the user to know or declare the path first. Include archived records when looking for older reports, but label their date/revision/status and check whether a newer authoritative record exists.
+* tasks and issues;
+* assignments;
+* status;
+* comments;
+* approvals;
+* handoffs;
+* runtime coordination.
 
-Read only what is relevant from:
+### Obsidian
 
-- `08_PROJECTS/Active` and, for duplicate checking, `08_PROJECTS/Archived` if present;
-- `09_MEETINGS` for confirmed decisions and actions;
-- `04_ENGINEERING` and `10_REFERENCE` for controlled technical context, without performing specialist analysis;
-- `05_BUSINESS`, `06_MARKETING`, and `07_SUPPLIERS` for relevant approved context;
-- `02_AGENTS/Nico_AI` for this configuration and approved preferences;
-- `00_SYSTEM` for authoritative rules.
+Use the MORFRAC Obsidian vault for:
 
-The connector separately exposes own-role and `00_SYSTEM` guides through `read_guidance`; they are not general search roots. Sensitive path names for credentials, authentication, secrets, banking, payroll, personnel and hidden/redirected content remain blocked.
+* durable company knowledge;
+* project documentation;
+* reports;
+* engineering records;
+* business and marketing records;
+* evidence;
+* controlled documents;
+* durable agent outputs.
 
-## Write scope
+### Odoo
 
-- Use Paperclip for briefs, questions, decisions, approvals, and handoffs.
-- Write to Obsidian only after the explicit approval required by `GENERAL_AGENT_RULES.md`.
-- Never create project structure; Project Manager owns it.
-- Nico AI operational logs may be written only to `02_AGENTS/Nico_AI/LOGS` after approval.
-- Every generated report must comply with `OBSIDIAN_REPORT_STANDARD.md`.
+Use Odoo for commercial and operational business data only when an authorised integration exists.
 
-## Restricted data
+---
 
-- Never read, copy, display, or store credentials, API keys, OAuth tokens, private keys, or authentication files.
-- Do not copy unrelated client, supplier, personnel, banking, or legal data into a brief.
-- Do not place secrets in Paperclip comments, Obsidian notes, prompts, logs, or generated files.
-- Treat client drawings, failure evidence, pricing, contracts, and personal data as confidential unless the controlling record says otherwise.
+## Obsidian read access
+
+Nico AI may search and read relevant information within approved MORFRAC vault areas without requiring Nico to provide exact paths.
+
+Approved roots include:
+
+* `00_SYSTEM`
+* `02_AGENTS/Nico_AI`
+* `04_ENGINEERING`
+* `05_BUSINESS`
+* `06_MARKETING`
+* `07_SUPPLIERS`
+* `08_PROJECTS`
+* `09_MEETINGS`
+* `10_REFERENCE`
+
+Read only what is relevant to the current task.
+
+When using older or archived records:
+
+* identify their date/revision/status;
+* check whether a newer authoritative record exists.
+
+Do not perform specialist technical analysis merely because Nico AI can read specialist records.
+
+---
+
+## Obsidian writes
+
+Durable MORFRAC outputs should be stored in the appropriate Obsidian location.
+
+Nico AI must:
+
+* use the authorised save mechanism;
+* follow technically enforced save-approval requirements;
+* preserve required metadata and traceability;
+* comply with `OBSIDIAN_REPORT_STANDARD.md`;
+* use the appropriate existing project or departmental location.
+
+Project Manager owns creation of standard project structures.
+
+Nico AI must not create arbitrary project folders or bypass the standard project structure.
+
+Operational Nico AI logs, when needed, belong only in:
+
+`02_AGENTS/Nico_AI/LOGS`
+
+Paperclip comments are not a substitute for durable Obsidian records when the output should become part of MORFRAC's knowledge or project documentation.
+
+---
+
+## Restricted information
+
+Never read, expose, copy or store:
+
+* credentials;
+* API keys;
+* OAuth tokens;
+* private keys;
+* authentication files;
+* other restricted secrets.
+
+Do not unnecessarily copy confidential or unrelated:
+
+* client information;
+* supplier information;
+* personnel data;
+* banking information;
+* pricing;
+* contracts;
+* drawings;
+* failure evidence;
+* personal data.
+
+Use only the minimum information required for the task.
+
+---
 
 ## External information
 
-- Nico AI does not independently perform market, competitor, product-price, or changing-fact research.
-- Route research to the responsible agent and require source URLs, retrieval date, and confidence.
-- External results remain source evidence, not MORFRAC-approved facts, until reviewed.
+Nico AI may coordinate external research but should route specialist research to the accountable agent when specialist judgement is required.
+
+Externally obtained information should retain:
+
+* source;
+* retrieval date where relevant;
+* confidence or limitations.
+
+External evidence does not automatically become an approved MORFRAC fact.
+
+---
 
 ## Odoo
 
-No Odoo access is assumed. If an integration is added, start read-only and define allowed models/fields, company scope, personal-data controls, and metric definitions before use.
+Do not assume Odoo access.
+
+If an authorised integration exists, follow its defined:
+
+* access level;
+* company scope;
+* allowed models and fields;
+* personal-data controls;
+* metric definitions.
+
+Start read-only unless broader authority has explicitly been granted.

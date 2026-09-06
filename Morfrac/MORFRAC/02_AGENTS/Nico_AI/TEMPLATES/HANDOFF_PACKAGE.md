@@ -1,56 +1,36 @@
 ---
+
 type: agent_handoff
 source_agent: Nico_AI
 created: YYYY-MM-DD
-related_findings: []
-related_concepts: []
 related_projects: []
-related_reports: []
----
+--------------------
 
 # Agent Handoff
 
-- Project:
-- Originating issue UUID:
-- Approved brief revision:
-- Receiving owner:
-- Due date:
+* Originating issue:
+* Receiving owner:
 
 ## Objective
 
-- Decision or deliverable requested:
-- Reason and business/technical context:
+What needs to be done and why.
 
-## Approved inputs and sources
+## Context
 
--
+Relevant information and sources required for the task.
 
-## Scope and exclusions
+## Constraints
 
-- In scope:
-- Excluded:
+Important limits, assumptions, dependencies or known unknowns.
 
-## Acceptance and approval
+## Expected Output
 
-- Acceptance criteria:
-- Required format/location:
-- Human approver:
-- Approval gate:
-
-## Constraints and dependencies
-
-- Constraints:
-- Dependencies:
-- Assumptions:
-- Unknowns:
-- Contradictions:
-- Risks:
+What the receiving agent should return.
 
 ## Callback
 
-- Post result/status to originating issue:
-- Blocking condition to report:
+Return the completed result or blocker to the originating issue.
 
 ## Related Links
 
--
+*

@@ -2,34 +2,85 @@
 
 ## Trigger
 
-A request describes a new client opportunity, internal development, product, engineering, manufacturing, marketing, or compliance project.
+Use this workflow when a request requires coordination across multiple work packages, specialists, deliverables, or controlled outputs.
+
+Do not use it for a simple specialist request that can be routed directly.
+
+---
 
 ## Procedure
 
-1. Read the full Paperclip issue and linked authorised records.
-2. Search active and archived project records for a likely duplicate.
+1. Read the assigned Paperclip issue and relevant authorised context.
+
+2. Check for an existing project or equivalent active work.
+
+   * Reuse existing work where appropriate.
+   * Do not create duplicates.
+
 3. Classify the request as `NEW_PROJECT`.
-4. Create a `DRAFT` brief in the issue using `TEMPLATES/PROJECT_INTAKE_BRIEF.md`.
-5. Label each material item as Fact, User statement, Source evidence, Assumption, Inference, or Unknown.
-6. Identify all blockers that can change safety, compliance, scope, deliverables, cost, schedule, acceptance, or routing.
-7. Ask one grouped set of currently known blocking questions.
-8. Update the brief. Do not silently replace prior approved information.
-9. When sufficient, mark it `READY_FOR_APPROVAL` and request `APPROVE BRIEF <Project_Name> <Revision>`.
-10. After exact approval, mark that revision `APPROVED`.
-11. If the project structure is missing, create the exact `PM_TASK` assigned to Project Manager.
-12. Wait for Project Manager confirmation that the project is ready.
-13. Create specialist handoffs only from the approved brief.
-14. Report `HANDED_OFF`, listing receiving issue IDs, owners, deliverables, and dependencies.
 
-## Do not proceed when
+4. Establish a concise working brief containing:
 
-- client/sponsor or authority is unclear;
-- the request may duplicate an existing project;
-- a safety, regulatory, confidentiality, or legal constraint is unresolved;
-- scope or required deliverables cannot be distinguished;
-- the proposal or delivery deadline is unknown and materially affects routing;
-- approval refers to a different brief revision.
+   * objective;
+   * scope;
+   * known constraints;
+   * required deliverables;
+   * relevant existing information;
+   * important assumptions or unknowns;
+   * likely specialist owners.
+
+   Use `TEMPLATES/PROJECT_INTAKE_BRIEF.md` when useful.
+
+5. Identify dependencies.
+
+6. Start all routine internal work that can proceed safely.
+
+   * Dispatch independent specialist work where appropriate.
+   * Request Project Manager project setup in parallel when a formal project structure is needed.
+   * A final project name or completed folder structure must not delay unrelated work.
+
+7. Ask Nico one grouped set of questions only when missing information materially prevents the affected work from proceeding.
+
+8. Continue unaffected work while blocked dependencies are resolved.
+
+9. When human approval is genuinely required, present the decision clearly.
+
+   * Accept unambiguous natural-language approval.
+   * Do not require exact approval phrases unless technically required by an underlying system.
+
+10. Maintain traceability of specialist tasks, owners, dependencies and returned results.
+
+---
+
+## Project naming
+
+A reasonable provisional project name may be used for internal coordination.
+
+Do not block useful work solely because the final canonical project name has not been confirmed.
+
+Project Manager remains responsible for the formal project structure where required.
+
+---
+
+## Blocking
+
+Use `PARTIALLY_BLOCKED` when only part of the project is waiting for information, approval, access or another dependency.
+
+Use `BLOCKED` only when no useful work can continue.
+
+Safety, legal, regulatory, confidentiality or authority constraints block only the affected action unless they make the whole project unsafe or impossible to continue.
+
+---
 
 ## Completion
 
-The workflow is complete when the approved brief exists in Paperclip, the project structure is confirmed or deliberately deferred, and every approved handoff has a traceable issue/owner.
+Project intake is complete when:
+
+* the objective and working scope are sufficiently clear;
+* duplicate work has been checked;
+* required specialist work has been routed;
+* Project Manager setup has been requested when needed;
+* active dependencies or blockers are clearly identified;
+* work that can proceed has started.
+
+Do not wait for all specialist work to finish before considering intake complete.

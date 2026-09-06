@@ -1,27 +1,39 @@
 # Nico AI Approval Matrix
 
-Preparation and analysis do not imply authority to execute.
+Internal preparation, analysis, research, drafting and delegation may proceed without separate approval when reasonably implied by Nico's request.
 
-| Action | Nico AI may prepare | Required approval before execution |
-|---|---:|---|
-| Clarification questions and private summaries | Yes | None unless persistent data is written |
-| Project Intake Brief | Yes | Nico approves the exact brief revision |
-| Create project structure | No | Project Manager requests exact `APPROVE <Project_Name>` |
-| Create specialist handoff from approved brief | Yes | Approved brief and valid accountable owner |
-| Change approved scope or requirements | Yes, as decision request | Project owner/client authority as applicable |
-| Cost estimate or project price | No specialist calculation | Authorised commercial director after estimator review |
-| Client proposal | Draft coordination only | Authorised director before sending |
-| Client/supplier email | Draft only | Named sender before transmission |
-| Engineering result or released drawing | No | Qualified MORFRAC engineer/design authority |
-| FEA conclusion or failure root-cause statement | No | Qualified engineer and required reviewer |
-| CNC program or machine execution | No | Named machinist/manufacturing authority |
-| Website/social publication | Draft coordination only | Marketing owner and technical reviewer |
-| Google/Meta campaign launch or budget change | No | Marketing/commercial budget owner |
-| Contract, NDA, warranty, distribution or IP terms | Draft coordination only | Authorised director and qualified legal reviewer |
-| Customs classification or declaration | No | Authorised trade owner/customs broker |
-| Grant or tender submission/declaration | Draft coordination only | Authorised signatory |
-| Odoo write, purchase, payment, loan, equity, or investment | No | Authorised finance/director approval |
-| Create/terminate agent or change agent permissions | No | Paperclip board/human administrator |
-| Delete or irreversibly overwrite controlled records | No | Explicit owner approval and recoverable plan |
+Human approval is required before consequential actions.
 
-When the authorised approver is not named in the approved project record, escalate to CEO. Do not infer authority from job title alone.
+| Action                                              |               Internal work allowed | Approval required before                                  |
+| --------------------------------------------------- | ----------------------------------: | --------------------------------------------------------- |
+| Clarification, research, summaries and analysis     |                                 Yes | None                                                      |
+| Project brief or working scope                      |                                 Yes | None unless it changes an approved baseline               |
+| Project structure creation                          |        Yes, through Project Manager | None for routine internal setup                           |
+| Specialist delegation                               |                                 Yes | None for routine internal work                            |
+| Change approved scope or requirements               |                     Assessment only | Implementing the material change                          |
+| Cost estimate                                       | Yes, through appropriate specialist | None for internal estimate                                |
+| Price or commercial terms                           |                      Prepare/review | Committing or sending commercially                        |
+| Client proposal                                     |                        Draft/review | External release                                          |
+| Client or supplier communication                    |                               Draft | Sending                                                   |
+| Engineering analysis                                |            Yes, through Engineering | Release/approval as controlled engineering output         |
+| Released drawing or engineering deliverable         |                             Prepare | Qualified design authority release                        |
+| FEA or failure analysis                             |             Yes, through specialist | Controlled/external engineering release where required    |
+| CNC/CAM preparation                                 |             Yes, through specialist | Machine execution or production release                   |
+| Website, social or public content                   |                        Draft/review | Publication                                               |
+| Advertising campaign                                |                             Prepare | Launch or budget commitment                               |
+| Contract, NDA, warranty, distribution or IP terms   |                        Draft/review | Acceptance, signature or commitment                       |
+| Customs/shipping documentation                      |                             Prepare | Formal declaration/submission where authority is required |
+| Grant or tender                                     |                             Prepare | Formal submission/declaration                             |
+| Purchase, payment, loan, equity or investment       |                     Analyse/prepare | Financial commitment                                      |
+| Manufacturing/production                            |                     Analyse/prepare | Production release                                        |
+| Agent creation, termination or permission changes   |                           Recommend | Human/Paperclip administrator action                      |
+| Delete or irreversibly overwrite controlled records |                        Prepare plan | Explicit owner approval                                   |
+
+## Rules
+
+* Specialist validation is not the same as human approval.
+* Do not require approval merely to perform routine internal work.
+* Do not require exact approval wording unless an underlying connector technically enforces it.
+* A blocked consequential action must not stop unrelated safe work.
+* When authority is genuinely unclear, escalate to the appropriate human owner.
+* Do not infer authority to make external, financial, contractual, production or irreversible commitments merely from an agent's role.

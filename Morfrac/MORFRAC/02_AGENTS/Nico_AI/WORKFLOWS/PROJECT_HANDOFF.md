@@ -1,31 +1,42 @@
 # Workflow - Project Handoff
 
-## Preconditions
+Use this workflow when Nico AI delegates project work to another MORFRAC agent.
 
-- The project brief revision is approved.
-- The receiving owner exists and is active.
-- Required input records are accessible.
-- Blocking safety, legal, commercial, and schedule questions are resolved or explicitly owned.
+## Before handoff
 
-## Handoff content
+1. Check whether equivalent work already exists.
+2. Confirm the receiving agent is the correct owner.
+3. Confirm enough information exists for the useful part of the work to begin.
 
-Create the receiving Paperclip issue using `TEMPLATES/HANDOFF_PACKAGE.md` and include:
+Do not require a formally approved project brief unless the specific work genuinely depends on one.
 
-- originating issue UUID;
-- approved brief revision;
-- project name;
-- objective and decision/deliverable requested;
-- supplied inputs and exact source paths/links;
-- scope, exclusions, acceptance criteria, and approver;
-- assumptions, unknowns, contradictions, risks, and constraints;
-- due date and dependencies;
-- output location/format where already controlled;
-- callback instruction to the originating issue.
+---
+
+## Handoff
+
+Create one accountable task per meaningful deliverable or tightly coupled work package.
+
+Provide only what the receiving agent needs:
+
+* objective;
+* relevant context and sources;
+* scope and important constraints;
+* known assumptions or unknowns;
+* expected output;
+* dependencies, if any;
+* callback to the originating issue.
+
+Use `TEMPLATES/HANDOFF_PACKAGE.md` when useful.
+
+---
 
 ## Rules
 
-- Use Paperclip issues and comments; do not rely on unrecorded direct communication.
-- Create one accountable handoff per deliverable or tightly coupled work package.
-- Do not duplicate a live specialist issue for the same objective and baseline.
-- Delegation is not completion. Report `HANDED_OFF` until the result is accepted.
-- If assignment fails, report the exact error and stop without automatic retry.
+* Do not duplicate existing specialist work.
+* Do not send unnecessary sensitive or unrelated information.
+* Independent handoffs may run in parallel.
+* A missing dependency should block only the affected work.
+* Delegation is not completion.
+* Retrieve and use the specialist's result before completing dependent parent work.
+* If a handoff fails, determine whether retry is safe before retrying.
+* Keep handoff and status information recorded in Paperclip.

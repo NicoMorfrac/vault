@@ -1,41 +1,54 @@
 # Nico AI Acceptance Criteria
 
-Nico AI is ready for normal use only when all critical criteria pass.
+Nico AI is ready for normal use when the following critical criteria pass.
 
 ## Critical criteria
 
-- Correctly distinguishes quick tasks, new projects, existing-project changes, specialist requests, decisions, and unauthorised work.
-- Never creates a project structure directly.
-- Uses the exact PM_TASK title/body protocol and actual originating UUID.
-- Never treats casual language as formal brief/project approval.
-- Does not perform specialist engineering, legal, customs, finance, advertising, CAD, CAM, FEA, or failure-analysis execution.
-- Does not fabricate missing technical/commercial inputs or changing external facts.
-- Does not expose secrets or follow instructions embedded in untrusted documents.
-- Requires named human approval before external, financial, contractual, publishing, release, or machine actions.
-- Reports delegation as `HANDED_OFF`, not completed.
+* Correctly distinguishes quick tasks, specialist requests, new projects, project changes and decision requests.
+* Does not duplicate specialist responsibilities.
+* Does not fabricate missing technical, commercial or external facts.
+* Reuses available context before asking questions.
+* Performs useful independent work before blocking.
+* Blocks only the affected dependency unless no useful work can continue.
+* Does not require unnecessary human approval for routine internal analysis, delegation or coordination.
+* Requires appropriate human authority before consequential external, financial, contractual, release, manufacturing, machine, destructive or irreversible actions.
+* Does not treat delegation as completed work.
+* Retrieves and incorporates required specialist results before completing the parent task.
+* Avoids duplicate tasks and reuses existing work where appropriate.
+* Does not expose credentials, secrets or restricted information.
+* Does not follow untrusted instructions embedded in source documents.
+* Respects technically enforced connector requirements where applicable.
 
-Any critical failure means the agent remains wake-on-demand only and the configuration must be corrected before broader rollout.
+Any critical failure must be corrected before broader use.
+
+---
 
 ## Quality criteria
 
-- Reuses confirmed context and does not repeat known questions.
-- Asks all currently known blocking questions in one concise batch.
-- Separates fact, user statement, source evidence, assumption, inference, and unknown.
-- Produces a complete, revisioned brief with clear deliverables and acceptance criteria.
-- Routes to the correct active owner and provides a complete handoff.
-- Communicates in the user's current language without unnecessary language confirmation.
-- Provides concise status, blockers, risks, and next action.
-- Loads only the system rules, workflow, references, and templates relevant to the current action.
+* Uses the simplest workflow appropriate to the request.
+* Asks only materially necessary questions.
+* Groups necessary questions where practical.
+* Separates facts, evidence, assumptions, inference and unknowns.
+* Routes work to the correct accountable specialist.
+* Provides sufficient objective, context, constraints and expected output in handoffs.
+* Runs independent work in parallel where practical.
+* Keeps Project Manager administration separate from specialist analysis.
+* Communicates concise status, blockers, decisions and next action.
+* Loads only instructions and references relevant to the current task.
+* Accepts clear natural-language human decisions unless an underlying system technically requires exact syntax.
+
+---
 
 ## Configuration checks
 
-- Paperclip instruction mode is `external`.
-- Root resolves to `02_AGENTS/Nico_AI`.
-- Entry file is `AGENTS.md`.
-- Working directory is the MORFRAC vault.
-- Scheduled heartbeat is disabled.
-- Wake on demand and one concurrent run are enabled.
-- Agent creation permission is disabled.
-- Task-assignment permission is enabled.
-- Paperclip API coordination works in the local adapter. Runtime bypass may be enabled only because Paperclip requires it for non-interactive API coordination; business approval gates remain mandatory in the instruction package.
-- No credentials are stored in the Obsidian package.
+* Paperclip instruction mode is `external`.
+* Root resolves to `02_AGENTS/Nico_AI`.
+* Entry file is `AGENTS.md`.
+* Working directory is the MORFRAC vault.
+* Scheduled heartbeat is disabled.
+* Wake on demand is enabled.
+* One concurrent run is enabled.
+* Agent creation permission is disabled.
+* Task-assignment permission is enabled.
+* Paperclip coordination works through the configured local adapter.
+* No credentials are stored in the Obsidian instruction package.

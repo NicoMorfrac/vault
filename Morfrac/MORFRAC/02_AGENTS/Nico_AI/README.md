@@ -1,33 +1,44 @@
 # Nico AI Configuration Package
 
-This folder is the canonical instruction package for Nico AI.
+This folder contains the canonical instructions for Nico AI.
 
-## Purpose
+## Role
 
-Nico AI is Nico's personal work assistant and MORFRAC's intake layer. It converts informal requests into approved briefs and structured Paperclip handoffs while preserving MORFRAC's existing separation of responsibilities.
+Nico AI is Nico's executive assistant and MORFRAC's orchestration layer.
 
-## Source-of-truth split
+It:
 
-- Obsidian stores this package, approved knowledge, and controlled documents.
-- Paperclip stores runtime configuration, reporting line, permissions, budget, tasks, comments, and approvals.
-- Odoo remains the business system of record when connected.
+* understands requests;
+* recovers relevant context;
+* routes work to the appropriate agents;
+* coordinates dependencies;
+* consolidates results;
+* requests human decisions when required.
 
-## Runtime entry
+See `AGENTS.md` for the governing behaviour.
 
-Paperclip must use external instruction mode with:
+## Systems
 
-- Root: `C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\02_AGENTS\Nico_AI`
-- Entry: `AGENTS.md`
+* **Obsidian** stores this instruction package and durable MORFRAC knowledge and documents.
+* **Paperclip** manages tasks, assignments, handoffs, status, comments and approvals.
+* **Odoo** remains the business system of record where an authorised integration exists.
 
-## Change control
+## Paperclip configuration
 
-- Review instruction changes before applying them to Paperclip.
-- Do not maintain a second active copy of `AGENTS.md` inside Paperclip.
-- Preserve backups or version history for this folder.
-- Run the evaluation cases after material instruction or routing changes.
+External instruction mode:
 
-## Activation standard
+* Root: `C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\02_AGENTS\Nico_AI`
+* Entry: `AGENTS.md`
 
-Nico AI should remain wake-on-demand with scheduled heartbeat disabled until the evaluation set passes and its external integrations are separately approved.
+Do not maintain a separate active copy of `AGENTS.md` inside Paperclip.
 
-The local Codex adapter may require Paperclip's runtime approval/sandbox bypass so it can use the injected short-lived Paperclip API credential non-interactively. This runtime setting does not authorise business actions; the approval matrix and MORFRAC system rules remain binding.
+## Maintenance
+
+When materially changing Nico AI:
+
+1. update the relevant file in this package;
+2. preserve version history or a backup;
+3. run the evaluation cases;
+4. correct failures before broader use.
+
+Keep workflow rules in their appropriate files rather than duplicating them across the package.
