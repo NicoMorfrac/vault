@@ -229,17 +229,25 @@ Before completing a task:
 
 1. Resolve all required direct child tasks.
 2. Retrieve and incorporate required child results.
-3. Post any substantive final update when useful.
-4. Use `notify_origin` when a callback to an originating issue is required.
-5. Use `complete_result` to complete the assigned Paperclip task.
+3. Prepare one final substantive answer.
+4. Call `post_update` with that complete answer and no status.
+5. If an origin callback is required, call `notify_origin`.
+6. Call `post_update` again with:
+   - the exact same answer;
+   - a new `update_key`;
+   - `status: done`.
 
-Do not use `post_update` with `status: done` as the normal completion mechanism.
+The second answer must be identical to the first. Do not rewrite, shorten, summarise or add closeout commentary between the two calls.
 
-Do not mark a parent complete while required child work remains unresolved.
+Do not use `complete_result` for normal top-level task completion. It is reserved for connector-supported linked-task recovery paths.
+
+Do not mark a parent task complete while required child work remains unresolved.
 
 A cancelled child is terminal but is not a successful deliverable.
 
-If `complete_result` fails, report the confirmed result and the exact completion failure once. Do not repeatedly retry an uncertain mutation.---
+If the final status mutation fails, report the exact failure once and do not blindly retry an uncertain mutation.
+
+---
 
 # 12. Status updates
 
