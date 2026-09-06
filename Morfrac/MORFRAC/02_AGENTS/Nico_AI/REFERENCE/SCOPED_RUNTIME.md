@@ -225,22 +225,21 @@ source_agent: Nico_AI
 
 # 11. Completing delegated work
 
-Before marking a delegated task `done`:
+Before completing a task:
 
-1. Resolve all direct child tasks.
-2. Retrieve required completed child results.
-3. Incorporate those results into the substantive answer.
-4. Save the final answer with `post_update` without status.
-5. If an origin callback is required, call `notify_origin`.
-6. Repeat the identical final answer with a new `update_key` and status `done`.
+1. Resolve all required direct child tasks.
+2. Retrieve and incorporate required child results.
+3. Post any substantive final update when useful.
+4. Use `notify_origin` when a callback to an originating issue is required.
+5. Use `complete_result` to complete the assigned Paperclip task.
 
-Do not close first and notify afterward.
+Do not use `post_update` with `status: done` as the normal completion mechanism.
 
-A parent cannot be marked `done` while required child work remains unresolved.
+Do not mark a parent complete while required child work remains unresolved.
 
 A cancelled child is terminal but is not a successful deliverable.
 
----
+If `complete_result` fails, report the confirmed result and the exact completion failure once. Do not repeatedly retry an uncertain mutation.---
 
 # 12. Status updates
 
