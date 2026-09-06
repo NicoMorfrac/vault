@@ -127,3 +127,18 @@ The earlier `Current governed continuation` section records the historical R0.3 
 - Parent continuation run `3edb0091-f97d-4ebf-ae2d-815630b2ee92` was started automatically after the child completion/unblock event.
 - Nico then dispatched MORAAAAA-186, `FIRST COMPLETE INTERNAL DOSSIER DRAFT MORFRAC-B2B-Engineering-to-Manufacturing R0.5`, to Marketing. Its assignment run `b4b988b6-3ffa-4b58-aaaf-ad0adcc0456d` was system-triggered and created no approval interaction.
 - Verification after the source-routing correction: **232/232 Node connector tests passed**, **3/3 extraction tests passed**, and **20/20 project-folder tests passed**.
+
+### First-draft completion and automatic timeout recovery
+
+- Marketing created the complete controlled R0.5 dossier in Paperclip result `a9e9cc5e-257d-40ad-a239-6c3b12971e30` without a new human approval.
+- The internal-record tool schema now exposes exact `path`/`content` file fields, exact source UUID fields, an unambiguous `vNN` storage-version field, and a safe dotted descriptive filename. Pre-plan validation mistakes can be corrected without treating them as uncertain writes.
+- The successful governed save plan is `5fea26bc-04cf-4902-81c9-6bc144431046`.
+- The original `execute_save` call timed out at the client after 90 seconds, but control-plane verification found the signed attempt, signed receipt and matching current file bytes. The connector now reports this as `runtime.saveRecovery.state: VERIFIED_SAVE_RECEIPT_AVAILABLE`; agents must not repeat the write and instead complete the normal callback/closeout path.
+- Verified save receipt: `bbadb31b-c14a-48d7-a28b-526393ae7aba`.
+- Verified vault record: `06_MARKETING/Management/Reviews/MORAAAAA-186_v01_B2B_Engineering_to_Manufacturing_R0.5.md`.
+- Verified SHA-256: `fabca71036c3a77f01d84ea7d80d7e96e00de0776813025ebb7e98b205244096`.
+- Automatic recovery run `5ec2b840-01a4-4dad-ac24-1d54a1e067a9` used a fresh instructions session, did not call `execute_save`, posted the verified result, notified the origin, and closed MORAAAAA-186 as `done`.
+- Paperclip automatically resumed the parent in run `d19dee6f-57ca-4ec1-8934-7cbd311b7454` and moved MORAAAAA-171 to its intended first-complete-draft human review gate.
+- Current pending human-review interaction: `7146b20a-384c-49d8-a398-3454a4e0d905`. This is the single expected decision after the first draft: accept it as the internal evidence-gap baseline, request precise changes, or provide evidence for the next revision. It is not a repeated project/workplan/folder approval and does not authorise publication.
+- Final full connector and offline workflow suite: **233 passed, 0 failed**. Focused organisation-scoped suite: **59 passed, 0 failed**.
+- All continuation and recovery runs were started by Paperclip system automation. No wake endpoint or manual agent invocation was used. Raffa AI remained untouched.
