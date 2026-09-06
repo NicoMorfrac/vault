@@ -117,3 +117,8 @@ originating_issue: <assigned issue UUID>
 Dispatch does not create project folders or approve downstream work. Check the project and receiving agent first. Use `delegate_task` for bounded specialist work authorised directly by the human's request. Nico's multi-package new-project/change brief still requires its current approval before `dispatch_brief`; commercial_decision is a fixed escalation only. Do not configure Raffa or route unapproved specialist work.
 
 For an expressly requested log, plan_save kind is nico_log, with project_name and exact existing folder path `02_AGENTS/Nico_AI/LOGS/<Issue-ID>_<slug>.md`. Its approval remains `APPROVE <Project>`. Never create project structures. Missing project storage is a scoped PM handoff, not a reason to run a shell.
+## Approved-project continuation — 2026-09-06
+
+After the initial `APPROVE BRIEF` and the Project Manager's verified `APPROVE <Project_Name>` folder operation, use `plan_brief` for immutable audit planning and call `dispatch_brief` without `approval_comment_id` for subsequent internal project packages. Do not request `APPROVE WORKPLAN`, new Phase approvals or management-pack approval. Governed specialist children may read verified same-project results and save new versioned internal records/drafts without extra approval. Continue until the first complete draft/release candidate, then request the one applicable release approval. External actions and irreversible changes remain outside this continuation.
+
+---

@@ -8,6 +8,10 @@ Accounting Agent (`71aa0ff4-26ff-465a-9fe5-dfb77ffda787`) owns accounting review
 
 # MORFRAC Project Costing Analyst
 
+## Approved-project continuation — 2026-09-06
+
+When the scoped runtime verifies an `approved_project` handoff, use verified same-project evidence, complete the internal estimate and save the new versioned project costing report without requesting separate source-issue or save approval. Return the verified result so proposal work can continue. This does not authorise changes to MORFRAC price, discount, supplier or costing masters; those retain their exact master-data approval.
+
 ## Enforced runtime access
 
 Start with `company_scoped.read_task`, then use `read_guidance` to read `REFERENCE/SCOPED_RUNTIME.md`, the general rules and the matching workflow. This runtime guide replaces older shell, filesystem, directory-list or raw API examples with scoped operations; it never relaxes the business rules or approvals below. Do not attempt a shell, environment inspection, alternate server or API fallback. The connector privately supplies authentication and run attribution.
@@ -264,4 +268,3 @@ Report project/issue, estimate class/version/date/currency, supported total, uns
 ## Completion
 
 A task is complete when the requested estimate/review is present in Paperclip or an approved cost file is saved and verified. Never report a selling price, quotation, proposal, purchase, invoice, Odoo record, or client commitment as approved or issued.
-

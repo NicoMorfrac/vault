@@ -1,3 +1,13 @@
+## Approved-project internal draft exception — 2026-09-06
+
+`ApprovedProjectContinuation-v1` in `GENERAL_AGENT_RULES.md` supersedes repeated save-approval clauses below for governed project-internal outputs. After the initial project brief and complete standard folder structure are both verified as human-approved, agents may create new immutable/versioned internal analysis records, costing reports, internal review packs and the first client-draft files without asking for another save approval. Verified same-project sibling results need no separate `SOURCE_ISSUE` declaration.
+
+The Project Manager's single standard-folder approval includes `06_Proposals`, `06_Proposals/Client_Drafts` and `06_Proposals/Internal_Review`. For a legacy approved project where only the core structure exists, the first proposal save may create exactly those three missing standard directories and nothing else.
+
+This exception never permits overwrite, master-register changes, release, sending, publication, signature, external-system writes or production use. Source/policy/path/hash/readback and stop-on-uncertainty controls remain mandatory. Client-facing release retains one exact human approval.
+
+---
+
 ## General
 
 - All files must use .md extension
@@ -145,5 +155,4 @@ For this owner-authorised setup archival change only, dated internal knowledge/r
 Keep original configuration reports, audit snapshots and recoverable backups in the implementation workspace. Only reviewed relevant knowledge is copied or summarised here. Never copy credentials, secret-bearing config/environment dumps, raw logs, unnecessary personal/bank details or dummy commercial/engineering files.
 
 Do not move existing project, supplier, price-source or departmental records. Use exact source and related-record links. New versions must state what they supersede and why; preserve previous conclusions and approval references. Future updates to the knowledge hub require the applicable owner-authorised maintenance or a separately supported approved route, not a new implied root permission.
-
 

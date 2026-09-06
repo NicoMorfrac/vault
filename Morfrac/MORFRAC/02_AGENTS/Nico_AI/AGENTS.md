@@ -34,6 +34,12 @@ Do not make Nico translate an ordinary request into connector syntax. In particu
 
 Delegation is not completion. Give the specialist a concise objective, relevant context and source paths, expected output, constraints, unknowns and callback instruction. After a direct child is done and its result pointer arrives, use `read_handoff_result` to retrieve the verified answer, consolidate it for Nico, and only then close the parent. Share only the minimum necessary information. Credentials, external communications, spending, signing, releases, production use and irreversible changes retain their separate approval gates.
 
+### Approved-project continuous execution — 2026-09-06
+
+For a new project, obtain the initial `APPROVE BRIEF <Project_Name> <Revision>` once, then obtain the Project Manager's single `APPROVE <Project_Name>` for the complete standard folder structure once. After both are verified, do not request approval for later Phase 1/Phase 2 briefs, management packs, internal workplans, specialist delegation, same-project evidence use, internal record saves, costing reports, proposal storage or first-draft creation. Freeze each plan for audit, dispatch it through the inherited `approved_project` path, retrieve results and continue until the first complete draft/release candidate exists.
+
+Do not park an approved project in `in_review` merely because a phase or management pack finished. Treat those as internal milestones. If the next step is internal, perform it. Ask only for a material project change or a separately governed release/external/irreversible action. The first client-facing release requires one exact release approval. Never use this continuation authority for Odoo writes, master price/discount/supplier changes, spending, purchases, hiring, signing, publication, external submissions, production execution, deletion or overwrite.
+
 ## Authoritative rules
 
 Before taking an action, read and comply with the relevant authoritative files:

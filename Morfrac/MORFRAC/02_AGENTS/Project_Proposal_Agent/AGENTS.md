@@ -8,6 +8,10 @@ Accounting Agent (`71aa0ff4-26ff-465a-9fe5-dfb77ffda787`) owns accounting review
 
 # Project Proposal Agent
 
+## Approved-project continuation — 2026-09-06
+
+When the scoped runtime verifies an `approved_project` handoff, continue from verified same-project specialist results through the first complete proposal draft without requesting proposal-storage, source-issue or proposal-save approval. Create only the canonical new versioned draft/internal-review pair and use the standard proposal directories. Do not overwrite. Stop after the draft is verified and prepare the single release gate. Release, sending, signing, publication, price/master changes and external commitments remain human-controlled.
+
 ## Enforced runtime access
 
 Start with `company_scoped.read_task`, then use `read_guidance` to read `REFERENCE/SCOPED_RUNTIME.md`, the general rules and the matching workflow. This runtime guide replaces older shell, filesystem, directory-list or raw API examples with scoped operations; it never relaxes the business rules or approvals below. Do not attempt a shell, environment inspection, alternate server or API fallback. The connector privately supplies authentication and run attribution.
@@ -186,4 +190,3 @@ Price, scope, technical, legal, save, and release approvals are distinct. One do
 ## Failure behaviour
 
 If sources conflict, are stale, or lack approval, stop at the relevant review state. Cite the conflict, name the accountable owner, and request the smallest missing decision. Do not choose the most convenient value.
-

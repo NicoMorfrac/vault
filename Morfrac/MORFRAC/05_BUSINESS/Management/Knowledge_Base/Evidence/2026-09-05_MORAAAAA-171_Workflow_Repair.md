@@ -81,3 +81,49 @@ This approves only the exact payloads frozen in R0.3. It does not approve file s
 - Connector: `tools/company-scoped/bridge.mjs`
 - PM connector: `tools/pm-access/bridge.mjs`
 - Runtime argument source: `paperclip-config/company-scoped-args.ps1`
+
+## 2026-09-06 approval-streamlining follow-up
+
+### Finding
+
+After the R0.3 approval was supplied, Nico repeatedly returned MORAAAAA-171 to `in_review` for internal phase and management-pack confirmations. All current child work was already complete, so these reviews were administrative gates rather than risk controls. They interrupted the approved project before a first client-facing draft existed.
+
+### Corrected approval model
+
+1. Human approval of the initial project brief authorises the bounded project scope.
+2. One separate human approval authorises the Project Manager to create the complete standard project folder structure, including proposal working folders.
+3. Once both gates are verified, Paperclip may continue automatically through internal workplans, governed specialist delegation, same-project evidence exchange, internal analysis, versioned internal records, costing, and creation of the first proposal/client draft.
+4. The next normal human gate is the first client-facing release.
+
+Internal phase reviews, consolidated management packs, and strategy challenges remain useful milestones and evidence, but they no longer create new approval gates by themselves.
+
+### Gates retained
+
+Separate explicit approval remains mandatory for Odoo writes; price, discount, and supplier-master changes; external communication or publication; paid-ad activation; signing or legal acceptance; customs, grant, or tender submission; purchases, payments, or hiring; production CAD/CAM/FEA release; machine-code execution or manufacturing; destructive overwrite/deletion; and material changes to the approved project scope.
+
+### Implementation and verification
+
+- The company-scoped bridge now verifies inherited approved-project authority from the signed initial plan, direct human approval, dispatch receipt, completed PM folder child, and live project structure before permitting later internal work.
+- Same-project completed sibling evidence can be consumed without another source-issue approval when both tasks inherit the same verified project authority and origin.
+- Internal specialist records, cost reports, and the first proposal draft can be saved automatically under that authority; external release remains approval-gated.
+- The PM's single folder approval now covers the complete standard folder tree, including proposal working directories.
+- Review interactions are idempotent, preventing repeated duplicate pending approval prompts.
+- Full connector and offline end-to-end workflow suite: **232 passed, 0 failed**.
+- No wake endpoint or manual agent invocation was used.
+- Raffa AI was not read, edited, activated, or assigned.
+
+### Superseded text
+
+The earlier `Current governed continuation` section records the historical R0.3 gate as it existed during the initial repair. That additional gate and the earlier statement that every specialist or internal vault save required its own approval are superseded by this dated follow-up. The retained high-risk gates above remain in force.
+
+### Live continuation proof
+
+- The obsolete pending Phase 1 review interaction `39f1c619-1b30-4d08-9164-adaac0007a50` was withdrawn; it was not accepted as a new project approval.
+- MORAAAAA-171 was returned to the ordinary Paperclip queue. Paperclip—not a manual wake call—started run `8eb88b4d-ad31-48b0-835f-f7ae7eff17a4` with `invocationSource: automation` and `triggerDetail: system`.
+- Nico automatically dispatched MORAAAAA-183, MORAAAAA-184, and MORAAAAA-185 under inherited approved-project authority. No approval interaction was created.
+- The first Engineering run revealed a narrower source-routing defect: a governed child could not see its approved project origin, discover exact UUIDs for completed same-project siblings, or list its active-project subtree.
+- The connector was tightened to expose only the verified approved project origin, verified completed siblings of that origin, and `08_PROJECTS/Active/<approved-project>`. It still does not expose arbitrary company history, other projects, archives, sensitive paths, external actions, or release authority.
+- Engineering rerun `00eeef8b-9c7a-419b-8540-b88ee772c977` was started by Paperclip with `invocationSource: automation`, `triggerDetail: system`, and `wakeReason: issue_status_changed`; it consumed the originating objective, MORAAAAA-176, Quality and Legal sibling evidence, and the project index, then completed without requesting human approval.
+- Parent continuation run `3edb0091-f97d-4ebf-ae2d-815630b2ee92` was started automatically after the child completion/unblock event.
+- Nico then dispatched MORAAAAA-186, `FIRST COMPLETE INTERNAL DOSSIER DRAFT MORFRAC-B2B-Engineering-to-Manufacturing R0.5`, to Marketing. Its assignment run `b4b988b6-3ffa-4b58-aaaf-ad0adcc0456d` was system-triggered and created no approval interaction.
+- Verification after the source-routing correction: **232/232 Node connector tests passed**, **3/3 extraction tests passed**, and **20/20 project-folder tests passed**.

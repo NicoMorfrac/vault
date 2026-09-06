@@ -89,4 +89,9 @@ Evaluations are read-and-report only: no business-source reads, analytics/Odoo r
 
 Tools constrain this model's routes; they do not isolate other administrators/processes running as the same Windows user, or certify the semantic quality of a review. Unchanged Raffa legacy access is explicitly outside this rollout. No recurring schedule, engineering software integration, statutory filing, external communication or production release is enabled.
 
+## ApprovedProjectContinuation-v1 — runtime override
+
+After the initial brief approval and verified approved standard-folder creation, `dispatch_brief` may omit `approval_comment_id` for internal continuation workplans. `execute_save` may omit it for governed new versioned specialist records, project costing reports and the first proposal draft. Verified same-project sibling evidence needs no `SOURCE_ISSUE` declaration. These inherited operations remain hash/path/source checked, create-only and non-retryable. Release, external actions, Odoo/master-data changes, spending and production execution remain separately approved.
+
+---
 

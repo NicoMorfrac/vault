@@ -25,6 +25,8 @@ This is the authoritative operational standard for Paperclip task flow. It prese
 
 - A normal user request authorises reasonable internal read-only discovery and routine internal delegation inside the assigned role policy. Ask only for a materially outcome-changing choice or a separately governed action.
 - New projects and multi-package changes require a frozen brief and explicit approval before dispatch. A plan or review is not approval. Do not start Phase 1 from a review/brief without its exact approval gate.
+- After that initial project approval and the Project Manager's one approved standard-folder creation are verified, treat the project as `approved_project`. Continue automatically through all internal workplans, specialist tasks, same-project evidence exchange, analysis, versioned internal saves and first-draft generation. Do not introduce Phase, management-pack, workplan, source-issue or save approvals during this path.
+- Stop next for a human only when a material project change or a separately governed external/irreversible action is required. The first client-facing release has one release approval; Odoo writes, master-data changes, spend, signature, publication, production execution and external submissions retain their own gates.
 - Issue creation, origin relation and audit record must be treated as one idempotent operation. Use the platform's structured origin fields rather than duplicate free-text metadata when they are present.
 
 ## Diagnostics

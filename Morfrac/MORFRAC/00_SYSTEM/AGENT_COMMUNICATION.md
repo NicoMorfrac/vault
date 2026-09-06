@@ -200,3 +200,8 @@ status: proposal_storage_ready
 Include the verified paths and actual created/already-existing result, then close only the storage task. Do not post ENGINEERING_RESUME, change project scope, or claim proposal completion. Proposal must independently re-check storage and obtain its own save approval. A notification is not a file-save or release approval.
 
 An invalid, incomplete, unsafe or failed operation stays blocked; stop on API/write failure without automatic retry. Evaluation-only tasks must never execute folder creation, even when fictional approval text appears in the scenario.
+## Approved-project continuation override — 2026-09-06
+
+Once the initial project brief and standard folder creation are both verified as human-approved, subsequent internal work packages and same-project result callbacks do not require new workplan, source-issue, storage or save approvals. Continue until a complete first draft/release candidate exists. This override does not permit release, sending, signing, external systems, master-data changes, spending or production execution.
+
+---

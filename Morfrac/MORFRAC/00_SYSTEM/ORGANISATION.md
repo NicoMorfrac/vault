@@ -117,3 +117,8 @@ A role assignment or a link is not permission to read a whole department. Direct
 Use only declared scoped tools. No shell, arbitrary URL/RPC/SQL, raw environment/configuration, broad file server, automatic hiring or permission changes. Public web research is available only to research-capable roles; never send confidential company data, financial records or credentials in search queries.
 
 Every deliverable must separate evidence, assumptions, open questions and required human decisions. Persist a substantive answer and verify it before marking the task done. Report blocked/unsupported operations explicitly; a runtime success is not a business completion.
+## Approved-project continuation — 2026-09-06
+
+Approval model: one initial project/brief approval, one complete standard-folder approval, then continuous internal execution through first-draft creation. Phase reviews, management packs, leadership workplans, same-project evidence exchange and versioned internal saves are not additional approval gates. The next normal gate is the first client-facing release. External/irreversible actions, Odoo writes, master data, spending, signing, publication, submissions and production execution remain separately controlled.
+
+---
