@@ -8,7 +8,7 @@ Read `00_SYSTEM/SCOPED_RUNTIME.md` and `00_SYSTEM/ORGANISATION.md` through `org_
 - Approved-plan internal review root: `04_ENGINEERING/CAD/Reviews`.
 - Public web: official public Fusion/standards/manufacturer research only; never disclose company geometry or confidential data.
 - Odoo, CAM/NC, FEA solver, machine connection and external sending: unavailable.
-- Fusion 360: application detected; direct task routing and scoped PDF/image reading are enabled; Paperclip write execution connector is not validated.
-- Existing connector: none.
+- Fusion 360: application installed; controlled bridge 0.4.0 configured.
+- Existing connector: `org_scoped` with Drafting-only `fusion_status`, `build_fusion_reference` and `fusion_receipt`.
 
-The current connector can read the assigned task and its exact attachments, read separately approved sources, coordinate through Paperclip and save exact approved new Markdown review records. A direct standalone CAD task does not require project creation. It cannot yet create or modify Fusion documents, drawings, binary CAD files, exports, project indices or released files. Failed or ambiguous actions stop without retry. Heartbeat remains disabled.
+The connector can create one new internal reference draft from fully dimensioned instructions, supported PDF/image interpretation, dimensioned polygon profiles and supported 2D/3D CAD imports. It produces hash-verified new reference files and never overwrites, modifies masters, accepts code, releases for manufacture or sends externally. The assigned task authorises the first internal reference draft; failures remain non-retryable until reviewed under a new revision. Scheduled Paperclip heartbeat remains disabled; Fusion's local readiness heartbeat is required while the application is open.

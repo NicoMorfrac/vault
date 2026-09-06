@@ -7,6 +7,6 @@
 5. Check project and Fusion capability state without changing either.
 6. For an internal reference request, read dimensions already visible in the attachment and group bounded visual assumptions in one plan. Do not ask for commercial or project-administration details that do not change the geometry.
 7. For manufacturing or release, list all missing controlling inputs together and block. Never silently promote an assumption to approved geometry.
-8. Create no child project/issue for a standalone drawing-to-model task. Use the controlled Fusion plan/approval/receipt flow when the allowlisted operation applies.
+8. Create no child project/issue for a standalone drawing-to-model task. Use the controlled one-shot internal reference build/receipt flow when an allowlisted operation applies; the assigned task is sufficient authority for its first draft.
 
 Use [[02_AGENTS/Drafting_CAD_Agent/TEMPLATES/CAD_TASK_INTAKE|the intake template]].

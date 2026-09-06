@@ -1,15 +1,15 @@
 # Fusion 360 capability and limitations
 
-## Verified locally on 2026-09-02
+## Verified locally; capability extension prepared 2026-09-06
 
 - Fusion 2704.1.53 launched from the current user's Autodesk webdeploy production directory.
-- MORFRAC Fusion Bridge 0.3.3 installed as a startup add-in; supervised execution and hash-verified F3D/STEP/DXF/preview export were verified with the ORF12 v10 review candidate.
+- MORFRAC Fusion Bridge 0.4.0 is the configured startup add-in. The earlier 0.3.3 path completed supervised, hash-verified F3D/STEP/DXF/preview export with the ORF12 v10 review candidate; 0.4.0 adds schema-tested general reference operations.
 - Custom-event main-thread execution, fixed queue, heartbeat, validation, no-overwrite behavior, failure receipts, native F3D/STEP/DXF export and preview capture exercised.
-- Paperclip exposes only four Drafting tools: status, frozen reference plan, approval-bound one-shot queue and verified receipt.
+- Paperclip exposes three Drafting tools: status, one-shot internal reference build and verified receipt.
 
 ## Supported integration route
 
-The installed add-in watches only the fixed MORFRAC queue. Its worker thread never calls Fusion APIs; it fires a custom event so modelling executes on Fusion's main thread. Jobs cannot provide code or paths and are limited to the allowlisted operation. Existing outputs are never overwritten.
+The installed add-in watches only the fixed MORFRAC queue. Its worker thread never calls Fusion APIs; it fires a custom event so modelling executes on Fusion's main thread. Jobs cannot provide code or arbitrary paths and are limited to schema-validated declarative operations. Existing outputs are never overwritten. Attachment sources are copied to a controlled folder and SHA-256 checked before import.
 
 Official references:
 
@@ -25,6 +25,6 @@ Reference: https://help.autodesk.com/cloudhelp/ENU/Fusion-360-API/files/DrawingM
 
 ## Current boundary
 
-`create_reference_bracket_v1` is the only operational geometry schema. It produces an internal reference F3D, STEP, top/front DXF profiles and preview. It is not a generic drawing-to-3D engine. Any different part family requires a new narrowly defined operation, validation tests and smoke-test evidence before it can be queued.
+Supported operations are instruction-driven cylinder, box and tube; an ordered polygon extrusion with circular holes; hash-bound reference import for DXF, SVG, STEP/STP, IGES/IGS, SAT, SMT, F3D, STL, OBJ and 3MF; and the validated ORF12 bracket family. PDFs/images are read as geometry evidence and translated by the agent into a supported declarative operation. These cover common prismatic reference parts and supplied CAD reuse, but not arbitrary freeform reconstruction. A part beyond this set needs one consolidated clarification or a reviewed new declarative feature family.
 
 Always require a fresh bridge heartbeat and exact output-hash receipt. Automated production drawings, cloud save, master modification, CAM, FEA, manufacturing release and external handoff are unavailable through this connector.
