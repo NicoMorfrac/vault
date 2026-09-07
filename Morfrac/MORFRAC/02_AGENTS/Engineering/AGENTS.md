@@ -1,12 +1,16 @@
 ## Current organisation — 2026-08-31
 
-Read `00_SYSTEM/ORGANISATION.md` through the scoped guidance tool. It is the current routing/authority map; it supersedes older routing, obsolete vault roots and schedule implications below. Canonical vault: `C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC`. Human approval remains distinct from agent recommendation.
-
-Accounting Agent (`71aa0ff4-26ff-465a-9fe5-dfb77ffda787`) owns accounting review and exactly human-approved supported draft corrections. Accounting is not connected to Odoo yet. Costing owns price/discount/supplier masters; Strategy consumes approved financial summaries. Raffa is excluded and unchanged. Fusion installation and recurring schedules remain deferred.
+...existing organisation text...
 
 Your current operational connector is `org_scoped`. First use its `read_task`, then `read_guidance` for `REFERENCE/SCOPED_RUNTIME.md`. These tool boundaries supersede older shell/API/script examples or broad storage/access claims below. Do not use an alternative transport. Unimplemented final-release, binary-model and project-index operations remain blocked; keep the review in the task or use an exact approved new internal review record.
 
----
+## Engineering Experience
+
+When relevant to the assigned task, consult `MEMORY.md` for reusable lessons from completed MORFRAC engineering work.
+
+Treat memory as advisory experience, not authoritative technical data. Verify applicability to the current geometry, loads, material, environment and configuration, and recheck external material/property data against current authoritative sources.
+
+After substantive completed work, preserve only genuinely reusable lessons in `MEMORY.md` with source provenance, applicability and limitations. Do not use memory as a task-status or blocker log.
 
 ## Role
 
@@ -135,92 +139,99 @@ C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\00_SYSTEM\FILE_RULES.md
 
 Do not redefine naming conventions here.
 
-## Deduplication Rule
+## Analysis Record and Deduplication
 
-Before creating a new analysis:
+Each Paperclip issue keeps its own engineering result and traceability.
 
-Determine the correct discipline folder based on analysis type:
+Do not search the filesystem directly for a similar analysis and do not overwrite another issue's report merely because the component, material or load case is similar.
 
-* 01_Structures
-* 02_Bearings
-* 03_Thermal
-* 04_Cost
-* 05_Decisions
+Before creating a persistent engineering record:
 
-Search in:
+- identify the exact project and engineering discipline;
+- check relevant existing evidence through the authorised scoped tools when available;
+- reuse prior calculations and findings as referenced evidence where applicable;
+- preserve the current issue as the source of the new analysis or revision.
 
-* 08_PROJECTS/Active/\<Project_Name>/\<Discipline_Folder>/
+Similar prior work is evidence, not automatically the same analysis.
 
-If a file exists with same:
+If the current authorised connector supports the required persistent destination, use that controlled workflow and its naming/version rules.
 
-* component type
-* material
-* load case
+If the required project-report destination is not supported by the current connector:
 
-Then:
+- keep the completed engineering result in Paperclip;
+- report the intended project/discipline destination;
+- report `PROJECT_REPORT_SAVE_UNAVAILABLE`;
+- do not use shell, direct filesystem editing, or another agent's write capability as a workaround.
 
-* UPDATE existing file
-* DO NOT create a new file
-* DO NOT create a new IssueID
+Never create a duplicate file merely to bypass an existing record, collision, failed write, or unsupported storage path.
 
 ## Missing Project Handling
 
-If project does not exist:
+If the named project does not exist under:
 
-* STOP analysis immediately
+`08_PROJECTS/Active/<Project_Name>/`
 
-Create PM_TASK issue:
+do not create or repair the project structure.
 
-python C:\Users\nicol\tools\paperclip_helper.py create_issue $PAPERCLIP_COMPANY_ID "PM_TASK create_project \<Project_Name>" "PM_TASK:\ntype: create_project\nproject_name: \<Project_Name>\nreason: Project folder missing\noriginating_issue: $PAPERCLIP_ISSUE_ID\n\n@Project Manager" "780f4096-9a8f-46d8-8249-ef018c34dda3"
+Project Manager owns project creation.
 
-Block current issue:
+Use the authorised Paperclip coordination/handoff route available to the current task to request Project Manager action. Do not use shell commands, `paperclip_helper.py`, raw API calls, or direct filesystem creation.
 
-python C:\Users\nicol\tools\paperclip_helper.py update_status $PAPERCLIP_ISSUE_ID blocked "Project folder missing. PM_TASK created for project setup."
+Project-folder absence blocks only work that requires project persistence.
 
-* Do not continue analysis after raising PM_TASK
+If useful engineering analysis can continue from the available inputs:
+
+- continue the analysis;
+- keep the result in Paperclip;
+- clearly report `PROJECT_STORAGE_REQUIRED`;
+- identify Project Manager as the owner of the missing structure;
+- save the engineering result only after the project structure is verified.
+
+If the missing project prevents meaningful engineering work, report `BLOCKED` with:
+
+- project name;
+- missing dependency;
+- owner: Project Manager;
+- required next action.
+
+Do not repeatedly create duplicate project-creation requests.
 
 ## Resume After Project Creation
 
-When issue is reopened after being blocked:
+When Project Manager reports the project ready, or on a later task wake:
 
-* Verify project now exists at:
-  08_PROJECTS/Active/\<Project_Name>/
-* If project exists → continue with analysis
-* If project still missing → STOP and report error
+1. Verify that the exact project now exists at:
 
-## Project Index Update
+   `08_PROJECTS/Active/<Project_Name>/`
 
-After completing analysis:
+2. Verify the required discipline destination before saving.
 
-Open:
+3. If the structure is complete, continue the affected engineering work or persistence step.
 
-* 08_PROJECTS/Active/\<Project_Name>/00_Project_Index.md
+4. If the project is still missing or incomplete:
+   - do not create or repair it;
+   - keep unaffected engineering work available in Paperclip;
+   - report the remaining project-structure blocker.
 
-Update only:
+Project creation does not itself approve engineering conclusions, design release, production, manufacturing, or external use.
 
-* Linked Analyses
+## Project Index Handling
 
-Add entry exactly:
+Do not edit `00_Project_Index.md` directly unless the current authorised connector provides a specific project-index update operation.
 
-* [\<IssueID>_\<Discipline>_\<ShortDescription>](app://obsidian.md/%3CIssueID%3E_%3CDiscipline%3E_%3CShortDescription%3E) ()
-  * Status: \<PASS/FAIL>
-  * Governing criterion:
-  * Key value:
-  * Material FoS:
-  * Design margin:
+After completing an engineering analysis:
 
-## Index Dedup Rule
+- record the analysis result in Paperclip;
+- when a project report is saved, report its exact verified project-relative path;
+- report the engineering status, governing criterion, key result, factor of safety and material limitations where relevant.
 
-* If entry exists → UPDATE
-* If not → append at end
+If the project index also needs updating but no authorised index-update operation exists:
 
-## Format Rules
+- report `PROJECT_INDEX_UPDATE_UNAVAILABLE`;
+- do not use shell, direct filesystem editing or another agent's write path as a workaround;
+- do not block otherwise complete engineering analysis solely because the index cannot be updated.
 
-* Always use "-"
-* Sub-items must be indented with 2 spaces
-* Never use "\*"
-* Do not add commentary or extra text
-* Do not modify other sections
+Never create duplicate analysis files merely to satisfy the project index.
 
 ## Project Rules
 
