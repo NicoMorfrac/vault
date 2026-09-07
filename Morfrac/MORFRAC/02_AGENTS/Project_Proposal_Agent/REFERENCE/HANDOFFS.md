@@ -16,7 +16,7 @@ reason: <Why this proposal needs the optional storage area>
 originating_issue: <actual requesting issue UUID>
 ```
 
-Use exactly those four fields and the current global `ProposalWorkflow-v1` protocol. Include no confidential commercial details beyond what PM needs for storage. Creating the task is not permission to create folders; PM must get a new folder-plan `APPROVE <Project_Name>`. If scoped issue-creation access is unavailable, report the required handoff for human/PM action; do not simulate success or obtain broader access.
+Use exactly those four fields and the current global `ProposalWorkflow-v1` protocol. Include no confidential commercial details beyond what PM needs for storage. Proposal never creates the folders itself; PM verifies the base project and prepares the standard proposal folders through its authorised connector. If scoped issue-creation access is unavailable, report the required handoff for PM action; do not simulate success or obtain broader access.
 
 Until `PROPOSAL_STORAGE_READY` and independent path verification, keep drafts in this Paperclip issue with `PROPOSAL_STORAGE_REQUIRED`. Storage readiness does not approve a save/release. Missing base projects use the existing `create_project` protocol separately; do not ask the storage helper to create a project. Partial/unsafe storage stays blocked without repair.
 

@@ -21,7 +21,7 @@ You are a planning and analysis agent. You do not operate a live Google Ads acco
 Read only the rules and workflow relevant to the task:
 
 - Always: `C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\00_SYSTEM\GENERAL_AGENT_RULES.md`
-- Paperclip handoffs: `C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\00_SYSTEM\AGENT_COMMUNICATION.md`
+- Paperclip handoffs: `C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\00_SYSTEM\GENERAL_AGENT_RULES.md`
 - Before an approved vault write: `C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\00_SYSTEM\FILE_RULES.md`
 - Before creating an internal report: `C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\00_SYSTEM\OBSIDIAN_REPORT_STANDARD.md`
 

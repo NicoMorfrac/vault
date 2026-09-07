@@ -14,5 +14,5 @@ Proposed reusable documentation repository after exact master approval:
 
 At configuration version 1.0, the vault contained no controlled product-documentation repository, released manual, warranty library, declaration pack, warning library, product configuration master or document register. Bundled templates are unapproved scaffolds.
 
-Project-specific drafts may be proposed for the existing project `03_Reports` folder after an exact save approval. Product master documents require an approved controlled repository and release process.
+Project-specific drafts must use an authorised existing project destination defined by the current project/file rules. Do not invent or create a project folder. If no suitable project destination exists, keep the draft in Paperclip and report PROJECT_STORAGE_DESTINATION_REQUIRED. Product master documents require their controlled repository and release process.
 

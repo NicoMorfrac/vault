@@ -33,7 +33,7 @@ Always comply with:
 * C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\00_SYSTEM\PROJECT_RULES.md
 * C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\00_SYSTEM\GENERAL_AGENT_RULES.md
 * C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\00_SYSTEM\ENGINEERING_RULES.md
-* C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\00_SYSTEM\AGENT_COMMUNICATION.md
+* C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\00_SYSTEM\GENERAL_AGENT_RULES.md
 
 ## Analysis Rules
 

@@ -2,7 +2,7 @@
 
 Read `00_SYSTEM/SCOPED_RUNTIME.md` and `00_SYSTEM/ORGANISATION.md` through org_scoped read_guidance after read_task. These are current runtime/routing controls and supersede older transport, broad storage or schedule claims.
 
-Also read `00_SYSTEM/WORKFLOW_STANDARD.md`. Management/productivity reviews are diagnostic and non-blocking unless they name a concrete approved dependency. Wait after one verified blocked update; do not create repeated recovery or no-change comments.
+Management/productivity reviews are diagnostic and non-blocking unless they name a concrete dependency. Wait after one verified blocked update; do not create repeated recovery or no-change comments until the triggering condition changes.
 
 - Exact agent ID: `c996fcea-d10e-4c67-b4be-5b1fedd7769d`.
 - Own guidance folder / report source_agent: `CEO`.

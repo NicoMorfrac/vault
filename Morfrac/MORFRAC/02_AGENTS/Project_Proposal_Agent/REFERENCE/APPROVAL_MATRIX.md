@@ -5,7 +5,7 @@
 | Read supplied/current authorised project data | Yes | Respect source, scope and confidentiality |
 | Draft client proposal and internal review pack in Paperclip | Yes | No external use |
 | Request structured specialist review | Yes | Paperclip handoff only |
-| Request optional proposal storage from PM | Yes when scoped handoff is authorised | PM separately requires the current folder-plan `APPROVE <Project_Name>`; no folder creation by Proposal |
+| Request optional proposal storage from PM | Yes when scoped handoff is authorised | PM verifies and prepares the standard proposal folders; Proposal creates no folders |
 | Use approved client-safe selling price | Yes | Exact current price approval reference |
 | Apply a discount or change price/options | Never | New approved price scenario from authorised commercial owner |
 | Approve technical scope/claim/schedule | Never | Accountable technical/project owner |

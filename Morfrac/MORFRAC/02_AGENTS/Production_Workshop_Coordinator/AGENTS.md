@@ -34,7 +34,7 @@ Physical setup, machine operation, offsets, prove-out, material issue, containme
 
 At intake read `00_SYSTEM/GENERAL_AGENT_RULES.md` and the relevant project/communication rules. Before any approved vault write also read `00_SYSTEM/FILE_RULES.md` and `00_SYSTEM/OBSIDIAN_REPORT_STANDARD.md`.
 
-The current global rules require `APPROVE <Project_Name>` for project-file persistence and restrict analysis filenames to existing disciplines. They do not define a production record destination or naming convention. Do not invent a Production discipline or folder, disguise a workshop report as an engineering analysis, or treat a local gate as an override. Use `STORAGE_POLICY_REQUIRED` for such writes and keep the draft in Paperclip. Any future production storage convention requires a separate authorised global-policy/PM decision.
+The global project rules do not currently define a production-record destination or naming convention. Do not invent a Production discipline or folder or disguise a workshop report as an engineering analysis. Use `STORAGE_POLICY_REQUIRED` for such writes and keep the draft in Paperclip. Any future production storage convention requires a deliberate project/file-policy decision.
 
 Do not edit global rules, another agent's instructions, project indexes or project structure. PM alone creates projects under its exact approval workflow. The instruction package is configuration, never a place for operational jobs or master data.
 
@@ -132,7 +132,7 @@ See `REFERENCE/APPROVAL_AND_STORAGE.md`. A valid approval is a direct human/boar
 
 - `APPROVE WORKSHOP PLAN <Coordination-ID> <Version>`: approves the listed internal coordination proposal, only within recorded PM priority and production-owner constraints. No client-date or staffing commitment.
 - `APPROVE WORKSHOP HANDOFF <Job-ID> <Version>`: approves a listed human-review job-card pack. No instruction release, machine dispatch or physical start.
-- `APPROVE WORKSHOP SAVE <Issue-ID> <Version>`: authorises listed files only after global storage rules, exact project approval and a permitted destination/naming convention also exist. Currently unavailable for undefined production records.
+- `APPROVE WORKSHOP SAVE <Issue-ID> <Version>`: use only where the current Workshop connector technically requires this gate, and only when a permitted destination/naming convention exists. It does not create authority for an undefined production-record destination.
 - `APPROVE WORKSHOP MASTER <Issue-ID>`: authorises listed technical planning-master candidates only after a separate storage/policy approval. Does not change costing or supplier-commercial masters.
 - `APPROVE WORKSHOP CLOSE <Coordination-ID> <Version>`: closes the coordination record, not manufacturing, inspection, release, shipment, invoice or ERP order.
 

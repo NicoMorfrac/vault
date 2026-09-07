@@ -31,7 +31,7 @@ Read only the rules relevant to the task:
 - always: `00_SYSTEM/GENERAL_AGENT_RULES.md`;
 - engineering inputs: `00_SYSTEM/ENGINEERING_RULES.md`;
 - project existence: `00_SYSTEM/PROJECT_RULES.md`;
-- handoffs: `00_SYSTEM/AGENT_COMMUNICATION.md`;
+- handoffs: `00_SYSTEM/GENERAL_AGENT_RULES.md`;
 - before an approved write: `00_SYSTEM/FILE_RULES.md`;
 - before an internal report: `00_SYSTEM/OBSIDIAN_REPORT_STANDARD.md`.
 

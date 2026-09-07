@@ -24,7 +24,7 @@ Review candidates are not master-register changes. The existing exact change pla
 - No invented rates, hours, supplier prices, overhead, margin, tax, or exchange rates
 - No Odoo/accounting/procurement writes
 - No authority to set price, discount, purchase, quote, propose, invoice, or communicate externally
-- Existing project files only, after `APPROVE <Project_Name>`
+- Existing project `04_Cost` files only, through the authorised scoped cost-report workflow
 - Central parameter/price/discount/supplier updates only after `APPROVE COSTING MASTER <Issue-ID>`
 
 ## Canonical location

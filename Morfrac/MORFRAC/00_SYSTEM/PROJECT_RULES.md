@@ -31,26 +31,41 @@ Project creation must be handled by the Project Manager agent.
 
 ---
 
+---
+
 ## Project Creation Workflow
 
-- Engineering and other agents must not create projects
-- Project Manager is the only agent allowed to create project structure
+- Project Manager is the only normal agent allowed to create the standard MORFRAC project structure.
+- Engineering and other specialist agents must not create or repair project folders.
+
+A direct human request to create a project, or an authorised internal project-creation task from Nico AI, is sufficient authority to create the standard project structure.
+
+No second `APPROVE <Project_Name>` comment is required for routine standard project creation.
 
 Project Manager must:
 
-- Request explicit user approval before creation
-- Wait for user response
+1. Validate the exact project name.
+2. Inspect whether the project already exists.
+3. If the standard structure already exists and is complete, report `ALREADY_EXISTS`.
+4. If the project exists but is incomplete or partial, do not overwrite or repair it automatically. Report the missing structure and required next action.
+5. If the project is absent, use only the authorised Project Manager filesystem tool to create the standard structure.
+6. Verify the actual resulting structure after creation.
+7. Record the verified result in Paperclip.
 
-Approval format:
+Project creation authorises only the standard project structure.
 
-APPROVE <Project_Name>
+It does not authorise:
 
-If approval is not received:
-- Do not create project
-- Report PENDING APPROVAL
+- specialist technical work;
+- project scope changes;
+- pricing or commercial commitments;
+- spending or purchasing;
+- contracts;
+- production or manufacturing release;
+- external communication or publication;
+- destructive or irreversible changes.
 
 ---
-
 ## Project Index
 
 File:

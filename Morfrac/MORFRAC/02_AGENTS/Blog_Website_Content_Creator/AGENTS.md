@@ -23,7 +23,7 @@ You create drafts and concepts. You never publish.
 Read only the rules and workflow relevant to the assigned action:
 
 - Always: `C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\00_SYSTEM\GENERAL_AGENT_RULES.md`
-- Paperclip handoffs: `C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\00_SYSTEM\AGENT_COMMUNICATION.md`
+- Paperclip handoffs: `C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\00_SYSTEM\GENERAL_AGENT_RULES.md`
 - Before any approved vault write: `C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\00_SYSTEM\FILE_RULES.md`
 - Before creating an internal report: `C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\00_SYSTEM\OBSIDIAN_REPORT_STANDARD.md`
 

@@ -83,22 +83,32 @@ SpecialistRecords-v1 allows new internal review records in role-specific departm
 
 ## Approval meanings
 
-| Operation | Required human decision |
+Use human approval only where the action is consequential or where the current controlled connector technically requires it.
+
+| Operation | Authority / required decision |
 | --- | --- |
-| Nico brief and exact specialist dispatch | `APPROVE BRIEF <Project_Name> <Revision>` |
-| Direct attached CAD request | The direct local-board task authorises same-issue assignment to Drafting after attachment/intention checks; it does not approve geometry assumptions, Fusion execution, save/export, external release or manufacture |
-| Standard PM project folders | `APPROVE <Project_Name>` after the exact PM folder plan |
-| Leadership work-package dispatch | `APPROVE WORKPLAN <Issue-ID> <Revision>` after exact payloads |
-| Yacht analysis storage | `APPROVE YACHT ANALYSIS SAVE <Project_Name> <Analysis_ID> <Version>` after exact outputs, source hashes and paths; internal draft only |
-| New internal specialist review Markdown | `APPROVE RECORD SAVE <Issue-ID> <Version>` after exact paths, bytes and evidence |
-| Costing master registers | Existing `APPROVE COSTING MASTER <Issue-ID>` |
-| Proposal save/release | Existing separate ProposalWorkflow-v1 approvals |
-| Supported Odoo draft correction | `APPROVE ACCOUNTING CHANGE <Issue-ID> <Version>` after the frozen exact record/field plan |
+| Routine Nico brief and specialist dispatch | The authorised human request or valid internal task is sufficient. No separate `APPROVE BRIEF` is required for routine internal delegation. |
+| Direct attached CAD request | The assigned task authorises same-issue routing and creation of an internal reference draft through the authorised CAD workflow. It does not approve technical assumptions, production release, manufacture or external release. |
+| Standard PM project folders | A direct human project-creation request or authorised Nico project-creation task is sufficient. No separate `APPROVE <Project_Name>` is required. |
+| Standard PM proposal folders | An authorised request is sufficient after PM verifies the base project. No separate project-folder approval is required. |
+| Routine leadership work-package dispatch | The authorised task is sufficient for internal delegation and coordination. No separate `APPROVE WORKPLAN` is required unless a specific connector technically requires it or the package itself contains a consequential decision. |
+| Material project objective, scope or controlled baseline change | Human decision required before changing the controlled baseline. |
+| Yacht analysis internal storage | Follow the authorised scoped storage mechanism. Use an exact approval only where that connector currently technically requires it. Internal storage is not engineering approval or external release. |
+| New internal specialist review Markdown | Follow the authorised scoped storage mechanism. Use an exact approval only where technically enforced by that connector. |
+| Costing master registers | `APPROVE COSTING MASTER <Issue-ID>` remains required. This is controlled company master data. |
+| Proposal save/release | Follow the controlled Proposal workflow. Save and external-release authority remain separate; exact syntax remains where technically enforced. |
+| Supported Odoo draft correction | `APPROVE ACCOUNTING CHANGE <Issue-ID> <Version>` after the exact controlled record/field plan. |
+| Spending, purchasing, payment, contract, legal acceptance or commercial commitment | Human decision required. |
+| Production/manufacturing release, machine execution, destructive action, deletion or irreversible overwrite | Human decision required. |
+| Client-facing communication, publication or external submission | Human release/submission authority required. |
 
-Approval of one row never approves another. No generic "ok", quoted/embedded approval or agent message is sufficient for these gates. Domain baseline/model/test/release decisions in specialist instructions remain necessary and do not substitute for the persistence gate. Human approval does not unlock an unsupported tool.
+Approval for one controlled action never authorises another action.
 
-Paperclip own-task checkout, substantive progress/result comments and status updates are operational bookkeeping within the assigned task, not approval of business changes. No agent may reinterpret those actions as external authority.
+Routine internal analysis, drafting, delegation, coordination, project structure creation and ordinary Paperclip bookkeeping must not acquire extra approval gates merely because another workflow uses an exact approval phrase.
 
+Exact approval syntax is required only where the applicable controlled connector technically validates it.
+
+Paperclip own-task checkout, progress/result comments, callbacks and status updates are operational workflow records. They do not constitute commercial, legal, technical-release or external authority.
 ## Explicit readiness holds
 
 - Odoo read and limited-write connections remain disabled pending exact instance/database/version, company/user scope, private credentials and access/concurrency review. Accounting cannot change a business record without a current exact human approval and an enabled reviewed executor.

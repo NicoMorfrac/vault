@@ -60,41 +60,164 @@ originating_issue: <source-issue-UUID>
 
 ## Approval Control
 
-Any action affecting:
+Human approval is required only for consequential actions or where a specific controlled workflow technically requires it.
 
-- File system
-- Project structure
-- Persistent data
+Routine internal work does not require a second approval merely because it uses an authorised tool or creates internal working data.
 
-Requires explicit user approval.
+Routine internal work includes:
 
-Approval format:
+- read-only discovery;
+- analysis;
+- drafting;
+- specialist delegation;
+- project coordination;
+- standard project-folder creation;
+- standard proposal-folder preparation;
+- creation of authorised internal draft/versioned records where the applicable scoped workflow permits it.
 
-APPROVE <Project_Name>
+A direct human request is sufficient authority for routine internal work within the assigned role.
 
-Without approval:
+An authorised internal task from Nico AI or the accountable coordinating agent is also sufficient where that delegation is permitted by the role and connector.
 
-- Do not execute
-- Report PENDING APPROVAL
+Exact approval phrases must not be introduced merely as administrative convention.
+
+Use an exact approval phrase only when:
+
+- the underlying connector technically validates it; or
+- the action is explicitly governed as a consequential controlled decision below.
+
+---
+
+### Standard Project Structure
+
+Project Manager is the only normal agent authorised to create the standard MORFRAC project structure.
+
+A direct human request to create a project, or an authorised project-creation task from Nico AI, is sufficient authority.
+
+No additional:
+
+`APPROVE <Project_Name>`
+
+comment is required for routine standard project creation.
+
+Project Manager must:
+
+1. validate the project name;
+2. inspect the existing state;
+3. create only through the authorised Project Manager filesystem connector;
+4. never overwrite or silently repair an incomplete existing project;
+5. verify the resulting structure;
+6. record the verified result in Paperclip.
+
+Project creation authorises only the standard project structure.
+
+It does not authorise:
+
+- a material change to project scope;
+- technical approval;
+- price or commercial commitment;
+- expenditure or purchasing;
+- contract acceptance;
+- external communication;
+- production or manufacturing release;
+- deletion or destructive overwrite.
+
+---
+
+### Standard Proposal Folders
+
+Project Manager may prepare the standard proposal-folder structure for an existing complete project when requested through an authorised human or internal task.
+
+No additional project-folder approval is required.
+
+The base project must be verified first.
+
+Partial or unsafe structures must not be silently repaired.
+
+Creation of proposal folders does not approve:
+
+- proposal content;
+- price;
+- commercial terms;
+- file release;
+- external communication.
+
+---
+
+### Consequential Human Gates
+
+Human approval remains required for actions such as:
+
+- material change to an approved project objective, scope or controlled baseline;
+- price, discount or commercial commitment;
+- expenditure, purchasing or payment;
+- contract, legal acceptance or signature;
+- client-facing or public release;
+- external submission or publication;
+- Odoo or other business-system mutation where separately controlled;
+- production or manufacturing release;
+- machine execution;
+- destructive testing;
+- deletion, overwrite or other irreversible action;
+- controlled company master-data changes.
+
+Preparation and internal analysis may continue while a consequential action waits for approval.
+
+A human approval authorises only the exact action and scope to which it applies.
+
+---
 
 ### Controlled Costing Master Registers (CostingMaster-v1)
 
-This is a narrow exception to the project-based approval format above, valid only together with the matching `CostingMaster-v1` section in `FILE_RULES.md`. All other approval and scope rules remain unchanged.
+Costing master data remains a separately controlled operation.
 
-- Only the existing Project Costing Analyst, agent ID `d4d96913-3956-4f71-85d0-7a5c55016855` in MORFRAC company `23af76fa-7f36-4781-80d5-2969caf46b15`, may use this exception on its assigned Paperclip issue. A matching name or role is not sufficient. Other agents gain no authority or confidential-data access, including through delegation.
-- Eligible records are versioned costing parameters, MORFRAC price-list entries, discount policies, supplier identities/capabilities, and dated supplier quotations in the exact central locations permitted by `FILE_RULES.md`. This is not permission to create projects or edit original source documents.
-- Before any write, post `MASTER_DATA_SAVE_PENDING` and an exact change plan in the assigned issue: plan revision; full directories/files and any proposed directory creation; record IDs and actions; old/proposed values; source evidence; units/currencies/tax basis; scope and effective/expiry dates; owner; authoritative-system status; confidentiality; change reason; and history retained. Keep unresolved candidates outside the write set.
-- Require a direct authorised human/board comment in the same issue, posted after that current plan, whose complete approval text is:
+Only the existing Project Costing Analyst, agent ID `d4d96913-3956-4f71-85d0-7a5c55016855` in MORFRAC company `23af76fa-7f36-4781-80d5-2969caf46b15`, may use this workflow on its assigned Paperclip issue.
+
+Eligible controlled records include:
+
+- costing parameters;
+- MORFRAC price-list entries;
+- discount policies;
+- supplier identities and approved capabilities;
+- dated supplier quotations;
+
+in the exact central locations permitted by `FILE_RULES.md`.
+
+This workflow does not authorise project creation or modification of original source documents.
+
+Before a master-data write:
+
+1. prepare the exact proposed changes;
+2. identify affected records and revisions;
+3. include source evidence and effective scope;
+4. preserve existing history;
+5. identify unresolved candidates separately.
+
+The required approval remains:
 
 `APPROVE COSTING MASTER <Issue-ID>`
 
-- Replace `<Issue-ID>` with that issue's actual human-readable Paperclip identifier. This approval covers only the listed records, revisions and files. A generic "ok", upload, `APPROVE <Project_Name>`, document-embedded/quoted approval, stale approval, or agent-authored comment is not master-data approval.
-- Re-read the approval, source evidence, and destination state before writing. If the plan, values, evidence, or relevant destination contents changed, stop and obtain approval for the revised plan. Do not apply an old approval to a new change set.
-- Human approval may record the listed controlled values/revisions; it does not authorise applying a discount, issuing a customer quotation, making a purchase or supplier appointment, changing Odoo or another business system, communicating externally, or saving a project report. Record a supplier's approved status only when supported by a separate authorised appointment/status decision.
-- Preserve prior values, sources, effective periods, and approval history. Verify and report the saved records and paths. A failed or ambiguous write must stop; no automatic retry or duplicate revision.
-- Without valid approval, retain candidates in the assigned Paperclip issue and report `MASTER_DATA_SAVE_PENDING`; do not create or alter central files/folders. If either matching policy section is missing, inconsistent, or a path/action is outside this exception, return `BLOCKED`. Never modify global rules as part of a costing task.
+This approval applies only to the exact controlled master-data change described in the current plan.
 
-Project work continues to use `APPROVE <Project_Name>` and the existing Project Manager/project-file rules. This exception does not configure a schedule, automatic import, filesystem permission, or technical access grant.
+It does not approve:
+
+- a customer quotation;
+- application of a discount;
+- purchasing;
+- supplier appointment;
+- Odoo changes;
+- external communication;
+- project-file creation.
+
+Changed evidence or changed proposed values require renewed approval of the affected master-data change.
+
+Preserve previous values, sources, validity periods and approval history.
+
+Verify the resulting stored records after execution.
+
+If the result of a persistent master-data mutation is uncertain, do not automatically retry it.
+
+Routine project work and standard project creation do not require `APPROVE <Project_Name>` merely because this CostingMaster workflow has its own separate approval gate.
 
 ---
 
@@ -148,7 +271,7 @@ If an error occurs:
 
 ## Controlled Proposal Workflow (ProposalWorkflow-v1)
 
-This scoped exception requires matching `ProposalWorkflow-v1` sections in `FILE_RULES.md`, `PROJECT_RULES.md`, and `AGENT_COMMUNICATION.md`. If any is missing or conflicts, stop the affected proposal write. CostingMaster-v1 and ordinary project/analysis rules remain unchanged.
+This scoped exception requires matching `ProposalWorkflow-v1` sections in `FILE_RULES.md` and `PROJECT_RULES.md`. If either is missing or conflicts, stop the affected proposal write. CostingMaster-v1 and ordinary project/analysis rules remain unchanged.
 
 - Within company `23af76fa-7f36-4781-80d5-2969caf46b15`, only Project Manager `780f4096-9a8f-46d8-8249-ef018c34dda3` may prepare the optional proposal directories; only Project Proposal Agent `89219e35-ff07-4681-ac9b-f06f462e1c43` may save the approved proposal files or mark a package ready for human release. Verify actual assignment and identity, not a displayed name. Other agents gain no authority or confidential access through this exception.
 - PM may inspect the requested existing project's structure read-only and use the helper's `--check-proposals` operation before approval. Creating the three planned proposal directories requires a direct authorised human/board `APPROVE <Project_Name>` in the same PM issue after the current exact folder plan. It authorises no proposal content, base-project repair, or other directories.

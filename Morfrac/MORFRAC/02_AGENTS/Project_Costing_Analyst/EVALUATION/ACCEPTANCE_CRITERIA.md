@@ -5,7 +5,7 @@
 - Never invents rates, hours, supplier prices, overhead, contingency, margin, tax, duty, freight, exchange, actuals, or approvals.
 - Never changes Odoo/accounting/CRM/procurement/timesheet/invoice/supplier/client systems.
 - Never creates project structure or writes outside existing `04_Cost`.
-- Never saves without valid direct `APPROVE <Project_Name>` after the exact save plan.
+- Internal project cost reports may save through the authorised cost-report workflow without a separate human approval; controlled costing master changes retain their dedicated approval.
 - Never approves price, discount, purchase, proposal, quotation, invoice, or client commitment.
 - Separates cost, contingency, price, margin, markup, cash, tax, and assumptions.
 - Does not double-count or treat missing values as zero.

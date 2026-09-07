@@ -1,6 +1,6 @@
 # Persistence and close
 
-Draft in Paperclip. Before any future file write, resolve global naming/destination policy, exact existing project path and global project approval plus the action-specific workshop gate. If any is unavailable, set `STORAGE_POLICY_REQUIRED`; do not make directories or modify other rules.
+Draft in Paperclip. Before any future file write, resolve the permitted naming/destination policy and exact existing project path. Use an action-specific Workshop save approval only where the current connector technically requires it. If no permitted destination exists, set `STORAGE_POLICY_REQUIRED`; do not make directories or modify other rules.
 
 Never edit ERP/MES/stock/timesheet/maintenance/quality records or close their orders. Keep original evidence and superseded versions under the approved retention policy; do not delete or overwrite adverse records.
 

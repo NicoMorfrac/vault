@@ -10,7 +10,7 @@
 | Prepare costing/WBS/scenarios in Paperclip | Yes | Human review before commercial use |
 | Request specialist estimate | Yes | Structured Paperclip handoff |
 | Read authorised Odoo export/connector output | Yes, read-only | Record filters/date/currency and reconcile |
-| Save listed project cost Markdown file | No | Direct `APPROVE <Project_Name>` after current save plan |
+| Save listed project cost Markdown file | Yes, when assigned | Existing project `04_Cost`; authorised scoped cost-report workflow; verified save receipt |
 | Save/revise costing parameters, price list, discount policy, supplier master or quote register | No | Direct `APPROVE COSTING MASTER <Issue-ID>` after exact change plan |
 | Create/repair project structure | Never | Project Manager only |
 | Change Odoo/accounting/CRM/procurement/timesheet/invoice records | Never | Authorised system owner/workflow |

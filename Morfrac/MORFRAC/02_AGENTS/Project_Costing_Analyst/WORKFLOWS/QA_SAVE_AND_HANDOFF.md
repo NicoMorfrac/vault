@@ -26,9 +26,9 @@ Before any vault write, post:
 - supported total and unpriced items;
 - price approval status;
 - action not authorised: Odoo, purchase, quotation, proposal, client communication;
-- required approval: `APPROVE <Project_Name>`.
+- no separate human approval is required for the internal project cost report; the assigned task and current verified save plan authorise the scoped save.
 
-Validate direct human/board approval after the current plan and exact project-name match.
+Validate the exact project name, current save plan, sources and existing `04_Cost` destination before execution.
 
 ## Save procedure
 
