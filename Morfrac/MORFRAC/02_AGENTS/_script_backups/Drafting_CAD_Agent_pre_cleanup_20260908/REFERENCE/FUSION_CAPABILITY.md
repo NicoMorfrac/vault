@@ -274,47 +274,6 @@ This authority does not approve:
 
 ---
 
-# Fusion Revision Identifier
-
-Every `build_fusion_reference` request requires an exact execution revision matching:
-
-`v` followed by 2 to 6 decimal digits.
-
-Valid examples:
-
-- `v01`
-- `v02`
-- `v10`
-- `v1234`
-- `v123456`
-
-Invalid examples include:
-
-- `v1`
-- date strings longer than six digits after `v`
-- suffixes such as `_A`
-- descriptive task identifiers
-
-For the first build attempt on a CAD task, use `v01` unless the task already has a valid controlled Fusion revision.
-
-Increment the numeric revision for a genuinely new corrected build:
-
-`v01 → v02 → v03`
-
-Do not guess alternate revision formats after a validation failure.
-
-`EXACT_FUSION_REVISION_REQUIRED` is a pre-execution validation failure. It does not mean a Fusion job was queued or executed.
-
-After this error:
-
-1. inspect the required revision rule;
-2. correct the revision identifier;
-3. submit only one valid build request.
-
-The durable no-retry rule applies once an actual Fusion build attempt has been recorded/queued. A request rejected before execution validation has not created Fusion geometry.
-
----
-
 # Build Execution
 
 For a supported task:
