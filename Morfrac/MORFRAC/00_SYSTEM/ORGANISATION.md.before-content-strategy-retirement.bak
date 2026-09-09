@@ -6,13 +6,13 @@ Approved organisational cleanup: 2026-08-31. This is the current routing and aut
 
 The human owner is the final authority. The CEO agent coordinates and recommends; it is not the human CEO and cannot approve its own proposals, hire agents, change access or commit MORFRAC externally.
 
-Intake: human â†’ Nico AI â†’ either a bounded direct specialist route or an exact approved project brief â†’ Project Manager and accountable specialists. A direct attached CAD request may transfer on the same issue to the Drafting & Fusion 360 CAD Agent without creating a project. Project Manager owns standard project folders and coordination. CTO owns technical coordination and review; Marketing owns marketing/SEO priorities. Accounting reviews actual financial evidence; Costing owns estimates/rates/pricing; Strategy owns growth scenarios. These are distinct responsibilities.
+Intake: human → Nico AI → either a bounded direct specialist route or an exact approved project brief → Project Manager and accountable specialists. A direct attached CAD request may transfer on the same issue to the Drafting & Fusion 360 CAD Agent without creating a project. Project Manager owns standard project folders and coordination. CTO owns technical coordination and review; Marketing owns marketing/SEO priorities. Accounting reviews actual financial evidence; Costing owns estimates/rates/pricing; Strategy owns growth scenarios. These are distinct responsibilities.
 
 | Group | Accountable lead | Specialist ownership |
 | --- | --- | --- |
 | Project delivery | Project Manager | Approved scope, folders, work packages, status and escalation; not specialist approval |
 | Engineering | CTO | Engineering, FEA, Failure Analysis, CNC, Workshop, Quality, I+D, Product Documentation |
-| Yacht analysis | CTO â†’ Lead Naval Architecture Reviewer | Intake, Geometry & Sail, Deck Systems, Mission, Rating, Loads, Retrofit and Yacht Cost/Benefit; human design authority required |
+| Yacht analysis | CTO → Lead Naval Architecture Reviewer | Intake, Geometry & Sail, Deck Systems, Mission, Rating, Loads, Retrofit and Yacht Cost/Benefit; human design authority required |
 | Marketing | Marketing | Google Ads Planner, SEO Intelligence, SEO Execution; the existing Content Strategy and Technical Content Production agents remain under SEO Execution |
 | Commercial | CEO | Project Costing Analyst and Project Proposal Agent; independent legal/technical/price/release review |
 | Finance | CEO | Accounting Agent: authorised Odoo review and exactly human-approved supported draft corrections; Strategy consumes only approved summaries |
@@ -38,6 +38,7 @@ Intake: human â†’ Nico AI â†’ either a bounded direct specialist route
 | Drafting & Fusion 360 CAD Agent | `27f2ab00-c0b5-458b-bf77-e4755128d0b6` | Controlled 2D/3D drafting and Fusion 360 CAD |
 | Technical Content Production Agent | `c2d8893d-0abc-45b4-bbd0-2f2810c26dab` | Blog & Website Content Creator |
 | Google Ads Planner | `34701683-f682-4b2e-98bd-c7bb1ad875f6` | Google Ads Campaign Planner & Analyst |
+| Technical Content Strategy Agent | `465e3a25-d1dd-47f4-95c1-840d7e5c2e0f` | Technical Content Strategy Agent |
 | Production & Workshop Coordinator | `2b31d6d9-5d51-4d7a-b922-4783660fcba4` | Workshop Readiness, Sequencing & Production Records |
 | Public Tenders Agent | `a77fdb87-f700-4f52-a1fd-8d68a6e15e89` | Public Procurement & Tenders |
 | Nico AI | `a1cb4be3-c748-42d3-ab3e-e1d5361b3fee` | Personal and Project Intake |
@@ -126,7 +127,7 @@ A role assignment or a link is not permission to read a whole department. Direct
 Use only declared scoped tools. No shell, arbitrary URL/RPC/SQL, raw environment/configuration, broad file server, automatic hiring or permission changes. Public web research is available only to research-capable roles; never send confidential company data, financial records or credentials in search queries.
 
 Every deliverable must separate evidence, assumptions, open questions and required human decisions. Persist a substantive answer and verify it before marking the task done. Report blocked/unsupported operations explicitly; a runtime success is not a business completion.
-## Approved-project continuation â€” 2026-09-06
+## Approved-project continuation — 2026-09-06
 
 Approval model: one initial project/brief approval, one complete standard-folder approval, then continuous internal execution through first-draft creation. Phase reviews, management packs, leadership workplans, same-project evidence exchange and versioned internal saves are not additional approval gates. The next normal gate is the first client-facing release. External/irreversible actions, Odoo writes, master data, spending, signing, publication, submissions and production execution remain separately controlled.
 
