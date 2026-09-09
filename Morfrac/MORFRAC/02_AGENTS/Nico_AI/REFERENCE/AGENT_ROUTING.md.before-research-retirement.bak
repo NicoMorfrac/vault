@@ -112,6 +112,7 @@ CAD execution, saving, release and manufacturing authority remain separately con
 
 ## Existing holds
 
+* Research agent `c0f9ffc6-ed94-4c64-ba7a-159b60c88851` was paused when this routing map was last verified. Check its current status before assigning work.
 * Employee-facing agents are outside this routing map.
 * Routing a grants or tenders task does not automatically create recurring monitoring.
 * Routing CAD/CAM work does not authorise machine execution or production release.
