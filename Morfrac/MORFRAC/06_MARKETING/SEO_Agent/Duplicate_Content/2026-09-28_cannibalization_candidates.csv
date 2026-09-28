@@ -1,0 +1,5 @@
+query,ranking_pages,page_count,total_impressions,total_clicks,best_position,intents,page_types,severity
+dogbone,https://www.morfrac.com/dogbone | https://www.morfrac.com/es/dogbone,2,207.0,2.0,6.18,commercial,landing,LOW
+dogbones,https://www.morfrac.com/dogbone | https://www.morfrac.com/es/dogbone,2,76.0,1.0,4.78,commercial,landing,LOW
+folding padeye,https://www.morfrac.com/es/shop/padeye-through-1-5t-through-deck-padeye-12640 | https://www.morfrac.com/shop/padeye-ring-20-20-stick-on-padeye-ring-12654,2,12.0,0.0,42.67,commercial,product,LOW
+harken padeye,https://www.morfrac.com/es/shop/padeye-ring-20-30-stick-on-padeye-ring-12653 | https://www.morfrac.com/es/shop/padeye-through-1-5t-through-deck-padeye-12640,2,11.0,0.0,62.67,commercial,product,LOW

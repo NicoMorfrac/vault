@@ -1,0 +1,5 @@
+authority_cluster,supporting_urls,total_impressions,total_clicks,avg_opportunity_score,page_types,intents,example_queries,example_pages,hub_strength
+dogbone,2,418.0,4.0,91.36363636363636,landing,commercial,dog bone | dog bone rigging | dog bone shackle | dogbone | dogbone carriers | dogbone joint | dogbone sailing | dogbone shackle | dogbones,https://www.morfrac.com/dogbone | https://www.morfrac.com/es/dogbone,STRONG
+shackle,2,46.0,0.0,68.33333333333333,landing | product,commercial,custom shackles | d shackle | d-shackle,https://www.morfrac.com/es/shop/shackle-17-4ph-12827 | https://www.morfrac.com/shackle,MEDIUM
+padeye,4,38.0,0.0,68.0,landing | product,commercial,deck pad eye | folding padeye | harken padeye,https://www.morfrac.com/es/shop/padeye-ring-20-30-stick-on-padeye-ring-12653 | https://www.morfrac.com/es/shop/padeye-through-1-5t-through-deck-padeye-12640 | https://www.morfrac.com/padeye | https://www.morfrac.com/shop/padeye-ring-20-20-stick-on-padeye-ring-12654,MEDIUM
+powerfurl,1,7.0,0.0,60.0,product,unknown,furling,https://www.morfrac.com/es/shop/powerfurl-one-furling-kit-12530,WEAK
