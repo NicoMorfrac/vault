@@ -1,0 +1,31 @@
+﻿query,page,clicks,impressions,ctr_percent,expected_ctr,ctr_gap,position,query_type,intent,page_type,issue_count,title_length,meta_description_length,issues,opportunity_score,opportunity_level
+dogbone,https://www.morfrac.com/es/dogbone,1.0,100.0,1.0,3.5,2.5,6.2,Non-branded,commercial,landing,0,19.0,134.0,,125,VERY HIGH
+dogbones,https://www.morfrac.com/es/dogbone,0.0,28.0,0.0,5.0,5.0,4.43,Non-branded,commercial,landing,0,19.0,134.0,,115,VERY HIGH
+dog bone,https://www.morfrac.com/es/dogbone,0.0,14.0,0.0,3.0,3.0,7.14,Non-branded,commercial,landing,0,19.0,134.0,,105,VERY HIGH
+dogbone,https://www.morfrac.com/dogbone,0.0,84.0,0.0,2.5,2.5,8.13,Non-branded,commercial,landing,0,19.0,134.0,,105,VERY HIGH
+dog bone shackle,https://www.morfrac.com/dogbone,0.0,14.0,0.0,3.0,3.0,7.64,Non-branded,commercial,landing,0,19.0,134.0,,105,VERY HIGH
+dogbone shackle,https://www.morfrac.com/dogbone,0.0,17.0,0.0,4.0,4.0,5.59,Non-branded,commercial,landing,0,19.0,134.0,,105,VERY HIGH
+dog bone sailing,https://www.morfrac.com/dogbone,0.0,5.0,0.0,2.5,2.5,8.8,Non-branded,commercial,landing,0,19.0,134.0,,95,HIGH
+dogbone carriers,https://www.morfrac.com/dogbone,0.0,18.0,0.0,1.0,1.0,10.89,Non-branded,commercial,landing,0,19.0,134.0,,85,HIGH
+custom shackles,https://www.morfrac.com/shackle,0.0,20.0,0.0,1.0,1.0,10.85,Non-branded,commercial,landing,0,22.0,127.0,,85,HIGH
+dog bone rigging,https://www.morfrac.com/dogbone,0.0,18.0,0.0,7.0,7.0,3.28,Non-branded,commercial,landing,0,19.0,134.0,,80,HIGH
+deck pad eye,https://www.morfrac.com/padeye,0.0,18.0,0.0,10.0,10.0,3.0,Non-branded,commercial,landing,0,18.0,133.0,,80,HIGH
+dogbones,https://www.morfrac.com/dogbone,1.0,58.0,1.72,0.8,-0.9199999999999999,16.76,Non-branded,commercial,landing,0,19.0,134.0,,75,HIGH
+titanium shackle,https://www.morfrac.com/shackle,1.0,14.0,7.14,3.0,-4.14,7.71,Non-branded,commercial,landing,0,22.0,127.0,,75,HIGH
+dogbone sailing,https://www.morfrac.com/dogbone,1.0,9.0,11.11,3.0,-8.11,7.33,Non-branded,commercial,landing,0,19.0,134.0,,75,HIGH
+furling,https://www.morfrac.com/es/shop/powerfurl-one-furling-kit-12530,0.0,35.0,0.0,2.5,2.5,8.74,Non-branded,unknown,product,0,50.0,139.0,,70,MEDIUM
+folding padeye,https://www.morfrac.com/es/shop/padeye-through-1-5t-through-deck-padeye-12640,0.0,6.0,0.0,0.2,0.2,64.67,Non-branded,commercial,product,0,0.0,0.0,,65,MEDIUM
+folding padeye,https://www.morfrac.com/shop/padeye-ring-20-20-stick-on-padeye-ring-12654,0.0,6.0,0.0,0.2,0.2,42.67,Non-branded,commercial,product,0,0.0,0.0,,65,MEDIUM
+d-shackle,https://www.morfrac.com/es/shop/shackle-17-4ph-12827,0.0,8.0,0.0,0.6,0.6,22.38,Non-branded,commercial,product,0,45.0,170.0,,60,MEDIUM
+d shackle,https://www.morfrac.com/es/shop/shackle-17-4ph-12827,0.0,12.0,0.0,0.8,0.8,17.17,Non-branded,commercial,product,0,45.0,170.0,,60,MEDIUM
+dogbone joint,https://www.morfrac.com/dogbone,0.0,44.0,0.0,0.2,0.2,40.82,Non-branded,commercial,landing,0,19.0,134.0,,60,MEDIUM
+aluminum vs steel vs titanium,https://www.morfrac.com/blog/stories-4/aluminium-titanium-stainless-steel-39,0.0,13.0,0.0,3.0,3.0,7.85,Non-branded,unknown,blog,0,82.0,230.0,,50,MEDIUM
+aluminium titanium,https://www.morfrac.com/blog/stories-4/aluminium-titanium-stainless-steel-39,0.0,6.0,0.0,2.0,2.0,9.83,Non-branded,unknown,blog,0,82.0,230.0,,40,LOW
+aluminium vs titanium,https://www.morfrac.com/blog/stories-4/aluminium-titanium-stainless-steel-39,0.0,29.0,0.0,1.0,1.0,10.21,Non-branded,unknown,blog,0,82.0,230.0,,40,LOW
+stainless steel vs aluminum vs titanium,https://www.morfrac.com/blog/stories-4/aluminium-titanium-stainless-steel-39,1.0,45.0,2.22,10.0,7.779999999999999,2.71,Non-branded,unknown,blog,0,82.0,230.0,,35,LOW
+titanium vs aluminum vs stainless steel,https://www.morfrac.com/blog/stories-4/aluminium-titanium-stainless-steel-39,1.0,46.0,2.17,7.0,4.83,3.37,Non-branded,unknown,blog,0,82.0,230.0,,35,LOW
+comparison of stainless steel vs. titanium hardware for boats?,https://www.morfrac.com/blog/stories-4/aluminium-titanium-stainless-steel-39,0.0,8.0,0.0,7.0,7.0,3.5,Non-branded,unknown,blog,0,82.0,230.0,,25,LOW
+conurban marine,https://www.morfrac.com/partner,1.0,5.0,20.0,2.0,-18.0,9.8,Non-branded,unknown,other,0,32.0,94.0,,25,LOW
+aluminum vs titanium vs stainless steel,https://www.morfrac.com/blog/stories-4/aluminium-titanium-stainless-steel-39,0.0,21.0,0.0,7.0,7.0,3.52,Non-branded,unknown,blog,0,82.0,230.0,,25,LOW
+aluminium vs titanium vs stainless steel,https://www.morfrac.com/blog/stories-4/aluminium-titanium-stainless-steel-39,0.0,12.0,0.0,15.0,15.0,1.92,Non-branded,unknown,blog,0,82.0,230.0,,25,LOW
+aluminium vs stainless steel vs titanium,https://www.morfrac.com/blog/stories-4/aluminium-titanium-stainless-steel-39,0.0,20.0,0.0,10.0,10.0,2.4,Non-branded,unknown,blog,0,82.0,230.0,,25,LOW
