@@ -1,11 +1,11 @@
 ﻿check_name,status,severity,file_path,fresh_today,row_count,min_expected_rows,missing_columns,notes
-Crawl CSV,PASS,OK,C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Crawls\2026-10-05_site_crawl.csv,True,500,50,,Output looks usable.
-Search Console Merge,PASS,OK,C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Merged_Analysis\2026-10-05_search_console_merge.csv,True,3,1,,Output looks usable.
-Internal Link Graph Pages,PASS,OK,C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Internal_Linking\2026-10-05_internal_link_graph_pages.csv,True,500,50,,Output looks usable.
-Contextual Link Recommendations,PASS,OK,C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Contextual_Links\2026-10-05_contextual_link_recommendations_filtered.csv,True,781,10,,Output looks usable.
-Semantic Cluster Summary,PASS,OK,C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Semantic_Clusters\2026-10-05_semantic_clusters.csv,True,12,3,,Output looks usable.
-Semantic Cluster Pages,PASS,OK,C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Semantic_Clusters\2026-10-05_semantic_cluster_pages.csv,True,265,50,,Output looks usable.
-Content Gap Analysis,PASS,OK,C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Content_Gap_Analysis\2026-10-05_content_gap_analysis.csv,True,10,1,,Output looks usable.
-Topic Authority Map,PASS,OK,C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Topic_Authority_Map\2026-10-05_topic_authority_map.csv,True,12,3,,Output looks usable.
-Executive Review,PASS,OK,C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Executive_Reviews\2026-10-05_SEO_Executive_Review.md,True,238,0,,Output looks usable.
-Historical Comparison,PASS,OK,C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Historical_Comparisons\2026-10-05_SEO_Historical_Comparison.md,True,108,0,,Output looks usable.
+Crawl CSV,PASS,OK,C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Crawls\2026-10-16_site_crawl.csv,True,500,50,,Output looks usable.
+Search Console Merge,PASS,OK,C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Merged_Analysis\2026-10-16_search_console_merge.csv,True,3,1,,Output looks usable.
+Internal Link Graph Pages,PASS,OK,C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Internal_Linking\2026-10-16_internal_link_graph_pages.csv,True,500,50,,Output looks usable.
+Contextual Link Recommendations,PASS,OK,C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Contextual_Links\2026-10-16_contextual_link_recommendations_filtered.csv,True,776,10,,Output looks usable.
+Semantic Cluster Summary,PASS,OK,C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Semantic_Clusters\2026-10-16_semantic_clusters.csv,True,12,3,,Output looks usable.
+Semantic Cluster Pages,PASS,OK,C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Semantic_Clusters\2026-10-16_semantic_cluster_pages.csv,True,263,50,,Output looks usable.
+Content Gap Analysis,PASS,OK,C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Content_Gap_Analysis\2026-10-16_content_gap_analysis.csv,True,9,1,,Output looks usable.
+Topic Authority Map,PASS,OK,C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Topic_Authority_Map\2026-10-16_topic_authority_map.csv,True,12,3,,Output looks usable.
+Executive Review,PASS,OK,C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Executive_Reviews\2026-10-16_SEO_Executive_Review.md,True,237,0,,Output looks usable.
+Historical Comparison,PASS,OK,C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Historical_Comparisons\2026-10-16_SEO_Historical_Comparison.md,True,108,0,,Output looks usable.

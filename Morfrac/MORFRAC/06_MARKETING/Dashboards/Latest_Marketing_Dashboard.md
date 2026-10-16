@@ -1,17 +1,17 @@
 ---
 report_type: marketing_dashboard
 source_agent: Marketing
-date: 2026-10-05
-html_dashboard: 2026-10-05_Marketing_Dashboard.html
+date: 2026-10-16
+html_dashboard: 2026-10-16_Marketing_Dashboard.html
 strategic_source: 2026-05-10_OpenAI_Executive_Intelligence.md
 traffic_quality_source: 2026-05-10_Traffic_Quality_Data.csv
 ---
 
 # MORFRAC Marketing Intelligence Dashboard
 
-Generated: 2026-10-05
+Generated: 2026-10-16
 
-HTML version: [[2026-10-05_Marketing_Dashboard.html]]
+HTML version: [[2026-10-16_Marketing_Dashboard.html]]
 
 ## Executive Intelligence
 
@@ -19,8 +19,8 @@ HTML version: [[2026-10-05_Marketing_Dashboard.html]]
 | --- | ---: | --- | --- |
 | Commercial Traffic Quality | 32.1% | High relevance traffic | WEAK |
 | Low-Confidence Traffic | 49.7% | Low-tier traffic | WEAK |
-| Organic CTR | 47.50% | 47.5% change | POSITIVE |
-| Average Position | -0.61 | Change: -0.61 | STABLE |
+| Organic CTR | 74.00% | 74.0% change | POSITIVE |
+| Average Position | -0.12 | Change: -0.12 | STABLE |
 
 ## Performance Charts
 
@@ -204,6 +204,7 @@ Low priority
 | 2026-09-14 |               -66.2 |                221.5 |          -38.3 |               -22.7 |        -20.2 |              0.14 |        4 |               4 |           3 |                  -38.3 |                -20.2 |                  0.14 |            -38.3 |         -20.2 |           0.14 |         221.5 |
 | 2026-09-28 |               199.5 |                -38.3 |           46.4 |                 1.1 |         44.8 |             -1.26 |        1 |               7 |           4 |                   46.4 |                 44.8 |                 -1.26 |             46.4 |          44.8 |          -1.26 |         -38.3 |
 | 2026-10-05 |               -71.7 |                -61.1 |           69.2 |                14.7 |         47.5 |             -0.61 |        2 |               6 |           4 |                   69.2 |                 47.5 |                 -0.61 |             69.2 |          47.5 |          -0.61 |         -61.1 |
+| 2026-10-16 |               -19.4 |                  1.7 |           75.9 |                 1.1 |         74   |             -0.12 |        0 |               5 |           3 |                   75.9 |                 74   |                 -0.12 |             75.9 |          74   |          -0.12 |           1.7 |
 
 ## Sources
 

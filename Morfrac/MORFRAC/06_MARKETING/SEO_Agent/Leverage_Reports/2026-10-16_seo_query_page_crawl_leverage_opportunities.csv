@@ -1,0 +1,33 @@
+﻿query,page,clicks,impressions,ctr_percent,expected_ctr,ctr_gap,position,query_type,intent,page_type,issue_count,title_length,meta_description_length,issues,opportunity_score,opportunity_level
+dogbone,https://www.morfrac.com/dogbone,0.0,44.0,0.0,3.5,3.5,6.52,Non-branded,commercial,landing,0,19.0,134.0,,115,VERY HIGH
+dogbone sailing,https://www.morfrac.com/dogbone,0.0,6.0,0.0,3.0,3.0,7.67,Non-branded,commercial,landing,0,19.0,134.0,,105,VERY HIGH
+dogbones,https://www.morfrac.com/es/dogbone,0.0,20.0,0.0,5.0,5.0,4.6,Non-branded,commercial,landing,0,19.0,134.0,,105,VERY HIGH
+dogbone carrier,https://www.morfrac.com/dogbone,0.0,7.0,0.0,3.0,3.0,7.29,Non-branded,commercial,landing,0,19.0,134.0,,105,VERY HIGH
+dog bone shackle,https://www.morfrac.com/dogbone,0.0,10.0,0.0,4.0,4.0,5.8,Non-branded,commercial,landing,0,19.0,134.0,,105,VERY HIGH
+dogbone shackle,https://www.morfrac.com/dogbone,0.0,12.0,0.0,3.5,3.5,6.75,Non-branded,commercial,landing,0,19.0,134.0,,105,VERY HIGH
+dogbone,https://www.morfrac.com/es/dogbone,2.0,92.0,2.17,3.5,1.33,6.24,Non-branded,commercial,landing,0,19.0,134.0,,95,HIGH
+custom shackles,https://www.morfrac.com/shackle,0.0,14.0,0.0,2.0,2.0,9.57,Non-branded,commercial,landing,0,22.0,127.0,,95,HIGH
+farr x2 for sale,https://www.morfrac.com/blog/news-1/farr-x2-5,0.0,7.0,0.0,2.0,2.0,9.86,Non-branded,commercial,blog,0,0.0,0.0,,90,HIGH
+dogbone carriers,https://www.morfrac.com/dogbone,0.0,20.0,0.0,1.0,1.0,10.2,Non-branded,commercial,landing,0,19.0,134.0,,85,HIGH
+dog bone sailing,https://www.morfrac.com/dogbone,0.0,9.0,0.0,1.0,1.0,10.44,Non-branded,commercial,landing,0,19.0,134.0,,85,HIGH
+dog bone rigging,https://www.morfrac.com/dogbone,0.0,15.0,0.0,10.0,10.0,2.73,Non-branded,commercial,landing,0,19.0,134.0,,80,HIGH
+deck pad eye,https://www.morfrac.com/padeye,0.0,17.0,0.0,10.0,10.0,2.88,Non-branded,commercial,landing,0,18.0,133.0,,80,HIGH
+titanium shackle,https://www.morfrac.com/shackle,1.0,10.0,10.0,3.5,-6.5,6.4,Non-branded,commercial,landing,0,22.0,127.0,,75,HIGH
+dogbones,https://www.morfrac.com/dogbone,0.0,42.0,0.0,0.8,0.8,18.6,Non-branded,commercial,landing,0,19.0,134.0,,75,HIGH
+furling,https://www.morfrac.com/es/shop/powerfurl-one-furling-kit-12530,0.0,37.0,0.0,2.5,2.5,8.62,Non-branded,unknown,product,0,50.0,139.0,,70,MEDIUM
+harken padeye,https://www.morfrac.com/es/shop/padeye-ring-20-30-stick-on-padeye-ring-12653,0.0,5.0,0.0,0.2,0.2,61.2,Non-branded,commercial,product,0,0.0,0.0,,65,MEDIUM
+folding padeye,https://www.morfrac.com/es/shop/padeye-through-1-5t-through-deck-padeye-12640,0.0,7.0,0.0,0.2,0.2,59.14,Non-branded,commercial,product,0,0.0,0.0,,65,MEDIUM
+folding padeye,https://www.morfrac.com/shop/padeye-ring-20-20-stick-on-padeye-ring-12654,0.0,8.0,0.0,0.2,0.2,42.75,Non-branded,commercial,product,0,0.0,0.0,,65,MEDIUM
+dogbone joint,https://www.morfrac.com/dogbone,0.0,32.0,0.0,0.2,0.2,41.5,Non-branded,commercial,landing,0,19.0,134.0,,60,MEDIUM
+comparison of stainless steel vs. titanium hardware for boats?,https://www.morfrac.com/blog/stories-4/aluminium-titanium-stainless-steel-39,0.0,7.0,0.0,5.0,5.0,4.14,Non-branded,unknown,blog,0,82.0,230.0,,50,MEDIUM
+aluminio inoxidable,https://www.morfrac.com/es/blog/historias-4/aluminio-titanio-o-acero-inoxidable-39,0.0,5.0,0.0,2.5,2.5,8.2,Non-branded,unknown,blog,0,85.0,211.0,,40,LOW
+aluminum vs steel vs titanium,https://www.morfrac.com/blog/stories-4/aluminium-titanium-stainless-steel-39,0.0,15.0,0.0,2.5,2.5,8.27,Non-branded,unknown,blog,0,82.0,230.0,,40,LOW
+aluminium titanium,https://www.morfrac.com/blog/stories-4/aluminium-titanium-stainless-steel-39,0.0,7.0,0.0,2.0,2.0,9.86,Non-branded,unknown,blog,0,82.0,230.0,,40,LOW
+grade 5 titanium vs aluminum,https://www.morfrac.com/blog/stories-4/aluminium-titanium-stainless-steel-39,0.0,5.0,0.0,2.5,2.5,8.2,Non-branded,unknown,blog,0,82.0,230.0,,40,LOW
+aluminium vs titanium vs stainless steel,https://www.morfrac.com/blog/stories-4/aluminium-titanium-stainless-steel-39,0.0,29.0,0.0,10.0,10.0,2.28,Non-branded,unknown,blog,0,82.0,230.0,,35,LOW
+titanium vs aluminum vs stainless steel,https://www.morfrac.com/blog/stories-4/aluminium-titanium-stainless-steel-39,1.0,35.0,2.86,7.0,4.140000000000001,3.49,Non-branded,unknown,blog,0,82.0,230.0,,35,LOW
+aluminum vs titanium vs stainless steel,https://www.morfrac.com/blog/stories-4/aluminium-titanium-stainless-steel-39,0.0,28.0,0.0,10.0,10.0,2.93,Non-branded,unknown,blog,0,82.0,230.0,,35,LOW
+furling lines,https://www.morfrac.com/es/shop/powerfurl-twelve-continuous-line-furling-kit-12596,0.0,7.0,0.0,0.2,0.2,62.29,Non-branded,unknown,product,0,0.0,0.0,,35,LOW
+aluminium vs titanium,https://www.morfrac.com/blog/stories-4/aluminium-titanium-stainless-steel-39,0.0,24.0,0.0,1.0,1.0,10.12,Non-branded,unknown,blog,0,82.0,230.0,,30,LOW
+aluminium vs stainless steel vs titanium,https://www.morfrac.com/blog/stories-4/aluminium-titanium-stainless-steel-39,0.0,21.0,0.0,10.0,10.0,2.52,Non-branded,unknown,blog,0,82.0,230.0,,25,LOW
+camfrac,https://www.morfrac.com/,0.0,9.0,0.0,0.2,0.2,43.78,Non-branded,unknown,home,0,43.0,160.0,,0,LOW

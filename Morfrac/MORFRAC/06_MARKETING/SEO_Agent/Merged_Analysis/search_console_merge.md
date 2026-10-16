@@ -1,27 +1,27 @@
 ---
 type: seo_search_console_merge
 source_agent: SEO_Agent
-created: 2026-10-05
+created: 2026-10-16
 related_findings: []
 related_concepts: []
 related_projects:
   - Search Console
 related_reports:
-  - 2026-10-05_SEO_Query_Analysis
+  - 2026-10-16_SEO_Query_Analysis
 ---
 
 # Search Console Merge Analysis
 
     ## Generated
 
-    2026-10-05
+    2026-10-16
 
     ---
 
     # Summary
 
     - Crawl pages: 500
-    - Search Console URLs parsed: 46
+    - Search Console URLs parsed: 44
     - Opportunity pages: 3
 
     ---
@@ -30,9 +30,9 @@ related_reports:
 
     | Opportunity | Priority Score | Impressions | CTR % | Position | URL |
 |---|---:|---:|---:|---:|---|
-| Low CTR Opportunity | 103.6 | 282 | 0.71 | 14.4 | https://www.morfrac.com/dogbone |
-| Low CTR Opportunity | 89.7 | 145 | 0.2 | 5.7 | https://www.morfrac.com/es/dogbone |
-| Low CTR Opportunity | 81.1 | 207 | 0.34 | 6.1 | https://www.morfrac.com/blog/stories-4/aluminium-titanium-stainless-steel-39 |
+| Low CTR Opportunity | 95.4 | 204 | 0.0 | 12.2 | https://www.morfrac.com/dogbone |
+| Low CTR Opportunity | 78.0 | 178 | 0.22 | 8.9 | https://www.morfrac.com/blog/stories-4/aluminium-titanium-stainless-steel-39 |
+| Low CTR Opportunity | 61.9 | 115 | 0.54 | 4.5 | https://www.morfrac.com/es/dogbone |
 
 
     ---
@@ -49,8 +49,8 @@ related_reports:
 
     # Source Files
 
-    - Crawl file: `C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Crawls\2026-10-05_site_crawl.csv`
-    - Search Console markdown: `C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO\Query_Analysis\2026-10-05_SEO_Query_Analysis.md`
+    - Crawl file: `C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO_Agent\Crawls\2026-10-16_site_crawl.csv`
+    - Search Console markdown: `C:\Users\nicol\Documents\Obsidian\Morfrac\MORFRAC\06_MARKETING\SEO\Query_Analysis\2026-10-16_SEO_Query_Analysis.md`
 
     ---
 
@@ -66,4 +66,4 @@ related_reports:
 - [[Search Console]]
 
 ### Reports
-- [[2026-10-05_SEO_Query_Analysis]]
+- [[2026-10-16_SEO_Query_Analysis]]
